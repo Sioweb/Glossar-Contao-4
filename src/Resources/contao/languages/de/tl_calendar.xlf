@@ -1,0 +1,19 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="system/modules/core/languages/en/tl_calendar.php" source-language="en">
+    <body>
+      <trans-unit id="tl_calendar.glossar_disallow.0">
+        <source>Archiv ausschließen</source>
+        <target>Archiv ausschließen</target>
+      </trans-unit>
+      <trans-unit id="tl_calendar.glossar_disallow.1">
+        <source>Dieses Modul wird nicht durch den Glossar durchsucht.</source>
+        <target>Dieses Modul wird nicht durch den Glossar durchsucht.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_calendar.glossar_legend">
+        <source>Glossar</source>
+        <target>Glossar</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

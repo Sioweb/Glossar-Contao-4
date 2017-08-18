@@ -1,0 +1,50 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="system/modules/news/languages/en/tl_module.php" source-language="en" target-language="de">
+    <body>
+      <trans-unit id="tl_module.glossar_legend">
+        <source>Glossary settings</source>
+        <target>Glossar Einstellungen</target>
+      </trans-unit>
+      <trans-unit id="tl_module.glossar.0">
+        <source>Choose glossary</source>
+        <target>Glossar wählen</target>
+      </trans-unit>
+      <trans-unit id="tl_module.glossar.1">
+        <source>The pagination only uses the choosen glossary</source>
+        <target>Die Pagination berücksichtigt nur das hier gewählte Glossar. Es werden alle Glossare verwendet, wenn nichts ausgwählt wird.</target>
+      </trans-unit>
+      <trans-unit id="tl_module.glossar_max_level.0">
+        <source>Max level</source>
+        <target>Maximale Anzahl Level</target>
+      </trans-unit>
+      <trans-unit id="tl_module.glossar_max_level.1">
+        <source>A level stands for related sites. Every level is more abstract to the term on the site.</source>
+        <target>Level stehen für weiter Seiten die passen könnten, jedes Level hat weniger mit den gefundenen Begriffen zu tun.</target>
+      </trans-unit>
+      <trans-unit id="tl_module.glossar_disable_domains.0">
+        <source>Disable domains</source>
+        <target>Domains deaktivieren</target>
+      </trans-unit>
+      <trans-unit id="tl_module.glossar_disable_domains.1">
+        <source>This domains and all subpages wont be shown in the cloud.</source>
+        <target>Die ausgewählten Domains und deren Unterseiten werden nicht in der Cloud aufgeführt.</target>
+      </trans-unit>
+      <trans-unit id="tl_module.glossar_items.0">
+        <source>Max items</source>
+        <target>Maximale Anzahl Links</target>
+      </trans-unit>
+      <trans-unit id="tl_module.glossar_items.1">
+        <source>Enter the max count of items or 0 for unlimeted.</source>
+        <target>Die maximale Anzahl Links in der Cloud, 0 für unbegrenzt.</target>
+      </trans-unit>
+      <trans-unit id="tl_module.addOnlyTrueLinks.0">
+        <source>No empty characters</source>
+        <target>Keine leeren Ziffern</target>
+      </trans-unit>
+      <trans-unit id="tl_module.addOnlyTrueLinks.1">
+        <source>Do not link empty characters.</source>
+        <target>Zeigt nur Buchstaben an, die einem Begriff zugeordner werden können.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

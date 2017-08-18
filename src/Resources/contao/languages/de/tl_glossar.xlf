@@ -1,0 +1,202 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="system/modules/core/languages/en/tl_glossar.php" source-language="en">
+    <body>
+      <trans-unit id="tl_glossar.tstamp.0">
+        <source>Erstellt am</source>
+        <target>Erstellt am</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.tstamp.1">
+        <source>Erstellt am</source>
+        <target>Erstellt am</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar.title.0">
+        <source>Glossar-Titel</source>
+        <target>Glossar-Titel</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.title.1">
+        <source>Der Titel wird nur im Backend verwendet.</source>
+        <target>Der Titel wird nur im Backend verwendet.</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.alias.0">
+        <source>Alias</source>
+        <target>Alias</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.alias.1">
+        <source>Der Alias wird automatisch generiert und nur im Backend verwendet.</source>
+        <target>Der Alias wird automatisch generiert und nur im Backend verwendet.</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.language.0">
+        <source>Sprache</source>
+        <target>Sprache</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.language.1">
+        <source>Alle Glossar-Einträge werden in der jeweiligen Sprache gesucht und ersetzt.</source>
+        <target>Alle Glossar-Einträge werden in der jeweiligen Sprache gesucht und ersetzt.</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.fallback.0">
+        <source>Fallback-Sprache</source>
+        <target>Fallback-Sprache</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.fallback.1">
+        <source>Falls ein Eintrag nicht in der aktiven Sprache gefunden werden kann, wird der Begriff in der Fallback-Sprache gesucht.</source>
+        <target>Falls ein Eintrag nicht in der aktiven Sprache gefunden werden kann, wird der Begriff in der Fallback-Sprache gesucht.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar.allowComments.0">
+        <source>Enable comments</source>
+        <target>Kommentare aktivieren</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.allowComments.1">
+        <source>Allow visitors to comment news items.</source>
+        <target>Besuchern das Kommentieren von Nachrichtenbeiträgen erlauben.</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.notify.0">
+        <source>Notify</source>
+        <target>Benachrichtigung an</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.notify.1">
+        <source>Please choose who to notify when comments are added.</source>
+        <target>Bitte legen Sie fest, wer beim Hinzufügen neuer Kommentare benachrichtigt wird.</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.sortOrder.0">
+        <source>Sort order</source>
+        <target>Sortierreihenfolge</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.sortOrder.1">
+        <source>By default, comments are sorted ascending, starting with the oldest one.</source>
+        <target>Standardmäßig werden Kommentare aufsteigend sortiert, beginnend mit dem ältesten.</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.perPage.0">
+        <source>Comments per page</source>
+        <target>Kommentare pro Seite</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.perPage.1">
+        <source>Number of comments per page. Set to 0 to disable pagination.</source>
+        <target>Anzahl an Kommentaren pro Seite. Geben Sie 0 ein, um den automatischen Seitenumbruch zu deaktivieren.</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.moderate.0">
+        <source>Moderate comments</source>
+        <target>Kommentare moderieren</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.moderate.1">
+        <source>Approve comments before they are published on the website.</source>
+        <target>Kommentare erst nach Bestätigung auf der Webseite veröffentlichen.</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.bbcode.0">
+        <source>Allow BBCode</source>
+        <target>BBCode erlauben</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.bbcode.1">
+        <source>Allow visitors to format their comments with BBCode.</source>
+        <target>Besuchern das Formatieren ihrer Kommentare mittels BBCode erlauben.</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.requireLogin.0">
+        <source>Require login to comment</source>
+        <target>Login zum Kommentieren benötigt</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.requireLogin.1">
+        <source>Allow only authenticated users to create comments.</source>
+        <target>Nur angemeldeten Benutzern das Erstellen von Kommentaren erlauben.</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.disableCaptcha.0">
+        <source>Disable the security question</source>
+        <target>Sicherheitsfrage deaktivieren</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.disableCaptcha.1">
+        <source>Use this option only if you have limited comments to authenticated users.</source>
+        <target>Wählen Sie diese Option nur, wenn das Erstellen von Kommentaren auf authentifizierte Benutzer beschränkt ist.</target>
+      </trans-unit>
+      
+      <trans-unit id="tl_glossar.notify_admin">
+        <source>System administrator</source>
+        <target>Systemadministrator</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.notify_author">
+        <source>Author of the news item</source>
+        <target>Autor des Beitrags</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.notify_both">
+        <source>Author and system administrator</source>
+        <target>Autor und Systemadministrator</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar.title_legend">
+        <source>Glossar Einstellung</source>
+        <target>Glossar Einstellung</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar.new.0">
+        <source>Neuer Eintrag</source>
+        <target>Neuer Eintrag</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.new.1">
+        <source>Einen neuen Eintrag erstellen.</source>
+        <target>Einen neuen Eintrag erstellen.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar.show.0">
+        <source>Eintragsdetails</source>
+        <target>Eintragsdetails</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.show.1">
+        <source>Die Details des Eintrags ID %s anzeigen.</source>
+        <target>Die Details des Eintrags ID %s anzeigen.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar.edit.0">
+        <source>Eintrag bearbeiten</source>
+        <target>Eintrag bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.edit.1">
+        <source>Eintrag ID %s bearbeiten.</source>
+        <target>Eintrag ID %s bearbeiten.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar.copy.0">
+        <source>Eintrag duplizieren</source>
+        <target>Eintrag duplizieren</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.copy.1">
+        <source>Eintrag ID %s duplizieren.</source>
+        <target>Eintrag ID %s duplizieren.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar.cut.0">
+        <source>Eintrag verschieben</source>
+        <target>Eintrag verschieben</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.cut.1">
+        <source>Eintrag ID %s verschieben.</source>
+        <target>Eintrag ID %s verschieben.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar.delete.0">
+        <source>Eintrag löschen</source>
+        <target>Eintrag löschen</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.delete.1">
+        <source>Eintrag ID %s löschen.</source>
+        <target>Eintrag ID %s löschen.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar.toggle.0">
+        <source>Eintrag veröffentlichen/unveröffentlichen</source>
+        <target>Eintrag veröffentlichen/unveröffentlichen</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.toggle.1">
+        <source>Eintrag ID %s veröffentlichen/unveröffentlichen.</source>
+        <target>Eintrag ID %s veröffentlichen/unveröffentlichen.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar.feature.0">
+        <source>Eintrag hervorheben/zurücksetzen</source>
+        <target>Eintrag hervorheben/zurücksetzen</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.feature.1">
+        <source>Beitrag ID %s hervorheben/zurücksetzen.</source>
+        <target>Beitrag ID %s hervorheben/zurücksetzen.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

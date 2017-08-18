@@ -1,0 +1,26 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="system/modules/core/languages/en/tl_page.php" source-language="en">
+    <body>
+      <trans-unit id="tl_page.disableGlossar.0">
+        <source>Deactivate Glossar</source>
+        <target>Deactivate Glossar</target>
+      </trans-unit>
+      <trans-unit id="tl_page.disableGlossar.1">
+        <source>Deactivates glossar for this site.</source>
+        <target>Deactivates glossar for this site.</target>
+      </trans-unit>
+      <trans-unit id="tl_page.glossar_no_fallback.0">
+        <source>No glossaries with other languages</source>
+        <target>No glossaries with other languages</target>
+      </trans-unit>
+      <trans-unit id="tl_page.glossar_no_fallback.1">
+        <source>Only use glossaries with same language as user language.</source>
+        <target>Only use glossaries with same language as user language.</target>
+      </trans-unit>
+      <trans-unit id="tl_page.glossar_legend">
+        <source>Glossar settings</source>
+        <target>Glossar settings</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

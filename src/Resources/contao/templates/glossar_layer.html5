@@ -1,0 +1,24 @@
+<div class="<?php echo $this->class;?> block"<?php echo $this->cssID;?><?php if($this->style):?> style="<?php echo $this->style;?>"<?php endif;?>>
+	<?php if($this->title):?>
+	<h4>
+		<?php if($this->link):?>
+		<a class="glossar_layer_link" data-glossar="<?php echo $this->id;?>" href="<?php echo $this->link;?>" title="<?php echo $this->title;?>">
+		<?php endif;?>
+		
+		<?php echo $this->title;?>
+
+		<?php if($this->link):?>
+		</a>
+		<?php endif;?>
+	</h4>
+	<?php endif;?>
+
+	<?php if($this->teaser):?>
+	<p><?php echo $this->teaser;?></p>
+	<?php else:?>
+	<p><?php echo $this->description;?></p>
+	<?php endif;?>
+	<?php if($this->link):?>
+	<p><a href="<?php echo $this->link;?>" title="<?php echo $this->title;?>"><?php echo $GLOBALS['glossar']['to_article'];?></a></p>
+	<?php endif;?>
+</div>

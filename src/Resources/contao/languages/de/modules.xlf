@@ -1,0 +1,64 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="system/modules/core/languages/en/modules.php" source-language="en">
+    <body>
+      <trans-unit id="CTE.sioweb">
+        <source>Sioweb</source>
+        <target>Sioweb</target>
+      </trans-unit>
+      <trans-unit id="FMD.glossar">
+        <source>Glossar</source>
+        <target>Glossar</target>
+      </trans-unit>
+      <trans-unit id="MOD.glossar.0">
+        <source>Glossar</source>
+        <target>Glossar</target>
+      </trans-unit>
+      <trans-unit id="MOD.glossar.1">
+        <source>Ersetzt Schlagworte in Haupt- und News-Texten durch Links zu einem Glossar</source>
+        <target>Ersetzt Schlagworte in Haupt- und News-Texten durch Links zu einem Glossar</target>
+      </trans-unit>
+      <trans-unit id="MOD.glossar_log.0">
+        <source>Glossar Statistiken</source>
+        <target>Glossar Statistiken</target>
+      </trans-unit>
+      <trans-unit id="MOD.glossar_log.1">
+        <source>Zeigt eine Statistik der Besucher-Aktionen.</source>
+        <target>Zeigt eine Statistik der Besucher-Aktionen.</target>
+      </trans-unit>
+      <trans-unit id="MOD.glossar_status.0">
+        <source>Glossar Status</source>
+        <target>Glossar Status</target>
+      </trans-unit>
+      <trans-unit id="MOD.glossar_status.1">
+        <source>Erstellt eine Übersicht der Glossar-Einstellungen für besseren Support.</source>
+        <target>Erstellt eine Übersicht der Glossar-Einstellungen für besseren Support.</target>
+      </trans-unit>
+      <trans-unit id="CTE.glossar.0">
+        <source>Glossar</source>
+        <target>Glossar</target>
+      </trans-unit>
+      <trans-unit id="CTE.glossar.1">
+        <source>Manage glossar and content elements</source>
+        <target>Glossar und Inhaltselemente verwalten</target>
+      </trans-unit>
+
+      <trans-unit id="FMD.glossar_pagination.0">
+        <source>Glossary pagination</source>
+        <target>Glossar Pagination</target>
+      </trans-unit>
+      <trans-unit id="FMD.glossar_pagination.1">
+        <source>Generates the Pagination for the selected glossar.</source>
+        <target>Erzeugt die Glossar-Pagination für das ausgewählte Glossar.</target>
+      </trans-unit>
+
+      <trans-unit id="FMD.glossar_cloud.0">
+        <source>Glossary cloud</source>
+        <target>Glossar Tag-Cloud</target>
+      </trans-unit>
+      <trans-unit id="FMD.glossar_cloud.1">
+        <source>Generates a tag-cloud for related glossar terms.</source>
+        <target>Erzeugt eine Tag-Cloud mit relevanten Glossar-Begriffen.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

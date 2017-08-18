@@ -1,0 +1,30 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="system/modules/core/languages/en/tl_maintenance.php" source-language="en">
+    <body>
+      <trans-unit id="tl_maintenance.glossarIndex">
+        <source>Rebuild the glossar index</source>
+        <target>Glossar aufbauen</target>
+      </trans-unit>
+      <trans-unit id="tl_maintenance.glossarSubmit">
+        <source>Build glossar</source>
+        <target>Glossar aufbauen</target>
+      </trans-unit>
+      <trans-unit id="tl_maintenance.noGlossarPages">
+        <source>No glossar pages</source>
+        <target>Es konnten keine Glossarseiten gefunden werden.</target>
+      </trans-unit>
+      <trans-unit id="tl_maintenance.glossarNote">
+        <source>Note</source>
+        <target>Notiz.</target>
+      </trans-unit>
+      <trans-unit id="tl_maintenance.glossarLoading">
+        <source>Is loading</source>
+        <target>Glossar wird aufgebaut.</target>
+      </trans-unit>
+      <trans-unit id="tl_maintenance.glossarComplete">
+        <source>Glossar is ready</source>
+        <target>Glossar wurde erfolgreich aufgebaut.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

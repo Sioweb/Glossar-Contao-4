@@ -1,0 +1,164 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="system/modules/core/languages/en/tl_settings.php" source-language="en">
+    <body>
+      <trans-unit id="tl_settings.enableGlossar.0">
+        <source>Activate Glossar</source>
+        <target>Glossar aktivieren</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.enableGlossar.1">
+        <source>Activates glossar for the whole site</source>
+        <target>Der Glossar wird auf allen Seiten aktiviert.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.glossarPurgable.0">
+        <source>Glossar in der Systemwartung/Daten bereinigen anzeigen</source>
+        <target>Glossar in der Systemwartung/Daten bereinigen anzeigen</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.glossarPurgable.1">
+        <source>Der Glossar kann im Bereich "Daten bereinigen" ausgegeben werden. Diese Option verhindert dass der Glossar versehentlich geleert wird.</source>
+        <target>Der Glossar kann im Bereich "Daten bereinigen" ausgegeben werden. Diese Option verhindert dass der Glossar versehentlich geleert wird.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.disableToolTips.0">
+        <source>Tooltips deaktivieren</source>
+        <target>Tooltips deaktivieren</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.disableToolTips.1">
+        <source>Es werden keine Vorschaufenster mehr ausgegeben, wenn der Besucher über einen Begriff fährt. Die Statistiken werden ebenfalls deaktiviert.</source>
+        <target>Es werden keine Vorschaufenster mehr ausgegeben, wenn der Besucher über einen Begriff fährt. Die Statistiken werden ebenfalls deaktiviert.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.acceptTeasersAsContent.0">
+        <source>Begriffe immer verlinken</source>
+        <target>Begriffe immer verlinken</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.acceptTeasersAsContent.1">
+        <source>Begriffe werden ebenfalls verlinkt, wenn nur der Teaser und kein Content vorhanden sind. Bildet ggf. duplicate content.</source>
+        <target>Begriffe werden ebenfalls verlinkt, wenn nur der Teaser und kein Content vorhanden sind. Bildet ggf. duplicate content.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.termAsHeadline.0">
+        <source>Begriffe als Headline aktivieren</source>
+        <target>Begriffe als Headline aktivieren</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.termAsHeadline.1">
+        <source>Begriffe werden als überschrift verwendet, wenn kein Überschrift-Element eingebunden wird.</source>
+        <target>Begriffe werden als überschrift verwendet, wenn kein Überschrift-Element eingebunden wird.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.noPlural.0">
+        <source>Pluralsuche deaktivieren</source>
+        <target>Pluralsuche deaktivieren</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.noPlural.1">
+        <source>Pluralsuche bedeutet, dass der Begriff am Wortbeginn bis Wortende gefunden wird. Als Beispiel: Bad-emeister.</source>
+        <target>Pluralsuche bedeutet, dass der Begriff am Wortbeginn bis Wortende gefunden wird. Als Beispiel: Bad-emeister.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.glossarIncludeUnsearchable.0">
+        <source>Von der Suche ausgeschlossene Inhalte einbeziehen</source>
+        <target>Von der Suche ausgeschlossene Inhalte einbeziehen</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.glossarIncludeUnsearchable.1">
+        <source>Inhalte die als nicht suchbar markiert sind, indexer::stop|continue</source>
+        <target>Inhalte die als nicht suchbar markiert sind, indexer::stop|continue</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.activateGlossarTags.0">
+        <source>Glossar Tags aktivieren</source>
+        <target>Glossar Tags aktivieren</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.activateGlossarTags.1">
+        <source>Ähnlich wie nicht durchsuchbare Inhalte gibt es Inhalte die nicht vom Glossar erfasst werden dürfen glossar::stop|continue.</source>
+        <target>Ähnlich wie nicht durchsuchbare Inhalte gibt es Inhalte die nicht vom Glossar erfasst werden dürfen glossar::stop|continue.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.glossar_archive.0">
+        <source>Archive ausschließen</source>
+        <target>Archive ausschließen</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.glossar_archive.1">
+        <source>Archive die nicht von der Suche berücksichtigt werden sollen ausschließen.</source>
+        <target>Archive die nicht von der Suche berücksichtigt werden sollen ausschließen.</target>
+      </trans-unit>
+
+
+
+      <trans-unit id="tl_settings.disableGlossarCache.0">
+        <source>Deactivate Glossar cache</source>
+        <target>Cache umgehen</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.disableGlossarCache.1">
+        <source>Deactivates the glossar cache</source>
+        <target>Der Glossar wird deaktiviert. Bei jedem Seitenaufbau wird der Glossar neu generiert.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.glossar_no_fallback.0">
+        <source>Keine fremdsprachigen Glossare</source>
+        <target>Keine fremdsprachigen Glossare</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.glossar_no_fallback.1">
+        <source>Es werden keine Glossar-Begriffe aus anderen Sprachen ersetzt.</source>
+        <target>Es werden keine Glossar-Begriffe aus anderen Sprachen ersetzt.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.strictSearch.0">
+        <source>Strikte Suche</source>
+        <target>Strikte Suche</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.strictSearch.1">
+        <source>Es werden nur die angegebenen Begriffe gefunden, wenn diese als einzelnes Wort im INhalt stehen.</source>
+        <target>Es werden nur die angegebenen Begriffe gefunden, wenn diese als einzelnes Wort im INhalt stehen.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.ignoreInTags.0">
+        <source>Ignore this tags</source>
+        <target>Tags ingonieren</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.ignoreInTags.1">
+        <source>Ignores those tags</source>
+        <target>Die angegebenen Tags, werden nicht durchsucht. Nützlich sind Überschriften und Links.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.illegalChars.0">
+        <source>Ingore this Chars</source>
+        <target>Pluralsuche</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.illegalChars.1">
+        <source>Those chars will be ignored in plural search. As example Contao(CMS) only Contao will be replaces if you set ( as illegal char.</source>
+        <target>Diese Zeichen werden bei der Pluralsuche ignoriert. Als Beispiel: Bei Contao(CMS) wird nur Contao ersetzt, wenn die offene Klammer ( hier definiert wird.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.glossarMaxWidth.0">
+        <source>Maximale Vorschaubreite</source>
+        <target>Maximale Vorschaubreite</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.glossarMaxWidth.1">
+        <source>Definiert die Breite des Vorschaufenster, wenn ein Besucher mit der Maus über den Begriff fahren.</source>
+        <target>Definiert die Breite des Vorschaufenster, wenn ein Besucher mit der Maus über den Begriff fahren.</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.glossarMaxHeight.0">
+        <source>Maximale Vorschauhöhe</source>
+        <target>Maximale Vorschauhöhe</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.glossarMaxHeight.1">
+        <source>Definiert die Höhe des Vorschaufenster, wenn ein Besucher mit der Maus über den Begriff fahren.</source>
+        <target>Definiert die Höhe des Vorschaufenster, wenn ein Besucher mit der Maus über den Begriff fahren.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.jumpToGlossar.0">
+        <source>Glossar page</source>
+        <target>Glossar-Seite</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.jumpToGlossar.1">
+        <source>Default site if no page is selected</source>
+        <target>Standardseite für Einträge denen keine andere Weiterleitungsseite gegben wurde.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.glossar_legend">
+        <source>Glossar settings</source>
+        <target>Glossar Einstellungen</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

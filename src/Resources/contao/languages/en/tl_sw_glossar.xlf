@@ -1,0 +1,219 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="system/modules/core/languages/en/tl_sw_glossar.php" source-language="en">
+    <body>
+      <trans-unit id="tl_sw_glossar.tstamp.0">
+        <source>Created at</source>
+        <target>Created at</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.tstamp.1">
+        <source>Created at</source>
+        <target>Created at</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.type.0">
+        <source>Term category</source>
+        <target>Term category</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.type.1">
+        <source>The content can be scanned for diffrent types.</source>
+        <target>The content can be scanned for diffrent types.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.title.0">
+        <source>Search word / Term</source>
+        <target>Search word / Term</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.title.1">
+        <source>This term will be replaced in the frontend as link.</source>
+        <target>This term will be replaced in the frontend as link.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.Alias.0">
+        <source>Alias</source>
+        <target>Alias</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.Alias.1">
+        <source>Will be used as link parameter.</source>
+        <target>Will be used as link parameter.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.maxWidth.0">
+        <source>Maximum width</source>
+        <target>Maximum width</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.maxWidth.1">
+        <source>This is the maximum width for the preview layer. Default 450px.</source>
+        <target>This is the maximum width for the preview layer. Default 450px.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.maxHeight.0">
+        <source>Maximum height</source>
+        <target>Maximum height</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.maxHeight.1">
+        <source>This is the maximum height for the preview layer. Default 500.</source>
+        <target>This is the maximum height for the preview layer. Default 500.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.ignoreInTags.0">
+        <source>Ignore this tags</source>
+        <target>Ignore this tags</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.ignoreInTags.1">
+        <source>The term will be ignored if it is between these tags.</source>
+        <target>The term will be ignored if it is between these tags.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.date.0">
+        <source>Date</source>
+        <target>Date</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.date.1">
+        <source>Can be used to sort the terms with date.</source>
+        <target>Can be used to sort the terms with date.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.jumpTo.0">
+        <source>Target page</source>
+        <target>Target page</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.jumpTo.1">
+        <source>The term will link to this page. This will override the global settings for this term.</source>
+        <target>The term will link to this page. This will override the global settings for this term.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.noPlural.0">
+        <source>Deactivate plural search</source>
+        <target>Deactivate plural search</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.noPlural.1">
+        <source>Pluralsearch will find place, places and placeholder if the term is called place.</source>
+        <target>Pluralsearch will find place, places and placeholder if the term is called place.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.strictSearch.0">
+        <source>Strict search</source>
+        <target>Strict search</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.strictSearch.1">
+        <source>Stricter search for terms.</source>
+        <target>Stricter search for terms.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.termAsHeadline.0">
+        <source>Do not use term as headline</source>
+        <target>Do not use term as headline</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.termAsHeadline.1">
+        <source>Do not use the term as headline if you dont write a headline in the content.</source>
+        <target>Do not use the term as headline if you dont write a headline in the content.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.teaser.0">
+        <source>Teaser</source>
+        <target>Teaser</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.teaser.1">
+        <source>Preview article for the hover layer.</source>
+        <target>Preview article for the hover layer.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.description.0">
+        <source>Description (Deprecated)</source>
+        <target>Description (Deprecated)</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.description.1">
+        <source>This field is just for older version. We kept it online so u dont loose your contents.</source>
+        <target>This field is just for older version. We kept it online so u dont loose your contents.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.explanation.0">
+        <source>Abbr description</source>
+        <target>Abbr description</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.explanation.1">
+        <source>This will be added to the title of the abbr-tag.</source>
+        <target>This will be added to the title of the abbr-tag.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.source.0">
+        <source>Target page</source>
+        <target>Target page</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.source.1">
+        <source>The abbr can be linked to an individual page.</source>
+        <target>The abbr can be linked to an individual page.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.url.0">
+        <source>External link</source>
+        <target>External link</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.url.1">
+        <source>This is an externam link to other pages.</source>
+        <target>This is an externam link to other pages.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.tags.0">
+        <source>Tags</source>
+        <target>Tags</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.tags.1">
+        <source>Please enter one or more comma separated tags for categorization</source>
+        <target>Please enter one or more comma separated tags for categorization</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.title_legend">
+        <source>Title</source>
+        <target>Title</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.new.0">
+        <source>New item</source>
+        <target>New item</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.new.1">
+        <source>Creates a new item.</source>
+        <target>Creates a new item.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.show.0">
+        <source>Details</source>
+        <target>Details</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.show.1">
+        <source>Show details for id %s.</source>
+        <target>Show details for id %s.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.edit.0">
+        <source>Edit item</source>
+        <target>Edit item</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.edit.1">
+        <source>Edit item width id %s.</source>
+        <target>Edit item width id %s.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.copy.0">
+        <source>Duplicate item</source>
+        <target>Duplicate item</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.copy.1">
+        <source>Duplicate item width id %s.</source>
+        <target>Duplicate item width id %s.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.cut.0">
+        <source>Move item</source>
+        <target>Move item</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.cut.1">
+        <source>Move item with id %s.</source>
+        <target>Move item with id %s.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.delete.0">
+        <source>Delete item</source>
+        <target>Delete item</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.delete.1">
+        <source>Delete item with id %s.</source>
+        <target>Delete item with id %s.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.toggle.0">
+        <source>Publish item</source>
+        <target>Publish item</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.toggle.1">
+        <source>Publish item with id %s.</source>
+        <target>Publish item with id %s.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

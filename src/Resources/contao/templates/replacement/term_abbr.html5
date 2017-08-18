@@ -1,0 +1,1 @@
+<abbr<?php echo $this->lang;?> class="<?php echo $this->class;?>" title="<?php echo $this->title;?>"><?php echo $this->label;?></abbr>

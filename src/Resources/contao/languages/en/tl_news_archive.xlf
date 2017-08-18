@@ -1,0 +1,19 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="system/modules/core/languages/en/tl_news_archive.php" source-language="en">
+    <body>
+      <trans-unit id="tl_news_archive.glossar_disallow.0">
+        <source>Exclude archive</source>
+        <target>Exclude archive</target>
+      </trans-unit>
+      <trans-unit id="tl_news_archive.glossar_disallow.1">
+        <source>This archive will be ignored from glossar.</source>
+        <target>This archive will be ignored from glossar.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_news_archive.glossar_legend">
+        <source>Glossar</source>
+        <target>Glossar</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

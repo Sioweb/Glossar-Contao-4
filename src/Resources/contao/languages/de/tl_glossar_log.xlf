@@ -1,0 +1,100 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="system/modules/core/languages/en/tl_glossar_log.php" source-language="en">
+    <body>
+      <trans-unit id="tl_glossar_log.tstamp.0">
+        <source>Erstellt am</source>
+        <target>Erstellt am</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar_log.tstamp.1">
+        <source>Erstellt am</source>
+        <target>Erstellt am</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar_log.action.0">
+        <source>Aktion</source>
+        <target>Aktion</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar_log.action.1">
+        <source>Was hat der Besucher ausgeführt.</source>
+        <target>Was hat der Besucher ausgeführt.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar_log.title_legend">
+        <source>Log / Statistik</source>
+        <target>Log / Statistik</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar_log.new.0">
+        <source>Neuer Eintrag</source>
+        <target>Neuer Eintrag</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar_log.new.1">
+        <source>Einen neuen Eintrag erstellen.</source>
+        <target>Einen neuen Eintrag erstellen.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar_log.show.0">
+        <source>Eintragsdetails</source>
+        <target>Eintragsdetails</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar_log.show.1">
+        <source>Die Details des Eintrags ID %s anzeigen.</source>
+        <target>Die Details des Eintrags ID %s anzeigen.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar_log.edit.0">
+        <source>Eintrag bearbeiten</source>
+        <target>Eintrag bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar_log.edit.1">
+        <source>Eintrag ID %s bearbeiten.</source>
+        <target>Eintrag ID %s bearbeiten.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar_log.copy.0">
+        <source>Eintrag duplizieren</source>
+        <target>Eintrag duplizieren</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar_log.copy.1">
+        <source>Eintrag ID %s duplizieren.</source>
+        <target>Eintrag ID %s duplizieren.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar_log.cut.0">
+        <source>Eintrag verschieben</source>
+        <target>Eintrag verschieben</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar_log.cut.1">
+        <source>Eintrag ID %s verschieben.</source>
+        <target>Eintrag ID %s verschieben.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar_log.delete.0">
+        <source>Eintrag löschen</source>
+        <target>Eintrag löschen</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar_log.delete.1">
+        <source>Eintrag ID %s löschen.</source>
+        <target>Eintrag ID %s löschen.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar_log.toggle.0">
+        <source>Eintrag veröffentlichen/unveröffentlichen</source>
+        <target>Eintrag veröffentlichen/unveröffentlichen</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar_log.toggle.1">
+        <source>Eintrag ID %s veröffentlichen/unveröffentlichen.</source>
+        <target>Eintrag ID %s veröffentlichen/unveröffentlichen.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar_log.feature.0">
+        <source>Eintrag hervorheben/zurücksetzen</source>
+        <target>Eintrag hervorheben/zurücksetzen</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar_log.feature.1">
+        <source>Beitrag ID %s hervorheben/zurücksetzen.</source>
+        <target>Beitrag ID %s hervorheben/zurücksetzen.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

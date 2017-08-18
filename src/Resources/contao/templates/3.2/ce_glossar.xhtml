@@ -1,0 +1,40 @@
+<div class="<?php echo $this->class; ?> block" <?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
+
+<?php if($this->alphaPagination && !$this->content && ($this->ppos == 'before' || $this->ppos == 'both')) echo $this->alphaPagination;?>
+
+<?php if($this->glossar && !$this->content) {?>
+<ul class="glossar_items">
+<?php foreach($this->glossar as $gKey => $glossar) echo $glossar;?>
+</ul>
+<?php } else {
+  if($this->termAsHeadline) echo $this->termAsHeadline;
+  echo implode("\n",$this->glossar);
+}
+
+if($this->errors)
+  echo $this->errors;
+
+if($this->showTags && !empty($this->tags)) {?>
+<!-- glossar::ignore -->
+<ul class="glossar-tags tag-chain">
+  <?php foreach($this->tags as $key => $tag) {?>
+  <li class="tag-chain-item<?php echo ($key==0?' first':'');?><?php echo ($tag === end($this->tags)?' last':'');?>"><?php echo $tag['tag'];?></li>
+  <?php }?>
+</ul>
+<!-- glossar::unignore -->
+<?php }
+
+if($this->alphaPagination && !$this->content && (empty($this->ppos) || $this->ppos == 'after' || $this->ppos == 'both')) echo $this->alphaPagination;?>
+<?php if($this->content) {?><a href="javascript:history.back();">Zurück</a><?php }?>
+
+<?php if ($this->allowComments): ?>
+  <!-- glossar::ignore -->
+  <div class="ce_comments block">
+    <<?= $this->hlc ?>><?= $this->addComment ?></<?= $this->hlc ?>>
+    <?= implode('', $this->comments) ?>
+    <?= $this->pagination ?>
+    <?php include $this->getTemplate('mod_comment_form', 'html5'); ?>
+  </div>
+<!-- glossar::unignore -->
+<?php endif; ?>
+</div>

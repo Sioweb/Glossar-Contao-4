@@ -1,0 +1,146 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="system/modules/core/languages/en/tl_settings.php" source-language="en">
+    <body>
+      <trans-unit id="tl_settings.enableGlossar.0">
+        <source>Activate Glossar</source>
+        <target>Activate Glossar</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.enableGlossar.1">
+        <source>Activates glossar for the whole site.</source>
+        <target>Activates glossar for the whole site.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.glossarPurgable.0">
+        <source>Add glossar to purge data in maintenance</source>
+        <target>Add glossar to purge data in maintenance</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.glossarPurgable.1">
+        <source>Glossar can be cleaned in the maintanance. You need to rebuild it after purge.</source>
+        <target>Glossar can be cleaned in the maintanance. You need to rebuild it after purge.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.termAsHeadline.0">
+        <source>Show terms as Headline</source>
+        <target>Show terms as Headline</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.termAsHeadline.1">
+        <source>Terms will be used as headline if you do not use a headline in content.</source>
+        <target>Terms will be used as headline if you do not use a headline in content.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.noPlural.0">
+        <source>Deactivate plural search</source>
+        <target>Deactivate plural search</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.noPlural.1">
+        <source>Plural search will find place, places and placeholder if term is called place.</source>
+        <target>Plural search will find place, places and placeholder if term is called place.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.glossarIncludeUnsearchable.0">
+        <source>Include unsearchable content</source>
+        <target>Include unsearchable content</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.glossarIncludeUnsearchable.1">
+        <source>Content which is not shown to search, indexer::stop|continue</source>
+        <target>Content which is not shown to search, indexer::stop|continue</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.activateGlossarTags.0">
+        <source>Activate glossar tags</source>
+        <target>Activate glossar tags</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.activateGlossarTags.1">
+        <source>Like search tags: glossar::stop|continue.</source>
+        <target>Like search tags: glossar::stop|continue.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.glossar_archive.0">
+        <source>Exclude archives</source>
+        <target>Exclude archives</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.glossar_archive.1">
+        <source>Exclude archives like news, events, faq,...</source>
+        <target>Exclude archives like news, events, faq,...</target>
+      </trans-unit>
+
+
+
+      <trans-unit id="tl_settings.disableGlossarCache.0">
+        <source>Deactivate Glossar cache</source>
+        <target>Deactivate Glossar cache</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.disableGlossarCache.1">
+        <source>Deactivates the glossar cache. (Can be very slow)</source>
+        <target>Deactivates the glossar cache. (Can be very slow)</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.glossar_no_fallback.0">
+        <source>Do not use glosar with other languages</source>
+        <target>Do not use glosar with other languages</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.glossar_no_fallback.1">
+        <source>Contao will still use glossary with the user language.</source>
+        <target>Contao will still use glossary with the user language.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.strictSearch.0">
+        <source>Strict search</source>
+        <target>Strict search</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.strictSearch.1">
+        <source>Stricter search for terms.</source>
+        <target>Stricter search for terms.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.ignoreInTags.0">
+        <source>Ignore this tags</source>
+        <target>Ignore this tags</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.ignoreInTags.1">
+        <source>All terms between these tag will be ignored.</source>
+        <target>All terms between these tag will be ignored.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.illegalChars.0">
+        <source>Ingore this Chars</source>
+        <target>Ingore this Chars</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.illegalChars.1">
+        <source>Those chars will be ignored in plural search. As example Contao(CMS) only Contao will be replaces if you set ( as illegal char.</source>
+        <target>Those chars will be ignored in plural search. As example Contao(CMS) only Contao will be replaces if you set ( as illegal char.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.glossarMaxWidth.0">
+        <source>Maximum width</source>
+        <target>Maximum width</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.glossarMaxWidth.1">
+        <source>Maximum width of the preview layer.</source>
+        <target>Maximum width of the preview layer.</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.glossarMaxHeight.0">
+        <source>Maximum height</source>
+        <target>Maximum height</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.glossarMaxHeight.1">
+        <source>Maximum height for the preview layer.</source>
+        <target>Maximum height for the preview layer.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.jumpToGlossar.0">
+        <source>Glossar page</source>
+        <target>Glossar page</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.jumpToGlossar.1">
+        <source>Default site if no page is selected.</source>
+        <target>Default site if no page is selected.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_settings.glossar_legend">
+        <source>Glossar settings</source>
+        <target>Glossar settings</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

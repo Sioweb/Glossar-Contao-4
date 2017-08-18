@@ -1,0 +1,274 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="system/modules/core/languages/en/tl_sw_glossar.php" source-language="en">
+    <body>
+      <trans-unit id="tl_sw_glossar.tstamp.0">
+        <source>Erstellt am</source>
+        <target>Erstellt am</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.tstamp.1">
+        <source>Erstellt am</source>
+        <target>Erstellt am</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.type.0">
+        <source>Begriffsart</source>
+        <target>Begriffsart</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.type.1">
+        <source>Der Inhalt kann nach verschiedenen Typen durchsucht werden.</source>
+        <target>Der Inhalt kann nach verschiedenen Typen durchsucht werden.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.title.0">
+        <source>Suchwort/Stichwort</source>
+        <target>Suchwort/Stichwort</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.title.1">
+        <source>Wird als Link in den Glossar ersetzt.</source>
+        <target>Wird als Link in den Glossar ersetzt.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.Alias.0">
+        <source>Alias</source>
+        <target>Alias</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.Alias.1">
+        <source>Wird als Wert für den Suchstring in der URL ersetzt.</source>
+        <target>Wird als Wert für den Suchstring in der URL ersetzt.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.maxWidth.0">
+        <source>Maximale Breite</source>
+        <target>Maximale Breite</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.maxWidth.1">
+        <source>Die maximale Breite, die das Ajax-Layer bekommen kann - Standard 450.</source>
+        <target>Die maximale Breite, die das Ajax-Layer bekommen kann - Standard 450.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.maxHeight.0">
+        <source>Maximale Höhe</source>
+        <target>Maximale Höhe</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.maxHeight.1">
+        <source>Die maximale Höhe, die das Ajax-Layer bekommen kann - Standard 500.</source>
+        <target>Die maximale Höhe, die das Ajax-Layer bekommen kann - Standard 500.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.ignoreInTags.0">
+        <source>Diese Tags ignorieren</source>
+        <target>Diese Tags ignorieren</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.ignoreInTags.1">
+        <source>Befindet sich der Begriff in diesen Tags wird er nicht ersetzt.</source>
+        <target>Befindet sich der Begriff in diesen Tags wird er nicht ersetzt.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.date.0">
+        <source>Datum</source>
+        <target>Datum</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.date.1">
+        <source>Kann verwendet werden, um nach Datum zu sortieren.</source>
+        <target>Kann verwendet werden, um nach Datum zu sortieren.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.jumpTo.0">
+        <source>Weiterleitungsseite</source>
+        <target>Weiterleitungsseite</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.jumpTo.1">
+        <source>Gibt die Seite mit den Glossar-Einträgen an.</source>
+        <target>Gibt die Seite mit den Glossar-Einträgen an.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.noPlural.0">
+        <source>Pluralsuche deaktivieren</source>
+        <target>Pluralsuche deaktivieren</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.noPlural.1">
+        <source>Pluralsuche bedeutet, dass der Begriff am Wortbeginn bis Wortende gefunden wird. Als Beispiel: Bad-emeister.</source>
+        <target>Pluralsuche bedeutet, dass der Begriff am Wortbeginn bis Wortende gefunden wird. Als Beispiel: Bad-emeister.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.strictSearch.0">
+        <source>Strikte Suche</source>
+        <target>Strikte Suche</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.strictSearch.1">
+        <source>Es werden nur die angegebenen Begriffe gefunden, wenn diese als einzelnes Wort im INhalt stehen.</source>
+        <target>Es werden nur die angegebenen Begriffe gefunden, wenn diese als einzelnes Wort im INhalt stehen.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.termAsHeadline.0">
+        <source>Begriff als Headline verhindern</source>
+        <target>Begriff als Headline verhindern</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.termAsHeadline.1">
+        <source>Dieser Begriff wird nicht als Überschrift verwendet, falls das Inhaltselement Begriffe als Überschrift einsetzt.</source>
+        <target>Dieser Begriff wird nicht als Überschrift verwendet, falls das Inhaltselement Begriffe als Überschrift einsetzt.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.teaser.0">
+        <source>Teaser</source>
+        <target>Teaser</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.teaser.1">
+        <source>Ein Vorschau-Artikel für die Glossar-Liste und der Maus-Hover-Ansicht.</source>
+        <target>Ein Vorschau-Artikel für die Glossar-Liste und der Maus-Hover-Ansicht.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.description.0">
+        <source>Beschreibung(Veraltet)</source>
+        <target>Beschreibung(Veraltet)</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.description.1">
+        <source>Dieses Feld besteht nur noch diese Version. Bitte alle Texte in den Inhalt schreiben.</source>
+        <target>Dieses Feld besteht nur noch diese Version. Bitte alle Texte in den Inhalt schreiben.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.explanation.0">
+        <source>Beschreibung der Abkürzung</source>
+        <target>Beschreibung der Abkürzung</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.explanation.1">
+        <source>Die Beschreibung wird als abbr-Tag um die Abkürzung gelegt.</source>
+        <target>Die Beschreibung wird als abbr-Tag um die Abkürzung gelegt.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.source.0">
+        <source>Weiterleitung</source>
+        <target>Weiterleitung</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.source.1">
+        <source>Die Abkürzung kann zu einer detailierteren Beschreibung verlinkt werden.</source>
+        <target>Die Abkürzung kann zu einer detailierteren Beschreibung verlinkt werden.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.url.0">
+        <source>Externer Link</source>
+        <target>Externer Link</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.url.1">
+        <source>Einen externen Link für mehr informationen angeben.</source>
+        <target>Einen externen Link für mehr informationen angeben.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.seo.0">
+        <source>Seo aktivieren</source>
+        <target>Seo aktivieren</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.seo.1">
+        <source>Damit können Title-Tag und Desctiption-Tag gesteuert werden.</source>
+        <target>Damit können Title-Tag und Desctiption-Tag gesteuert werden.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.term_in_title_tag.0">
+        <source>Begriff in den Titel</source>
+        <target>Begriff in den Titel</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.term_in_title_tag.1">
+        <source>Fügt den Begriff in der Deteilansicht in den Titel ein.</source>
+        <target>Fügt den Begriff in der Deteilansicht in den Titel ein.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.term_in_title_str_tag.0">
+        <source>Titel manuel definieren</source>
+        <target>Titel manuel definieren</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.term_in_title_str_tag.1">
+        <source>Glossar-Term einfügen mit {{glossar::term}}. Dieses Feld überschreibt den Titel komplett!</source>
+        <target>Glossar-Term einfügen mit {{glossar::term}}. Dieses Feld überschreibt den Titel komplett!</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.term_description_tag.0">
+        <source>Meta-Description</source>
+        <target>Meta-Description</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.term_description_tag.1">
+        <source>Diese Beschreibung wird als Seitenbeschreibung verwendet in der Detailansicht.</source>
+        <target>Diese Beschreibung wird als Seitenbeschreibung verwendet in der Detailansicht.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.replace_pageTitle.0">
+        <source>Page-Title überschreiben?</source>
+        <target>Page-Title überschreiben?</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.replace_pageTitle.1">
+        <source>Überschreibt den Wert {{page::pageTitle}} durch den manuellen Titel.</source>
+        <target>Überschreibt den Wert {{page::pageTitle}} durch den manuellen Titel.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.tags.0">
+        <source>Auszeichnungen</source>
+        <target>Auszeichnungen</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.tags.1">
+        <source>Bitte geben Sie eine oder mehrere Auszeichnungen durch Komma getrennt an, um eine Kategorisierung vorzunehmen.</source>
+        <target>Bitte geben Sie eine oder mehrere Auszeichnungen durch Komma getrennt an, um eine Kategorisierung vorzunehmen.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.title_legend">
+        <source>Titel</source>
+        <target>Titel</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.seo_legend">
+        <source>Seo settings</source>
+        <target>Seo-Einstellungen</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.new.0">
+        <source>Neuer Eintrag</source>
+        <target>Neuer Eintrag</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.new.1">
+        <source>Einen neuen Eintrag erstellen.</source>
+        <target>Einen neuen Eintrag erstellen.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.show.0">
+        <source>Eintragsdetails</source>
+        <target>Eintragsdetails</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.show.1">
+        <source>Die Details des Eintrags ID %s anzeigen.</source>
+        <target>Die Details des Eintrags ID %s anzeigen.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.edit.0">
+        <source>Eintrag bearbeiten</source>
+        <target>Eintrag bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.edit.1">
+        <source>Eintrag ID %s bearbeiten.</source>
+        <target>Eintrag ID %s bearbeiten.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.copy.0">
+        <source>Eintrag duplizieren</source>
+        <target>Eintrag duplizieren</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.copy.1">
+        <source>Eintrag ID %s duplizieren.</source>
+        <target>Eintrag ID %s duplizieren.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.cut.0">
+        <source>Eintrag verschieben</source>
+        <target>Eintrag verschieben</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.cut.1">
+        <source>Eintrag ID %s verschieben.</source>
+        <target>Eintrag ID %s verschieben.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.delete.0">
+        <source>Eintrag löschen</source>
+        <target>Eintrag löschen</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.delete.1">
+        <source>Eintrag ID %s löschen.</source>
+        <target>Eintrag ID %s löschen.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.toggle.0">
+        <source>Eintrag veröffentlichen/unveröffentlichen</source>
+        <target>Eintrag veröffentlichen/unveröffentlichen</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.toggle.1">
+        <source>Eintrag ID %s veröffentlichen/unveröffentlichen.</source>
+        <target>Eintrag ID %s veröffentlichen/unveröffentlichen.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.feature.0">
+        <source>Eintrag hervorheben/zurücksetzen</source>
+        <target>Eintrag hervorheben/zurücksetzen</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.feature.1">
+        <source>Beitrag ID %s hervorheben/zurücksetzen.</source>
+        <target>Beitrag ID %s hervorheben/zurücksetzen.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,63 @@
+<div id="tl_buttons">
+  <a href="<?php echo $this->backLink;?>" class="header_back" title="<?php echo specialchars($GLOBALS['TL_LANG']['MSC']['backBTTitle']);?>" accesskey="b"><?php echo $GLOBALS['TL_LANG']['MSC']['backBT'];?></a>
+  <?php /**/?><a href="<?php echo $this->addToUrl('import_status=1');?>" class="header_theme_import">Importieren</a><?php /**/?>
+</div>
+
+<h2 class="sub_headline">Status / Diagnose</h2>
+<?php echo $this->messages;?>
+<form action="<?php echo $this->action;?>" id="tl_glossar_status" class="tl_form tl_glossar_status" method="post" enctype="multipart/form-data">
+  <div class="tl_formbody_edit">
+    <input type="hidden" name="FORM_SUBMIT" value="tl_csv_import">
+    <input type="hidden" name="REQUEST_TOKEN" value="<?php echo REQUEST_TOKEN;?>">
+    <input type="hidden" name="do" value="glossar_Status">
+    
+    <?php if(\Input::get('import_status') == '' || \Input::post('act') == 'import_status') {?>
+
+    <input type="hidden" name="act" value="glossar_Status">
+    <div class="tl_box">
+    <br><br>
+      <strong>Experimentelles Feature:</strong> Dieses Modul liefert einen Auszug der Glossar-Einstellungen. Dadurch kann der Glossar schneller geprüft werden und der Export kann den <a href="http://glossar.sioweb.de" target="_blank" title="Support- &amp; Download-Seite des Glossars, www.sioweb.de"><b>Support</b></a> beschleunigen. Je nach Bedarf wird dieses Tool weiter ausgebaut.
+    </div>
+
+    <div class="tl_submit_container">
+      <h3>Status exportieren</h3>
+      <input type="submit" id="glossar" class="tl_submit" value="Export starten">
+    </div>
+
+    <ul class="glossar_status">
+      <?php foreach($this->glossar as $field => $fieldData) {?>
+      <li>
+        <div class="left">
+          <div>
+            <strong><?php echo $fieldData['title'];?></strong>
+            <div class="type">Art: <?php echo $fieldData['type'];?></div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="tables">Tabelle<?php echo (!empty($fieldData['tables'][1])?'n':'');?>: <strong><?php echo implode('</strong>, <strong>',$fieldData['tables']);?></strong></div>
+          <?php if(!empty($fieldData['data'])) {?><div class="content">
+          <?php foreach($fieldData['data'] as $tData) echo implode("\n",$tData);?>
+          </div>
+          <?php }?>
+        </div>
+        <div class="description"><p class="tl_info"><?php echo $fieldData['description'];?></p></div>
+      </li>
+      <?php }?>
+    </ul>
+
+    <div class="tl_submit_container">
+      <h3>Status exportieren</h3>
+      <input type="submit" id="glossar" class="tl_submit" value="Export starten">
+    </div>
+    <?php } else {?>
+    <input type="hidden" name="act" value="import_status">
+    <div class="tl_tbox">
+      <h3>Status Datei</h3><br>
+      <?php echo $this->fields;?>
+    </div>
+    <div class="tl_submit_container">
+      <input type="submit" id="glossar" class="tl_submit" value="Import starten">
+    </div>
+    <?php }?>
+  </div>
+</form>

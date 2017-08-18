@@ -1,0 +1,3 @@
+<a<?php echo $this->lang;?> class="<?php echo $this->class;?>" data-maxwidth="<?php echo $this->maxWidth;?>" data-maxheight="<?php echo $this->maxHeight;?>" data-glossar="<?php echo $this->id;?>" href="<?php echo $this->link;?>">
+	<?php echo $this->label?>
+</a>

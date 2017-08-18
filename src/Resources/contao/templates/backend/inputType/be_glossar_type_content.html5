@@ -1,0 +1,1 @@
+<div class="valid_content"><strong><?php echo $this->headline;?></strong><span><?php if($this->data !== '0') echo $this->data; else {?><img class="icon" src="system/modules/Glossar/assets/img/invalide.svg"><?php };?></span></div>

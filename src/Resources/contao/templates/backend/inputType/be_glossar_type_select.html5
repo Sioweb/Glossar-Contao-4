@@ -1,0 +1,6 @@
+<?php if($this->data !== '0') {?>
+<?php if($this->headline) {?><h3><?php echo $this->headline;?></h3><?php }?>
+<div class="valid_content"><span><?php echo $this->data;?></span></div>
+<?php } else {?>
+<div class="invalid valid_content"><strong><?php echo $this->headline;?></strong><span><img class="icon" src="system/modules/Glossar/assets/img/invalide.svg"></span></div>
+<?php }?>

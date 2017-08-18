@@ -1,0 +1,1 @@
+<div class="valid_value"><strong><?php echo $this->headline;?></strong> <span><img class="icon" src="system/modules/Glossar/assets/img/<?php echo $this->data==1?'hook':'invalide';?>.svg"></span></div>
