@@ -1,0 +1,101 @@
+span.glossar {
+  border-bottom: 1px dotted #000;
+}
+.glossar_status,
+.glossar_status * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.tl_glossar_status .icon {
+  width: 20px;
+  height: auto;
+}
+.tl_glossar_status .page {
+  width: 100px;
+  display: inline-block;
+}
+.tl_glossar_status .tables {
+  margin-bottom: 10px;
+}
+.tl_glossar_status .content {
+  overflow-y: auto;
+  max-height: 200px;
+}
+.tl_glossar_status .content h3 {
+  margin: 20px 0 5px;
+}
+
+.tl_glossar_status .invalid.valid_content {
+  margin-top: 15px;
+}
+
+.tl_glossar_status .valid_value span,
+.tl_glossar_status .valid_value strong,
+.tl_glossar_status .valid_content span,
+.tl_glossar_status .valid_content strong {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.tl_glossar_status .valid_value strong,
+.tl_glossar_status .valid_content strong {
+  width: 200px;
+  margin-right: 10px;
+}
+
+.tl_glossar_status .tl_submit_container {
+  margin: 20px 0;
+}
+.tl_glossar_status .tl_submit_container h3 {
+  margin-top: 0;
+}
+
+.glossar_status .tables {
+  font-size: .6rem;
+}
+.glossar_status .tl_info {
+  width: 100%;
+}
+
+.glossar_status li {
+  font-size: 0;
+  padding: 10px 0 0;
+  background: #f3f3f3;
+}
+
+.glossar_status li:nth-child(even) {
+  background: #e9e9e9;
+}
+
+.glossar_status li + li {
+  margin-top: 25px;
+}
+
+.glossar_status li > div {
+  width: 100%;
+  font-size: .6875rem;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.glossar_status .description {
+  color: #ccc;
+  margin-top: 20px;
+}
+
+.glossar_status div.left {
+  width: 200px;
+  padding: 5px 10px;
+  padding-right: 20px;
+  border-right: 1px solid #ccc;
+}
+.glossar_status div.right {
+  width: 100%;
+  padding: 5px 10px;
+  margin-left: -1px;
+  padding-left: 20px;
+  width: calc(100% - 200px);
+  border-left: 1px solid #ccc;
+}

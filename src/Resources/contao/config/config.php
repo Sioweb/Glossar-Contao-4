@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 /**
  * Contao Open Source CMS
@@ -35,7 +35,7 @@ array_insert($GLOBALS['BE_MOD']['content'], 1, array(
 ));
 
 if(TL_MODE == 'BE') {
-  $GLOBALS['TL_CSS'][] = 'system/modules/Glossar/assets/be_main.css';
+  $GLOBALS['TL_CSS'][] = 'bundles/siowebglossar/css/be_main.css|static';
 }
 
 if(\Config::get('glossarPurgable') == 1) {
@@ -161,9 +161,9 @@ if(\Config::get('enableGlossar') == 1) {
 
 
   if(TL_MODE == 'FE') {
-    $GLOBALS['TL_CSS'][] = 'system/modules/Glossar/assets/glossar.min.css|static';
+    $GLOBALS['TL_CSS'][] = 'bundles/siowebglossar/css/glossar.min.css|static';
     if(empty($GLOBALS['TL_CONFIG']['disableToolTips'])) {
-      $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/Glossar/assets/glossar.js|static';
+      $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/siowebglossar/js/glossar.js|static';
     }
     $GLOBALS['TL_JQUERY'][] = '<script>var Contao = {request_token: "'.$_SESSION['REQUEST_TOKEN'].'",objPageUrl:"'.$_SERVER['REDIRECT_URL'].'"};</script>';
   }
