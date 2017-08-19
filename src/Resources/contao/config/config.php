@@ -60,11 +60,11 @@ array_insert($GLOBALS['FE_MOD'], 2, array(
 array_insert($GLOBALS['BE_MOD']['system'], 1, array(
   /**/'glossar_log' => array(
     'callback'   => 'Sioweb\GlossarLog',
-    'icon'   => 'system/modules/Glossar/assets/sioweb16x16.png',
+    'icon'   => 'bundles/siowebglossar/img/sioweb16x16.png',
   ),/**/
   'glossar_status' => array(
     'callback'   => 'Sioweb\GlossarStatus',
-    'icon'   => 'system/modules/Glossar/assets/sioweb16x16.png',
+    'icon'   => 'bundles/siowebglossar/img/sioweb16x16.png',
   ),/**/
 ));
 
@@ -89,8 +89,9 @@ if(method_exists('Contao\Config','set')) {
 
 
 $GLOBALS['TL_HOOKS']['getGlossarPages'] = array();
-$GLOBALS['TL_CTE']['texts']['glossar'] = 'ContentGlossar';
-$GLOBALS['TL_CTE']['texts']['glossar_cloud'] = 'ContentGlossarCloud';
+$GLOBALS['TL_CTE']['texts']['glossar'] = 'Sioweb\ContentGlossar';
+$GLOBALS['TL_CTE']['texts']['glossar_cloud'] = 'Sioweb\ContentGlossarCloud';
+
 $GLOBALS['TL_HOOKS']['outputFrontendTemplate'][] = array('Sioweb\Glossar', 'searchGlossarTerms');
 $GLOBALS['TL_HOOKS']['getSearchablePages'][] = array('Sioweb\Glossar','getSearchablePages');
 
@@ -161,9 +162,9 @@ if(\Config::get('enableGlossar') == 1) {
 
 
   if(TL_MODE == 'FE') {
-    $GLOBALS['TL_CSS'][] = 'bundles/siowebglossar/css/glossar.min.css|static';
+    $GLOBALS['TL_CSS'][] = 'web/bundles/siowebglossar/css/glossar.min.css|static';
     if(empty($GLOBALS['TL_CONFIG']['disableToolTips'])) {
-      $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/siowebglossar/js/glossar.js|static';
+      $GLOBALS['TL_JAVASCRIPT'][] = 'web/bundles/siowebglossar/js/glossar.js|static';
     }
     $GLOBALS['TL_JQUERY'][] = '<script>var Contao = {request_token: "'.$_SESSION['REQUEST_TOKEN'].'",objPageUrl:"'.$_SERVER['REDIRECT_URL'].'"};</script>';
   }

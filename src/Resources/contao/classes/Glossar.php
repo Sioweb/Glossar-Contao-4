@@ -905,9 +905,7 @@ class Glossar extends \Frontend {
   }
 
   private function checkLizenz() {
-    $db = &$this->Database;
-    $ext = $db->prepare("select * from `tl_repository_installs` where `extension`='SWGlossar'")->execute();
-    return ($ext->lickey == '0' || $ext->lickey == 'free2use');
+    return false;
   }
 
   /* Eingabe (Nicer JSON) */

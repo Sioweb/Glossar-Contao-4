@@ -130,7 +130,7 @@ class RebuildGlossar extends \Backend implements \executable {
       }
     }
 
-    if(\Input::get('rebuild_regular_glossar') == 1) {
+    if(\Input::get('rebuild_glossar') == 1) {
       $strFallback = $strGlossar = '';
       if(!empty($arrTerms['glossar'])) {
         $matches = array();
