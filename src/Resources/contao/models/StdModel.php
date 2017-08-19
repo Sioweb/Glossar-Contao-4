@@ -14,7 +14,7 @@
  */
 
 if(!class_exists('StdModel')) {
-class STDModel {
+class StdModel {
 
   private $arrData = array();
 
