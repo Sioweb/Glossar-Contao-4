@@ -5,6 +5,7 @@
  */
 namespace Sioweb;
 use Contao;
+use Sioweb\License\Glossar as GlossarLicense;
 
 /**
  * @file GlossarLog.php
@@ -18,21 +19,19 @@ use Contao;
 class GlossarLog extends \BackendModule {
 
   protected $strTemplate = 'be_glossar_log';
+  private $license = null;
+
 
   public function generate() {
+    if(class_exists('Sioweb\License\Glossar')) {
+      $license = new GlossarLicense();
+      $this->license = $license->checkLocalLicense();
+    }
     return parent::generate();
   }
 
   public function compile() {
-
-    $db = &$this->Database;
-    $ext = $db->prepare("select * from `tl_repository_installs` where `extension`='SWGlossar'")->execute();
-
-    if($ext->lickey == false || $ext->lickey == 'free2use') {
-      $this->Template->lickey = false;
-    } else {
-      $this->Template->lickey = true;
-    }
+    $this->Template->lickey = $this->license;
 
     $Log = \GlossarLogModel::findBy(array("tl_glossar_log.tstamp >= ?"),array(time()-(86400*7*31)),array('order'=>'tstamp DESC','limit'=>500));
     $arrTerms = $arrLog = array();

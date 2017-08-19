@@ -3,9 +3,9 @@
 /**
  * Contao Open Source CMS
  */
-
 namespace Sioweb;
 use Contao;
+use Sioweb\License\Glossar as GlossarLicense;
 
 /**
  * @file ContentGlossar.php
@@ -24,11 +24,18 @@ class ContentGlossar extends \ContentElement {
    */
   protected $strTemplate = 'ce_glossar';
 
+  private $license = false;
+
   /**
    * Return if there are no files
    * @return string
    */
   public function generate() {
+
+    if(class_exists('Sioweb\License\Glossar')) {
+      $this->license = new GlossarLicense();
+    }
+
     if(!isset($_GET['items']) && $GLOBALS['TL_CONFIG']['useAutoItem'] && isset($_GET['auto_item'])) {
       \Input::setGet('items', \Input::get('auto_item'));
     }

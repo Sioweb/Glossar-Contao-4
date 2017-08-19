@@ -5,6 +5,7 @@
  */
 namespace Sioweb;
 use Contao;
+use Sioweb\License\Glossar as GlossarLicense;
 
 /**
  * @file Glossar.php
@@ -18,6 +19,8 @@ use Contao;
 class Glossar extends \Frontend { 
 
   private $term = array();
+
+  private $license = false;
 
   /* Delete all cached glossary data*/
   public function purgeGlossar() {
@@ -905,6 +908,11 @@ class Glossar extends \Frontend {
   }
 
   private function checkLizenz() {
+    if(class_exists('Sioweb\License\Glossar')) {
+      $license = new GlossarLicense();
+      return $license->checkLocalLicense(\Config::get('GlossarLicense'));
+    }
+
     return false;
   }
 
