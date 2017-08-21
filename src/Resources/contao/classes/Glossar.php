@@ -839,10 +839,9 @@ class Glossar extends \Frontend {
       'action' => ampersand(\Environment::get('request'), true),
     ));
 
-    $lickey = $this->checkLizenz();
+    $objGlossar->lickey = $this->checkLizenz();
 
-    if($lickey) {
-      $objGlossar->lickey = false;
+    if(!$objGlossar->lickey) {
       return $objGlossar->parse();
     }
 
@@ -910,7 +909,7 @@ class Glossar extends \Frontend {
   private function checkLizenz() {
     if(class_exists('Sioweb\License\Glossar')) {
       $license = new GlossarLicense();
-      return $license->checkLocalLicense(\Config::get('GlossarLicense'));
+      return $license->checkLocalLicense();
     }
 
     return false;
@@ -971,12 +970,7 @@ class Glossar extends \Frontend {
       'action' => ampersand(\Environment::get('request'), true),
     ));
 
-    $db = &$this->Database;
-    $ext = $db->prepare("select * from `tl_repository_installs` where `extension`='SWGlossar'")->execute();
-
-    if($ext->lickey == false || $ext->lickey == 'free2use') {
-      $objGlossar->lickey = false;
-    }
+    $objGlossar->lickey = $this->checkLizenz();
 
     return $objGlossar->parse();
   }

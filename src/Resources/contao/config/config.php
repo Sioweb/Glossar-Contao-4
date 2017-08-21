@@ -27,10 +27,10 @@ array_insert($GLOBALS['BE_MOD']['content'], 1, array(
   'glossar' => array(
     'tables' => array('tl_glossar','tl_sw_glossar','tl_content'),
     'icon'   => 'system/modules/Glossar/assets/sioweb16x16.png',
-    'importGlossar' => array('Glossar', 'importGlossar'),
-    'exportGlossar' => array('Glossar', 'exportGlossar'),
-    'importTerms' => array('Glossar', 'importTerms'),
-    'exportTerms' => array('Glossar', 'exportTerms'),
+    'importGlossar' => array('Sioweb\Glossar', 'importGlossar'),
+    'exportGlossar' => array('Sioweb\Glossar', 'exportGlossar'),
+    'importTerms' => array('Sioweb\Glossar', 'importTerms'),
+    'exportTerms' => array('Sioweb\Glossar', 'exportTerms'),
   )
 ));
 
@@ -40,7 +40,7 @@ if(TL_MODE == 'BE') {
 
 if(\Config::get('glossarPurgable') == 1) {
   $GLOBALS['TL_PURGE']['custom']['glossar'] = array(
-    'callback' => array('Glossar', 'purgeGlossar')
+    'callback' => array('Sioweb\Glossar', 'purgeGlossar')
   );
 }
 
