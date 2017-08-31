@@ -68,6 +68,10 @@
         <target>Alphabetisch absteigend</target>
       </trans-unit>
 
+      <trans-unit id="glossar.sources.default">
+        <source>Standard verwenden</source>
+        <target>Standard verwenden</target>
+      </trans-unit>
       <trans-unit id="glossar.sources.page">
         <source>Seite mit eingebundenem Glossar-Element</source>
         <target>Seite mit eingebundenem Glossar-Element</target>

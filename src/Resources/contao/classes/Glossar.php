@@ -22,6 +22,8 @@ class Glossar extends \Frontend {
 
   private $license = false;
 
+  private static $arrUrlCache = array();
+
   /* Delete all cached glossary data*/
   public function purgeGlossar() {
     $this->import('Database');
@@ -275,7 +277,7 @@ class Glossar extends \Frontend {
 
       $replaceFunction = 'replaceTitle2Link';
 
-      if((!$Term->jumpTo && !$GLOBALS['TL_CONFIG']['jumpToGlossar']) || (empty($Content) && empty($GLOBALS['TL_CONFIG']['disableToolTips']))) {
+      if(((!$Term->source || $Term->source === 'default') && !$GLOBALS['TL_CONFIG']['jumpToGlossar']) || (empty($Content) && empty($GLOBALS['TL_CONFIG']['disableToolTips']))) {
         $replaceFunction = 'replaceTitle2Span';
       }
 
@@ -472,17 +474,8 @@ class Glossar extends \Frontend {
   }
 
   private function replaceTitle2Link($treffer) {
-    if($GLOBALS['TL_CONFIG']['jumpToGlossar']) {
-      $link = \GlossarPageModel::findByPk($GLOBALS['TL_CONFIG']['jumpToGlossar']);
-    }
-
-    if($this->term->jumpTo) {
-      $link = \GlossarPageModel::findByPk($this->term->jumpTo);
-    }
-
-    if($link) {
-      $link = $this->generateFrontendUrl($link->row(), (($GLOBALS['TL_CONFIG']['useAutoItem'] && !$GLOBALS['TL_CONFIG']['disableAlias']) ?  '/' : '/items/').standardize(\StringUtil::restoreBasicEntities($this->term->alias)));
-    }
+    
+    $link = $this->generateUrl();
 
     $lang = '';
     if(!empty($this->term_glossar->language)) {
@@ -502,6 +495,110 @@ class Glossar extends \Frontend {
 
     return $linkObj->parse();
   }
+
+
+  /**
+   * Generate a URL and return it as string
+   *
+   * @param \NewsModel $this->term
+   * @param boolean    $blnAddArchive
+   *
+   * @return string
+   */
+  protected function generateUrl($blnAddArchive=false)
+  {
+    $strCacheKey = 'id_' . $this->term->id;
+
+    // Load the URL from cache
+    if (isset(self::$arrUrlCache[$strCacheKey]))
+    {
+      return self::$arrUrlCache[$strCacheKey];
+    }
+
+    // Initialize the cache
+    self::$arrUrlCache[$strCacheKey] = null;
+
+    switch ($this->term->source)
+    {
+      case 'default':
+        $link = '';
+        if($GLOBALS['TL_CONFIG']['jumpToGlossar']) {
+          $link = \GlossarPageModel::findByPk($GLOBALS['TL_CONFIG']['jumpToGlossar']);
+        }
+        if($link) {
+          $link = $this->generateFrontendUrl($link->row(), (($GLOBALS['TL_CONFIG']['useAutoItem'] && !$GLOBALS['TL_CONFIG']['disableAlias']) ?  '/' : '/items/').standardize(\StringUtil::restoreBasicEntities($this->term->alias)));
+        }
+        if($link !== '') {
+          self::$arrUrlCache[$strCacheKey] = $link;
+        }
+        break;
+      case 'page':
+        $link = '';
+        if($this->term->jumpTo) {
+          $link = \GlossarPageModel::findByPk($this->term->jumpTo);
+        }
+        if($link) {
+          $link = $this->generateFrontendUrl($link->row(), (($GLOBALS['TL_CONFIG']['useAutoItem'] && !$GLOBALS['TL_CONFIG']['disableAlias']) ?  '/' : '/items/').standardize(\StringUtil::restoreBasicEntities($this->term->alias)));
+        }
+        if($link !== '') {
+          self::$arrUrlCache[$strCacheKey] = $link;
+        }
+        break;
+      // Link to an external page
+      case 'external':
+        if (substr($this->term->url, 0, 7) == 'mailto:')
+        {
+          self::$arrUrlCache[$strCacheKey] = \StringUtil::encodeEmail($this->term->url);
+        }
+        else
+        {
+          self::$arrUrlCache[$strCacheKey] = ampersand($this->term->url);
+        }
+        break;
+
+      // Link to an internal page
+      case 'internal':
+        if (($objTarget = $this->term->getRelated('jumpTo')) !== null)
+        {
+          /** @var \PageModel $objTarget */
+          self::$arrUrlCache[$strCacheKey] = ampersand($objTarget->getFrontendUrl());
+        }
+        break;
+
+      // Link to an article
+      case 'article':
+        if (($objArticle = \ArticleModel::findByPk($this->term->articleId, array('eager'=>true))) !== null && ($objPid = $objArticle->getRelated('pid')) !== null)
+        {
+          /** @var \PageModel $objPid */
+          self::$arrUrlCache[$strCacheKey] = ampersand($objPid->getFrontendUrl('/articles/' . ((!\Config::get('disableAlias') && $objArticle->alias != '') ? $objArticle->alias : $objArticle->id)));
+        }
+        break;
+    }
+
+    // Link to the default page
+    if (self::$arrUrlCache[$strCacheKey] === null)
+    {
+      $objPage = \PageModel::findWithDetails($this->term->getRelated('pid')->jumpTo);
+
+      if ($objPage === null)
+      {
+        self::$arrUrlCache[$strCacheKey] = ampersand(\Environment::get('request'), true);
+      }
+      else
+      {
+        self::$arrUrlCache[$strCacheKey] = ampersand($objPage->getFrontendUrl(((\Config::get('useAutoItem') && !\Config::get('disableAlias')) ? '/' : '/items/') . ((!\Config::get('disableAlias') && $this->term->alias != '') ? $this->term->alias : $this->term->id)));
+      }
+
+      // Add the current archive parameter (news archive)
+      if ($blnAddArchive && \Input::get('month') != '')
+      {
+        self::$arrUrlCache[$strCacheKey] .= (\Config::get('disableAlias') ? '&amp;' : '?') . 'month=' . \Input::get('month');
+      }
+    }
+
+    return self::$arrUrlCache[$strCacheKey];
+  }
+
 
   public function getSearchablePages($arrPages, $intRoot=0, $blnIsSitemap=false) {
     $Glossar = \SwGlossarModel::findAll();

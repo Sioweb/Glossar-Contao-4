@@ -120,7 +120,7 @@ $GLOBALS['TL_DCA']['tl_sw_glossar'] = array(
   (
     'seo'                 => 'term_in_title_tag,term_description_tag,term_in_title_str_tag',
     'source_page'         => 'jumpTo',
-    'source_internal'     => 'jumpToInternal',
+    'source_internal'     => 'jumpTo',
     'source_article'      => 'articleId',
     'source_external'     => 'url,target',
     'published'           => 'start,stop'
@@ -193,16 +193,6 @@ $GLOBALS['TL_DCA']['tl_sw_glossar'] = array(
       'inputType'               => 'pageTree',
       'foreignKey'              => 'tl_page.title',
       'eval'                    => array('fieldType'=>'radio','tl_class'=>'w50 clr','gsLabel'=>'jumpToGlossar'),
-      'sql'                     => "int(10) unsigned NOT NULL default '0'",
-      'relation'                => array('type'=>'belongsTo','load'=>'lazy')
-    ),
-    'jumpToInternal' => array
-    (
-      'label'                   => &$GLOBALS['TL_LANG']['tl_sw_glossar']['jumpToInternal'],
-      'exclude'                 => true,
-      'inputType'               => 'pageTree',
-      'foreignKey'              => 'tl_page.title',
-      'eval'                    => array('fieldType'=>'radio','tl_class'=>'w50 clr','gsLabel'=>'jumpToInternalGlossar'),
       'sql'                     => "int(10) unsigned NOT NULL default '0'",
       'relation'                => array('type'=>'belongsTo','load'=>'lazy')
     ),
@@ -581,40 +571,7 @@ class tl_sw_glossar extends Backend {
    */
   public function getSourceOptions(DataContainer $dc)
   {
-    return array('page', 'internal', 'article', 'external');
-    // if ($this->User->isAdmin)
-    // {
-    //   return array('default', 'internal', 'article', 'external');
-    // }
-
-    // $arrOptions = array('default');
-
-    // // Add the "internal" option
-    // if ($this->User->hasAccess('tl_sw_glossar::jumpTo', 'alexf'))
-    // {
-    //   $arrOptions[] = 'internal';
-    // }
-
-    // // Add the "article" option
-    // if ($this->User->hasAccess('tl_sw_glossar::articleId', 'alexf'))
-    // {
-    //   $arrOptions[] = 'article';
-    // }
-
-    // // Add the "external" option
-    // if ($this->User->hasAccess('tl_sw_glossar::url', 'alexf'))
-    // {
-    //   $arrOptions[] = 'external';
-    // }
-
-    // Add the option currently set
-    if ($dc->activeRecord && $dc->activeRecord->source != '')
-    {
-      $arrOptions[] = $dc->activeRecord->source;
-      $arrOptions = array_unique($arrOptions);
-    }
-
-    return $arrOptions;
+    return array('default', 'page', 'internal', 'article', 'external');
   }
 
 
