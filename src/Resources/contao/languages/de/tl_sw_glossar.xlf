@@ -62,14 +62,22 @@
         <target>Datum</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.date.1">
-        <source>Kann verwendet werden, um nach Datum zu sortieren.</source>
-        <target>Kann verwendet werden, um nach Datum zu sortieren.</target>
+        <source>Kann verwendet werden, um im Backend nach Datum zu sortieren.</source>
+        <target>Kann verwendet werden, um im Backend nach Datum zu sortieren.</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.jumpTo.0">
         <source>Weiterleitungsseite</source>
         <target>Weiterleitungsseite</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.jumpTo.1">
+        <source>Gibt die Seite mit den Glossar-Einträgen an.</source>
+        <target>Gibt die Seite mit den Glossar-Einträgen an.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.jumpToInternal.0">
+        <source>Weiterleitungsseite</source>
+        <target>Weiterleitungsseite</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.jumpToInternal.1">
         <source>Gibt die Seite mit den Glossar-Einträgen an.</source>
         <target>Gibt die Seite mit den Glossar-Einträgen an.</target>
       </trans-unit>
@@ -122,12 +130,12 @@
         <target>Die Beschreibung wird als abbr-Tag um die Abkürzung gelegt.</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.source.0">
-        <source>Weiterleitung</source>
-        <target>Weiterleitung</target>
+        <source>Art der Weiterleitung</source>
+        <target>Art der Weiterleitung</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.source.1">
-        <source>Die Abkürzung kann zu einer detailierteren Beschreibung verlinkt werden.</source>
-        <target>Die Abkürzung kann zu einer detailierteren Beschreibung verlinkt werden.</target>
+        <source>Es werden weitere Optionen eingeblendet, um den Begriff auf eine spezifischere Seite weiterzuleiten.</source>
+        <target>Es werden weitere Optionen eingeblendet, um den Begriff auf eine spezifischere Seite weiterzuleiten.</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.url.0">
         <source>Externer Link</source>
@@ -136,6 +144,38 @@
       <trans-unit id="tl_sw_glossar.url.1">
         <source>Einen externen Link für mehr informationen angeben.</source>
         <target>Einen externen Link für mehr informationen angeben.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.articleId.0">
+        <source>Article</source>
+        <target>Artikel</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.articleId.1">
+        <source>Please choose the article to which visitors will be redirected when clicking the news item.</source>
+        <target>Bitte wählen Sie den Artikel aus, zu der Besucher weitergeleitet werden, wenn Sie einen Begriff anklicken.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.published.0">
+        <source>Publish item</source>
+        <target>Beitrag veröffentlichen</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.published.1">
+        <source>Make the news item publicly visible on the website.</source>
+        <target>Den Beitrag auf der Webseite anzeigen.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.start.0">
+        <source>Show from</source>
+        <target>Anzeigen ab</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.start.1">
+        <source>Do not show the news item on the website before this day.</source>
+        <target>Den Beitrag erst ab diesem Tag auf der Webseite anzeigen.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.stop.0">
+        <source>Show until</source>
+        <target>Anzeigen bis</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.stop.1">
+        <source>Do not show the news item on the website on and after this day.</source>
+        <target>Den Beitrag nur bis zu diesem Tag auf der Webseite anzeigen.</target>
       </trans-unit>
 
       <trans-unit id="tl_sw_glossar.seo.0">
@@ -193,9 +233,29 @@
         <target>Titel</target>
       </trans-unit>
 
+      <trans-unit id="tl_sw_glossar.teaser_legend">
+        <source>Teaser</source>
+        <target>Teaser</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.more_legend">
+        <source>Design &amp; Verhalten</source>
+        <target>Design &amp; Verhalten</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.source_legend">
+        <source>Weiterleitungen</source>
+        <target>Weiterleitungen</target>
+      </trans-unit>
+
       <trans-unit id="tl_sw_glossar.seo_legend">
         <source>Seo settings</source>
         <target>Seo-Einstellungen</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.publish_legend">
+        <source>Publish settings</source>
+        <target>Veröffentlichung</target>
       </trans-unit>
 
       <trans-unit id="tl_sw_glossar.new.0">

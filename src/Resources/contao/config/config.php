@@ -1,4 +1,4 @@
- <?php
+<?php
 
 /**
  * Contao Open Source CMS

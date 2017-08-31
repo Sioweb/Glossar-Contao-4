@@ -34,8 +34,8 @@
         <target>Glossar zurücksetzen</target>
       </trans-unit>
       <trans-unit id="tl_maintenance_jobs.glossar.1">
-        <source>Setzt den kompletten Glossar (Seiteninhalte, News, Events, FAQ, ...) zurück. Alle Daten müssen danach neu generiert werden.</source>
-        <target>Setzt den kompletten Glossar (Seiteninhalte, News, Events, FAQ, ...) zurück. Alle Daten müssen danach neu generiert werden.</target>
+        <source>Setzt den kompletten Glossar-Index (Seiten, News, Events, FAQ, ...) zurück. Der Glossar, muss danach neu generiert werden.</source>
+        <target>Setzt den kompletten Glossar-Index (Seiten, News, Events, FAQ, ...) zurück. Der Glossar, muss danach neu generiert werden.</target>
       </trans-unit>
 
       <trans-unit id="glossar.showAllLabel">
@@ -69,12 +69,20 @@
       </trans-unit>
 
       <trans-unit id="glossar.sources.page">
-        <source>Seite</source>
-        <target>Seite</target>
+        <source>Seite mit eingebundenem Glossar-Element</source>
+        <target>Seite mit eingebundenem Glossar-Element</target>
+      </trans-unit>
+      <trans-unit id="glossar.sources.internal">
+        <source>Interner Link (Seiten-Auswahl)</source>
+        <target>Interner Link (Seiten-Auswahl)</target>
+      </trans-unit>
+      <trans-unit id="glossar.sources.article">
+        <source>Link zu einem Artikel</source>
+        <target>Link zu einem Artikel</target>
       </trans-unit>
       <trans-unit id="glossar.sources.external">
-        <source>Externer Link</source>
-        <target>Externer Link</target>
+        <source>Externer Link (URL)</source>
+        <target>Externer Link (URL)</target>
       </trans-unit>
 
       <trans-unit id="glossar.headlineUnit.h1">

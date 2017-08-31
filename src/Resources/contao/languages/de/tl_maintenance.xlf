@@ -5,6 +5,14 @@
         <source>Rebuild the glossar index</source>
         <target>Glossar aufbauen</target>
       </trans-unit>
+      <trans-unit id="tl_maintenance.rebuildGlossarHelp.0">
+        <source>Frontend-User</source>
+        <target>Frontend-User</target>
+      </trans-unit>
+      <trans-unit id="tl_maintenance.rebuildGlossarHelp.1">
+        <source>Um geschützte Seiten zu durchsuchen, muss ein Frontend-Benutzer angemeldet werden.</source>
+        <target>Um geschützte Seiten zu durchsuchen, muss ein Frontend-Benutzer angemeldet werden.</target>
+      </trans-unit>
       <trans-unit id="tl_maintenance.glossarSubmit">
         <source>Build glossar</source>
         <target>Glossar aufbauen</target>
