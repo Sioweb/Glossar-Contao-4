@@ -14,7 +14,7 @@
 
 		$.ajax({
 			type: "POST",
-			url:"index.php",
+			url:"/",
 			data: {
 				isAjaxRequest :1,
 				clicked: 1,
@@ -34,7 +34,7 @@
 
 		$('.tagcloud a').click(function(e){
 			$.ajax({
-				type: "POST",url:"index.php",
+				type: "POST",url:"/",
 				data: {
 					glossar: 1,
 					isAjaxRequest: 1,
@@ -87,7 +87,7 @@
 
 		LayerAjaxRequest = $.ajax({
 			type: "POST",
-			url:  "index.php",
+			url:  "/",
 			data: {
 				glossar: 1,
 				isAjaxRequest: 1,
@@ -131,7 +131,7 @@
 		if(loaded) {
 			$.ajax({
 				type: "POST",
-				url:"index.php",
+				url:"/",
 				data: {
 					loaded: 1,
 					glossar: 1,

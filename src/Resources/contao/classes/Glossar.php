@@ -311,10 +311,10 @@ class Glossar extends \Frontend {
         $IllegalPlural = html_entity_decode($IllegalPlural);
 
         $plural = preg_replace('/[.]+(?<!\\.)/is','\\.',$IllegalPlural.(!$Term->noPlural ? $GLOBALS['glossar']['illegal']:'')).'<';
-        $preg_query = '/(?!(?:[^<]+>|[^>]+(<\/'.implode('|',$ignoredTags).'>)))('.($Term->strictSearch==1||$Term->strictSearch==3?'\b':'') . $Term->title . (!$Term->noPlural?'[^ '.$plural.']*':'') . ($Term->strictSearch==1?'\b':'').')/is';
-        $no_preg_query = '/(?!(?:[^<]+>|[^>]+(<\/'.implode('|',$ignoredTags).'>)))(?:<(?:a|span|abbr) (?!class="glossar")[^>]*>)('.($Term->strictSearch==1||$Term->strictSearch==3?'\b':'') . $Term->title . (!$Term->noPlural?'[^ '.$plural.']*':'') . ($Term->strictSearch==1?'\b':'').')/is';
+        $preg_query = '/(?!(?:[^<]+>|[^>]+(<\/'.implode('>|<\/',$ignoredTags).'>)))('.($Term->strictSearch==1||$Term->strictSearch==3?'\b':'') . $Term->title . (!$Term->noPlural?'[^ '.$plural.']*':'') . ($Term->strictSearch==1?'\b':'').')/is';
+        $no_preg_query = '/(?!(?:[^<]+>|[^>]+(<\/'.implode('>|<\/',$ignoredTags).'>)))(?:<(?:a|span|abbr) (?!class="glossar")[^>]*>)('.($Term->strictSearch==1||$Term->strictSearch==3?'\b':'') . $Term->title . (!$Term->noPlural?'[^ '.$plural.']*':'') . ($Term->strictSearch==1?'\b':'').')/is';
 
-        if($Term->title && preg_match_all( $preg_query, $strContent, $third)) {
+        if($Term->title && preg_match_all($preg_query, $strContent, $third)) {
           $strContent = preg_replace_callback( $preg_query, array($this,$replaceFunction), $strContent);
           if($lastIstDot) {
             $strContent = str_replace($Term->title,substr($Term->title,0,-1),$strContent);
