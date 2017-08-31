@@ -91,6 +91,8 @@ class Glossar extends \Frontend {
       return $strContent;
     }
 
+    $time = \Date::floorToMinute();
+
     // HOOK: search for terms in Events, faq and news
     $arrGlossar = array($objPage->glossar);
     if(isset($GLOBALS['TL_HOOKS']['glossarContent']) && is_array($GLOBALS['TL_HOOKS']['glossarContent'])) {
@@ -129,7 +131,7 @@ class Glossar extends \Frontend {
       $GlossarTags = $this->replaceGlossarTags($strContent);
     }
 
-    $Term = \SwGlossarModel::findBy(array("title IN ('".str_replace('|',"','",$this->term)."') AND pid IN ('".implode("','",$arrGlossar)."')"),array($Glossar->id),array('order'=>' CHAR_LENGTH(title) DESC'));
+    $Term = \SwGlossarModel::findBy(array("(start='' OR start<='$time') AND (stop='' OR stop>'" . ($time + 60) . "') AND published='1' AND title IN ('".str_replace('|',"','",$this->term)."') AND pid IN ('".implode("','",$arrGlossar)."')"),array($Glossar->id),array('order'=>' CHAR_LENGTH(title) DESC'));
    
     $strContent = $this->replace($strContent,$Term,$Glossar);
 
@@ -144,7 +146,7 @@ class Glossar extends \Frontend {
     }
 
     /* Replace the fallback languages */
-    $Term = \SwGlossarModel::findBy(array("title IN ('".str_replace('|',"','",$objPage->fallback_glossar)."')"),array(),array('order'=>' CHAR_LENGTH(title) DESC'));
+    $Term = \SwGlossarModel::findBy(array("(start='' OR start<='$time') AND (stop='' OR stop>'" . ($time + 60) . "') AND published='1' AND title IN ('".str_replace('|',"','",$objPage->fallback_glossar)."')"),array(),array('order'=>' CHAR_LENGTH(title) DESC'));
     $strContent = $this->replace($strContent,$Term);
 
     /* reinsert glossar hidden content */

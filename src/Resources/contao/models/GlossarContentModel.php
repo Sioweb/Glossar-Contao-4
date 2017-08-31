@@ -23,6 +23,8 @@ class GlossarContentModel extends ContentModel {
       return array();
     }
 
+    $time = \Date::floorToMinute();
+
     $arrValues = array($table);
     $arrColumns = array("pid IN('".implode("','",$arrPids)."') AND ptable = ?".($type !== 'all'?' AND type = ?':''));
 
