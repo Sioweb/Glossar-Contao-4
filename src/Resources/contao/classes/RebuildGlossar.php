@@ -135,7 +135,7 @@ class RebuildGlossar extends \Backend implements \executable {
       if(!empty($arrTerms['glossar'])) {
         $matches = array();
         foreach($arrTerms['glossar'] as $key => $term) {
-          if(preg_match('#'.str_replace('.','\.',$term).'#is',strip_tags($strContent))) {
+          if(preg_match('#'.str_replace('.','\.',html_entity_decode($term)).'#is',strip_tags($strContent))) {
             $matches[] = $term;
           }
         }
