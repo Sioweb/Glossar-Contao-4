@@ -42,7 +42,8 @@ $GLOBALS['TL_DCA']['tl_sw_glossar'] = array(
     'sorting' => array
     (
       'mode'                    => 4,
-      'fields'                  => array('type,title'),
+      'flag'                    => 2,
+      'fields'                  => array('title'),
       'headerFields'            => array('title','language','tstamp'),
       'child_record_callback'   => array('tl_sw_glossar', 'listTerms'),
       'panelLayout'             => 'filter;sort,search,limit',
@@ -156,8 +157,10 @@ $GLOBALS['TL_DCA']['tl_sw_glossar'] = array(
     'title' => array
     (
       'label'                   => &$GLOBALS['TL_LANG']['tl_sw_glossar']['title'],
-      'exclude'                 => true,
       'inputType'               => 'text',
+      'exclude'                 => true,
+      'filter'                  => true,
+      'sorting'                 => true,
       'eval'                    => array('mandatory'=>true,'maxlength'=>255,'tl_class'=>'w50','gsIgnore'=>true),
       'sql'                     => "varchar(255) NOT NULL default ''"
     ),
@@ -332,6 +335,8 @@ $GLOBALS['TL_DCA']['tl_sw_glossar'] = array(
     (
       'label'                   => &$GLOBALS['TL_LANG']['tl_sw_glossar']['seo'],
       'exclude'                 => true,
+      'filter'                  => true,
+      'sorting'                 => true,
       'inputType'               => 'checkbox',
       'eval'                    => array('submitOnChange'=>true),
       'sql'                     => "char(1) NOT NULL default ''"
