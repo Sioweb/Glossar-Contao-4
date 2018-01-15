@@ -22,10 +22,9 @@ $GLOBALS['TL_DCA']['tl_sw_glossar'] = array(
   'config' => array
   (
     'dataContainer'               => 'Table',
+    'enableVersioning'            => true,
     'ptable'                      => 'tl_glossar',
     'ctable'                      => array('tl_content'),
-    'switchToEdit'                => true,
-    'enableVersioning'            => true,
     'sql' => array
     (
       'keys' => array
@@ -147,12 +146,14 @@ $GLOBALS['TL_DCA']['tl_sw_glossar'] = array(
     'type' => array
     (
       'label'                   => &$GLOBALS['TL_LANG']['tl_sw_glossar']['type'],
-      'default'                 => 'alias',
+      'default'                 => 'default',
+      'exclude'                 => true,
+      'filter'                  => true,
       'inputType'               => 'select',
       'options'                 => array_keys($GLOBALS['glossar']['types']),
       'reference'               => &$GLOBALS['glossar']['types'],
-      'eval'                    => array('tl_class'=>'w50 clr long','submitOnChange'=>true,'gsIgnore'=>true),
-      'sql'                     => "varchar(20) NOT NULL default ''"
+      'eval'                    => array('tl_class'=>'w50 clr long', 'chosen'=>true, 'submitOnChange'=>true),
+      'sql'                     => "varchar(64) NOT NULL default ''"
     ),
     'title' => array
     (
@@ -431,7 +432,6 @@ class tl_sw_glossar extends Backend {
     $this->import('BackendUser', 'User');
   }
 
-
   public function editTerm($row, $href, $label, $title, $icon, $attributes) {
     if(empty($row['type']) || $row['type'] == 'default' || $row['type'] == 'glossar') {
       return '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ';
@@ -576,7 +576,7 @@ class tl_sw_glossar extends Backend {
    */
   public function getSourceOptions(DataContainer $dc)
   {
-    return array('default', 'page', 'internal', 'article', 'external');
+    return array('default_source', 'page', 'internal', 'article', 'external');
   }
 
 

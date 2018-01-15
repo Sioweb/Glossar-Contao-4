@@ -2,8 +2,8 @@
   <file datatype="php" original="system/modules/core/languages/en/default.php" source-language="en" target-language="de">
     <body>
       <trans-unit id="CTE.glossar.0">
-        <source>Glossar</source>
-        <target>Glossar</target>
+        <source>Glossary</source>
+        <target>Glossary</target>
       </trans-unit>
       <trans-unit id="CTE.glossar.1">
         <source>Erzeugt eine Liste mit Glossar-Begriffen.</source>
