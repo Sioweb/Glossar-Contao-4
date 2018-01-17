@@ -1,93 +1,93 @@
 <div id="tl_buttons">
-  <a href="<?php echo ampersand(str_replace('&key=importGlossar', '', \Environment::get('request')));?>" class="header_back" title="<?php echo specialchars($GLOBALS['TL_LANG']['MSC']['backBTTitle']);?>" accesskey="b"><?php echo $GLOBALS['TL_LANG']['MSC']['backBT'];?></a>
+	<a href="<?php echo ampersand(str_replace('&key=importGlossar', '', \Environment::get('request')));?>" class="header_back" title="<?php echo specialchars($GLOBALS['TL_LANG']['MSC']['backBTTitle']);?>" accesskey="b"><?php echo $GLOBALS['TL_LANG']['MSC']['backBT'];?></a>
 </div>
 <h2 class="sub_headline">Import</h2>
 <?php echo $this->messages;?>
 <form action="<?php echo $this->action;?>" id="tl_csv_import" class="tl_form" method="post" enctype="multipart/form-data">
-  <div class="tl_formbody_edit">
-    <input type="hidden" name="FORM_SUBMIT" value="tl_csv_import">
-    <input type="hidden" name="REQUEST_TOKEN" value="<?php echo REQUEST_TOKEN;?>">
-    <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $this->maxFileSize;?>">
-    <input type="hidden" name="update_glossar" value="<?php echo ($this->stage);?>">
+	<div class="tl_formbody_edit">
+		<input type="hidden" name="FORM_SUBMIT" value="tl_csv_import">
+		<input type="hidden" name="REQUEST_TOKEN" value="<?php echo REQUEST_TOKEN;?>">
+		<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $this->maxFileSize;?>">
+		<input type="hidden" name="update_glossar" value="<?php echo ($this->stage);?>">
 
 
-    <?php if($this->stage != 2) {?>
-    <?php if(!empty($this->import['insert']['tl_glossar'])) {?>
-    <?php foreach($this->import['insert'] as $table => $insert) {?>
-    <h3>Tabelle '<?php echo $table;?>' wurde um die folgenden Glossare erweitert:</h3>
-    <div class="tl_box">
-      <?php foreach($this->import['insert']['tl_glossar'] as $key => $insert) {?>
-      <p><span class="glossar_insert_list">- </span><?php echo $insert['title'];?> (<?php echo $insert['alias'];?>)</p>
-      <?php }?>
-    </div>
-    <?php }?>
-    <?php }?>
+		<?php if($this->stage != 2) {?>
+		<?php if(!empty($this->import['insert']['tl_glossar'])) {?>
+		<?php foreach($this->import['insert'] as $table => $insert) {?>
+		<h3>Tabelle '<?php echo $table;?>' wurde um die folgenden Glossare erweitert:</h3>
+		<div class="tl_box">
+			<?php foreach($this->import['insert']['tl_glossar'] as $key => $insert) {?>
+			<p><span class="glossar_insert_list">- </span><?php echo $insert['title'];?> (<?php echo $insert['alias'];?>)</p>
+			<?php }?>
+		</div>
+		<?php }?>
+		<?php }?>
 
-    <?php if(!empty($this->import['update'])) {?>
-    <?php foreach($this->import['update'] as $table => $update) {?>
-    <h3>Folgende Glossare existieren bereits. Wollen sie diese überschreiben?</h3>
-    <div class="tl_box">
-      <div>
-        <input onclick="Backend.toggleCheckboxes(this)" type="checkbox" id="update_glossar_all1" value="">
-        <label for="update_glossar_all1"><b>Alle auswählen</b></label>
-      </div>
-      <?php foreach($this->import['update']['tl_glossar'] as $key => $update) {?>
-      <div>
-        <input id="update_glossar_<?php echo $key;?>" type="checkbox" name="update[]" value="<?php echo $update['alias'];?>">
-        <label for="update_glossar_<?php echo $key;?>"><?php echo $update['title'];?> (<?php echo $update['alias'];?>)</label>
-      </div>
-      <?php }?>
-      <div>
-        <input onclick="Backend.toggleCheckboxes(this)" type="checkbox" id="update_glossar_all2" value="">
-        <label for="update_glossar_all2"><b>Alle auswählen</b></label>
-      </div>
-      <div>
-        <h3><label for="glossar_update_action">Aktion wählen</label></h3>
-        <div class="styled_select tl_select"><span>-</span><b><i></i></b></div><select name="glossar_update_action" id="glossar_update_action" class="tl_select" style="opacity: 0; margin-bottom: 4px;">
-          <option<?php echo ($this->update_action == 0?' selected="selected"':'');?> value="0">Hinzufügen</option>
-          <option<?php echo ($this->update_action == 1 || empty($this->update_action)?' selected="selected"':'');?> value="1">Überschreiben</option>
-          <option<?php echo ($this->update_action == 2?' selected="selected"':'');?> value="2">Neue Begriffe hinzufügen</option>
-          <option<?php echo ($this->update_action == 3?' selected="selected"':'');?> value="3">Alle Begriffe Überschreiben</option>
-        </select>
-      </div>
-    </div>
-    <?php }?>
-
-
-    <?php if(!empty($this->import['insert']['tl_sw_glossar'])) {?>
-    <?php foreach($this->import['insert'] as $table => $insert) {?>
-    <h3>Tabelle '<?php echo $table;?>' wurde um die folgenden Glossare erweitert:</h3>
-    <div class="tl_box">
-      <?php foreach($this->import['insert']['tl_sw_glossar'] as $key => $insert) {?>
-      <p><span class="glossar_insert_list">- </span><?php echo $insert['title'];?> (<?php echo $insert['alias'];?>)</p>
-      <?php }?>
-    </div>
-    <?php }?>
-    <?php }?>
+		<?php if(!empty($this->import['update'])) {?>
+		<?php foreach($this->import['update'] as $table => $update) {?>
+		<h3>Folgende Glossare existieren bereits. Wollen sie diese überschreiben?</h3>
+		<div class="tl_box">
+			<div>
+				<input onclick="Backend.toggleCheckboxes(this)" type="checkbox" id="update_glossar_all1" value="">
+				<label for="update_glossar_all1"><b>Alle auswählen</b></label>
+			</div>
+			<?php foreach($this->import['update']['tl_glossar'] as $key => $update) {?>
+			<div>
+				<input id="update_glossar_<?php echo $key;?>" type="checkbox" name="update[]" value="<?php echo $update['alias'];?>">
+				<label for="update_glossar_<?php echo $key;?>"><?php echo $update['title'];?> (<?php echo $update['alias'];?>)</label>
+			</div>
+			<?php }?>
+			<div>
+				<input onclick="Backend.toggleCheckboxes(this)" type="checkbox" id="update_glossar_all2" value="">
+				<label for="update_glossar_all2"><b>Alle auswählen</b></label>
+			</div>
+			<div>
+				<h3><label for="glossar_update_action">Aktion wählen</label></h3>
+				<div class="styled_select tl_select"><span>-</span><b><i></i></b></div><select name="glossar_update_action" id="glossar_update_action" class="tl_select" style="opacity: 0; margin-bottom: 4px;">
+					<option<?php echo ($this->update_action == 0?' selected="selected"':'');?> value="0">Hinzufügen</option>
+					<option<?php echo ($this->update_action == 1 || empty($this->update_action)?' selected="selected"':'');?> value="1">Überschreiben</option>
+					<option<?php echo ($this->update_action == 2?' selected="selected"':'');?> value="2">Neue Begriffe hinzufügen</option>
+					<option<?php echo ($this->update_action == 3?' selected="selected"':'');?> value="3">Alle Begriffe Überschreiben</option>
+				</select>
+			</div>
+		</div>
+		<?php }?>
 
 
-    <?php } if(empty($this->import)) {?>
-    <div class="tl_tbox">
-      <h3>Source files</h3>
-      <?php echo $this->fields;?>
-      <div>
-        <input type="checkbox" name="glossar_kill_all" id="glossar_kill_all" value="1">
-        <label for="glossar_kill_all">Glossar komplett zurücksetzen.</label>
-        <p class="tl_help tl_tip">Alle Daten werden gelöscht. Mit dieser Option wird die Datenbank aufgeräumt.</p>
-      </div>
-    </div>
-    <?php }?>
-    <?php } else {/* Stage == 1 */ \Message::reset();?>
-    <div><br>
-      <p>Alle Daten wurden erfolgreich aktualisiert!</p>
-      <p><a href="<?php echo ampersand(str_replace(array('&key=importGlossar','do=glossar'), array('','act=glossar&do=maintenance'), \Environment::get('request')));?>"><strong>Glossar-Index aufbauen</strong></a></p>
-    </div>
-    <?php }?>
-  </div>
-  <div class="tl_formbody_submit">
+		<?php if(!empty($this->import['insert']['tl_sw_glossar'])) {?>
+		<?php foreach($this->import['insert'] as $table => $insert) {?>
+		<h3>Tabelle '<?php echo $table;?>' wurde um die folgenden Glossare erweitert:</h3>
+		<div class="tl_box">
+			<?php foreach($this->import['insert']['tl_sw_glossar'] as $key => $insert) {?>
+			<p><span class="glossar_insert_list">- </span><?php echo $insert['title'];?> (<?php echo $insert['alias'];?>)</p>
+			<?php }?>
+		</div>
+		<?php }?>
+		<?php }?>
 
-    <div class="tl_submit_container">
-      <input type="submit" name="save" id="save" class="tl_submit" accesskey="s" value="<?php echo ($this->import['update']?'Update ausführen':'Importieren');?>">
-    </div>
-  </div>
+
+		<?php } if(empty($this->import)) {?>
+		<div class="tl_tbox">
+			<h3>Source files</h3>
+			<?php echo $this->fields;?>
+			<div>
+				<input type="checkbox" name="glossar_kill_all" id="glossar_kill_all" value="1">
+				<label for="glossar_kill_all">Glossar komplett zurücksetzen.</label>
+				<p class="tl_help tl_tip">Alle Daten werden gelöscht. Mit dieser Option wird die Datenbank aufgeräumt.</p>
+			</div>
+		</div>
+		<?php }?>
+		<?php } else {/* Stage == 1 */ \Message::reset();?>
+		<div><br>
+			<p>Alle Daten wurden erfolgreich aktualisiert!</p>
+			<p><a href="<?php echo ampersand(str_replace(array('&key=importGlossar','do=glossar'), array('','act=glossar&do=maintenance'), \Environment::get('request')));?>"><strong>Glossar-Index aufbauen</strong></a></p>
+		</div>
+		<?php }?>
+	</div>
+	<div class="tl_formbody_submit">
+
+		<div class="tl_submit_container">
+			<input type="submit" name="save" id="save" class="tl_submit" accesskey="s" value="<?php echo ($this->import['update']?'Update ausführen':'Importieren');?>">
+		</div>
+	</div>
 </form>

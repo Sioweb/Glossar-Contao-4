@@ -3,9 +3,9 @@
 
 <?php if(!empty($this->pages)) {?>
 <div class="tagcloud">
-  <?php foreach($this->pages as $page) {?>
-  <a data-level="<?php echo $page['level'];?>" data-page="<?php echo $page['id'];?>" href="<?php echo $page['url'];?>" <?php echo ($page['description']?' title="'.$page['description'].'"':'');?> style="font-size:<?php echo $page['weight'];?>em;<?php echo($page['weight'] > 1.5?'font-weight:bold;':'');?>"><?php echo $page['title'];?></a>
-  <?php }?>
+	<?php foreach($this->pages as $page) {?>
+	<a data-level="<?php echo $page['level'];?>" data-page="<?php echo $page['id'];?>" href="<?php echo $page['url'];?>" <?php echo ($page['description']?' title="'.$page['description'].'"':'');?> style="font-size:<?php echo $page['weight'];?>em;<?php echo($page['weight'] > 1.5?'font-weight:bold;':'');?>"><?php echo $page['title'];?></a>
+	<?php }?>
 </div>
 <?php }?>
 

@@ -415,7 +415,7 @@ if(in_array('tags', $this->Config->getActiveModules())) {
     if(is_array($fields)) {
       continue;
     }
-    $fields = str_replace('alias','alias,tags',$fields);
+    $fields = str_replace('alias','alias,tags', $fields);
   }
   unset($fields);
 }
@@ -456,7 +456,7 @@ class tl_sw_glossar extends Backend {
     }
 
     $objAlias = $this->Database->prepare("SELECT id FROM tl_sw_glossar WHERE (id=? OR alias=?) AND pid = ?")
-                   ->execute($dc->id, $varValue,$dc->activeRecord->pid);
+                   ->execute($dc->id, $varValue, $dc->activeRecord->pid);
 
     // Check whether the page alias exists
     if($objAlias->numRows > 1) {

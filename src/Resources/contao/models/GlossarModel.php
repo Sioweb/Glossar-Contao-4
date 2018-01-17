@@ -16,15 +16,15 @@
 if(!class_exists('GlossarModel')) {
 class GlossarModel extends \Model {
 
-  /**
-   * Table name
-   * @var string
-   */
-  protected static $strTable = 'tl_glossar';
+	/**
+	 * Table name
+	 * @var string
+	 */
+	protected static $strTable = 'tl_glossar';
 
-  public static function findAllByAlias($arrAlias,$arrOptions = array()) {
-    $t = static::$strTable;
-    $arrColumns = array("alias IN('".implode("','",$arrAlias)."')");
-    return static::findBy($arrColumns, array(), $arrOptions);
-  }
+	public static function findAllByAlias($arrAlias, $arrOptions = array()) {
+		$t = static::$strTable;
+		$arrColumns = array("alias IN('".implode("','", $arrAlias)."')");
+		return static::findBy($arrColumns, array(), $arrOptions);
+	}
 }}

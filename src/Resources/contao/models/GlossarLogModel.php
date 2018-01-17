@@ -17,9 +17,9 @@
 if(!class_exists('GlossarLogModel')) {
 class GlossarLogModel extends \Model {
 
-  /**
-   * Table name
-   * @var string
-   */
-  protected static $strTable = 'tl_glossar_log';
+	/**
+	 * Table name
+	 * @var string
+	 */
+	protected static $strTable = 'tl_glossar_log';
 }}

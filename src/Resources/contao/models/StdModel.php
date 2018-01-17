@@ -16,20 +16,20 @@
 if(!class_exists('StdModel')) {
 class StdModel {
 
-  private $arrData = array();
+	private $arrData = array();
 
-  public function __get($var) {
-    if(!empty($this->arrData[$var])) {
-      return $this->arrData[$var];
-    }
-    return null;
-  }
+	public function __get($var) {
+		if(!empty($this->arrData[$var])) {
+			return $this->arrData[$var];
+		}
+		return null;
+	}
 
-  public function __set($var,$val) {
-    $this->arrData[$var] = $val;
-  }
+	public function __set($var, $val) {
+		$this->arrData[$var] = $val;
+	}
 
-  public function row() {
-    return $this->arrData;
-  }
+	public function row() {
+		return $this->arrData;
+	}
 }};

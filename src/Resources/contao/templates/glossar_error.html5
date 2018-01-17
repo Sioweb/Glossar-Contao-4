@@ -1,7 +1,5 @@
 <?php if($this->msg):?>
 <?php foreach($this->msg as $mKey => $msg):?>
-<p class="error">
-<?php echo $msg;?>
-</p>
+<p class="error"><?php echo $msg;?></p>
 <?php endforeach;?>
 <?php endif;?>
