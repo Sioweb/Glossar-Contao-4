@@ -150,8 +150,8 @@ $GLOBALS['TL_DCA']['tl_sw_glossar'] = array(
       'exclude'                 => true,
       'filter'                  => true,
       'inputType'               => 'select',
-      'options'                 => array_keys($GLOBALS['glossar']['types']),
-      'reference'               => &$GLOBALS['glossar']['types'],
+      'options'                 => array_keys((array)$GLOBALS['TL_LANG']['glossar']['types']),
+      'reference'               => &$GLOBALS['TL_LANG']['glossar']['types'],
       'eval'                    => array('tl_class'=>'w50 clr long', 'chosen'=>true, 'submitOnChange'=>true),
       'sql'                     => "varchar(64) NOT NULL default ''"
     ),
@@ -275,8 +275,8 @@ $GLOBALS['TL_DCA']['tl_sw_glossar'] = array(
       'label'                   => &$GLOBALS['TL_LANG']['tl_sw_glossar']['strictSearch'],
       'default'                 => 'alias',
       'inputType'               => 'select',
-      'options'                 => array_keys($GLOBALS['glossar']['strictSearch']),
-      'reference'               => &$GLOBALS['glossar']['strictSearch'],
+      'options'                 => array_keys((array)$GLOBALS['TL_LANG']['glossar']['strictSearch']),
+      'reference'               => &$GLOBALS['TL_LANG']['glossar']['strictSearch'],
       'eval'                    => array('tl_class'=>'w50','includeBlankOption'=>true),
       'sql'                     => "varchar(20) NOT NULL default ''"
     ),

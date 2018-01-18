@@ -2,18 +2,40 @@
 	<a class="glossar_show_all" href="<?php echo $this->showAllHref;?>" title="Alle anzeigen">
 		<?php echo $this->showAllLabel;?>
 	</a>
-	<?php foreach($this->alphaPagination as $pKey => $pagination) {?>
-	<?php if($pagination['trueLink']) {?>
-	<a class="alpha_pagination trueLink<?php echo ($pagination['active']?' active':'');?><?php echo !empty($pagination['class'])?' '.$pagination['class']:'';?>" href="<?php echo $pagination['href'];?>" title="<?php echo $pagination['initial'];?>">
-		<?php echo $pagination['initial'];?>
-		<?php if($pagination['trueLink'] && !$pagination['onlyTrueLinks']) {?>
-		<span>*</span>
+	<?php if($this->numericPagination) {?>
+	<div class="glossar_numbers">
+		<?php foreach($this->numericPagination as $pKey => $pagination) {?>
+		<?php if($pagination['trueLink']) {?>
+		<a class="alpha_pagination trueLink<?php echo ($pagination['active']?' active':'');?><?php echo !empty($pagination['class'])?' '.$pagination['class']:'';?>" href="<?php echo $pagination['href'];?>" title="<?php echo $pagination['initial'];?>">
+			<?php echo $pagination['initial'];?>
+			<?php if($pagination['trueLink'] && !$pagination['onlyTrueLinks']) {?>
+			<span>*</span>
+			<?php }?>
+		</a>
+		<?php } else {?>
+		<span class="alpha_pagination<?php echo ($pagination['active']?' active':'');?><?php echo !empty($pagination['class'])?' '.$pagination['class']:'';?>" title="<?php echo $pagination['initial'];?>">
+			<?php echo $pagination['initial'];?>
+		</span>
 		<?php }?>
-	</a>
-	<?php } else {?>
-	<span class="alpha_pagination<?php echo ($pagination['active']?' active':'');?><?php echo !empty($pagination['class'])?' '.$pagination['class']:'';?>" title="<?php echo $pagination['initial'];?>">
-		<?php echo $pagination['initial'];?>
-	</span>
+		<?php }?>
+	</div>
 	<?php }?>
+	<?php if($this->alphaPagination) {?>
+	<div class="glossar_alpha">
+		<?php foreach($this->alphaPagination as $pKey => $pagination) {?>
+		<?php if($pagination['trueLink']) {?>
+		<a class="alpha_pagination trueLink<?php echo ($pagination['active']?' active':'');?><?php echo !empty($pagination['class'])?' '.$pagination['class']:'';?>" href="<?php echo $pagination['href'];?>" title="<?php echo $pagination['initial'];?>">
+			<?php echo $pagination['initial'];?>
+			<?php if($pagination['trueLink'] && !$pagination['onlyTrueLinks']) {?>
+			<span>*</span>
+			<?php }?>
+		</a>
+		<?php } else {?>
+		<span class="alpha_pagination<?php echo ($pagination['active']?' active':'');?><?php echo !empty($pagination['class'])?' '.$pagination['class']:'';?>" title="<?php echo $pagination['initial'];?>">
+			<?php echo $pagination['initial'];?>
+		</span>
+		<?php }?>
+		<?php }?>
+	</div>
 	<?php }?>
 </div>

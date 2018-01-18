@@ -122,8 +122,10 @@ if (in_array('events', \Config::getInstance()->getActiveModules())) {
 	$GLOBALS['TL_HOOKS']['glossarContent']['events'] = array('Sioweb\GlossarEvents','glossarContent');
 }
 
-
-$GLOBALS['glossar'] = array(
+if(empty($GLOBALS['glossar'])) {
+	$GLOBALS['glossar'] = array();
+}
+$GLOBALS['glossar'] = array_merge($GLOBALS['glossar'],array(
 	'css' => array(
 		'maxWidth' => 450,
 		'maxHeight' => 300,
@@ -136,7 +138,7 @@ $GLOBALS['glossar'] = array(
 		'glossar_layer'
 	),
 	'tables' => array('tl_settings','tl_sw_glossar','tl_content','tl_page','tl_glossar','tl_news_archive','tl_faq_category','tl_calendar'),
-);
+));
 
 
 if(\Config::get('enableGlossar') == 1) {

@@ -112,8 +112,8 @@ $GLOBALS['TL_DCA']['tl_settings']['fields']['strictSearch'] = array(
   'label'                   => &$GLOBALS['TL_LANG']['tl_settings']['strictSearch'],
   'default'                 => 'alias',
   'inputType'               => 'select',
-  'options'                 => array_keys((array)$GLOBALS['glossar']['strictSearch']),
-  'reference'               => &$GLOBALS['glossar']['strictSearch'],
+  'options'                 => array_keys((array)$GLOBALS['TL_LANG']['glossar']['strictSearch']),
+  'reference'               => &$GLOBALS['TL_LANG']['glossar']['strictSearch'],
   'eval'                    => array('tl_class'=>'w50 clr long','includeBlankOption'=>true),
   'sql'                     => "varchar(20) NOT NULL default ''"
 );

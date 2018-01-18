@@ -170,7 +170,7 @@ class ContentGlossar extends \ContentElement {
 			}
 		}
 
-		$letters = array();
+		$numbers = $letters = array();
 
 		if($this->addAlphaPagination) {
 			for($c=65;$c<=90;$c++) {
@@ -186,15 +186,33 @@ class ContentGlossar extends \ContentElement {
 			}
 		}
 
+		if($this->addNumericPagination) {
+			for($n=0;$n<10;$n++) {
+				if(($this->addOnlyTrueLinks && in_array(strtolower($n), $filledLetters)) || !$this->addOnlyTrueLinks) {
+					$numbers[] = array(
+						'href' => $this->addToUrl('pag='.strtolower($n).'&amp;alpha=&amp;items=&amp;auto_item='),
+						'initial' => $n,
+						'active'=>(\Input::get('pag') == strtolower($n)),
+						'trueLink'=>(in_array(strtolower($n), $filledLetters)),
+						'onlyTrueLinks'=>$this->addOnlyTrueLinks
+					);
+				}
+			}
+		}
+
 		$letters[0]['class'] = 'first';
 		$letters[count($letters)-1]['class'] = 'last';
 
+		$numbers[0]['class'] = 'first';
+		$numbers[count($numbers)-1]['class'] = 'last';
+		
 		$objPagination = new \FrontendTemplate('glossar_pagination');
 
 		if($objPage) {
 			$objPagination->showAllHref = $this->generateFrontendUrl($objPage->row());
 			$objPagination->showAllLabel = $GLOBALS['TL_LANG']['glossar']['showAllLabel'];
 			$objPagination->alphaPagination = $letters;
+			$objPagination->numericPagination = $numbers;
 			$strAlphaPagination = $objPagination->parse();
 		}
 

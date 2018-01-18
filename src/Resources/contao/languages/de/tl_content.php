@@ -22,6 +22,7 @@ $GLOBALS['TL_LANG']['tl_content']['glossarShowTags'] = array('Auszeichnungen anz
 $GLOBALS['TL_LANG']['tl_content']['glossarShowTagsDetails'] = array('Auszeichnungen in den Details anzeigen','Wählen Sie diese Option, um die Tags auch auf der Detailseite zu verwenden.');
 
 $GLOBALS['TL_LANG']['tl_content']['addAlphaPagination'] = array('Alphabetische Pagination hinzufügen','Eine Pagination bestehend aus A bis Z.');
+$GLOBALS['TL_LANG']['tl_content']['addNumericPagination'] = array('Nummerische Pagination hinzufügen','Eine Pagination bestehend aus 0 bis 9.');
 $GLOBALS['TL_LANG']['tl_content']['addOnlyTrueLinks'] = array('Keine leeren Ziffern','Zeigt nur Buchstaben an, die einem Begriff zugeordner werden können.');
 $GLOBALS['TL_LANG']['tl_content']['paginationPosition'] = array('Position der Paginierung','Erstellt eine Paginierung vor und oder nach der Glossar-Liste.');
 $GLOBALS['TL_LANG']['tl_content']['showAfterChoose'] = array('Einträge erst nach Auswahl der Pagination anzeigen?','Die Einträge werden versteckt, bis eine Ziffer in der Pagination ausgewählt wurde.');
