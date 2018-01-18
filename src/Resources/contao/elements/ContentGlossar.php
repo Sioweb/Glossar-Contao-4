@@ -109,7 +109,7 @@ class ContentGlossar extends \ContentElement {
 
 			$Glossar->reset();
 			while($Glossar->next()) {
-				$initial = substr($Glossar->alias,0,1);
+				$initial = substr(str_replace('id-','',$Glossar->alias),0,1);
 				$filledLetters[] = $initial;
 				if(\Input::get('items') != '' || (!$this->showAfterChoose || !$this->addAlphaPagination) || ($this->addAlphaPagination && $this->showAfterChoose && \Input::get('pag') != '')) {
 					if(\Input::get('pag') == '' || $initial == \Input::get('pag') ) {
