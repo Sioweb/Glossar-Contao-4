@@ -16,7 +16,7 @@
 	<?php if($this->content && $this->link) {?>
 	<p>
 		<a href="<?php echo $this->link;?>" title="<?php echo $this->title;?>">
-			<?php echo $this->glossar['to_article'];?>
+			<?php echo $GLOBALS['glossar']['to_article'];?>
 		</a>
 	</p>
 	<?php }?>

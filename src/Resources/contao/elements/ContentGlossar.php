@@ -62,6 +62,8 @@ class ContentGlossar extends \ContentElement {
 			$this->sortGlossarBy = 'alias';
 		}
 
+		$GlossarAll = \SwGlossarModel::findAll();
+
 		$this->sortGlossarBy = explode('_', $this->sortGlossarBy);
 		$this->sortGlossarBy = $this->sortGlossarBy[0].($this->sortGlossarBy[1] ? ' '.strtoupper($this->sortGlossarBy[1]) : '');
 
@@ -185,8 +187,8 @@ class ContentGlossar extends \ContentElement {
 
 		$this->Template->pagination = '';
 		if(!empty($this->perPage)) {
-			$Glossar->reset();
-			$objPagination = new \Pagination(count($Glossar), $this->perPage);
+			$GlossarAll->reset();
+			$objPagination = new \Pagination(count($GlossarAll), $this->perPage);
 			$this->Template->pagination = $objPagination->generate("\n  ");
 			$this->Template->perPage = $this->perPage;
 		}
