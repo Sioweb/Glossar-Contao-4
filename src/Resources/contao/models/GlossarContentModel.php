@@ -15,21 +15,22 @@
 
 if(!class_exists('GlossarContentModel')) {
 class GlossarContentModel extends ContentModel {
+	public static function findByPidsAndTable($arrPids, $table, $type, $arrOptions = array()) {
+		$t = static::$strTable;
 
-  public static function findByPidsAndTable($arrPids,$table,$type,$arrOptions = array()) {
-    $t = static::$strTable;
+		if(empty($arrPids) || empty($table)) {
+			return array();
+		}
 
-    if(empty($arrPids) || empty($table)) {
-      return array();
-    }
+		$time = \Date::floorToMinute();
 
-    $arrValues = array($table);
-    $arrColumns = array("pid IN('".implode("','",$arrPids)."') AND ptable = ?".($type !== 'all'?' AND type = ?':''));
+		$arrValues = array($table);
+		$arrColumns = array("pid IN('".implode("','", $arrPids)."') AND ptable = ?".($type !== 'all'?' AND type = ?':''));
 
-    if($type !== 'all') {
-      $arrValues[] = $type;
-    }
+		if($type !== 'all') {
+			$arrValues[] = $type;
+		}
 
-    return static::findBy($arrColumns, $arrValues, $arrOptions);
-  }
+		return static::findBy($arrColumns, $arrValues, $arrOptions);
+	}
 }}

@@ -11,14 +11,15 @@
 	</h4>
 	<?php }?>
 	<?php if($this->teaser) {?>
-	<p><?php echo $this->teaser;?></p>
+	<?php echo $this->teaser;?>
+	<?php }?>
 	<?php if($this->content && $this->link) {?>
 	<p>
 		<a href="<?php echo $this->link;?>" title="<?php echo $this->title;?>">
-			<?php echo $GLOBALS['glossar']['to_article'];?>
+			<?php echo $this->glossar['to_article'];?>
 		</a>
 	</p>
-	<?php }}?>
+	<?php }?>
 	<?php if($this->showTags && $this->tags) {?>
 	<ul class="glossar-tags tag-chain">
 		<?php foreach($this->tags as $key => $tag) {?>

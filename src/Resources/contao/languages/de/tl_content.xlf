@@ -1,0 +1,98 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="system/modules/core/languages/en/tl_content.php" source-language="en">
+    <body>
+      <trans-unit id="tl_content.alphapagination_legend">
+        <source>Alphapagination Einstellungen</source>
+        <target>Alphapagination Einstellungen</target>
+      </trans-unit>
+      <trans-unit id="tl_content.glossar.0">
+        <source>Glossar wählen</source>
+        <target>Glossar wählen</target>
+      </trans-unit>
+      <trans-unit id="tl_content.glossar.1">
+        <source>Alle Glossare ausgeben oder nur einen bestimmten</source>
+        <target>Alle Glossare ausgeben oder nur einen bestimmten</target>
+      </trans-unit>
+      <trans-unit id="tl_content.sortGlossarBy.0">
+        <source>Sortieren</source>
+        <target>Sortieren</target>
+      </trans-unit>
+      <trans-unit id="tl_content.sortGlossarBy.1">
+        <source>Gibt an, nach welchen Daten die Ausgabe sortiert werden soll</source>
+        <target>Gibt an, nach welchen Daten die Ausgabe sortiert werden soll</target>
+      </trans-unit>
+      <trans-unit id="tl_content.headlineUnit.0">
+        <source>Überschrift</source>
+        <target>Überschrift</target>
+      </trans-unit>
+      <trans-unit id="tl_content.headlineUnit.1">
+        <source>Welche Art von Überschrift soll verwendet werden</source>
+        <target>Welche Art von Überschrift soll verwendet werden</target>
+      </trans-unit>
+      <trans-unit id="tl_content.termAsHeadline.0">
+        <source>Begriffe als Headline aktivieren</source>
+        <target>Begriffe als Headline aktivieren</target>
+      </trans-unit>
+      <trans-unit id="tl_content.termAsHeadline.1">
+        <source>Die Begriffe werden automatisch als Überschrift eingesetzt</source>
+        <target>Die Begriffe werden automatisch als Überschrift eingesetzt</target>
+      </trans-unit>
+      <trans-unit id="tl_content.glossarShowTags.0">
+        <source>Auszeichnungen anzeigen</source>
+        <target>Auszeichnungen anzeigen</target>
+      </trans-unit>
+      <trans-unit id="tl_content.glossarShowTags.1">
+        <source>Wählen Sie diese Option, um die zu diesen Begriffen zugehörigen Auszeichnungen anzuzeigen</source>
+        <target>Wählen Sie diese Option, um die zu diesen Begriffen zugehörigen Auszeichnungen anzuzeigen</target>
+      </trans-unit>
+      <trans-unit id="tl_content.glossarShowTagsDetails.0">
+        <source>Auszeichnungen in den Details anzeigen</source>
+        <target>Auszeichnungen in den Details anzeigen</target>
+      </trans-unit>
+      <trans-unit id="tl_content.glossarShowTagsDetails.1">
+        <source>Wählen Sie diese Option, um die Tags auch auf der Detailseite zu verwenden</source>
+        <target>Wählen Sie diese Option, um die Tags auch auf der Detailseite zu verwenden</target>
+      </trans-unit>
+      <trans-unit id="tl_content.addAlphaPagination.0">
+        <source>Alphabetische Pagination hinzufügen</source>
+        <target>Alphabetische Pagination hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="tl_content.addAlphaPagination.1">
+        <source>Eine Pagination bestehend aus A bis Z</source>
+        <target>Eine Pagination bestehend aus A bis Z</target>
+      </trans-unit>
+      <trans-unit id="tl_content.addNumericPagination.0">
+        <source>Nummerische Pagination hinzufügen</source>
+        <target>Nummerische Pagination hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="tl_content.addNumericPagination.1">
+        <source>Eine Pagination bestehend aus 0 bis 9</source>
+        <target>Eine Pagination bestehend aus 0 bis 9</target>
+      </trans-unit>
+      <trans-unit id="tl_content.addOnlyTrueLinks.0">
+        <source>Keine leeren Ziffern</source>
+        <target>Keine leeren Ziffern</target>
+      </trans-unit>
+      <trans-unit id="tl_content.addOnlyTrueLinks.1">
+        <source>Zeigt nur Buchstaben an, die einem Begriff zugeordner werden können</source>
+        <target>Zeigt nur Buchstaben an, die einem Begriff zugeordner werden können</target>
+      </trans-unit>
+      <trans-unit id="tl_content.paginationPosition.0">
+        <source>Position der Paginierung</source>
+        <target>Position der Paginierung</target>
+      </trans-unit>
+      <trans-unit id="tl_content.paginationPosition.1">
+        <source>Erstellt eine Paginierung vor und oder nach der Glossar-Liste</source>
+        <target>Erstellt eine Paginierung vor und oder nach der Glossar-Liste</target>
+      </trans-unit>
+      <trans-unit id="tl_content.showAfterChoose.0">
+        <source>Einträge erst nach Auswahl der Pagination anzeigen?</source>
+        <target>Einträge erst nach Auswahl der Pagination anzeigen?</target>
+      </trans-unit>
+      <trans-unit id="tl_content.showAfterChoose.1">
+        <source>Die Einträge werden versteckt, bis eine Ziffer in der Pagination ausgewählt wurde</source>
+        <target>Die Einträge werden versteckt, bis eine Ziffer in der Pagination ausgewählt wurde</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,67 +1,73 @@
 <div id="tl_buttons">
-  <a href="<?php echo ampersand(str_replace('&key=importGlossar', '', \Environment::get('request')));?>" class="header_back" title="<?php echo specialchars($GLOBALS['TL_LANG']['MSC']['backBTTitle']);?>" accesskey="b"><?php echo $GLOBALS['TL_LANG']['MSC']['backBT'];?></a>
+	<a href="<?php echo ampersand(str_replace('&key=importGlossar', '', \Environment::get('request')));?>" class="header_back" title="<?php echo specialchars($GLOBALS['TL_LANG']['MSC']['backBTTitle']);?>" accesskey="b"><?php echo $GLOBALS['TL_LANG']['MSC']['backBT'];?></a>
 </div>
 <?php if($this->lickey == false) {?>
+<div class="tl_listing_container">
 <h2 class="sub_headline_index">Purchase-Version (Statistiken)</h2>
 <form action="<?php echo $this->action;?>" class="tl_form" method="get">
-  <div class="tl_formbody_edit">
-    <p>Die Statistiken sind nur in der Purchase-Version möglich. Die Purchase-Version kann <a href="http://glossar.sioweb.de"><strong>hier erworben werden</strong></a>.</p>
-  </div>
+	<div class="tl_formbody_edit">
+		<p>Die Statistiken sind nur in der Purchase-Version möglich. Die Purchase-Version kann <a href="http://glossar.sioweb.de"><strong>hier erworben werden</strong></a>.</p>
+	</div>
 </form>
+</div>
 <br><br>
 <?php } else {?>
 <h2 class="sub_headline">Statistik</h2>
-<?php echo $this->messages;?>
-<form action="<?php echo $this->action;?>" id="tl_csv_import" class="tl_form" method="post" enctype="multipart/form-data">
-  <div class="tl_formbody_edit">
-    <input type="hidden" name="FORM_SUBMIT" value="tl_csv_import">
-    <input type="hidden" name="REQUEST_TOKEN" value="<?php echo REQUEST_TOKEN;?>">
-    
-    <fieldset id="pal_pro_user" class="tl_tbox">
-      <legend onclick="AjaxRequest.toggleFieldset(this, 'pro_user', 'glossar_log')">Pro Besucher</legend>
-      <div>
-        <h3>Begriffe pro Besuch</h3>
-        <div>Hover: <?php echo $this->stats['load'][0]['sum'];?> / Vollständig geladen: <?php echo $this->stats['close'][0]['sum'];?> / Vorschaufenster geklickt: <?php echo $this->stats['follow'][0]['sum'];?></div>
-        <p class="tl_help tl_tip" title="">Dieser Wert zeigt wie oft Besucher Begriffe geladen haben.</p>
-        <h3>Durchschnitt</h3>
-        <div>Hover: <?php echo $this->stats['load'][0]['avg'];?> / Vollständig geladen: <?php echo $this->stats['close'][0]['avg'];?></div>
-        <p class="tl_help tl_tip" title="">Dieser Wert zeigt wie oft ein Besucher durchschnittlich einen Begriff geladen hat.</p>
-        <h3>Cloud</h3>
-        <div>Klicks: <?php echo $this->stats['load'][0]['sum'];?></div>
-        <p class="tl_help tl_tip" title="">Die Cloud speichert von wo nach wo der Besucher durch das Inhaltselement Glossar-Cloud geführt wurde.</p>
-      </div>
-      <br><br>
-      <p class="tl_info" title="">Es ist generell zu unterscheiden, wie ein Begriff geladen wurde. Vollständig geladen bedeutet, dass der Besucher das Vorschaufenster wieder geschlossen hat.</p>
-      <p class="tl_info" title="">Ein Besucher ist gleichzusetzen mit "Ein Aufruf der Webseite". Ein Mensch kann mehrfach getrackt werden, da jeder Besucher lediglich eine Session besitzt. Es wird nicht getrackt ob ein Besucher erneut die Seite besucht.</p>
-    </fieldset>
-  </div>
-</form>
+	<div class="tl_listing_container">
+	<div class="tl_message">
+		<?php echo $this->messages;?>
+	</div>
+	<form action="<?php echo $this->action;?>" id="tl_csv_import" class="tl_form" method="post" enctype="multipart/form-data">
+		<div class="tl_formbody_edit">
+			<input type="hidden" name="FORM_SUBMIT" value="tl_csv_import">
+			<input type="hidden" name="REQUEST_TOKEN" value="<?php echo REQUEST_TOKEN;?>">
+			
+			<fieldset id="pal_pro_user" class="tl_tbox">
+				<legend onclick="AjaxRequest.toggleFieldset(this, 'pro_user', 'glossar_log')">Pro Besucher</legend>
+				<div>
+					<h3>Begriffe pro Besuch</h3>
+					<div>Hover: <?php echo $this->stats['load'][0]['sum'];?> / Vollständig geladen: <?php echo $this->stats['close'][0]['sum'];?> / Vorschaufenster geklickt: <?php echo $this->stats['follow'][0]['sum'];?></div>
+					<p class="tl_help tl_tip" title="">Dieser Wert zeigt wie oft Besucher Begriffe geladen haben.</p>
+					<h3>Durchschnitt</h3>
+					<div>Hover: <?php echo $this->stats['load'][0]['avg'];?> / Vollständig geladen: <?php echo $this->stats['close'][0]['avg'];?></div>
+					<p class="tl_help tl_tip" title="">Dieser Wert zeigt wie oft ein Besucher durchschnittlich einen Begriff geladen hat.</p>
+					<h3>Cloud</h3>
+					<div>Klicks: <?php echo $this->stats['load'][0]['sum'];?></div>
+					<p class="tl_help tl_tip" title="">Die Cloud speichert von wo nach wo der Besucher durch das Inhaltselement Glossar-Cloud geführt wurde.</p>
+				</div>
+				<br><br>
+				<p class="tl_info" title="">Es ist generell zu unterscheiden, wie ein Begriff geladen wurde. Vollständig geladen bedeutet, dass der Besucher das Vorschaufenster wieder geschlossen hat.</p>
+				<p class="tl_info" title="">Ein Besucher ist gleichzusetzen mit "Ein Aufruf der Webseite". Ein Mensch kann mehrfach getrackt werden, da jeder Besucher lediglich eine Session besitzt. Es wird nicht getrackt ob ein Besucher erneut die Seite besucht.</p>
+			</fieldset>
+		</div>
+	</form>
+</div>
 <div class="tl_listing_container list_view">
 <h2>Begriffe im Detail</h2>
-  <table class="tl_listing">
-    <tbody>
-      <?php foreach($this->terms as $tid => $terms) {?>
-      <?php foreach($terms as $key => $term) {if($key > 10)break;?>
-      <?php if($key === 0) {?>
-      <tr>
-        <td colspan="2" class="tl_folder_tlist"><?php echo $term['term']['title'];?></td>
-      </tr>
-      <?php }?>
-      <tr class="<?php echo ($key%2==0)?'odd':'even';?>" onmouseover="Theme.hoverRow(this,1)" onmouseout="Theme.hoverRow(this,0)">
-        <td class="tl_file_list">
-          <div class="ellipsis">
-              <?php echo ($key<9?'0':'').($key+1);?>.)
-              <span style="color:#b3b3b3;padding-right:3px">[<?php echo date('m.d.Y - H:i',$term['tstamp']);?>]</span>
-              <span<?php echo $term['action']=='close'?' class="tl_green"':''?> style="display: inline-block;width: 100px;">
-                Aktion: <?php echo $term['action'];?>
-              </span>
-              Seite: <?php echo $term['page'];?>
-            </div>
-          </td>
-          <td class="tl_file_list tl_right_nowrap"></td>
-        </tr>
-      <?php }}?>
-    </tbody>
-  </table>
+	<table class="tl_listing">
+		<tbody>
+			<?php foreach($this->terms as $tid => $terms) {?>
+			<?php foreach($terms as $key => $term) {if($key > 10)break;?>
+			<?php if($key === 0) {?>
+			<tr>
+				<td colspan="2" class="tl_folder_tlist"><?php echo $term['term']['title'];?></td>
+			</tr>
+			<?php }?>
+			<tr class="<?php echo ($key%2==0)?'odd':'even';?>" onmouseover="Theme.hoverRow(this,1)" onmouseout="Theme.hoverRow(this,0)">
+				<td class="tl_file_list">
+					<div class="ellipsis">
+							<?php echo ($key<9?'0':'').($key+1);?>.)
+							<span style="color:#b3b3b3;padding-right:3px">[<?php echo date('m.d.Y - H:i', $term['tstamp']);?>]</span>
+							<span<?php echo $term['action']=='close'?' class="tl_green"':''?> style="display: inline-block;width: 100px;">
+								Aktion: <?php echo $term['action'];?>
+							</span>
+							Seite: <?php echo $term['page'];?>
+						</div>
+					</td>
+					<td class="tl_file_list tl_right_nowrap"></td>
+				</tr>
+			<?php }}?>
+		</tbody>
+	</table>
 </div>
 <?php }?>

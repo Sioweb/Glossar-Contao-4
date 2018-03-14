@@ -1,74 +1,82 @@
 
-<div id="tl_maintenance_index" class="maintenance_<?php echo $this->isActive ? 'active' : 'inactive'; ?>">
+<div id="tl_maintenance_glossar" class="maintenance_<?= $this->isActive ? 'active' : 'inactive' ?>">
 
-  <h2 class="sub_headline_index"><?php echo $this->indexHeadline; ?></h2>
+	<h2 class="sub_headline sub_headline_index"><?= $this->indexHeadline ?></h2>
 
-  <?php if ($this->indexMessage): ?>
-    <div class="tl_message">
-      <p class="tl_error"><?php echo $this->indexMessage; ?></p>
-    </div>
-  <?php endif; ?>
+	<?php if ($this->message): ?>
+		<div class="tl_message">
+			<?= $this->message ?>
+		</div>
+	<?php endif; ?>
 
-  <?php if ($this->isRunning): ?>
-    <div id="tl_rebuild_index" class="tl_rebuild_glossar">
-      <p id="index_loading"><?php echo $this->loading; ?></p>
-      <p id="index_complete" style="display:none"><?php echo $this->complete; ?></p>
-      <p style="margin-bottom:0"><?php echo $this->content; ?></p>
-    </div>
+	<?php if ($this->isRunning): ?>
+		<div id="tl_rebuild_index" class="tl_rebuild_glossar">
+			<p id="index_loading"><?= $this->loading ?></p>
+			<p id="index_complete" style="display:none"><?= $this->complete ?></p>
+			<p style="margin-bottom:0"><?= $this->content ?></p>
+		</div>
 
-    <script>
-      window.addEvent('domready', function() {
-        var urls = $$('.tl_rebuild_glossar span'),
-            news_urls = $$('.news_url'),
-            last = urls.length-1, url;
-        urls.each(function(el, i) {
-          var data = {rebuild_glossar:1,time:el.getAttribute('data-time')};
+		<script>
+			window.addEvent('domready', function() {
+				var queue = new Request.Queue({
+					onEnd: function() {
+						$('index_loading').setStyle('display', 'none');
+						$('index_complete').setStyle('display', 'block');
+					},
+					concurrent: 1,
+					stopOnFailure: false
+				});
 
-          data['rebuild_'+el.getAttribute('data-type')+'_glossar'] = 1;
-          el.getAttribute('data-url') && new Request({
-            'url': el.getAttribute('data-url'),
-            data: data,
-            onComplete: function() {
-              el.addClass('tl_green');
-              if (i == last) {
-                $('index_loading').setStyle('display', 'none');
-                $('index_complete').setStyle('display', 'block');
-              }
-            }
-          }).get();
-        });
-      });
-    </script>
+				$$('.tl_rebuild_glossar span').each(function(el, i) {
+					el.getAttribute('data-url') && queue.addRequest(i, new Request({
+						data:{rebuild_glossar:1,time:el.getAttribute('data-time')},
+						onSuccess: function() {
+							el.addClass('tl_green');
+						},
+						onFailure: function(xhr) {
+							el.addClass('tl_red');
+							el.set('text', '[' + xhr.status + '] ' + el.get('text'));
+						},
+						url: el.getAttribute('data-url')
+					}));
+				});
+				Object.values(queue.requests).invoke('get');
+			});
+		</script>
 
-    <form action="<?php echo $this->action; ?>" class="tl_form" method="get">
-      <div class="tl_submit_container">
-        <input type="hidden" name="do" value="maintenance">
-        <input type="submit" id="index" class="tl_submit" value="<?php echo $this->indexContinue; ?>">
-      </div>
-    </form>
+		<form action="<?= $this->action ?>" class="tl_form" method="get">
+			<div class="tl_formbody_submit">
+				<div class="tl_submit_container">
+					<input type="hidden" name="do" value="maintenance">
+					<button type="submit" id="index" class="tl_submit"><?= $this->indexContinue ?></button>
+				</div>
+			</div>
+		</form>
 
-  <?php else: ?>
-    <form action="<?php echo $this->action; ?>" class="tl_form" method="get">
-      <div class="tl_formbody_edit">
-        <input type="hidden" name="act" value="glossar">
-        <input type="hidden" name="do" value="maintenance">
-        <input type="hidden" name="rt" value="<?php echo REQUEST_TOKEN; ?>">
-        <div class="tl_tbox">
-          <h3><label for="ctrl_user"><?php echo $this->indexLabel; ?></label></h3>
-          <select name="user" id="ctrl_user" class="tl_select">
-            <?php foreach ($this->user as $id=>$name): ?>
-              <option value="<?php echo $id; ?>"><?php echo $name; ?></option>
-            <?php endforeach; ?>
-          </select>
-          <?php if ($this->indexHelp): ?>
-            <p class="tl_help tl_tip"><?php echo $this->indexHelp; ?></p>
-          <?php endif; ?>
-        </div>
-      </div>
-      <div class="tl_submit_container">
-        <input type="submit" id="index" class="tl_submit" value="<?php echo $this->indexSubmit; ?>">
-      </div>
-    </form>
-  <?php endif; ?>
+	<?php else: ?>
+		<form action="<?= $this->action ?>" class="tl_form" method="get">
+			<div class="tl_formbody_edit">
+				<input type="hidden" name="act" value="glossar">
+				<input type="hidden" name="do" value="maintenance">
+				<input type="hidden" name="rt" value="<?= REQUEST_TOKEN ?>">
+				<fieldset class="tl_tbox nolegend">
+					<div class="w50">
+						<h3><label for="ctrl_user"><?= $this->indexLabel ?></label></h3>
+						<select name="user" id="ctrl_user" class="tl_select">
+							<?php foreach ($this->user as $id=>$name): ?>
+								<option value="<?= $id ?>"><?= $name ?></option>
+							<?php endforeach; ?>
+						</select>
+						<?php if ($this->indexHelp): ?>
+							<p class="tl_help tl_tip"><?= $this->indexHelp ?></p>
+						<?php endif; ?>
+					</div>
+				</fieldset>
+			</div>
+			<div class="tl_submit_container">
+				<button type="submit" id="index" class="tl_submit"><?= $this->indexSubmit ?></button>
+			</div>
+		</form>
+	<?php endif; ?>
 
 </div>

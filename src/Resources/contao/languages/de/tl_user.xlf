@@ -1,0 +1,30 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="system/modules/news/languages/en/tl_user.php" source-language="en" target-language="de">
+    <body>
+      <trans-unit id="tl_user.glossar_legend">
+        <source>Glossar permissions</source>
+        <target>Glossarrechte</target>
+      </trans-unit>
+      <trans-unit id="tl_user.glossar.0">
+        <source>Allowed glossaries</source>
+        <target>Erlaubte Glossare</target>
+      </trans-unit>
+      <trans-unit id="tl_user.glossar.0">
+        <source>Allowed glossaries</source>
+        <target>Erlaubte Glossare</target>
+      </trans-unit>
+      <trans-unit id="tl_user.glossar.1">
+        <source>Here you can grant access to one or more glossaries.</source>
+        <target>Hier können Sie den Zugriff auf ein oder mehrere Glossaren erlauben.</target>
+      </trans-unit>
+      <trans-unit id="tl_user.glossarp.0">
+        <source>Glossary permissions</source>
+        <target>Glossarrechte</target>
+      </trans-unit>
+      <trans-unit id="tl_user.newp.1">
+        <source>Here you can define the glossary permissions.</source>
+        <target>Hier können Sie die Glossarrechte festlegen.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

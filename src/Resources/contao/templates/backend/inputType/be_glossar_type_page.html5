@@ -1,8 +1,8 @@
 <?php if($this->headline) {?><h3><?php echo $this->headline;?></h3><?php }?>
 <?php if(!empty($this->data['title'])) {?>
 <div class="valid_page">
-  <span class="list">- </span><span class="page"><?php echo $this->data['title'];?></span>
-  [<a href="contao/main.php?do=page&act=edit&id=<?php echo $this->data['id'];?>&rt=<?php echo REQUEST_TOKEN;?>" title="Die Seite in Contao aufrufen.">CMS-Intern</a> |
-  <a href="<?php echo $this->generateFrontendURL($this->data);?>" target="_blank" title="<?php echo $this->data['description'];?>">Webseite</a>]
+	<span class="list">- </span><span class="page"><?php echo $this->data['title'];?></span>
+	[<a href="contao/main.php?do=page&act=edit&id=<?php echo $this->data['id'];?>&rt=<?php echo REQUEST_TOKEN;?>" title="Die Seite in Contao aufrufen.">CMS-Intern</a> |
+	<a href="<?php echo $this->generateFrontendURL($this->data);?>" target="_blank" title="<?php echo $this->data['description'];?>">Webseite</a>]
 </div>
 <?php }?>

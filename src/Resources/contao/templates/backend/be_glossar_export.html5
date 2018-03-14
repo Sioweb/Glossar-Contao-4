@@ -1,61 +1,62 @@
+<?php if($this->lickey) {?>
 <div id="tl_buttons">
-<a href="<?php echo ampersand(str_replace(array('&key=exportGlossar','&key=exportTerms'), array('',''), \Environment::get('request')));?>" class="header_back" title="<?php echo specialchars($GLOBALS['TL_LANG']['MSC']['backBTTitle']);?>" accesskey="b"><?php echo $GLOBALS['TL_LANG']['MSC']['backBT'];?></a>
+	<a href="<?php echo ampersand(str_replace(array('&key=exportGlossar','&key=exportTerms'), array('',''), \Environment::get('request')));?>" class="header_back" title="<?php echo specialchars($GLOBALS['TL_LANG']['MSC']['backBTTitle']);?>" accesskey="b"><?php echo $GLOBALS['TL_LANG']['MSC']['backBT'];?></a>
 </div>
-<div id="tl_maintenance_index" class="maintenance_<?php echo $this->isActive ? 'active' : 'inactive';?>">
+<?php }?>
+<div class="tl_listing_container">
+	<?php if($this->lickey == false) {?>
+	<h2 class="sub_headline_index">Purchase-Version</h2>
+	<form action="<?php echo $this->action;?>" class="tl_form" method="get">
+		<div class="tl_formbody_edit">
+			<p>Der Export von Daten ist nur in der Purchase-Version möglich. Die Purchase-Version kann <a href="http://glossar.sioweb.de"><strong>hier erworben werden</strong></a>.</p>
+		</div>
+	</form>
+	<a href="<?php echo ampersand(str_replace(array('&key=exportGlossar','&key=exportTerms'), array('',''), \Environment::get('request')));?>" class="header_back" title="<?php echo specialchars($GLOBALS['TL_LANG']['MSC']['backBTTitle']);?>">Zurück zum Glossar</a>
+	<br><br>
+	<?php } else {?>
 
-  <?php if($this->lickey == false) {?>
-  <h2 class="sub_headline_index">Purchase-Version</h2>
-  <form action="<?php echo $this->action;?>" class="tl_form" method="get">
-    <div class="tl_formbody_edit">
-      <p>Der Export von Daten ist nur in der Purchase-Version möglich. Die Purchase-Version kann <a href="http://glossar.sioweb.de"><strong>hier erworben werden</strong></a>.</p>
-    </div>
-  </form>
-  <a href="<?php echo ampersand(str_replace(array('&key=exportGlossar','&key=exportTerms'), array('',''), \Environment::get('request')));?>" class="header_back" title="<?php echo specialchars($GLOBALS['TL_LANG']['MSC']['backBTTitle']);?>">Zurück zum Glossar</a>
-  <br><br>
-  <?php } else {?>
+	<h2 class="sub_headline_index"><?php echo $this->headline;?></h2>
 
-  <h2 class="sub_headline_index"><?php echo $this->headline;?></h2>
+	<?php if ($this->glossarMessage) {?>
+	<div class="tl_message">
+		<p class="tl_error"><?= $this->glossarMessage;?></p>
+	</div>
+	<?php }?>
 
-  <?php if ($this->glossarMessage) {?>
-    <div class="tl_message">
-      <p class="tl_error"><?= $this->glossarMessage;?></p>
-    </div>
-  <?php }?>
+	<form action="<?php echo $this->action;?>" class="tl_form" method="get">
+		<div class="tl_formbody_edit">
 
-  <form action="<?php echo $this->action;?>" class="tl_form" method="get">
-    <div class="tl_formbody_edit">
+			<input type="hidden" name="act" value="exportGlossar">
+			<input type="hidden" name="do" value="glossar">
+			<input type="hidden" name="key" value="exportGlossar">
+			<input type="hidden" name="rt" value="<?= REQUEST_TOKEN ?>">
+			<input type="hidden" name="id" value="<?= \Input::get('id'); ?>">
+			<div class="tl_tbox">
 
-      <input type="hidden" name="act" value="exportGlossar">
-      <input type="hidden" name="do" value="glossar">
-      <input type="hidden" name="key" value="exportGlossar">
-      <input type="hidden" name="rt" value="<?= REQUEST_TOKEN ?>">
-      <input type="hidden" name="id" value="<?= \Input::get('id'); ?>">
-      <div class="tl_tbox">
+				<?php /** /?><h3><label for="ctrl_format">Format wählen</label></h3>
+				<select name="format" id="ctrl_format" class="tl_select">
+					<option value="json">JSON</option>
+					<option value="csv">CSV</option>
+					<option value="xml">XML</option>
+				</select>
 
-        <?php /** /?><h3><label for="ctrl_format">Format wählen</label></h3>
-        <select name="format" id="ctrl_format" class="tl_select">
-          <option value="json">JSON</option>
-          <option value="csv">CSV</option>
-          <option value="xml">XML</option>
-        </select>
+				<p class="tl_help tl_tip">Bitte wählen Sie das Format aus, mit der der Exporter Ihre Einträge exportieren soll.</p>
+				<?php /**/?>
 
-        <p class="tl_help tl_tip">Bitte wählen Sie das Format aus, mit der der Exporter Ihre Einträge exportieren soll.</p>
-        <?php /**/?>
+				<h3><label for="ctrl_type">Export filter</label></h3>
+				<select name="glossar_export" id="ctrl_type" class="tl_select">
+					<option value="all">Alles</option>
+					<option value="glossar">Nur Glossar</option>
+					<option value="abbr">Nur Abkürzungen</option>
+				</select>
 
-        <h3><label for="ctrl_type">Export filter</label></h3>
-        <select name="glossar_export" id="ctrl_type" class="tl_select">
-          <option value="all">Alles</option>
-          <option value="glossar">Nur Glossar</option>
-          <option value="abbr">Nur Abkürzungen</option>
-        </select>
+				<p class="tl_help tl_tip">Welche Datentypen sollen exportiert werden.</p>
 
-        <p class="tl_help tl_tip">Welche Datentypen sollen exportiert werden.</p>
-
-      </div>
-    </div>
-    <div class="tl_submit_container">
-      <input type="submit" id="glossar" class="tl_submit" value="<?php echo $this->glossarSubmit;?>">
-    </div>
-  </form>
-  <?php }?>
+			</div>
+		</div>
+		<div class="tl_submit_container">
+			<input type="submit" id="glossar" class="tl_submit" value="<?php echo $this->glossarSubmit;?>">
+		</div>
+	</form>
+	<?php }?>
 </div>

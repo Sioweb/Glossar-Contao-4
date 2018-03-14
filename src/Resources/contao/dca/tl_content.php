@@ -26,12 +26,12 @@ if(Input::get('do') == 'glossar') {
   $GLOBALS['TL_DCA']['tl_content']['list']['sorting']['headerFields'] = array('type','title','jumpTo','tstamp');
 }
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['glossar'] = '{type_legend},type,glossar,sortGlossarBy,termAsHeadline,glossarShowTags,glossarShowTagsDetails;{pagination_legend:hide},addAlphaPagination';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['glossar'] = '{type_legend},type,glossar,sortGlossarBy,termAsHeadline,glossarShowTags,glossarShowTagsDetails;{pagination_legend:hide},perPage;{alphapagination_legend:hide},addAlphaPagination';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['glossar_cloud'] = '{type_legend},type,glossar';
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'addAlphaPagination';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'termAsHeadline';
-$GLOBALS['TL_DCA']['tl_content']['subpalettes']['addAlphaPagination'] = 'showAfterChoose,addOnlyTrueLinks,paginationPosition';
+$GLOBALS['TL_DCA']['tl_content']['subpalettes']['addAlphaPagination'] = 'addNumericPagination,showAfterChoose,addOnlyTrueLinks,paginationPosition';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['termAsHeadline'] = 'headlineUnit';
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['glossar'] = array(
@@ -56,8 +56,8 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['sortGlossarBy'] = array(
 $GLOBALS['TL_DCA']['tl_content']['fields']['headlineUnit'] = array(
   'label'                   => &$GLOBALS['TL_LANG']['tl_content']['headlineUnit'],
   'inputType'               => 'select',
-  'options'                 => array_keys($GLOBALS['glossar']['headlineUnit']),
-  'reference'               => &$GLOBALS['glossar']['headlineUnit'],
+  'options'                 => array_keys((array)$GLOBALS['TL_LANG']['glossar']['headlineUnit']),
+  'reference'               => &$GLOBALS['TL_LANG']['glossar']['headlineUnit'],
   'eval'                    => array('tl_class'=>'w50 clr'),
   'sql'                     => "varchar(20) NOT NULL default ''"
 );
@@ -70,12 +70,19 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['addAlphaPagination'] = array(
   'sql'                     => "char(1) NOT NULL default ''"
 );
 
+$GLOBALS['TL_DCA']['tl_content']['fields']['addNumericPagination'] = array(
+  'label'                   => &$GLOBALS['TL_LANG']['tl_content']['addNumericPagination'],
+  'exclude'                 => true,
+  'inputType'               => 'checkbox',
+  'sql'                     => "char(1) NOT NULL default ''"
+);
+
 $GLOBALS['TL_DCA']['tl_content']['fields']['paginationPosition'] = array(
   'label'                   => &$GLOBALS['TL_LANG']['tl_content']['paginationPosition'],
   'default'                 => 'after',
   'inputType'               => 'select',
-  'options'                 => array_keys($GLOBALS['glossar']['paginationPositions']),
-  'reference'               => &$GLOBALS['glossar']['paginationPositions'],
+  'options'                 => array_keys((array)$GLOBALS['TL_LANG']['glossar']['paginationPositions']),
+  'reference'               => &$GLOBALS['TL_LANG']['glossar']['paginationPositions'],
   'eval'                    => array('tl_class'=>'w50 clr'),
   'sql'                     => "varchar(20) NOT NULL default 'after'"
 );

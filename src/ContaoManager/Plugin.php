@@ -1,6 +1,6 @@
 <?php
 
-namespace Sioweb\Glossar\ContaoManager;
+namespace Sioweb\GlossarBundle\ContaoManager;
 
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
@@ -20,7 +20,7 @@ class Plugin implements BundlePluginInterface
     public function getBundles(ParserInterface $parser)
     {
         return [
-            BundleConfig::create('Sioweb\Glossar\SiowebGlossarBundle')
+            BundleConfig::create('Sioweb\GlossarBundle\SiowebGlossarBundle')
                 ->setLoadAfter(['Contao\CoreBundle\ContaoCoreBundle'])
                 ->setReplace(['siowebglossar']),
         ];

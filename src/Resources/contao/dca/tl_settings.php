@@ -112,8 +112,8 @@ $GLOBALS['TL_DCA']['tl_settings']['fields']['strictSearch'] = array(
   'label'                   => &$GLOBALS['TL_LANG']['tl_settings']['strictSearch'],
   'default'                 => 'alias',
   'inputType'               => 'select',
-  'options'                 => array_keys($GLOBALS['glossar']['strictSearch']),
-  'reference'               => &$GLOBALS['glossar']['strictSearch'],
+  'options'                 => array_keys((array)$GLOBALS['TL_LANG']['glossar']['strictSearch']),
+  'reference'               => &$GLOBALS['TL_LANG']['glossar']['strictSearch'],
   'eval'                    => array('tl_class'=>'w50 clr long','includeBlankOption'=>true),
   'sql'                     => "varchar(20) NOT NULL default ''"
 );
@@ -129,7 +129,7 @@ $GLOBALS['TL_DCA']['tl_settings']['fields']['disableGlossarCache'] = array(
 $GLOBALS['TL_DCA']['tl_settings']['fields']['glossar_archive'] = array(
   'label'                   => &$GLOBALS['TL_LANG']['tl_settings']['glossar_archive'],
   'inputType'               => 'checkboxWizard',
-  'options'                 => array_keys($GLOBALS['TL_HOOKS']['getGlossarPages']),
+  'options'                 => array_keys((array)$GLOBALS['TL_HOOKS']['getGlossarPages']),
   'reference'               => &$GLOBALS['glossar']['glossar_archives'],
   'eval'                    => array('tl_class'=>'w50 clr long','multiple'=>true),
   'sql'                     => "TEXT NULL"

@@ -1,0 +1,15 @@
+<script>var Contao = {request_token: "{{request_token}}",page:"{{page::id}}"};</script>
+<script>(function($,Contao) {$(function() {
+	$('a.glossar,span.glossar').siowebGlossar({
+		<?php /**
+		Achtung: 
+		- waitUntilCloseAfterMouseLeave sollte mindestens 300 Sekunden betragen!
+		- waitUntilOpenAfterMouseEnter ist reine Nutzerfreundlichkeit, bitte keine Popups ohne Ladezeit ausgeben!
+			- Google straft das in Zukunft hart ab!
+		/**/?>
+		contao: Contao,<?php /** Pflichtfeld! */?>
+		layerContainer: 'body',<?php /** In welchem DOM-Element soll das Layer geladen werden? */?>
+		waitUntilCloseAfterMouseLeave: 300,<?php /** Wie lange soll das Fenster nach verlassen offen bleiben? */?>
+		waitUntilOpenAfterMouseEnter: 450,<?php /** Wie lange soll minimum gewartet werden, bis das fenster angezeigt wird? */?>
+	});
+});})(jQuery,Contao);</script>
