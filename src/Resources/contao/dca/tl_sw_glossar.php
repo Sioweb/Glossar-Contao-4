@@ -64,46 +64,45 @@ $GLOBALS['TL_DCA']['tl_sw_glossar'] = array(
       (
         'label'               => &$GLOBALS['TL_LANG']['tl_sw_glossar']['edit'],
         'href'                => 'table=tl_content',
-        'icon'                => 'edit.gif',
-        'button_callback'     => array('tl_sw_glossar', 'editTerm'),
+        'icon'                => 'edit.svg'
       ),
       'editheader' => array
       (
-        'label'               => &$GLOBALS['TL_LANG']['tl_sw_glossar']['editheader'],
+        'label'               => &$GLOBALS['TL_LANG']['tl_sw_glossar']['editmeta'],
         'href'                => 'act=edit',
-        'icon'                => 'header.gif',
+        'icon'                => 'header.svg'
       ),
       'copy' => array
       (
         'label'               => &$GLOBALS['TL_LANG']['tl_sw_glossar']['copy'],
-        'href'                => 'act=copy',
-        'icon'                => 'copy.gif'
-      ),
-      'toggle' => array
-      (
-        'label'               => &$GLOBALS['TL_LANG']['tl_sw_glossar']['toggle'],
-        'icon'                => 'visible.gif',
-        'attributes'          => 'onclick="Backend.getScrollOffset();return AjaxRequest.toggleVisibility(this,%s)"',
-        'button_callback'     => array('tl_sw_glossar', 'toggleIcon')
+        'href'                => 'act=paste&amp;mode=copy',
+        'icon'                => 'copy.svg'
       ),
       'cut' => array
       (
         'label'               => &$GLOBALS['TL_LANG']['tl_sw_glossar']['cut'],
         'href'                => 'act=paste&amp;mode=cut',
-        'icon'                => 'cut.gif'
+        'icon'                => 'cut.svg'
       ),
       'delete' => array
       (
         'label'               => &$GLOBALS['TL_LANG']['tl_sw_glossar']['delete'],
         'href'                => 'act=delete',
-        'icon'                => 'delete.gif',
+        'icon'                => 'delete.svg',
         'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
+      ),
+      'toggle' => array
+      (
+        'label'               => &$GLOBALS['TL_LANG']['tl_sw_glossar']['toggle'],
+        'icon'                => 'visible.svg',
+        'attributes'          => 'onclick="Backend.getScrollOffset();return AjaxRequest.toggleVisibility(this,%s)"',
+        'button_callback'     => array('tl_sw_glossar', 'toggleIcon')
       ),
       'show' => array
       (
         'label'               => &$GLOBALS['TL_LANG']['tl_sw_glossar']['show'],
         'href'                => 'act=show',
-        'icon'                => 'show.gif'
+        'icon'                => 'show.svg'
       )
     )
   ),
@@ -487,28 +486,24 @@ class tl_sw_glossar extends Backend {
    *
    * @return string
    */
-  public function toggleIcon($row, $href, $label, $title, $icon, $attributes)
-  {
-    if (strlen(Input::get('tid')))
-    {
+  public function toggleIcon($row, $href, $label, $title, $icon, $attributes) {
+    if(\strlen(Input::get('tid'))) {
       $this->toggleVisibility(Input::get('tid'), (Input::get('state') == 1), (@func_get_arg(12) ?: null));
       $this->redirect($this->getReferer());
     }
 
     // Check permissions AFTER checking the tid, so hacking attempts are logged
-    // if (!$this->User->hasAccess('tl_sw_glossar::published', 'alexf'))
-    // {
-    //   return '';
-    // }
+    if(!$this->User->hasAccess('tl_sw_glossar::published', 'alexf')) {
+      return '';
+    }
 
     $href .= '&amp;tid='.$row['id'].'&amp;state='.($row['published'] ? '' : 1);
 
-    if (!$row['published'])
-    {
+    if(!$row['published']) {
       $icon = 'invisible.gif';
     }
 
-    return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label, 'data-state="' . ($row['published'] ? 1 : 0) . '"').'</a> ';
+    return '<a href="'.$this->addToUrl($href).'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label, 'data-state="' . ($row['published'] ? 1 : 0) . '"').'</a> ';
   }
 
 
@@ -527,41 +522,93 @@ class tl_sw_glossar extends Backend {
 
     if ($dc)
     {
-      $dc->id = $intId; // see #8043
+      $dc->id = $intId;
     }
 
-    // $this->checkPermission();
+    // Trigger the onload_callback
+    if (\is_array($GLOBALS['TL_DCA']['tl_sw_glossar']['config']['onload_callback']))
+    {
+      foreach ($GLOBALS['TL_DCA']['tl_sw_glossar']['config']['onload_callback'] as $callback)
+      {
+        if (\is_array($callback))
+        {
+          $this->import($callback[0]);
+          $this->{$callback[0]}->{$callback[1]}($dc);
+        }
+        elseif (\is_callable($callback))
+        {
+          $callback($dc);
+        }
+      }
+    }
 
     // Check the field access
-    // if (!$this->User->hasAccess('tl_sw_glossar::published', 'alexf'))
-    // {
-    //   $this->log('Not enough permissions to publish/unpublish news item ID "'.$intId.'"', __METHOD__, TL_ERROR);
-    //   $this->redirect('contao/main.php?act=error');
-    // }
+    if (!$this->User->hasAccess('tl_sw_glossar::published', 'alexf'))
+    {
+      throw new Contao\CoreBundle\Exception\AccessDeniedException('Not enough permissions to publish/unpublish glossar item ID ' . $intId . '.');
+    }
+
+    // Set the current record
+    if ($dc)
+    {
+      $objRow = $this->Database->prepare("SELECT * FROM tl_sw_glossar WHERE id=?")
+                   ->limit(1)
+                   ->execute($intId);
+
+      if ($objRow->numRows)
+      {
+        $dc->activeRecord = $objRow;
+      }
+    }
 
     $objVersions = new Versions('tl_sw_glossar', $intId);
     $objVersions->initialize();
 
     // Trigger the save_callback
-    if (is_array($GLOBALS['TL_DCA']['tl_sw_glossar']['fields']['published']['save_callback']))
+    if (\is_array($GLOBALS['TL_DCA']['tl_sw_glossar']['fields']['published']['save_callback']))
     {
       foreach ($GLOBALS['TL_DCA']['tl_sw_glossar']['fields']['published']['save_callback'] as $callback)
       {
-        if (is_array($callback))
+        if (\is_array($callback))
         {
           $this->import($callback[0]);
-          $blnVisible = $this->{$callback[0]}->{$callback[1]}($blnVisible, ($dc ?: $this));
+          $blnVisible = $this->{$callback[0]}->{$callback[1]}($blnVisible, $dc);
         }
-        elseif (is_callable($callback))
+        elseif (\is_callable($callback))
         {
-          $blnVisible = $callback($blnVisible, ($dc ?: $this));
+          $blnVisible = $callback($blnVisible, $dc);
         }
       }
     }
 
+    $time = time();
+
     // Update the database
-    $this->Database->prepare("UPDATE tl_sw_glossar SET tstamp=". time() .", published='" . ($blnVisible ? '1' : '') . "' WHERE id=?")
+    $this->Database->prepare("UPDATE tl_sw_glossar SET tstamp=$time, published='" . ($blnVisible ? '1' : '') . "' WHERE id=?")
              ->execute($intId);
+
+    if ($dc)
+    {
+      $dc->activeRecord->tstamp = $time;
+      $dc->activeRecord->published = ($blnVisible ? '1' : '');
+    }
+
+    // Trigger the onsubmit_callback
+    if (\is_array($GLOBALS['TL_DCA']['tl_sw_glossar']['config']['onsubmit_callback']))
+    {
+      foreach ($GLOBALS['TL_DCA']['tl_sw_glossar']['config']['onsubmit_callback'] as $callback)
+      {
+        if (\is_array($callback))
+        {
+          $this->import($callback[0]);
+          $this->{$callback[0]}->{$callback[1]}($dc);
+        }
+        elseif (\is_callable($callback))
+        {
+          $callback($dc);
+        }
+      }
+    }
 
     $objVersions->create();
   }

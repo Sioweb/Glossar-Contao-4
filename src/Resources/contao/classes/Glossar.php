@@ -348,7 +348,8 @@ class Glossar extends \Frontend {
 
 	/* InitializeSystem */
 	public function getGlossarTerm() {
-
+		
+		\System::loadLanguageFile('default');
 		if(\Input::post('id')) {
 			$Term = \SwGlossarModel::findByPk(\Input::post('id'));
 		}
@@ -382,7 +383,7 @@ class Glossar extends \Frontend {
 
 			$Log->action = $GAction;
 			$Log->term = $Term->id;
-			$Log->page = \Input::post('objPageUrl');
+			$Log->page = \Input::post('page');
 			$Log->host = $_SERVER['SERVER_NAME'];
 			$Log->language = $_SESSION['TL_LANGUAGE'];
 			$Log->save();

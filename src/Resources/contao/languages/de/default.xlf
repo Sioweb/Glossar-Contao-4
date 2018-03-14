@@ -43,6 +43,11 @@
         <target>Alle anzeigen</target>
       </trans-unit>
       
+      <trans-unit id="glossar.to_article">
+        <source>Details page</source>
+        <target>Detailseite</target>
+      </trans-unit>
+
       <trans-unit id="glossar.sortGlossarBy.id">
         <source>ID aufsteigend</source>
         <target>ID aufsteigend</target>

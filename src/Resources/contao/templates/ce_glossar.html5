@@ -26,6 +26,8 @@ if($this->showTags && !empty($this->tags)) {?>
 <!-- glossar::unignore -->
 <?php }
 
+echo $this->pagination;
+
 if($this->alphaPagination && !$this->content && (empty($this->ppos) || $this->ppos == 'after' || $this->ppos == 'both')) echo $this->alphaPagination;?>
 <?php if($this->content) {?><a href="javascript:history.back();" class="glossar_back"><?php echo $this->back;?></a><?php }?>
 

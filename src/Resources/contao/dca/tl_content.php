@@ -26,7 +26,7 @@ if(Input::get('do') == 'glossar') {
   $GLOBALS['TL_DCA']['tl_content']['list']['sorting']['headerFields'] = array('type','title','jumpTo','tstamp');
 }
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['glossar'] = '{type_legend},type,glossar,sortGlossarBy,termAsHeadline,glossarShowTags,glossarShowTagsDetails;{pagination_legend:hide},addAlphaPagination';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['glossar'] = '{type_legend},type,glossar,sortGlossarBy,termAsHeadline,glossarShowTags,glossarShowTagsDetails;{pagination_legend:hide},perPage;{alphapagination_legend:hide},addAlphaPagination';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['glossar_cloud'] = '{type_legend},type,glossar';
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'addAlphaPagination';

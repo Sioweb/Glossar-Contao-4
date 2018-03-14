@@ -73,34 +73,41 @@ $GLOBALS['TL_DCA']['tl_glossar'] = array(
       (
         'label'               => &$GLOBALS['TL_LANG']['tl_glossar']['edit'],
         'href'                => 'table=tl_sw_glossar',
-        'icon'                => 'edit.gif',
+        'icon'                => 'edit.svg'
       ),
       'editheader' => array
       (
         'label'               => &$GLOBALS['TL_LANG']['tl_glossar']['editheader'],
         'href'                => 'act=edit',
-        'icon'                => 'header.gif',
+        'icon'                => 'header.svg',
+        'button_callback'     => array('tl_glossar', 'editHeader')
       ),
       'copy' => array
       (
         'label'               => &$GLOBALS['TL_LANG']['tl_glossar']['copy'],
         'href'                => 'act=copy',
-        'icon'                => 'copy.gif',
-        'attributes'          => 'onclick="Backend.getScrollOffset()"',
-        'button_callback'     => array('tl_glossar', 'copyPage')
+        'icon'                => 'copy.svg',
+        'button_callback'     => array('tl_glossar', 'copyArchive')
       ),
       'delete' => array
       (
         'label'               => &$GLOBALS['TL_LANG']['tl_glossar']['delete'],
         'href'                => 'act=delete',
-        'icon'                => 'delete.gif',
-        'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
+        'icon'                => 'delete.svg',
+        'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"',
+        'button_callback'     => array('tl_glossar', 'deleteArchive')
+      ),
+      'show' => array
+      (
+        'label'               => &$GLOBALS['TL_LANG']['tl_glossar']['show'],
+        'href'                => 'act=show',
+        'icon'                => 'show.svg'
       ),
       'export' => array
       (
         'label'               => &$GLOBALS['TL_LANG']['MSC']['export'],
         'href'                => 'key=exportTerms',
-        'icon'                => 'theme_export.gif',
+        'icon'                => 'theme_export.svg',
         'class'               => 'header_edit_all',
       )
     )
@@ -246,6 +253,155 @@ $GLOBALS['TL_DCA']['tl_glossar'] = array(
 class tl_glossar extends Backend {
 
   /**
+   * Import the back end user object
+   */
+  public function __construct()
+  {
+    parent::__construct();
+    $this->import('BackendUser', 'User');
+  }
+
+  /**
+   * Check permissions to edit table tl_glossar
+   *
+   * @throws Contao\CoreBundle\Exception\AccessDeniedException
+   */
+  public function checkPermission()
+  {
+    $bundles = System::getContainer()->getParameter('kernel.bundles');
+
+    // HOOK: comments extension required
+    if (!isset($bundles['ContaoCommentsBundle']))
+    {
+      unset($GLOBALS['TL_DCA']['tl_glossar']['fields']['allowComments']);
+    }
+
+    if ($this->User->isAdmin)
+    {
+      return;
+    }
+
+    // Set root IDs
+    if (empty($this->User->news) || !\is_array($this->User->news))
+    {
+      $root = array(0);
+    }
+    else
+    {
+      $root = $this->User->news;
+    }
+
+    $GLOBALS['TL_DCA']['tl_glossar']['list']['sorting']['root'] = $root;
+
+    // Check permissions to add archives
+    if (!$this->User->hasAccess('create', 'glossarp'))
+    {
+      $GLOBALS['TL_DCA']['tl_glossar']['config']['closed'] = true;
+    }
+
+    /** @var Symfony\Component\HttpFoundation\Session\SessionInterface $objSession */
+    $objSession = System::getContainer()->get('session');
+
+    // Check current action
+    switch (Input::get('act'))
+    {
+      case 'create':
+      case 'select':
+        // Allow
+        break;
+
+      case 'edit':
+        // Dynamically add the record to the user profile
+        if (!\in_array(Input::get('id'), $root))
+        {
+          /** @var Symfony\Component\HttpFoundation\Session\Attribute\AttributeBagInterface $objSessionBag */
+          $objSessionBag = $objSession->getBag('contao_backend');
+
+          $arrNew = $objSessionBag->get('new_records');
+
+          if (\is_array($arrNew['tl_glossar']) && \in_array(Input::get('id'), $arrNew['tl_glossar']))
+          {
+            // Add the permissions on group level
+            if ($this->User->inherit != 'custom')
+            {
+              $objGroup = $this->Database->execute("SELECT id, glossar, glossarp FROM tl_user_group WHERE id IN(" . implode(',', array_map('intval', $this->User->groups)) . ")");
+
+              while ($objGroup->next())
+              {
+                $arrGlossarp = StringUtil::deserialize($objGroup->glossarp);
+
+                if (\is_array($arrGlossarp) && \in_array('create', $arrGlossarp))
+                {
+                  $arrGlossar = StringUtil::deserialize($objGroup->glossar, true);
+                  $arrGlossar[] = Input::get('id');
+
+                  $this->Database->prepare("UPDATE tl_user_group SET glossar=? WHERE id=?")
+                           ->execute(serialize($arrGlossar), $objGroup->id);
+                }
+              }
+            }
+
+            // Add the permissions on user level
+            if ($this->User->inherit != 'group')
+            {
+              $objUser = $this->Database->prepare("SELECT glossar, glossarp FROM tl_user WHERE id=?")
+                             ->limit(1)
+                             ->execute($this->User->id);
+
+              $arrGlossarp = StringUtil::deserialize($objUser->glossarp);
+
+              if (\is_array($arrGlossarp) && \in_array('create', $arrGlossarp))
+              {
+                $arrGlossar = StringUtil::deserialize($objUser->glossar, true);
+                $arrGlossar[] = Input::get('id');
+
+                $this->Database->prepare("UPDATE tl_user SET glossar=? WHERE id=?")
+                         ->execute(serialize($arrGlossar), $this->User->id);
+              }
+            }
+
+            // Add the new element to the user object
+            $root[] = Input::get('id');
+            $this->User->glossar = $root;
+          }
+        }
+        // No break;
+
+      case 'copy':
+      case 'delete':
+      case 'show':
+        if (!\in_array(Input::get('id'), $root) || (Input::get('act') == 'delete' && !$this->User->hasAccess('delete', 'glossarp')))
+        {
+          throw new Contao\CoreBundle\Exception\AccessDeniedException('Not enough permissions to ' . Input::get('act') . ' glossar ID ' . Input::get('id') . '.');
+        }
+        break;
+
+      case 'editAll':
+      case 'deleteAll':
+      case 'overrideAll':
+        $session = $objSession->all();
+        if (Input::get('act') == 'deleteAll' && !$this->User->hasAccess('delete', 'glossarp'))
+        {
+          $session['CURRENT']['IDS'] = array();
+        }
+        else
+        {
+          $session['CURRENT']['IDS'] = array_intersect((array) $session['CURRENT']['IDS'], $root);
+        }
+        $objSession->replace($session);
+        break;
+
+      default:
+        if (\strlen(Input::get('act')))
+        {
+          throw new Contao\CoreBundle\Exception\AccessDeniedException('Not enough permissions to ' . Input::get('act') . ' glossars.');
+        }
+        break;
+    }
+  }
+
+
+  /**
    * Auto-generate an article alias if it has not been set yet
    * @param mixed
    * @param \DataContainer
@@ -345,4 +501,59 @@ class tl_glossar extends Backend {
 
     return '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ';
   }
+
+
+  /**
+   * Return the edit header button
+   *
+   * @param array  $row
+   * @param string $href
+   * @param string $label
+   * @param string $title
+   * @param string $icon
+   * @param string $attributes
+   *
+   * @return string
+   */
+  public function editHeader($row, $href, $label, $title, $icon, $attributes)
+  {
+    return $this->User->canEditFieldsOf('tl_glossar') ? '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ' : Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
+  }
+
+
+  /**
+   * Return the copy archive button
+   *
+   * @param array  $row
+   * @param string $href
+   * @param string $label
+   * @param string $title
+   * @param string $icon
+   * @param string $attributes
+   *
+   * @return string
+   */
+  public function copyArchive($row, $href, $label, $title, $icon, $attributes)
+  {
+    return $this->User->hasAccess('create', 'glossarp') ? '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ' : Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
+  }
+
+
+  /**
+   * Return the delete archive button
+   *
+   * @param array  $row
+   * @param string $href
+   * @param string $label
+   * @param string $title
+   * @param string $icon
+   * @param string $attributes
+   *
+   * @return string
+   */
+  public function deleteArchive($row, $href, $label, $title, $icon, $attributes)
+  {
+    return $this->User->hasAccess('delete', 'glossarp') ? '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ' : Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
+  }
+
 }

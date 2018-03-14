@@ -12,6 +12,9 @@
  * @copyright Sascha Weidner, Sioweb
  */
 
+$GLOBALS['TL_PERMISSIONS'][] = 'glossar';
+$GLOBALS['TL_PERMISSIONS'][] = 'glossarp';
+
 if(empty($GLOBALS['tags_extension'])) {
 	$GLOBALS['tags_extension'] = array('sourcetable'=>array());
 }
@@ -166,7 +169,6 @@ if(\Config::get('enableGlossar') == 1) {
 		if(empty($GLOBALS['TL_CONFIG']['disableToolTips'])) {
 			$GLOBALS['TL_JAVASCRIPT'][] = 'web/bundles/siowebglossar/js/glossar.js|static';
 		}
-		$GLOBALS['TL_JQUERY'][] = '<script>var Contao = {request_token: "'.$_SESSION['REQUEST_TOKEN'].'",objPageUrl:"'.$_SERVER['REDIRECT_URL'].'"};</script>';
 	}
 
 	if(Input::post('glossar') == 1) {

@@ -49,6 +49,7 @@ class ContentGlossar extends \ContentElement {
 	
 	public function compile()  {
 		global $objPage;
+		$this->loadLanguageFile('default');
 		$this->loadLanguageFile('glossar_errors');
 		$glossarErrors = array();
 
@@ -64,14 +65,22 @@ class ContentGlossar extends \ContentElement {
 		$this->sortGlossarBy = explode('_', $this->sortGlossarBy);
 		$this->sortGlossarBy = $this->sortGlossarBy[0].($this->sortGlossarBy[1] ? ' '.strtoupper($this->sortGlossarBy[1]) : '');
 
+		$Options = array('order'=>$this->sortGlossarBy);
+		if(\Input::get('page') && $this->perPage) {
+			$Options['limit'] = $this->perPage;
+			$Options['offset'] = $this->perPage*(\Input::get('page')-1);
+		} elseif($this->perPage) {
+			$Options['limit'] = $this->perPage;
+			$Options['offset'] = 0;
+		}
 		if(\Input::get('items') == '') {
 			if(empty($this->glossar)) {
-				$Glossar = \SwGlossarModel::findAll(array('order'=>$this->sortGlossarBy));
+				$Glossar = \SwGlossarModel::findAll($Options);
 			} else {
-				$Glossar = \SwGlossarModel::findByPid($this->glossar,array('order'=>$this->sortGlossarBy));
+				$Glossar = \SwGlossarModel::findByPid($this->glossar,$Options);
 			}
 		} else {
-			$Glossar = \SwGlossarModel::findByAlias(\Input::get('items'),array(),array('order'=>$this->sortGlossarBy));
+			$Glossar = \SwGlossarModel::findByAlias(\Input::get('items'),array(),$Options);
 		}
 
 		/* Gefundene Begriffe durch Links zum Glossar ersetzen */
@@ -116,6 +125,7 @@ class ContentGlossar extends \ContentElement {
 
 						$newGlossarObj = new \FrontendTemplate('glossar_default');
 						$newGlossarObj->setData($Glossar->row());
+						$newGlossarObj->glossar = $GLOBALS['TL_LANG']['glossar'];
 
 						if(!empty($arrTags) && !empty($arrTags[$newGlossarObj->id])) {
 							$newGlossarObj->showTags = $this->glossarShowTags;
@@ -136,13 +146,15 @@ class ContentGlossar extends \ContentElement {
 							if($newGlossarObj->jumpTo) {
 								$link = \PageModel::findByPk($newGlossarObj->jumpTo);
 							}
-
+							$newGlossarObj->content = 1;
 							if($link) {
 								$newGlossarObj->link = $this->generateFrontendUrl($link->row(), ((\Config::get('useAutoItem') && !\Config::get('disableAlias')) ?  '/' : '/items/').$newGlossarObj->alias);
 							}
 						} else {
 							$newGlossarObj->link = false;
 						}
+
+
 
 						if(\Input::get('items') == '') {
 							$arrGlossar[] = $newGlossarObj->parse();
@@ -168,6 +180,15 @@ class ContentGlossar extends \ContentElement {
 					}
 				}
 			}
+		}
+
+
+		$this->Template->pagination = '';
+		if(!empty($this->perPage)) {
+			$Glossar->reset();
+			$objPagination = new \Pagination(count($Glossar), $this->perPage);
+			$this->Template->pagination = $objPagination->generate("\n  ");
+			$this->Template->perPage = $this->perPage;
 		}
 
 		$numbers = $letters = array();
