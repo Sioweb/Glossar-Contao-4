@@ -284,11 +284,11 @@ class Glossar extends \Frontend {
 
 			$ignoredTags = array('a');
 			if(\Config::get('ignoreInTags')) {
-				$ignoredTags = explode(', ', \Config::get('ignoreInTags'));
+				$ignoredTags = explode(',', str_replace(' ','',\Config::get('ignoreInTags')));
 			}
 
 			if($this->term->ignoreInTags) {
-				$ignoredTags = explode(', ', $this->term->ignoreInTags);
+				$ignoredTags = explode(',', str_replace(' ','',$this->term->ignoreInTags));
 			}
 
 			if(\Config::get('strictSearch') !== null && empty($Term->strictSearch)) {
@@ -310,6 +310,10 @@ class Glossar extends \Frontend {
 				}
 
 				$IllegalPlural = html_entity_decode($IllegalPlural);
+
+				if($Term->strictSearch == 1) {
+					$Term->noPlural = true;
+				}
 
 				$plural = preg_replace('/[.]+(?<!\\.)/is', '\\.', $IllegalPlural.(!$Term->noPlural ? $GLOBALS['glossar']['illegal']:'')).'<';
 				$preg_query = '/(?!(?:[^<]+>|[^>]+(<\/'.implode('>|<\/', $ignoredTags).'>)))('.($Term->strictSearch==1||$Term->strictSearch==3?'\b':'') . $Term->title . (!$Term->noPlural?'[^ '.$plural.']*':'') . ($Term->strictSearch==1?'\b':'').')/is';
