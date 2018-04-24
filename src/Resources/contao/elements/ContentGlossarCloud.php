@@ -35,9 +35,8 @@ class ContentGlossarCloud extends \ContentElement {
 	public function generate() {
 		global $objPage;
 
-		$pageGlossar = explode('|', $objPage->glossar);
-		$Page = \PageModel::findBy(array("glossar LIKE '%|".implode("|%' OR glossar LIKE '%|", $pageGlossar)."|%'"),array());
-		
+		$pageGlossar = explode('|', ltrim(rtrim($objPage->glossar,'|'),'|'));
+		$Page = \PageModel::findBy(array("(glossar LIKE '%|".implode("|%' OR glossar LIKE '%|", $pageGlossar)."|%') AND disableGlossarCloud = '' AND disableGlossar = ''"),array());
 		if(empty($Page)) {
 			return;
 		}
@@ -103,6 +102,7 @@ class ContentGlossarCloud extends \ContentElement {
 	}
 
 	public function compile()  {
+		echo $this->glossar_terms;
 		if($this->glossar_terms) {
 			// echo 'Terms: '.$this->glossar_terms;
 		} elseif(\Input::get('items') != '') {
