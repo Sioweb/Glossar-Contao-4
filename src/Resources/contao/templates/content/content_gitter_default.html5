@@ -1,0 +1,8 @@
+<div>
+	<?php foreach($this->licenses as $product => $licenses):?>
+	<h2><?= $product;?></h2>
+	<ul>
+	<?php echo implode("\n",$licenses);?>
+	</ul>
+	<?php endforeach;?>
+</div>

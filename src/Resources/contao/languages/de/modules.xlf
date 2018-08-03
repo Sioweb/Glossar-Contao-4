@@ -1,0 +1,14 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="system/modules/core/languages/en/modules.php" source-language="en">
+    <body>
+      <trans-unit id="MOD.gitter.0">
+        <source>Gitter</source>
+        <target>Gitter</target>
+      </trans-unit>
+      <trans-unit id="MOD.gitter.1">
+        <source>Gitter wird verwendet um Sioweb interne Lizenzen und Tools via Composer zu laden.</source>
+        <target>Gitter wird verwendet um Sioweb interne Lizenzen und Tools via Composer zu laden.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

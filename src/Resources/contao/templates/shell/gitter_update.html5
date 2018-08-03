@@ -1,0 +1,1 @@
+git add -A && git commit -am "New license for <?php echo $this->customer;?> / <?php echo $this->domain;?>" && git push origin master && git tag -a "v<?php echo $this->version;?>.0" -m "New license" && git push --tags

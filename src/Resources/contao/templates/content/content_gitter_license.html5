@@ -1,0 +1,11 @@
+<li>
+	<ul>
+		<li>Domain: <?= $this->domain;?></li>
+		<li>Entwicklungs-Domain: <?= $this->dev_domain;?></li>
+		<?php if(!empty($this->valid)):?><li>Gültig: <?= $this->valid;?></li><?php endif;?>
+		<li>Lizenz: <?= $this->url;?></li>
+		<li>
+			<a href="<?= $this->editLink;?>">Bearbeiten</a>
+		</li>
+	</ul>
+</li>

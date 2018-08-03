@@ -1,0 +1,16 @@
+{
+    "name": "sioweb/<?php echo $this->hash;?>",
+    "type": "project",
+    "description": "Sioweb <?php echo $this->product;?> License",
+    "license": "LGPL-3.0+",
+    "version": "<?php echo $this->version;?>.0",
+    "authors": [
+        {
+            "name": "Sascha Weidner",
+            "homepage": "https://www.sioweb.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Sioweb\\License\\": "src/" }
+    }
+}

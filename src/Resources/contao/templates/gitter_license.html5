@@ -1,0 +1,46 @@
+class <?php echo ucfirst($this->product);?> {
+
+	private $version = <?php echo $this->version;?>;
+	private $system = '<?php echo $this->system;?>';
+	private $customer = '<?php echo $this->customer;?>';
+	private $product = '<?php echo $this->product;?>';
+	private $hash = '<?php echo $this->hash;?>';
+	private $domain = '<?php echo $this->domain;?>';
+	private $dev_domain = '<?php echo $this->dev_domain;?>';
+	private $stop = '<?php echo $this->stop;?>';
+	private $start = '<?php echo $this->start;?>';
+
+	public function checkLocalLicense() {
+		return (
+			$this->checkLicenseDate() &&
+			(
+				(!empty($_SERVER['HTTP_HOST']) && $this->checkLicenseDomain($_SERVER['HTTP_HOST']) === false) ||
+				(!empty($_SERVER['SERVER_NAME']) && $this->checkLicenseDomain($_SERVER['SERVER_NAME']) === false) ||
+				(!empty($_SERVER['REQUEST_URI']) && $this->checkLicenseDomain($_SERVER['REQUEST_URI']) === false)
+			)
+		);
+	}
+
+	private function checkLicenseDomain($strDomain) {
+		$strDomain = str_replace(array('https://','http//','www.'),array('','',''),$strDomain);
+		return ($strDomain === '<?php echo $this->domain;?>' || $strDomain === '<?php echo $this->dev_domain;?>');
+	}
+
+	private function checkLicenseDate() {
+		<?php if(empty($this->start) && empty($this->stop)) {?>
+		return true;
+		<?php } elseif(!empty($this->start) && empty($this->stop)) {?>
+		return (time() >= <?php echo $this->start;?>);
+		<?php } elseif(empty($this->start) && !empty($this->stop)) {?>
+		return (time() <= <?php echo $this->stop;?>);
+		<?php } elseif(!empty($this->start) && !empty($this->stop)) {?>
+		return (time() >= <?php echo $this->start;?> && time() <= <?php echo $this->stop;?>);
+		<?php } else {?>
+		return true;
+		<?php }?>
+	}
+
+	public function get($pVar) {
+		return $this->{$pVar};
+	}
+}
