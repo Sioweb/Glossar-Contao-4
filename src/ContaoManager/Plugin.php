@@ -21,7 +21,7 @@ class Plugin implements BundlePluginInterface
     {
         return [
             BundleConfig::create('Sioweb\GlossarBundle\SiowebGlossarBundle')
-                ->setLoadAfter(['Contao\CoreBundle\ContaoCoreBundle'])
+                ->setLoadAfter(['Contao\CoreBundle\ContaoCoreBundle', 'Contao\CalendarBundle\ContaoCalendarBundle'])
                 ->setReplace(['siowebglossar']),
         ];
     }
