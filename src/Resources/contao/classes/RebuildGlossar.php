@@ -234,14 +234,14 @@ class RebuildGlossar extends \Backend implements \executable {
 			$strHash = sha1(session_id() . (!\Config::get('disableIpCheck') ? \Environment::get('ip') : '') . 'FE_USER_AUTH');
 
 			// Remove old sessions
-			$this->Database->prepare("DELETE FROM tl_session WHERE tstamp<? OR hash=?")
-							 ->execute(($time - \Config::get('sessionTimeout')), $strHash);
+// 			$this->Database->prepare("DELETE FROM tl_session WHERE tstamp<? OR hash=?")
+// 							 ->execute(($time - \Config::get('sessionTimeout')), $strHash);
 
 			// Log in the front end user
 			if(is_numeric(\Input::get('user')) && \Input::get('user') > 0) {
 				// Insert a new session
-				$this->Database->prepare("INSERT INTO tl_session (pid, tstamp, name, sessionID, ip, hash) VALUES (?, ?, ?, ?, ?, ?)")
-								 ->execute(\Input::get('user'), $time, 'FE_USER_AUTH', session_id(), \Environment::get('ip'), $strHash);
+// 				$this->Database->prepare("INSERT INTO tl_session (pid, tstamp, name, sessionID, ip, hash) VALUES (?, ?, ?, ?, ?, ?)")
+// 								 ->execute(\Input::get('user'), $time, 'FE_USER_AUTH', session_id(), \Environment::get('ip'), $strHash);
 
 				// Set the cookie
 				$this->setCookie('FE_USER_AUTH', $strHash, ($time + \Config::get('sessionTimeout')), null, null, false, true);
