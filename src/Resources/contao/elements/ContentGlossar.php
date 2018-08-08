@@ -313,7 +313,7 @@ class ContentGlossar extends \ContentElement {
 		}
 
 		// Notify the author
-		if($objGlossar->notify != 'notify_admin') {
+		if($objGlossar->notify != 'notify_admin' && $objArticle) {
 			/** @var \UserModel $objAuthor */
 			if(($objAuthor = $objArticle->getRelated('author')) !== null && $objAuthor->email != '') {
 				$arrNotifies[] = $objAuthor->email;
