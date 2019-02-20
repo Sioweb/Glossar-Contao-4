@@ -18,6 +18,11 @@
 	<?php else:?>
 	<p><?php echo $this->description;?></p>
 	<?php endif;?>
+
+	<?php if ($this->addImage): ?>
+	<?php $this->insert('image', $this->arrData); ?>
+	<?php endif; ?>
+
 	<?php if($this->link):?>
 	<p><a href="<?php echo $this->link;?>" title="<?php echo $this->title;?>"><?php echo $GLOBALS['glossar']['to_article'];?></a></p>
 	<?php endif;?>
