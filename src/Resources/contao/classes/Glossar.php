@@ -403,6 +403,52 @@ class Glossar extends \Frontend {
 		$termObj->setData($Term->row());
 		$termObj->class = 'ce_glossar_layer';
 
+		
+		// Add an image
+		if ($Term->addImage && $Term->singleSRC != '')
+		{
+			$objModel = \FilesModel::findByUuid($Term->singleSRC);
+
+			if ($objModel !== null && is_file(\System::getContainer()->getParameter('kernel.project_dir') . '/' . $objModel->path))
+			{
+				// Do not override the field now that we have a model registry (see #6303)
+				$arrArticle = $Term->row();
+
+				// Override the default image size
+				if ($this->imgSize != '')
+				{
+					$size = \StringUtil::deserialize($this->imgSize);
+
+					if ($size[0] > 0 || $size[1] > 0 || is_numeric($size[2]))
+					{
+						$arrArticle['size'] = $this->imgSize;
+					}
+				}
+
+				$arrArticle['singleSRC'] = $objModel->path;
+				$this->addImageToTemplate($termObj, $arrArticle, null, null, $objModel);
+
+				// Link to the news article if no image link has been defined (see #30)
+				if (!$termObj->fullsize && !$termObj->imageUrl)
+				{
+					// Unset the image title attribute
+					$picture = $termObj->picture;
+					unset($picture['title']);
+					$termObj->picture = $picture;
+
+					// Link to the news article
+					$termObj->href = $termObj->link;
+					$termObj->linkTitle = \StringUtil::specialchars(sprintf($GLOBALS['TL_LANG']['MSC']['readMore'], $objArticle->headline), true);
+
+					// If the external link is opened in a new window, open the image link in a new window, too (see #210)
+					if ($termObj->source == 'external' && $termObj->target && strpos($termObj->attributes, 'target="_blank"') === false)
+					{
+						$termObj->attributes .= ' target="_blank"';
+					}
+				}
+			}
+		}
+
 		if(!empty($Content)) {
 			if(\Config::get('jumpToGlossar')) {
 				$link = \GlossarPageModel::findByPk(\Config::get('jumpToGlossar'));
