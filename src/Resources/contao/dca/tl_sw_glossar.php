@@ -63,7 +63,7 @@ $GLOBALS['TL_DCA']['tl_sw_glossar'] = array(
       'edit' => array
       (
         'label'               => &$GLOBALS['TL_LANG']['tl_sw_glossar']['edit'],
-        'href'                => 'table=tl_content',
+        'href'                => 'table=tl_sw_glossar',
         'icon'                => 'edit.svg'
       ),
       'editheader' => array
@@ -110,14 +110,15 @@ $GLOBALS['TL_DCA']['tl_sw_glossar'] = array(
   // Palettes
   'palettes' => array
   (
-    '__selector__'                => array('type','source','seo','published'),
-    'default'                     => '{title_legend},type,title,alias;{teaser_legend},teaser;{more_legend},ignoreInTags,maxWidth,maxHeight,strictSearch,date,noPlural,termAsHeadline;{source_legend},source;{seo_legend},seo;{publish_legend},published',
+    '__selector__'                => array('type', 'source', 'seo', 'published', 'addImage'),
+    'default'                     => '{title_legend},type,title,alias;{teaser_legend},teaser;{image_legend},addImage;{more_legend},ignoreInTags,maxWidth,maxHeight,strictSearch,date,noPlural,termAsHeadline;{source_legend},source;{seo_legend},seo;{publish_legend},published',
     'abbr'                        => '{title_legend},type,title,alias,ignoreInTags,explanation;{source_legend},source;{publish_legend},published'
   ),
 
   'subpalettes' => array
   (
     'seo'                 => 'term_in_title_tag,term_description_tag,term_in_title_str_tag',
+		'addImage'            => 'singleSRC,size,floating,imagemargin,fullsize,overwriteMeta',
     'source_page'         => 'jumpTo',
     'source_internal'     => 'jumpTo',
     'source_article'      => 'articleId',
@@ -405,7 +406,112 @@ $GLOBALS['TL_DCA']['tl_sw_glossar'] = array(
       'inputType'               => 'text',
       'eval'                    => array('rgxp'=>'datim', 'datepicker'=>true, 'tl_class'=>'w50 wizard'),
       'sql'                     => "varchar(10) NOT NULL default ''"
-    )
+    ),
+		'addImage' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_sw_glossar']['addImage'],
+			'exclude'                 => true,
+			'inputType'               => 'checkbox',
+			'eval'                    => array('submitOnChange'=>true),
+			'sql'                     => "char(1) NOT NULL default ''"
+		),
+		'overwriteMeta' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_sw_glossar']['overwriteMeta'],
+			'exclude'                 => true,
+			'inputType'               => 'checkbox',
+			'eval'                    => array('submitOnChange'=>true, 'tl_class'=>'w50 clr'),
+			'sql'                     => "char(1) NOT NULL default ''"
+		),
+		'singleSRC' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_sw_glossar']['singleSRC'],
+			'exclude'                 => true,
+			'inputType'               => 'fileTree',
+			'eval'                    => array('filesOnly'=>true, 'fieldType'=>'radio', 'mandatory'=>true, 'tl_class'=>'clr'),
+			'load_callback' => array
+			(
+				array('tl_sw_glossar', 'setSingleSrcFlags')
+			),
+			'sql'                     => "binary(16) NULL"
+		),
+		'alt' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_sw_glossar']['alt'],
+			'exclude'                 => true,
+			'search'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(255) NOT NULL default ''"
+		),
+		'imageTitle' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_sw_glossar']['imageTitle'],
+			'exclude'                 => true,
+			'search'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(255) NOT NULL default ''"
+		),
+		'size' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_sw_glossar']['size'],
+			'exclude'                 => true,
+			'inputType'               => 'imageSize',
+			'reference'               => &$GLOBALS['TL_LANG']['MSC'],
+			'eval'                    => array('rgxp'=>'natural', 'includeBlankOption'=>true, 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'w50'),
+			'options_callback' => function ()
+			{
+				return System::getContainer()->get('contao.image.image_sizes')->getOptionsForUser(BackendUser::getInstance());
+			},
+			'sql'                     => "varchar(64) NOT NULL default ''"
+		),
+		'imagemargin' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_sw_glossar']['imagemargin'],
+			'exclude'                 => true,
+			'inputType'               => 'trbl',
+			'options'                 => $GLOBALS['TL_CSS_UNITS'],
+			'eval'                    => array('includeBlankOption'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(128) NOT NULL default ''"
+		),
+		'imageUrl' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_sw_glossar']['imageUrl'],
+			'exclude'                 => true,
+			'search'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>255, 'dcaPicker'=>true, 'addWizardClass'=>false, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(255) NOT NULL default ''"
+		),
+		'fullsize' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_sw_glossar']['fullsize'],
+			'exclude'                 => true,
+			'inputType'               => 'checkbox',
+			'eval'                    => array('tl_class'=>'w50 m12'),
+			'sql'                     => "char(1) NOT NULL default ''"
+		),
+		'caption' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_sw_glossar']['caption'],
+			'exclude'                 => true,
+			'search'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('maxlength'=>255, 'allowHtml'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(255) NOT NULL default ''"
+		),
+		'floating' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_sw_glossar']['floating'],
+			'default'                 => 'above',
+			'exclude'                 => true,
+			'inputType'               => 'radioTable',
+			'options'                 => array('above', 'left', 'right', 'below'),
+			'eval'                    => array('cols'=>4, 'tl_class'=>'w50'),
+			'reference'               => &$GLOBALS['TL_LANG']['MSC'],
+			'sql'                     => "varchar(32) NOT NULL default ''"
+		),
   )
 );
 
@@ -470,7 +576,7 @@ class tl_sw_glossar extends Backend {
   }
 
   public function listTerms($arrRow) {
-    return '<div class="tl_content_left">' . $arrRow['title'] . '</div>';
+    return '<div class="tl_sw_glossar_left">' . $arrRow['title'] . '</div>';
   }
 
 
@@ -673,4 +779,35 @@ class tl_sw_glossar extends Backend {
 
     return $arrAlias;
   }
+  
+
+	/**
+	 * Dynamically add flags to the "singleSRC" field
+	 *
+	 * @param mixed         $varValue
+	 * @param DataContainer $dc
+	 *
+	 * @return mixed
+	 */
+	public function setSingleSrcFlags($varValue, DataContainer $dc)
+	{
+		if ($dc->activeRecord)
+		{
+			switch ($dc->activeRecord->type)
+			{
+				case 'text':
+				case 'hyperlink':
+				case 'image':
+				case 'accordionSingle':
+					$GLOBALS['TL_DCA'][$dc->table]['fields'][$dc->field]['eval']['extensions'] = Config::get('validImageTypes');
+					break;
+
+				case 'download':
+					$GLOBALS['TL_DCA'][$dc->table]['fields'][$dc->field]['eval']['extensions'] = Config::get('allowedDownload');
+					break;
+			}
+		}
+
+		return $varValue;
+	}
 }
