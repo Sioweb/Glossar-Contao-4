@@ -218,6 +218,104 @@
         <source>Überschreibt den Wert {{page::pageTitle}} durch den manuellen Titel.</source>
         <target>Überschreibt den Wert {{page::pageTitle}} durch den manuellen Titel.</target>
       </trans-unit>
+      
+      
+      <trans-unit id="tl_sw_glossar.addImage.0">
+        <source>Add an image</source>
+        <target>Ein Bild hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.addImage.1">
+        <source>Add an image to the content element.</source>
+        <target>Der Vorschau ein Bild hinzufügen.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.overwriteMeta.0">
+        <source>Overwrite meta data</source>
+        <target>Metadaten überschreiben</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.overwriteMeta.1">
+        <source>Overwrite the meta data from the file manager.</source>
+        <target>Die Metadaten aus der Dateiverwaltung überschreiben.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.singleSRC.0">
+        <source>Source file</source>
+        <target>Quelldatei</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.singleSRC.1">
+        <source>Please select a file or folder from the files directory.</source>
+        <target>Bitte wählen Sie eine Datei oder einen Ordner aus der Dateiübersicht.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.alt.0">
+        <source>Alternate text</source>
+        <target>Alternativer Text</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.alt.1">
+        <source>Here you can enter an alternate text for the image (&lt;em&gt;alt&lt;/em&gt; attribute).</source>
+        <target>Hier können Sie einen alternativen Text für das Bild eingeben (&lt;em&gt;alt&lt;/em&gt;-Attribut).</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.imageTitle.0">
+        <source>Image title</source>
+        <target>Bildtitel</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.imageTitle.1">
+        <source>Here you can enter the image title (&lt;em&gt;title&lt;/em&gt; attribute).</source>
+        <target>Hier können Sie den Titel des Bildes eingeben (&lt;em&gt;title&lt;/em&gt;-Attribut).</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.size.0">
+        <source>Image size</source>
+        <target>Bildgröße</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.size.1">
+        <source>Here you can set the image dimensions and the resize mode.</source>
+        <target>Hier können Sie die Abmessungen des Bildes und den Skalierungsmodus festlegen.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.imagemargin.0">
+        <source>Image margin</source>
+        <target>Bildabstand</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.imagemargin.1">
+        <source>Here you can enter the top, right, bottom and left margin.</source>
+        <target>Hier können Sie den oberen, rechten, unteren und linken Außenabstand eingeben.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.imageUrl.0">
+        <source>Image link target</source>
+        <target>Bildlink-Adresse</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.imageUrl.1">
+        <source>A custom image link target will override the lightbox link, so the image cannot be viewed fullsize anymore.</source>
+        <target>Eine eigene Bildlink-Adresse überschreibt den Lightbox-Link, so dass das Bild nicht mehr in der Großansicht dargestellt werden kann.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.fullsize.0">
+        <source>Full-size view/new window</source>
+        <target>Großansicht/Neues Fenster</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.fullsize.1">
+        <source>Open the full-size image in a lightbox or the link in a new browser window.</source>
+        <target>Großansicht des Bildes in einer Lightbox bzw. den Link in einem neuem Browserfenster öffnen.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.floating.0">
+        <source>Image alignment</source>
+        <target>Bildausrichtung</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.floating.1">
+        <source>Please specify how to align the image.</source>
+        <target>Bitte legen Sie fest, wie das Bild ausgerichtet werden soll.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.caption.0">
+        <source>Image caption</source>
+        <target>Bildunterschrift</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.caption.1">
+        <source>Here you can enter a short text that will be displayed below the image.</source>
+        <target>Hier können Sie einen kurzen Text eingeben, der unterhalb des Bildes angezeigt wird.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.customTpl.0">
+        <source>Custom element template</source>
+        <target>Individuelles Template</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.customTpl.1">
+        <source>Here you can overwrite the default layer template.</source>
+        <target>Hier können Sie das Standard-Template überschreiben.</target>
+      </trans-unit>
 
       <trans-unit id="tl_sw_glossar.tags.0">
         <source>Auszeichnungen</source>
