@@ -1,5 +1,9 @@
 # Glossar für Contao 4
 
+## Update
+
+In den kommenden Tagen, wird ein Update auf Version 2 eingespielt. Die neue Version schließt einige Fehlerquellen und ist optimiert auf den neuen Symfony-Standard. (01.04.2019)
+
 ## Achtung ab Version 1.4
 
 Das Javascript für die Vorschau muss nun im Seitenlayout eingebunden werden!
