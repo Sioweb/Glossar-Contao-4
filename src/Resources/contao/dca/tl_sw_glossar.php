@@ -63,7 +63,7 @@ $GLOBALS['TL_DCA']['tl_sw_glossar'] = array(
       'edit' => array
       (
         'label'               => &$GLOBALS['TL_LANG']['tl_sw_glossar']['edit'],
-        'href'                => 'table=tl_sw_glossar',
+        'href'                => 'table=tl_content',
         'icon'                => 'edit.svg'
       ),
       'editheader' => array
