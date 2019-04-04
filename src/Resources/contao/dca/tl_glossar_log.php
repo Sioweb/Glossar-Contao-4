@@ -19,15 +19,7 @@ $GLOBALS['TL_DCA']['tl_glossar_log'] = array(
   (
     'dataContainer'               => 'Table',
     'switchToEdit'                => true,
-    'enableVersioning'            => true,
-    'sql' => array
-    (
-      'keys' => array
-      (
-        'id' => 'primary',
-        'tid' => 'index'
-      )
-    )
+    'enableVersioning'            => true
   ),
 
   // List
@@ -80,34 +72,20 @@ $GLOBALS['TL_DCA']['tl_glossar_log'] = array(
   // Fields
   'fields' => array
   (
-    'id' => array
-    (
-      'sql'                     => "int(10) unsigned NOT NULL auto_increment"
-    ),
-    'tid' => array
-    (
-      'sql'                     => "int(10) unsigned NOT NULL default '1'"
-    ),
-    'tstamp' => array
-    (
-      'sql'                     => "int(10) unsigned NOT NULL default '0'"
-    ),
     'user' => array
     (
       'label'                   => &$GLOBALS['TL_LANG']['tl_glossar_log']['user'],
       'exclude'                 => true,
       'inputType'               => 'text',
       'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),
-      'sql'                     => "varchar(255) NOT NULL default ''"
     ),
-    'term' => array
+    'pid' => array
     (
       'label'                   => &$GLOBALS['TL_LANG']['tl_glossar_log']['term'],
       'exclude'                 => true,
       'inputType'               => 'text',
       'foreignKey'              => 'tl_sw_glossar.title',
       'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),
-      'sql'                     => "varchar(255) NOT NULL default ''",
       'relation'                => array('type'=>'belongsTo', 'load'=>'eager')
     ),
     'page' => array
@@ -116,7 +94,6 @@ $GLOBALS['TL_DCA']['tl_glossar_log'] = array(
       'exclude'                 => true,
       'inputType'               => 'text',
       'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),
-      'sql'                     => "varchar(255) NOT NULL default ''"
     ),
     'host' => array
     (
@@ -124,7 +101,6 @@ $GLOBALS['TL_DCA']['tl_glossar_log'] = array(
       'exclude'                 => true,
       'inputType'               => 'text',
       'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),
-      'sql'                     => "varchar(255) NOT NULL default ''"
     ),
     'language' => array
     (
@@ -132,7 +108,6 @@ $GLOBALS['TL_DCA']['tl_glossar_log'] = array(
       'exclude'                 => true,
       'inputType'               => 'text',
       'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),
-      'sql'                     => "varchar(255) NOT NULL default ''"
     ),
     'action' => array
     (
@@ -140,7 +115,6 @@ $GLOBALS['TL_DCA']['tl_glossar_log'] = array(
       'exclude'                 => true,
       'inputType'               => 'text',
       'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),
-      'sql'                     => "varchar(255) NOT NULL default ''"
     ),
   )
 );

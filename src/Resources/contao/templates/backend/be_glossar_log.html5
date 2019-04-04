@@ -61,7 +61,7 @@
 							<span<?php echo $term['action']=='close'?' class="tl_green"':''?> style="display: inline-block;width: 100px;">
 								Aktion: <?php echo $term['action'];?>
 							</span>
-							Seite: <?php echo $term['page'];?>
+							Seite: <a href="<?php echo $term['page']['url'];?>" target="_blank"><?php echo $term['page']['title'];?></a>
 						</div>
 					</td>
 					<td class="tl_file_list tl_right_nowrap"></td>

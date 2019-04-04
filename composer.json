@@ -1,8 +1,9 @@
 {
     "name": "sioweb/glossar",
     "type": "contao-bundle",
-    "description": "Glossar for Contao",
+    "description": "Glossar for Contao 4+",
     "license": "MIT",
+    "version": "2.0.6",
     "authors": [
         {
             "name": "Sascha Weidner",
@@ -10,7 +11,17 @@
         }
     ],
     "require": {
-        "contao/core-bundle": "~4.4"
+        "php": ">=7.1",
+        "contao/core-bundle": "^4",
+        "sioweb/maintenance-fix": "*",
+        "doctrine/orm": "^2.6",
+        "doctrine/doctrine-bundle": "^1.6",
+        "doctrine/doctrine-cache-bundle": "^1.2",
+        "doctrine/data-fixtures": "1.0.*",
+        "doctrine/dbal": "~2.4"
+    },
+    "require-dev": {
+        "contao/manager-plugin": "^2.0"
     },
     "conflict": {
         "contao/core": "*",
@@ -18,22 +29,10 @@
     },
     "autoload": {
         "psr-4": {
-            "Sioweb\\GlossarBundle\\": "src/"
-        },
-        "classmap": [
-            "src/Resources/contao/"
-        ],
-        "exclude-from-classmap": [
-            "src/Resources/contao/config/",
-            "src/Resources/contao/dca/",
-            "src/Resources/contao/languages/",
-            "src/Resources/contao/templates/"
-        ]
-    },
-    "config": {
-        "preferred-install": "dist"
+            "Sioweb\\Glossar\\": "src/"
+        }
     },
     "extra": {
-        "contao-manager-plugin": "Sioweb\\GlossarBundle\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "Sioweb\\Glossar\\ContaoManager\\Plugin"
     }
 }

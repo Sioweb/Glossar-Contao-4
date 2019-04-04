@@ -12,7 +12,15 @@
  * @copyright Sascha Weidner, Sioweb
  */
 
-$GLOBALS['TL_DCA']['tl_news_archive']['palettes']['default'] = rtrim($GLOBALS['TL_DCA']['tl_news_archive']['palettes']['default'],';').'{glossar_legend},glossar_disallow';
+/**
+ * Extend default palette
+ */
+Contao\CoreBundle\DataContainer\PaletteManipulator::create()
+	->addLegend('glossar_legend', 'comments_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_AFTER)
+	->addField(array('glossar_disallow'), 'glossar_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
+	->applyToPalette('default', 'tl_news_archive')
+;
+
 $GLOBALS['TL_DCA']['tl_news_archive']['fields']['glossar_disallow'] = array(
 	'label'                   => &$GLOBALS['TL_LANG']['tl_news_archive']['glossar_disallow'],
 	'exclude'                 => true,

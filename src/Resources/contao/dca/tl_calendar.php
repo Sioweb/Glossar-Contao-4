@@ -12,8 +12,15 @@
  * @copyright Sascha Weidner, Sioweb
  */
 
-$Semikolon = substr($GLOBALS['TL_DCA']['tl_calendar']['palettes']['default'],-1);
-$GLOBALS['TL_DCA']['tl_calendar']['palettes']['default'] .= ($Semikolon===';'?'':';').'{glossar_legend},glossar_disallow';
+/**
+ * Extend default palette
+ */
+Contao\CoreBundle\DataContainer\PaletteManipulator::create()
+->addLegend('glossar_legend', 'comments_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_AFTER)
+->addField(array('glossar_disallow'), 'glossar_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
+->applyToPalette('default', 'tl_calendar')
+;
+
 $GLOBALS['TL_DCA']['tl_calendar']['fields']['glossar_disallow'] = array(
 	'label'                   => &$GLOBALS['TL_LANG']['tl_calendar']['glossar_disallow'],
 	'exclude'                 => true,

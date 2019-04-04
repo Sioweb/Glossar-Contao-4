@@ -331,6 +331,11 @@
         <target>Titel</target>
       </trans-unit>
 
+      <trans-unit id="tl_sw_glossar.image_legend">
+        <source>Bild</source>
+        <target>Bild</target>
+      </trans-unit>
+
       <trans-unit id="tl_sw_glossar.teaser_legend">
         <source>Teaser</source>
         <target>Teaser</target>

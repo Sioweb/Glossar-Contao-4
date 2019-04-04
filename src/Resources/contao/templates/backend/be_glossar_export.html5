@@ -46,7 +46,7 @@
 				<h3><label for="ctrl_type">Export filter</label></h3>
 				<select name="glossar_export" id="ctrl_type" class="tl_select">
 					<option value="all">Alles</option>
-					<option value="glossar">Nur Glossar</option>
+					<option value="default">Nur Glossar</option>
 					<option value="abbr">Nur Abkürzungen</option>
 				</select>
 

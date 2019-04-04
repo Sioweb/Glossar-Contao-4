@@ -1,0 +1,49 @@
+# The catch all route must be the last one!
+sioweb_glossar_follow:
+    path: /sioweb/glossar/api/term/follow/{termId}
+    methods: [POST, GET]
+    defaults:
+        _scope: _frontend
+        _token_check: true
+        _controller: "SiowebGlossarBundle:Glossar:registrateFolow"
+    requirements:
+        termId: .+
+
+sioweb_glossar_close:
+    path: /sioweb/glossar/api/term/close/{termId}
+    methods: [POST, GET]
+    defaults:
+        _scope: _frontend
+        _token_check: true
+        _controller: "SiowebGlossarBundle:Glossar:registrateClose"
+    requirements:
+        termId: .+
+
+sioweb_glossar_term_loaded:
+    path: /sioweb/glossar/api/term/load/{termId}
+    methods: [POST, GET]
+    defaults:
+        _scope: _frontend
+        _token_check: true
+        _controller: "SiowebGlossarBundle:Glossar:registrateLoad"
+    requirements:
+        termId: .+
+
+sioweb_glossar_term:
+    path: /sioweb/glossar/api/term/{termId}
+    methods: [GET]
+    defaults:
+        _scope: _frontend
+        _token_check: true
+        _controller: "SiowebGlossarBundle:Glossar:getTerm"
+    requirements:
+        termId: .+
+
+sioweb_glossar_catch_all:
+    path: /sioweb/glossar/{_url_fragment}
+    defaults:
+        _scope: _frontend
+        _token_check: true
+        _controller: "SiowebGlossarBundle:Glossar:index"
+    requirements:
+        _url_fragment: .*

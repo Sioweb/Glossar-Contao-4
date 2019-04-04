@@ -1,0 +1,192 @@
+services:
+    sioweb.glossar.listener.initialize.system:
+        class: Sioweb\Glossar\EventListener\Setup
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@contao.routing.scope_matcher"
+            - "@request_stack"
+        tags:
+            - { name: contao.hook, hook: initializeSystem, method: initializeSystem, priority: -256 }
+    sioweb.glossar.listener.initialize.backend:
+        class: Sioweb\Glossar\EventListener\Setup
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@contao.routing.scope_matcher"
+            - "@request_stack"
+        tags:
+            - { name: contao.hook, hook: initializeSystem, method: initializeBackend, priority: -256 }
+    sioweb.glossar.listener.initialize.frontend:
+        class: Sioweb\Glossar\EventListener\Setup
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@contao.routing.scope_matcher"
+            - "@request_stack"
+        tags:
+            - { name: contao.hook, hook: initializeSystem, method: initializeFrontend, priority: -256 }
+    sioweb.glossar.listener.initialize.glossar:
+        class: Sioweb\Glossar\EventListener\Setup
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@contao.routing.scope_matcher"
+            - "@request_stack"
+        tags:
+            - { name: contao.hook, hook: initializeSystem, method: initializeGlossar, priority: -256 }
+    sioweb.glossar.listener.insert_tags:
+        class: Sioweb\Glossar\EventListener\InsertTags
+        public: true
+        arguments:
+            - "@doctrine.orm.default_entity_manager"
+        tags:
+            - { name: contao.hook, hook: replaceInsertTags }
+    sioweb.glossar.listener.modifyFrontendPage:
+        class: Sioweb\Glossar\EventListener\PageCrawler
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@database_connection"
+            - "@doctrine.orm.default_entity_manager"
+            - "@request_stack"
+        tags:
+            - { name: contao.hook, hook: modifyFrontendPage }
+    sioweb.glossar.listener.tagsourcetable:
+        class: Sioweb\Glossar\EventListener\Tags
+        public: true
+        tags:
+            - { name: contao.hook, hook: tagSourceTable, method: addSourceTable }
+    sioweb.glossar.listener.backend.searchable.pages:
+        class: Sioweb\Glossar\EventListener\Backend
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@sioweb.glossar.license"
+            - "@doctrine.orm.default_entity_manager"
+        tags:
+            - { name: contao.hook, hook: getSearchablePages, method: getSearchablePages }
+    sioweb.glossar.listener.frontend.template:
+        class: Sioweb\Glossar\EventListener\Frontend
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@sioweb.glossar.license"
+            - "@doctrine.orm.default_entity_manager"
+            - "@sioweb.glossar.decorator"
+        tags:
+            - { name: contao.hook, hook: outputFrontendTemplate, method: searchGlossarTerms }
+
+
+    sioweb.glossar.listener.news.clearGlossar:
+        class: Sioweb\Glossar\EventListener\CoreBundles\News
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@database_connection"
+            - "@request_stack"
+        tags:
+            - { name: contao.hook, hook: clearGlossar, method: clearGlossar }
+    sioweb.glossar.listener.news.getGlossarPages:
+        class: Sioweb\Glossar\EventListener\CoreBundles\News
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@database_connection"
+            - "@request_stack"
+        tags:
+            - { name: contao.hook, hook: getGlossarPages, method: generateUrl }
+    sioweb.glossar.listener.news.cacheGlossarTerms:
+        class: Sioweb\Glossar\EventListener\CoreBundles\News
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@database_connection"
+            - "@request_stack"
+        tags:
+            - { name: contao.hook, hook: cacheGlossarTerms, method: cacheGlossarTerms }
+    sioweb.glossar.listener.news.glossarContent:
+        class: Sioweb\Glossar\EventListener\CoreBundles\News
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@database_connection"
+            - "@request_stack"
+        tags:
+            - { name: contao.hook, hook: glossarContent, method: glossarContent }
+
+
+    sioweb.glossar.listener.faq.clearGlossar:
+        class: Sioweb\Glossar\EventListener\CoreBundles\FAQ
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@database_connection"
+            - "@request_stack"
+        tags:
+            - { name: contao.hook, hook: clearGlossar, method: clearGlossar }
+    sioweb.glossar.listener.faq.getGlossarPages:
+        class: Sioweb\Glossar\EventListener\CoreBundles\FAQ
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@database_connection"
+            - "@request_stack"
+        tags:
+            - { name: contao.hook, hook: getGlossarPages, method: generateUrl }
+    sioweb.glossar.listener.faq.cacheGlossarTerms:
+        class: Sioweb\Glossar\EventListener\CoreBundles\FAQ
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@database_connection"
+            - "@request_stack"
+        tags:
+            - { name: contao.hook, hook: cacheGlossarTerms, method: cacheGlossarTerms }
+    sioweb.glossar.listener.faq.glossarContent:
+        class: Sioweb\Glossar\EventListener\CoreBundles\FAQ
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@database_connection"
+            - "@request_stack"
+        tags:
+            - { name: contao.hook, hook: glossarContent, method: glossarContent }
+
+
+    sioweb.glossar.listener.event.clearGlossar:
+        class: Sioweb\Glossar\EventListener\CoreBundles\Events
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@database_connection"
+            - "@request_stack"
+        tags:
+            - { name: contao.hook, hook: clearGlossar, method: clearGlossar }
+    sioweb.glossar.listener.event.getGlossarPages:
+        class: Sioweb\Glossar\EventListener\CoreBundles\Events
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@database_connection"
+            - "@request_stack"
+        tags:
+            - { name: contao.hook, hook: getGlossarPages, method: generateUrl }
+    sioweb.glossar.listener.event.cacheGlossarTerms:
+        class: Sioweb\Glossar\EventListener\CoreBundles\Events
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@database_connection"
+            - "@request_stack"
+        tags:
+            - { name: contao.hook, hook: cacheGlossarTerms, method: cacheGlossarTerms }
+    sioweb.glossar.listener.event.glossarContent:
+        class: Sioweb\Glossar\EventListener\CoreBundles\Events
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@database_connection"
+            - "@request_stack"
+        tags:
+            - { name: contao.hook, hook: glossarContent, method: glossarContent }

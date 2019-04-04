@@ -1,10 +1,25 @@
 <?php
 
-namespace Sioweb\GlossarBundle\ContaoManager;
+/**
+ * Contao Open Source CMS
+ */
 
-use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
+declare (strict_types = 1);
+namespace Sioweb\Glossar\ContaoManager;
+
+use Contao\CalendarBundle\ContaoCalendarBundle;
+use Contao\CoreBundle\ContaoCoreBundle;
+use Contao\FaqBundle\ContaoFaqBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
+use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
+use Contao\ManagerPlugin\Config\ContainerBuilder as PluginContainerBuilder;
+use Contao\ManagerPlugin\Config\ExtensionPluginInterface;
+use Contao\ManagerPlugin\Routing\RoutingPluginInterface;
+use Contao\NewsBundle\ContaoNewsBundle;
+use Sioweb\Glossar\SiowebGlossarBundle;
+use Symfony\Component\Config\Loader\LoaderResolverInterface;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 /**
  * Plugin for the Contao Manager.
@@ -12,17 +27,71 @@ use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
  * @author Sascha Weidner <https://www.sioweb.de>
  */
 
-class Plugin implements BundlePluginInterface
+class Plugin implements BundlePluginInterface, RoutingPluginInterface, ExtensionPluginInterface
 {
+    private $arrLoadAfter = [
+        ContaoCoreBundle::class,
+        ContaoCalendarBundle::class,
+        ContaoFaqBundle::class,
+        ContaoNewsBundle::class
+    ];
+
     /**
      * {@inheritdoc}
      */
     public function getBundles(ParserInterface $parser)
     {
+        $loadAfter = [];
+        foreach($this->arrLoadAfter as $className) {
+            if(class_exists($className)) {
+                $loadAfter[] = $className;
+            }
+        }
+
         return [
-            BundleConfig::create('Sioweb\GlossarBundle\SiowebGlossarBundle')
-                ->setLoadAfter(['Contao\CoreBundle\ContaoCoreBundle', 'Contao\CalendarBundle\ContaoCalendarBundle'])
-                ->setReplace(['siowebglossar']),
+            BundleConfig::create(SiowebGlossarBundle::class)
+                ->setLoadAfter($loadAfter)
+                ->setReplace(['SWGlossar']),
         ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getRouteCollection(LoaderResolverInterface $resolver, KernelInterface $kernel)
+    {
+        return $resolver
+            ->resolve(__DIR__ . '/../Resources/config/routing.yml')
+            ->load(__DIR__ . '/../Resources/config/routing.yml')
+        ;
+    }
+
+    /**
+     * Allows a plugin to override extension configuration.
+     *
+     * @param string           $extensionName
+     * @param array            $extensionConfigs
+     * @param ContainerBuilder $container
+     *
+     * @return array
+     */
+    public function getExtensionConfig($extensionName, array $extensionConfigs, PluginContainerBuilder $container)
+    {
+        if ('doctrine' === $extensionName) {
+            
+            $extensionConfigs[0] = array_merge($extensionConfigs[0], [
+                'orm' => [
+                    'entity_managers' => [
+                        'default' => [
+                            'mappings' => [
+                                'SiowebGlossarBundle' => ''
+                            ]
+                        ]
+                    ]
+                ]
+            ]);
+        }
+
+        return $extensionConfigs;
     }
 }

@@ -1,0 +1,65 @@
+services:
+    sioweb.glossar.license:
+        class: Sioweb\Glossar\Services\License
+        public: true
+        arguments:
+            - "@contao.framework"
+    sioweb.glossar.rebuild:
+        class: Sioweb\Glossar\Services\Rebuild
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@contao.security.frontend_preview_authenticator"
+    sioweb.glossar.purge:
+        class: Sioweb\Glossar\Services\Purge
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@database_connection"
+    sioweb.glossar.import:
+        class: Sioweb\Glossar\Services\Import
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@sioweb.glossar.license"
+            - "@security.token_storage"
+            - "@session"
+    sioweb.glossar.export:
+        class: Sioweb\Glossar\Services\Export
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@sioweb.glossar.license"
+            - "@doctrine.orm.default_entity_manager"
+
+    sioweb.glossar.get.glossar_pages:
+        class: Sioweb\Glossar\Services\GlossarPages
+        public: true
+        arguments:
+            - "@contao.framework"
+
+    sioweb.glossar.decorator:
+        class: Sioweb\Glossar\Services\Decorator
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@sioweb.glossar.license"
+            - "@contao.routing.url_generator"
+            
+    sioweb.glossar.dca.terms:
+        class: Sioweb\Glossar\Dca\Terms
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@security.token_storage"
+            - "@session"
+            - "@doctrine.orm.default_entity_manager"
+            
+    sioweb.glossar.dca.glossar:
+        class: Sioweb\Glossar\Dca\Glossar
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@security.token_storage"
+            - "@session"
+            - "@doctrine.orm.default_entity_manager"

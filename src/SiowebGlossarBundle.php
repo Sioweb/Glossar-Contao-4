@@ -1,8 +1,9 @@
 <?php
 
-namespace Sioweb\GlossarBundle;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+namespace Sioweb\Glossar;
 
+use Sioweb\Glossar\Extension\Extension;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
  * Configures the Contao Glossar bundle.
@@ -11,4 +12,11 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class SiowebGlossarBundle extends Bundle
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function getContainerExtension()
+    {
+        return new Extension();
+    }
 }
