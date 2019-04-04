@@ -9,7 +9,7 @@ services:
         public: true
         arguments:
             - "@contao.framework"
-            - "@contao.security.frontend_preview_authenticator"
+            - "@?contao.security.frontend_preview_authenticator"
     sioweb.glossar.purge:
         class: Sioweb\Glossar\Services\Purge
         public: true
