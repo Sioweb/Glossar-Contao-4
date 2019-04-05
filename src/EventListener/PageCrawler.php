@@ -75,7 +75,7 @@ class PageCrawler
 
         $strContent = str_replace(array('<!-- indexer::stop -->', '<!-- indexer::continue -->'), array('', ''), $strContent);
 
-        $time = Input::get('time');
+        $time = Input::get('time') ?? time();
         $strContent = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $strContent);
         $strContent = preg_replace('#<style(.*?)>(.*?)</style>#is', '', $strContent);
 
@@ -97,7 +97,7 @@ class PageCrawler
             if (isset($GLOBALS['TL_HOOKS']['beforeGlossarTags']) && is_array($GLOBALS['TL_HOOKS']['beforeGlossarTags'])) {
                 foreach ($GLOBALS['TL_HOOKS']['beforeGlossarTags'] as $type => $callback) {
                     $this->{$callback[0]} = System::importStatic($callback[0]);
-                    $strContent = $this->{$callback[0]}->{$callback[1]}($strContent, $strTemplate);
+                    $strContent = $this->{$callback[0]}->{$callback[1]}($strContent);
                 }
             }
 
@@ -106,7 +106,7 @@ class PageCrawler
             if (isset($GLOBALS['TL_HOOKS']['afterGlossarTags']) && is_array($GLOBALS['TL_HOOKS']['afterGlossarTags'])) {
                 foreach ($GLOBALS['TL_HOOKS']['afterGlossarTags'] as $type => $callback) {
                     $this->{$callback[0]} = System::importStatic($callback[0]);
-                    $strContent = $this->{$callback[0]}->{$callback[1]}($strContent, $strTemplate);
+                    $strContent = $this->{$callback[0]}->{$callback[1]}($strContent);
                 }
             }
         }

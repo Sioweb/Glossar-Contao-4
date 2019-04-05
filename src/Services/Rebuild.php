@@ -40,7 +40,7 @@ class Rebuild implements ExecutableInterface
 
     private $authenticator;
 
-    public function __construct(ContaoFramework $framework, FrontendPreviewAuthenticator $frontendAuthenticator) {
+    public function __construct(ContaoFramework $framework, FrontendPreviewAuthenticator $frontendAuthenticator = null) {
         $framework->initialize();
         $this->Database = System::importStatic('Database');
         $this->authenticator = $frontendAuthenticator;
@@ -111,24 +111,42 @@ class Rebuild implements ExecutableInterface
                 }
             }
 
-			$strUser = \Input::get('user');
+            if ($this->authenticator === null) { // Contao 4.4
+                // Calculate the hash
+                $strHash = System::getSessionHash('FE_USER_AUTH');
+                System::setCookie('FE_PREVIEW', 0, ($time - 86400), null, null, Environment::get('ssl'), true);
+            }
+
+			$strUser = Input::get('user');
 
 			// Log in the front end user
 			if (is_numeric($strUser) && $strUser > 0 && isset($arrUser[$strUser]))
 			{
-				$objUser = $this->Database->prepare("SELECT username FROM tl_member WHERE id=?")
-										  ->execute($strUser);
+                if ($this->authenticator === null) { // Contao 4.4
+                    // Insert a new session
+                    $this->Database->prepare("INSERT INTO tl_session (pid, tstamp, name, sessionID, ip, hash) VALUES (?, ?, ?, ?, ?, ?)")
+                        ->execute($strUser, $time, 'FE_USER_AUTH', System::getContainer()->get('session')->getId(), Environment::get('ip'), $strHash);
 
-				if (!$objUser->numRows || !$this->authenticator->authenticateFrontendUser($objUser->username, false))
-				{
-					$this->authenticator->removeFrontendAuthentication();
-				}
+                    // Set the cookie
+                    System::setCookie('FE_USER_AUTH', $strHash, ($time + Config::get('sessionTimeout')), null, null, Environment::get('ssl'), true);
+                } else { // Contao 4.5+
+                    $objUser = $this->Database->prepare("SELECT username FROM tl_member WHERE id=?")
+                                            ->execute($strUser);
+
+                    if (!$objUser->numRows || !$this->authenticator->authenticateFrontendUser($objUser->username, false))
+                    {
+                        $this->authenticator->removeFrontendAuthentication();
+                    }
+                }
 			}
-
-			// Log out the front end user
 			else
 			{
-				$this->authenticator->removeFrontendAuthentication();
+                if ($this->authenticator === null) { // Contao 4.4
+                    System::setCookie('FE_USER_AUTH', $strHash, ($time - 86400), null, null, Environment::get('ssl'), true);
+                    System::setCookie('FE_AUTO_LOGIN', Input::cookie('FE_AUTO_LOGIN'), ($time - 86400), null, null, Environment::get('ssl'), true);
+                } else { // Contao 4.5+
+                    $this->authenticator->removeFrontendAuthentication();
+                }
 			}
 
             $strBuffer = '';

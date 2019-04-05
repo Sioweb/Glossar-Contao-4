@@ -60,9 +60,15 @@ class Setup
         $GLOBALS['TL_PERMISSIONS'][] = 'glossar';
         $GLOBALS['TL_PERMISSIONS'][] = 'glossarp';
 
-        array_insert($GLOBALS['TL_MAINTENANCE_EXTENDED'], 1, [
-            'sioweb.glossar.rebuild',
-        ]);
+        if(VERSION < 4.7 || (VERSION == 4.7 && BUILD < 2)) {
+            array_insert($GLOBALS['TL_MAINTENANCE_EXTENDED'], 1, [
+                (VERSION < 4.6 ? 'Sioweb\Glossar\Polyfill\Contao44\Services\Rebuild' : 'sioweb.glossar.rebuild')
+            ]);
+        } else {
+            array_insert($GLOBALS['TL_MAINTENANCE'], 1, [
+                'Sioweb\Glossar\Polyfill\Contao44\Services\Rebuild',
+            ]);
+        }
 
         if (empty($GLOBALS['TL_HOOKS']['getGlossarPages'])) {
             $GLOBALS['TL_HOOKS']['getGlossarPages'] = [];
