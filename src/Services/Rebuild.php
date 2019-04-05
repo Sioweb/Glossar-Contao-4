@@ -92,6 +92,7 @@ class Rebuild implements ExecutableInterface
             if (!empty($InactiveArchives)) {
                 $InactiveArchives = array_flip($InactiveArchives);
             }
+
             if (isset($GLOBALS['TL_HOOKS']['getGlossarPages']) && is_array($GLOBALS['TL_HOOKS']['getGlossarPages'])) {
                 foreach ($GLOBALS['TL_HOOKS']['getGlossarPages'] as $type => $callback) {
                     if (in_array($type, $InactiveArchives)) {
@@ -111,13 +112,26 @@ class Rebuild implements ExecutableInterface
                 }
             }
 
+            $arrUser = array('' => '-');
+    
+            // Get active front end users
+            $objUser = $this->Database->execute("SELECT id, username FROM tl_member WHERE disable!=1 AND (start='' OR start<$time) AND (stop='' OR stop>$time) ORDER BY username");
+    
+            while ($objUser->next()) {
+                $arrUser[$objUser->id] = $objUser->username . ' (' . $objUser->id . ')';
+            }
+
             if ($this->authenticator === null) { // Contao 4.4
                 // Calculate the hash
                 $strHash = System::getSessionHash('FE_USER_AUTH');
                 System::setCookie('FE_PREVIEW', 0, ($time - 86400), null, null, Environment::get('ssl'), true);
+                
+                // Remove old sessions
+                $this->Database->prepare("DELETE FROM tl_session WHERE tstamp<? OR hash=?")
+                    ->execute(($time - \Config::get('sessionTimeout')), $strHash);
             }
 
-			$strUser = Input::get('user');
+            $strUser = Input::get('user');
 
 			// Log in the front end user
 			if (is_numeric($strUser) && $strUser > 0 && isset($arrUser[$strUser]))
@@ -138,9 +152,8 @@ class Rebuild implements ExecutableInterface
                         $this->authenticator->removeFrontendAuthentication();
                     }
                 }
-			}
-			else
-			{
+			} else {
+                // Log out the front end user
                 if ($this->authenticator === null) { // Contao 4.4
                     System::setCookie('FE_USER_AUTH', $strHash, ($time - 86400), null, null, Environment::get('ssl'), true);
                     System::setCookie('FE_AUTO_LOGIN', Input::cookie('FE_AUTO_LOGIN'), ($time - 86400), null, null, Environment::get('ssl'), true);
@@ -171,15 +184,6 @@ class Rebuild implements ExecutableInterface
             $objTemplate->isRunning = true;
 
             return $objTemplate->parse();
-        }
-
-        $arrUser = array('' => '-');
-
-        // Get active front end users
-        $objUser = $this->Database->execute("SELECT id, username FROM tl_member WHERE disable!=1 AND (start='' OR start<$time) AND (stop='' OR stop>$time) ORDER BY username");
-
-        while ($objUser->next()) {
-            $arrUser[$objUser->id] = $objUser->username . ' (' . $objUser->id . ')';
         }
 
         // Default variables

@@ -103,6 +103,18 @@ class GlossarController extends Controller
                 $link = GlossarPageModel::findByPk($termObj->jumpTo);
                 $termObj->link = $link->getAbsoluteUrl('/' . $termObj->alias);
             }
+        } elseif (!empty($termObj->teaser) && Config::get('acceptTeasersAsContent')) {
+            if (!$termObj->jumpTo || $termObj->source != 'page') {
+                $termObj->jumpTo = Config::get('jumpToGlossar');
+            }
+
+            if ($termObj->jumpTo) {
+                $link = GlossarPageModel::findByPk($termObj->jumpTo);
+            }
+            $termObj->content = 1;
+            if ($link) {
+                $termObj->link = $link->getAbsoluteUrl('/' . $termObj->alias);
+            }
         }
 
         echo json_encode(array('content' => ContaoController::replaceInsertTags($termObj->parse(), false)));

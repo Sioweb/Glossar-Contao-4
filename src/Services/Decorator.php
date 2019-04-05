@@ -70,7 +70,23 @@ class Decorator
             if (
                 ((!$this->term->source || $this->term->source === 'default') && !Config::get('jumpToGlossar')) || (empty($Content) && empty(Config::get('disableToolTips')))
             ) {
-                $replaceFunction = 'replaceTitle2Span';
+                if (!empty($Content) || (!empty($Term->getTeaser()) && Config::get('acceptTeasersAsContent'))) {
+                    $replaceFunction = 'replaceTitle2Link';
+
+                    if (!$this->term->jumpTo || $this->term->source != 'page') {
+                        $this->term->jumpTo = Config::get('jumpToGlossar');
+                    }
+
+                    if ($this->term->jumpTo) {
+                        $link = \PageModel::findByPk($this->term->jumpTo);
+                    }
+                    $this->term->content = 1;
+                    if ($link) {
+                        $this->term->link = $link->getAbsoluteUrl('/' . $this->term->alias);
+                    }
+                } else {
+                    $replaceFunction = 'replaceTitle2Span';
+                }
             }
 
             $ignoredTags = array('a');
@@ -286,15 +302,19 @@ class Decorator
                 }
                 break;
             default:
-                $link = '';
-                if (Config::get('jumpToGlossar')) {
-                    $link = GlossarPageModel::findByPk(Config::get('jumpToGlossar'));
-                }
-                if ($link) {
-                    $link = $link->getAbsoluteUrl('/'.$this->term->alias);
-                }
-                if ($link !== '') {
-                    self::$arrUrlCache[$strCacheKey] = $link;
+                if (!empty($this->term->link)) {
+                    self::$arrUrlCache[$strCacheKey] = $this->term->link; 
+                } else {
+                    $link = '';
+                    if (Config::get('jumpToGlossar')) {
+                        $link = GlossarPageModel::findByPk(Config::get('jumpToGlossar'));
+                    }
+                    if ($link) {
+                        $link = $link->getAbsoluteUrl('/'.$this->term->alias);
+                    }
+                    if ($link !== '') {
+                        self::$arrUrlCache[$strCacheKey] = $link;
+                    }
                 }
                 break;
         }

@@ -158,7 +158,7 @@ class Glossar extends ContentElement
                             }
                             $newGlossarObj->content = 1;
                             if ($link) {
-                                $newGlossarObj->link = $link->getAbsoluteUrl($newGlossarObj->alias);
+                                $newGlossarObj->link = $link->getAbsoluteUrl('/' . $newGlossarObj->alias);
                             }
                         } else {
                             $newGlossarObj->link = false;
@@ -215,12 +215,12 @@ class Glossar extends ContentElement
 
         if ($this->addNumericPagination) {
             for ($n = 0; $n < 10; $n++) {
-                if (($this->addOnlyTrueLinks && in_array(strtolower($n), $filledLetters)) || !$this->addOnlyTrueLinks) {
+                if (($this->addOnlyTrueLinks && in_array(strtolower((string)$n), $filledLetters)) || !$this->addOnlyTrueLinks) {
                     $numbers[] = array(
-                        'href' => $this->addToUrl('pag=' . strtolower($n) . '&amp;alpha=&amp;items=&amp;auto_item='),
+                        'href' => $this->addToUrl('pag=' . strtolower((string)$n) . '&amp;alpha=&amp;items=&amp;auto_item='),
                         'initial' => $n,
-                        'active' => (Input::get('pag') == strtolower($n)),
-                        'trueLink' => (in_array(strtolower($n), $filledLetters)),
+                        'active' => (Input::get('pag') == strtolower((string)$n)),
+                        'trueLink' => (in_array(strtolower((string)$n), $filledLetters)),
                         'onlyTrueLinks' => $this->addOnlyTrueLinks,
                     );
                 }
