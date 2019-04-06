@@ -2,16 +2,16 @@
   <file datatype="php" original="system/modules/core/languages/en/tl_faq_category.php" source-language="en">
     <body>
       <trans-unit id="tl_faq_category.glossar_disallow.0">
-        <source>Archiv ausschließen</source>
-        <target>Archiv ausschließen</target>
+        <source>Exclude this F.A.Q list</source>
+        <target>Diese F.A.Q-Liste ausschließen</target>
       </trans-unit>
       <trans-unit id="tl_faq_category.glossar_disallow.1">
-        <source>Dieses Modul wird nicht durch den Glossar durchsucht.</source>
-        <target>Dieses Modul wird nicht durch den Glossar durchsucht.</target>
+        <source>This list wont be crawled by glossary.</source>
+        <target>Diese Liste wird nicht durch den Glossar durchsucht.</target>
       </trans-unit>
 
       <trans-unit id="tl_faq_category.glossar_legend">
-        <source>Glossar</source>
+        <source>Glossary</source>
         <target>Glossar</target>
       </trans-unit>
     </body>

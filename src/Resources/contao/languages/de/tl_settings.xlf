@@ -20,75 +20,75 @@
       </trans-unit>
 
       <trans-unit id="tl_settings.glossarPurgable.0">
-        <source>Glossar in der Systemwartung/Daten bereinigen anzeigen</source>
+        <source>Add glossary to system maintenance list</source>
         <target>Glossar in der Systemwartung/Daten bereinigen anzeigen</target>
       </trans-unit>
       <trans-unit id="tl_settings.glossarPurgable.1">
-        <source>Der Glossar kann im Bereich "Daten bereinigen" ausgegeben werden. Diese Option verhindert dass der Glossar versehentlich geleert wird.</source>
+        <source>Glossary will be added to "Clear data" section in system maintanance. This option protect user from clearing glossar inadvertently.</source>
         <target>Der Glossar kann im Bereich "Daten bereinigen" ausgegeben werden. Diese Option verhindert dass der Glossar versehentlich geleert wird.</target>
       </trans-unit>
 
       <trans-unit id="tl_settings.disableToolTips.0">
-        <source>Tooltips deaktivieren</source>
+        <source>Deactivate tooltips</source>
         <target>Tooltips deaktivieren</target>
       </trans-unit>
       <trans-unit id="tl_settings.disableToolTips.1">
-        <source>Es werden keine Vorschaufenster mehr ausgegeben, wenn der Besucher über einen Begriff fährt. Die Statistiken werden ebenfalls deaktiviert.</source>
+        <source>Glossar will not load a preview window, if user hovers over a term in frontend.</source>
         <target>Es werden keine Vorschaufenster mehr ausgegeben, wenn der Besucher über einen Begriff fährt. Die Statistiken werden ebenfalls deaktiviert.</target>
       </trans-unit>
 
       <trans-unit id="tl_settings.acceptTeasersAsContent.0">
-        <source>Begriffe immer verlinken</source>
+        <source>Always link terms</source>
         <target>Begriffe immer verlinken</target>
       </trans-unit>
       <trans-unit id="tl_settings.acceptTeasersAsContent.1">
-        <source>Begriffe werden ebenfalls verlinkt, wenn nur der Teaser und kein Content vorhanden sind. Bildet ggf. duplicate content.</source>
+        <source>Terms will be show as link, even if no content is available. This could cause duplicate content.</source>
         <target>Begriffe werden ebenfalls verlinkt, wenn nur der Teaser und kein Content vorhanden sind. Bildet ggf. duplicate content.</target>
       </trans-unit>
 
       <trans-unit id="tl_settings.termAsHeadline.0">
-        <source>Begriffe als Headline aktivieren</source>
-        <target>Begriffe als Headline aktivieren</target>
+        <source>Use terms as headline</source>
+        <target>Begriffe als Headline nutzen</target>
       </trans-unit>
       <trans-unit id="tl_settings.termAsHeadline.1">
-        <source>Begriffe werden als überschrift verwendet, wenn kein Überschrift-Element eingebunden wird.</source>
-        <target>Begriffe werden als überschrift verwendet, wenn kein Überschrift-Element eingebunden wird.</target>
+        <source>Terms will be used as headline on detailpages.</source>
+        <target>Begriffe werden auf der Detailseite als überschrift verwendet, wenn kein Überschrift-Element eingebunden wird.</target>
       </trans-unit>
 
       <trans-unit id="tl_settings.noPlural.0">
-        <source>Pluralsuche deaktivieren</source>
+        <source>Deactivate plural search</source>
         <target>Pluralsuche deaktivieren</target>
       </trans-unit>
       <trans-unit id="tl_settings.noPlural.1">
-        <source>Pluralsuche bedeutet, dass der Begriff am Wortbeginn bis Wortende gefunden wird. Als Beispiel: Bad-emeister.</source>
+        <source>Plural search means, term will be replaced until end of word: Bad-emeister.</source>
         <target>Pluralsuche bedeutet, dass der Begriff am Wortbeginn bis Wortende gefunden wird. Als Beispiel: Bad-emeister.</target>
       </trans-unit>
 
       <trans-unit id="tl_settings.glossarIncludeUnsearchable.0">
-        <source>Von der Suche ausgeschlossene Inhalte einbeziehen</source>
+        <source>Include content, which are excluded by contao search</source>
         <target>Von der Suche ausgeschlossene Inhalte einbeziehen</target>
       </trans-unit>
       <trans-unit id="tl_settings.glossarIncludeUnsearchable.1">
-        <source>Inhalte die als nicht suchbar markiert sind, indexer::stop|continue</source>
+        <source>Content which is marked as not searchable, indexer::stop|continue</source>
         <target>Inhalte die als nicht suchbar markiert sind, indexer::stop|continue</target>
       </trans-unit>
 
       <trans-unit id="tl_settings.activateGlossarTags.0">
-        <source>Glossar Tags aktivieren</source>
+        <source>Activate glossary tags</source>
         <target>Glossar Tags aktivieren</target>
       </trans-unit>
       <trans-unit id="tl_settings.activateGlossarTags.1">
-        <source>Ähnlich wie nicht durchsuchbare Inhalte gibt es Inhalte die nicht vom Glossar erfasst werden dürfen glossar::stop|continue.</source>
+        <source>Like not searchable contents: glossar::stop|continue.</source>
         <target>Ähnlich wie nicht durchsuchbare Inhalte gibt es Inhalte die nicht vom Glossar erfasst werden dürfen glossar::stop|continue.</target>
       </trans-unit>
 
       <trans-unit id="tl_settings.glossar_archive.0">
-        <source>Archive ausschließen</source>
+        <source>Exclude archives</source>
         <target>Archive ausschließen</target>
       </trans-unit>
       <trans-unit id="tl_settings.glossar_archive.1">
-        <source>Archive die nicht von der Suche berücksichtigt werden sollen ausschließen.</source>
-        <target>Archive die nicht von der Suche berücksichtigt werden sollen ausschließen.</target>
+        <source>Those archives wont be crawled from glossary.</source>
+        <target>Diese Archive werden nicht durch den Glossar durchsucht.</target>
       </trans-unit>
 
 
@@ -103,21 +103,21 @@
       </trans-unit>
 
       <trans-unit id="tl_settings.glossar_no_fallback.0">
-        <source>Keine fremdsprachigen Glossare</source>
+        <source>No fallback glossaries</source>
         <target>Keine fremdsprachigen Glossare</target>
       </trans-unit>
       <trans-unit id="tl_settings.glossar_no_fallback.1">
-        <source>Es werden keine Glossar-Begriffe aus anderen Sprachen ersetzt.</source>
+        <source>No fallback languages will be searched on a page.</source>
         <target>Es werden keine Glossar-Begriffe aus anderen Sprachen ersetzt.</target>
       </trans-unit>
 
       <trans-unit id="tl_settings.strictSearch.0">
-        <source>Strikte Suche</source>
+        <source>Strict search</source>
         <target>Strikte Suche</target>
       </trans-unit>
       <trans-unit id="tl_settings.strictSearch.1">
-        <source>Es werden nur die angegebenen Begriffe gefunden, wenn diese als einzelnes Wort im INhalt stehen.</source>
-        <target>Es werden nur die angegebenen Begriffe gefunden, wenn diese als einzelnes Wort im INhalt stehen.</target>
+        <source>Es werden nur die angegebenen Begriffe gefunden, wenn diese als einzelnes Wort im Inhalt stehen.</source>
+        <target>Es werden nur die angegebenen Begriffe gefunden, wenn diese als einzelnes Wort im Inhalt stehen.</target>
       </trans-unit>
 
       <trans-unit id="tl_settings.ignoreInTags.0">
@@ -139,24 +139,24 @@
       </trans-unit>
 
       <trans-unit id="tl_settings.glossarMaxWidth.0">
-        <source>Maximale Vorschaubreite</source>
+        <source>Maximum layer with</source>
         <target>Maximale Vorschaubreite</target>
       </trans-unit>
       <trans-unit id="tl_settings.glossarMaxWidth.1">
-        <source>Definiert die Breite des Vorschaufenster, wenn ein Besucher mit der Maus über den Begriff fahren.</source>
+        <source>Defines width of the preview layer, which appear after user hover with mouse over a term.</source>
         <target>Definiert die Breite des Vorschaufenster, wenn ein Besucher mit der Maus über den Begriff fahren.</target>
       </trans-unit>
       <trans-unit id="tl_settings.glossarMaxHeight.0">
-        <source>Maximale Vorschauhöhe</source>
+        <source>Maximum layer height</source>
         <target>Maximale Vorschauhöhe</target>
       </trans-unit>
       <trans-unit id="tl_settings.glossarMaxHeight.1">
-        <source>Definiert die Höhe des Vorschaufenster, wenn ein Besucher mit der Maus über den Begriff fahren.</source>
+        <source>Defines height of the preview layer, which appear after user hover with mouse over a term.</source>
         <target>Definiert die Höhe des Vorschaufenster, wenn ein Besucher mit der Maus über den Begriff fahren.</target>
       </trans-unit>
 
       <trans-unit id="tl_settings.jumpToGlossar.0">
-        <source>Glossar page</source>
+        <source>Glossary page</source>
         <target>Glossar-Seite</target>
       </trans-unit>
       <trans-unit id="tl_settings.jumpToGlossar.1">
@@ -165,7 +165,7 @@
       </trans-unit>
 
       <trans-unit id="tl_settings.glossar_legend">
-        <source>Glossar settings</source>
+        <source>Glossary settings</source>
         <target>Glossar Einstellungen</target>
       </trans-unit>
     </body>

@@ -1,8 +1,12 @@
 <?xml version="1.0" ?><xliff version="1.1">
   <file datatype="php" original="system/modules/core/languages/en/tl_content.php" source-language="en">
     <body>
+      <trans-unit id="tl_content.glossartags_legend">
+        <source>Tags (Needs Tagmodule)</source>
+        <target>Tags/Auszeichnungen (Benötigt Tag-Module)</target>
+      </trans-unit>
       <trans-unit id="tl_content.alphapagination_legend">
-        <source>Alphapagination Einstellungen</source>
+        <source>Alphapagination settings</source>
         <target>Alphapagination Einstellungen</target>
       </trans-unit>
       <trans-unit id="tl_content.pagination_legend">
@@ -10,40 +14,40 @@
         <target>Pagnation</target>
       </trans-unit>
       <trans-unit id="tl_content.glossar.0">
-        <source>Glossar wählen</source>
+        <source>Choose glossary</source>
         <target>Glossar wählen</target>
       </trans-unit>
       <trans-unit id="tl_content.glossar.1">
-        <source>Alle Glossare ausgeben oder nur einen bestimmten</source>
-        <target>Alle Glossare ausgeben oder nur einen bestimmten</target>
+        <source>Show all glossary or just a specific one.</source>
+        <target>Alle Glossare ausgeben oder nur einen bestimmten.</target>
       </trans-unit>
       <trans-unit id="tl_content.sortGlossarBy.0">
-        <source>Sortieren</source>
-        <target>Sortieren</target>
+        <source>Sort terms</source>
+        <target>Begriffe sortieren</target>
       </trans-unit>
       <trans-unit id="tl_content.sortGlossarBy.1">
-        <source>Gibt an, nach welchen Daten die Ausgabe sortiert werden soll</source>
-        <target>Gibt an, nach welchen Daten die Ausgabe sortiert werden soll</target>
+        <source>Defines, how terms will be sorted.</source>
+        <target>Gibt an, nach welchen Daten die Ausgabe sortiert werden soll.</target>
       </trans-unit>
       <trans-unit id="tl_content.headlineUnit.0">
-        <source>Überschrift</source>
+        <source>Headline</source>
         <target>Überschrift</target>
       </trans-unit>
       <trans-unit id="tl_content.headlineUnit.1">
-        <source>Welche Art von Überschrift soll verwendet werden</source>
-        <target>Welche Art von Überschrift soll verwendet werden</target>
+        <source>Which kind of headline should be used.</source>
+        <target>Welche Art von Überschrift soll verwendet werden.</target>
       </trans-unit>
       <trans-unit id="tl_content.termAsHeadline.0">
-        <source>Begriffe als Headline aktivieren</source>
+        <source>Term will be used as headline</source>
         <target>Begriffe als Headline aktivieren</target>
       </trans-unit>
       <trans-unit id="tl_content.termAsHeadline.1">
-        <source>Die Begriffe werden automatisch als Überschrift eingesetzt</source>
-        <target>Die Begriffe werden automatisch als Überschrift eingesetzt</target>
+        <source>Terms will be uses automatically as headline, so u dont need to add one.</source>
+        <target>Die Begriffe werden automatisch als Überschrift eingesetzt.</target>
       </trans-unit>
       <trans-unit id="tl_content.glossarShowTags.0">
-        <source>Auszeichnungen anzeigen</source>
-        <target>Auszeichnungen anzeigen</target>
+        <source>Show tags</source>
+        <target>Auszeichnungen/Tags anzeigen</target>
       </trans-unit>
       <trans-unit id="tl_content.glossarShowTags.1">
         <source>Wählen Sie diese Option, um die zu diesen Begriffen zugehörigen Auszeichnungen anzuzeigen</source>

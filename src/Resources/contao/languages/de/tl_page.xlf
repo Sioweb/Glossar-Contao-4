@@ -26,15 +26,15 @@
         <target>Der Glossar wird auf dieser Seite deaktiviert.</target>
       </trans-unit>
       <trans-unit id="tl_page.glossar_no_fallback.0">
-        <source>Keine fremdsprachigen Glossare</source>
+        <source>No fallback glossaries</source>
         <target>Keine fremdsprachigen Glossare</target>
       </trans-unit>
       <trans-unit id="tl_page.glossar_no_fallback.1">
-        <source>Auf dieser Seite werden keine Glossar-Begriffe aus anderen Sprachen ersetzt.</source>
+        <source>No terms will be replaced on this page.</source>
         <target>Auf dieser Seite werden keine Glossar-Begriffe aus anderen Sprachen ersetzt.</target>
       </trans-unit>
       <trans-unit id="tl_page.glossar_legend">
-        <source>Glossar settings</source>
+        <source>Glossary settings</source>
         <target>Glossar Einstellungen</target>
       </trans-unit>
     </body>

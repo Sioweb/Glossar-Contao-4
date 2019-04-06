@@ -6,35 +6,35 @@
         <target>Sioweb</target>
       </trans-unit>
       <trans-unit id="FMD.glossar">
-        <source>Glossar</source>
+        <source>Glossary</source>
         <target>Glossar</target>
       </trans-unit>
       <trans-unit id="MOD.glossar.0">
-        <source>Glossar</source>
+        <source>Glossary</source>
         <target>Glossar</target>
       </trans-unit>
       <trans-unit id="MOD.glossar.1">
-        <source>Ersetzt Schlagworte in Haupt- und News-Texten durch Links zu einem Glossar</source>
-        <target>Ersetzt Schlagworte in Haupt- und News-Texten durch Links zu einem Glossar</target>
+        <source>Replaces keywords in all texts with a link to glossary.</source>
+        <target>Ersetzt Schlagworte in Haupt- und News-Texten durch Links zu einem Glossar.</target>
       </trans-unit>
       <trans-unit id="MOD.glossar_log.0">
-        <source>Glossar Statistiken</source>
+        <source>Glossary statistics</source>
         <target>Glossar Statistiken</target>
       </trans-unit>
       <trans-unit id="MOD.glossar_log.1">
-        <source>Zeigt eine Statistik der Besucher-Aktionen.</source>
+        <source>Show a statistics of visitors.</source>
         <target>Zeigt eine Statistik der Besucher-Aktionen.</target>
       </trans-unit>
       <trans-unit id="MOD.glossar_status.0">
-        <source>Glossar Status</source>
+        <source>Glossary status</source>
         <target>Glossar Status</target>
       </trans-unit>
       <trans-unit id="MOD.glossar_status.1">
-        <source>Erstellt eine Übersicht der Glossar-Einstellungen für besseren Support.</source>
+        <source>Creates an overview with glossary settings for better support.</source>
         <target>Erstellt eine Übersicht der Glossar-Einstellungen für besseren Support.</target>
       </trans-unit>
       <trans-unit id="CTE.glossar.0">
-        <source>Glossar</source>
+        <source>Glossary</source>
         <target>Glossar</target>
       </trans-unit>
       <trans-unit id="CTE.glossar.1">

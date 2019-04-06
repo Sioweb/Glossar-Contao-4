@@ -6,11 +6,11 @@
         <target>Glossar aufbauen</target>
       </trans-unit>
       <trans-unit id="tl_maintenance.rebuildGlossarHelp.0">
-        <source>Frontend-User</source>
+        <source>Frontenduser</source>
         <target>Frontend-User</target>
       </trans-unit>
       <trans-unit id="tl_maintenance.rebuildGlossarHelp.1">
-        <source>Um geschützte Seiten zu durchsuchen, muss ein Frontend-Benutzer angemeldet werden.</source>
+        <source>Frontenduser must be choosen to crawl protected pages.</source>
         <target>Um geschützte Seiten zu durchsuchen, muss ein Frontend-Benutzer angemeldet werden.</target>
       </trans-unit>
       <trans-unit id="tl_maintenance.glossarSubmit">
@@ -18,19 +18,19 @@
         <target>Glossar aufbauen</target>
       </trans-unit>
       <trans-unit id="tl_maintenance.noGlossarPages">
-        <source>No glossar pages</source>
+        <source>No glossar pages found.</source>
         <target>Es konnten keine Glossarseiten gefunden werden.</target>
       </trans-unit>
       <trans-unit id="tl_maintenance.glossarNote">
         <source>Note</source>
-        <target>Notiz.</target>
+        <target>Notiz</target>
       </trans-unit>
       <trans-unit id="tl_maintenance.glossarLoading">
         <source>Is loading</source>
         <target>Glossar wird aufgebaut.</target>
       </trans-unit>
       <trans-unit id="tl_maintenance.glossarComplete">
-        <source>Glossar is ready</source>
+        <source>Glossary successfully build.</source>
         <target>Glossar wurde erfolgreich aufgebaut.</target>
       </trans-unit>
     </body>

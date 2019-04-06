@@ -2,16 +2,16 @@
   <file datatype="php" original="system/modules/core/languages/en/tl_news_archive.php" source-language="en">
     <body>
       <trans-unit id="tl_news_archive.glossar_disallow.0">
-        <source>Archiv ausschließen</source>
-        <target>Archiv ausschließen</target>
+        <source>Exclude News</source>
+        <target>Diese News ausschließen</target>
       </trans-unit>
       <trans-unit id="tl_news_archive.glossar_disallow.1">
-        <source>Dieses Modul wird nicht durch den Glossar durchsucht.</source>
-        <target>Dieses Modul wird nicht durch den Glossar durchsucht.</target>
+        <source>This newslist will not be crawled by glossary.</source>
+        <target>Diese Newsliste wird nicht durch den Glossar durchsucht.</target>
       </trans-unit>
 
       <trans-unit id="tl_news_archive.glossar_legend">
-        <source>Glossar</source>
+        <source>Glossary</source>
         <target>Glossar</target>
       </trans-unit>
     </body>

@@ -2,8 +2,8 @@
   <file datatype="php" original="system/modules/core/languages/en/glossar_errors.php" source-language="en" target-language="de">
     <body>
       <trans-unit id="glossar.errors.no_content">
-        <source>Es konnten keine Einträge gefunden werden</source>
-        <target>Es konnten keine Einträge gefunden werden</target>
+        <source>No entries found.</source>
+        <target>Es konnten keine Einträge gefunden werden.</target>
       </trans-unit>
     </body>
   </file>

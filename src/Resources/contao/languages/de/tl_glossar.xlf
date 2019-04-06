@@ -2,20 +2,20 @@
   <file datatype="php" original="system/modules/core/languages/en/tl_glossar.php" source-language="en">
     <body>
       <trans-unit id="tl_glossar.tstamp.0">
-        <source>Erstellt am</source>
+        <source>Created at</source>
         <target>Erstellt am</target>
       </trans-unit>
       <trans-unit id="tl_glossar.tstamp.1">
-        <source>Erstellt am</source>
+        <source>Created at</source>
         <target>Erstellt am</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.title.0">
-        <source>Glossar-Titel</source>
+        <source>Glossary title</source>
         <target>Glossar-Titel</target>
       </trans-unit>
       <trans-unit id="tl_glossar.title.1">
-        <source>Der Titel wird nur im Backend verwendet.</source>
+        <source>This title will be only used in backend.</source>
         <target>Der Titel wird nur im Backend verwendet.</target>
       </trans-unit>
       <trans-unit id="tl_glossar.alias.0">
@@ -23,23 +23,23 @@
         <target>Alias</target>
       </trans-unit>
       <trans-unit id="tl_glossar.alias.1">
-        <source>Der Alias wird automatisch generiert und nur im Backend verwendet.</source>
-        <target>Der Alias wird automatisch generiert und nur im Backend verwendet.</target>
+        <source>Alias will be automatically be generated.</source>
+        <target>Der Alias wird automatisch generiert.</target>
       </trans-unit>
       <trans-unit id="tl_glossar.language.0">
-        <source>Sprache</source>
+        <source>Language</source>
         <target>Sprache</target>
       </trans-unit>
       <trans-unit id="tl_glossar.language.1">
-        <source>Alle Glossar-Einträge werden in der jeweiligen Sprache gesucht und ersetzt.</source>
+        <source>All terms will be crawled in this language.</source>
         <target>Alle Glossar-Einträge werden in der jeweiligen Sprache gesucht und ersetzt.</target>
       </trans-unit>
       <trans-unit id="tl_glossar.fallback.0">
-        <source>Fallback-Sprache</source>
+        <source>Fallback language</source>
         <target>Fallback-Sprache</target>
       </trans-unit>
       <trans-unit id="tl_glossar.fallback.1">
-        <source>Falls ein Eintrag nicht in der aktiven Sprache gefunden werden kann, wird der Begriff in der Fallback-Sprache gesucht.</source>
+        <source>This will be search all terms from other glossaries with different languages.</source>
         <target>Falls ein Eintrag nicht in der aktiven Sprache gefunden werden kann, wird der Begriff in der Fallback-Sprache gesucht.</target>
       </trans-unit>
 
@@ -122,80 +122,80 @@
       </trans-unit>
 
       <trans-unit id="tl_glossar.title_legend">
-        <source>Glossar Einstellung</source>
+        <source>Glossary settings</source>
         <target>Glossar Einstellung</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.new.0">
-        <source>Neuer Eintrag</source>
-        <target>Neuer Eintrag</target>
+        <source>New glossary</source>
+        <target>Neuer Glossar</target>
       </trans-unit>
       <trans-unit id="tl_glossar.new.1">
-        <source>Einen neuen Eintrag erstellen.</source>
-        <target>Einen neuen Eintrag erstellen.</target>
+        <source>Creates a new glossary.</source>
+        <target>Einen neuen Glossar erstellen.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.show.0">
-        <source>Eintragsdetails</source>
-        <target>Eintragsdetails</target>
+        <source>Glossary details</source>
+        <target>Glossardetails</target>
       </trans-unit>
       <trans-unit id="tl_glossar.show.1">
-        <source>Die Details des Eintrags ID %s anzeigen.</source>
-        <target>Die Details des Eintrags ID %s anzeigen.</target>
+        <source>Show details with ID %s.</source>
+        <target>Die Details des Glossars ID %s anzeigen.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.edit.0">
-        <source>Eintrag bearbeiten</source>
-        <target>Eintrag bearbeiten</target>
+        <source>Edit glossary</source>
+        <target>Glossars bearbeiten</target>
       </trans-unit>
       <trans-unit id="tl_glossar.edit.1">
-        <source>Eintrag ID %s bearbeiten.</source>
-        <target>Eintrag ID %s bearbeiten.</target>
+        <source>Edit glossary with ID %s.</source>
+        <target>Glossar ID %s bearbeiten.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.copy.0">
-        <source>Eintrag duplizieren</source>
-        <target>Eintrag duplizieren</target>
+        <source>Duplicate glossary</source>
+        <target>Glossar duplizieren</target>
       </trans-unit>
       <trans-unit id="tl_glossar.copy.1">
-        <source>Eintrag ID %s duplizieren.</source>
-        <target>Eintrag ID %s duplizieren.</target>
+        <source>Edit glossary with ID %s.</source>
+        <target>Glossar ID %s duplizieren.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.cut.0">
-        <source>Eintrag verschieben</source>
+        <source>Move glossary</source>
         <target>Eintrag verschieben</target>
       </trans-unit>
       <trans-unit id="tl_glossar.cut.1">
-        <source>Eintrag ID %s verschieben.</source>
-        <target>Eintrag ID %s verschieben.</target>
+        <source>Move glossar with ID %s.</source>
+        <target>Glossar ID %s verschieben.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.delete.0">
-        <source>Eintrag löschen</source>
-        <target>Eintrag löschen</target>
+        <source>Delete glossary</source>
+        <target>Glossar löschen</target>
       </trans-unit>
       <trans-unit id="tl_glossar.delete.1">
-        <source>Eintrag ID %s löschen.</source>
-        <target>Eintrag ID %s löschen.</target>
+        <source>Delete glossary with ID %s.</source>
+        <target>Glossar ID %s löschen.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.toggle.0">
-        <source>Eintrag veröffentlichen/unveröffentlichen</source>
-        <target>Eintrag veröffentlichen/unveröffentlichen</target>
+        <source>Publish/Unpublish glosary</source>
+        <target>Glossar veröffentlichen/unveröffentlichen</target>
       </trans-unit>
       <trans-unit id="tl_glossar.toggle.1">
-        <source>Eintrag ID %s veröffentlichen/unveröffentlichen.</source>
-        <target>Eintrag ID %s veröffentlichen/unveröffentlichen.</target>
+        <source>Publish/Unpublish glossary with ID %s.</source>
+        <target>Glossar ID %s veröffentlichen/unveröffentlichen.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.feature.0">
-        <source>Eintrag hervorheben/zurücksetzen</source>
-        <target>Eintrag hervorheben/zurücksetzen</target>
+        <source>Heighlight/Unheighlight glossary</source>
+        <target>Glossar hervorheben/zurücksetzen</target>
       </trans-unit>
       <trans-unit id="tl_glossar.feature.1">
-        <source>Beitrag ID %s hervorheben/zurücksetzen.</source>
-        <target>Beitrag ID %s hervorheben/zurücksetzen.</target>
+        <source>Heighlight/Unheighlight glossary with ID %s.</source>
+        <target>Glossar ID %s hervorheben/zurücksetzen.</target>
       </trans-unit>
     </body>
   </file>
