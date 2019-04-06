@@ -5,6 +5,10 @@
         <source>Alphapagination Einstellungen</source>
         <target>Alphapagination Einstellungen</target>
       </trans-unit>
+      <trans-unit id="tl_content.pagination_legend">
+        <source>Pagnation</source>
+        <target>Pagnation</target>
+      </trans-unit>
       <trans-unit id="tl_content.glossar.0">
         <source>Glossar wählen</source>
         <target>Glossar wählen</target>
