@@ -10,6 +10,15 @@
         <target>Der Glossar wird auf allen Seiten aktiviert.</target>
       </trans-unit>
 
+      <trans-unit id="tl_settings.glossar_max_replacements.0">
+        <source>Max replacements per page</source>
+        <target>Maximale Begriffsmarkierung auf einer Seite</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.glossar_max_replacements.1">
+        <source>Add number how often a Term can be replaced on a page.. Zero for unlimited</source>
+        <target>Tragen Sie hier ein, wie oft ein Begriff als Link auf einer Seite ersetzt werden kann. 0 für unbegrenzt.</target>
+      </trans-unit>
+
       <trans-unit id="tl_settings.glossarPurgable.0">
         <source>Glossar in der Systemwartung/Daten bereinigen anzeigen</source>
         <target>Glossar in der Systemwartung/Daten bereinigen anzeigen</target>

@@ -46,6 +46,7 @@ class Decorator
     /* replace found tags with links and abbr */
     public function replace($strContent, $arrTerm, $Glossar = null)
     {
+        global $objPage;
         $this->term_glossar = $Glossar;
         if (!$strContent || empty($arrTerm)) {
             return $strContent;
@@ -124,6 +125,16 @@ class Decorator
                     $this->term->noPlural = true;
                 }
 
+                $MaxReplacement = -1;
+                
+                if (!empty(Config::get('glossar_max_replacements'))) {
+                    $MaxReplacement = intval(Config::get('glossar_max_replacements'));
+                }
+                
+                if (!empty($objPage->glossar_max_replacements)) {
+                    $MaxReplacement = intval($objPage->glossar_max_replacements);
+                }
+
                 $plural = preg_replace('/[.]+(?<!\\.)/is', '\\.', $IllegalPlural . (!$this->term->noPlural ? $GLOBALS['glossar']['illegal'] : '')) . '<';
                 
                 $preg_query = '/(?!(?:[^<]+>|[^>]+(<!--|-->)))(' . ($this->term->strictSearch == 1 || $this->term->strictSearch == 3 ? '\b' : '') . $this->term->title . (!$this->term->noPlural ? '[^ ' . $plural . ']*' : '') . ($this->term->strictSearch == 1 ? '\b' : '') . ')/is';
@@ -131,7 +142,7 @@ class Decorator
                 // die('<pre>' . print_r($preg_query, true));
                 // die('<pre>' . print_r($replaceFunction, true));
                 if ($this->term->title && preg_match_all($preg_query, $strContent, $third)) {
-                    $strContent = preg_replace_callback($preg_query, array($this, $replaceFunction), $strContent);
+                    $strContent = preg_replace_callback($preg_query, array($this, $replaceFunction), $strContent, $MaxReplacement);
                     if ($lastIstDot) {
                         $strContent = str_replace($this->term->title, substr($this->term->title, 0, -1), $strContent);
                     }

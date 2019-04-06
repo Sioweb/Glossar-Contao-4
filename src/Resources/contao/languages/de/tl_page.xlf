@@ -1,6 +1,14 @@
 <?xml version="1.0" ?><xliff version="1.1">
   <file datatype="php" original="system/modules/core/languages/en/tl_page.php" source-language="en">
     <body>
+      <trans-unit id="tl_page.glossar_max_replacements.0">
+        <source>Max replacements</source>
+        <target>Maximale Begriffsmarkierung</target>
+      </trans-unit>
+      <trans-unit id="tl_page.glossar_max_replacements.1">
+        <source>Add number how often a Term can be replaced on this page.. Zero for unlimited</source>
+        <target>Tragen Sie hier ein, wie oft ein Begriff als Link ersetzt werden kann. 0 für unbegrenzt.</target>
+      </trans-unit>
       <trans-unit id="tl_page.disableGlossarCloud.0">
         <source>Deactivate cloud</source>
         <target>Von der Cloud ausschließen</target>

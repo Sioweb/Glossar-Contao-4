@@ -22,7 +22,7 @@ Contao\CoreBundle\DataContainer\PaletteManipulator::create()
   ->applyToPalette('default', 'tl_settings')
 ;
 Contao\CoreBundle\DataContainer\PaletteManipulator::create()
-	->addField(['glossarPurgable', 'disableToolTips', 'acceptTeasersAsContent', 'termAsHeadline', 'noPlural', 'glossarIncludeUnsearchable', 'activateGlossarTags', 'disableGlossarCache', 'glossar_no_fallback', 'glossar_archive', 'strictSearch', 'glossarMaxWidth', 'glossarMaxHeight', 'ignoreInTags', 'illegalChars', 'jumpToGlossar'], 'glossar_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
+	->addField(['glossarPurgable', 'disableToolTips', 'acceptTeasersAsContent', 'termAsHeadline', 'noPlural', 'glossarIncludeUnsearchable', 'activateGlossarTags', 'disableGlossarCache', 'glossar_no_fallback', 'glossar_archive', 'strictSearch', 'glossarMaxWidth', 'glossarMaxHeight', 'ignoreInTags', 'illegalChars', 'jumpToGlossar', 'glossar_max_replacements'], 'glossar_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
 	->applyToSubpalette('enableGlossar', 'tl_settings')
 ;
 
@@ -170,4 +170,12 @@ $GLOBALS['TL_DCA']['tl_settings']['fields']['glossarMaxHeight'] = array(
   'options'                 => array('px','em','%','rem'),
   'eval'                    => array('rgxp'=>'natural', 'nospace'=>true, 'tl_class'=>'w50'),
   'sql'                     => "varchar(255) NOT NULL default ''",
+);
+
+$GLOBALS['TL_DCA']['tl_settings']['fields']['glossar_max_replacements'] = array(
+  'label'                   => &$GLOBALS['TL_LANG']['tl_settings']['glossar_max_replacements'],
+  'exclude'                 => true,
+  'inputType'               => 'text',
+  'eval'                    => array('maxlength'=>255, 'tl_class'=>'long clr'),
+  'sql'                     => "varchar(255) NOT NULL default '0'"
 );

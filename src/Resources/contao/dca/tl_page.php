@@ -18,7 +18,7 @@
  */
 Contao\CoreBundle\DataContainer\PaletteManipulator::create()
     ->addLegend('glossar_legend', 'publish_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_AFTER)
-    ->addField(array('disableGlossar','disableGlossarCloud','glossar_no_fallback'), 'glossar_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
+    ->addField(array('disableGlossar','disableGlossarCloud','glossar_no_fallback','glossar_max_replacements'), 'glossar_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
     ->applyToPalette('regular', 'tl_page')
 ;
 
@@ -27,6 +27,14 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['disableGlossar'] = array(
   'exclude'                 => true,
   'inputType'               => 'checkbox',
   'sql'                     => "char(1) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_page']['fields']['glossar_max_replacements'] = array(
+  'label'                   => &$GLOBALS['TL_LANG']['tl_page']['glossar_max_replacements'],
+  'exclude'                 => true,
+  'inputType'               => 'text',
+  'eval'                    => array('maxlength'=>255, 'tl_class'=>'long clr'),
+  'sql'                     => "int(10) NOT NULL default '0'"
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['disableGlossarCloud'] = array(
