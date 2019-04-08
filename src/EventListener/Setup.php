@@ -98,13 +98,13 @@ class Setup
      */
     public function initializeBackend()
     {
-        $Request = $this->requestStack->getCurrentRequest();
+        $BackendRequest = $this->isBackendRequest();
 
-        if ($Request === null) {
+        if ($BackendRequest === null) {
             return;
         }
 
-        if ($this->scopeMatcher->isBackendRequest($Request)) {
+        if ($BackendRequest) {
             $GLOBALS['TL_CSS'][] = 'bundles/siowebglossar/css/be_main.css';
         }
 
@@ -173,12 +173,40 @@ class Setup
                     Config::add('$GLOBALS[\'TL_CONFIG\'][\'uploadTypes\']', $uploadTypes);
                 }
             }
-            if ($this->scopeMatcher->isFrontendRequest($this->requestStack->getCurrentRequest())) {
+            if ($this->isFrontendRequest()) {
                 $GLOBALS['TL_CSS'][] = 'bundles/siowebglossar/css/glossar.css|static';
                 if (empty($GLOBALS['TL_CONFIG']['disableToolTips'])) {
                     $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/siowebglossar/js/glossar.js|static';
                 }
             }
         }
+    }
+
+    private function isFrontendRequest()
+    {
+        if (defined('TL_MODE') && TL_MODE === 'FE')
+        { 
+            return true;  
+        }
+
+        if ($this->requestStack === null || $this->requestStack->getCurrentRequest() === null) {
+            return null;
+        }
+
+        return $this->scopeMatcher->isFrontendRequest($this->requestStack->getCurrentRequest());
+    }
+
+    private function isBackendRequest()
+    {
+        if (defined('TL_MODE') && TL_MODE === 'BE')
+        { 
+            return true;  
+        }
+
+        if ($this->requestStack === null || $this->requestStack->getCurrentRequest() === null) {
+            return null;
+        }
+
+        return $this->scopeMatcher->isBackendRequest($this->requestStack->getCurrentRequest());
     }
 }
