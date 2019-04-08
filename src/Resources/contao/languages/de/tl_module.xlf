@@ -10,7 +10,7 @@
         <target>Glossar wählen</target>
       </trans-unit>
       <trans-unit id="tl_module.glossar.1">
-        <source>The pagination only uses the choosen glossary</source>
+        <source>The pagination only uses the choosen glossary.</source>
         <target>Die Pagination berücksichtigt nur das hier gewählte Glossar. Es werden alle Glossare verwendet, wenn nichts ausgwählt wird.</target>
       </trans-unit>
       <trans-unit id="tl_module.glossar_max_level.0">

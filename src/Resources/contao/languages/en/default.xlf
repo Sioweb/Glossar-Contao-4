@@ -6,87 +6,92 @@
         <target>Glossary</target>
       </trans-unit>
       <trans-unit id="CTE.glossar.1">
-        <source>Erzeugt eine Liste mit Glossar-Begriffen.</source>
-        <target>Erzeugt eine Liste mit Glossar-Begriffen.</target>
+        <source>Creates a list with glossary terms.</source>
+        <target>Creates a list with glossary terms.</target>
       </trans-unit>
       <trans-unit id="CTE.glossar_cloud.0">
-        <source>Glossar-Cloud</source>
-        <target>Glossar-Cloud</target>
+        <source>Glossary Cloud</source>
+        <target>Glossary Cloud</target>
       </trans-unit>
       <trans-unit id="CTE.glossar_cloud.1">
-        <source>Erzeugt eine Liste mit Seiten, auf denen gleiche oder verwandte Begriffe stehen.</source>
-        <target>Erzeugt eine Liste mit Seiten, auf denen gleiche oder verwandte Begriffe stehen.</target>
+        <source>Creates a list with Sites, which contains same or similar terms.</source>
+        <target>Creates a list with Sites, which contains same or similar terms.</target>
       </trans-unit>
       <trans-unit id="ERR.multipleGlossarFallback">
-        <source>Sie können nur einen Glossar als Fallback einstellen!</source>
-        <target>Sie können nur einen Glossar als Fallback einstellen!</target>
+        <source>You can only add one glossary as fallback!</source>
+        <target>You can only add one glossary as fallback!</target>
       </trans-unit>
       <trans-unit id="MSC.import">
-        <source>Importieren</source>
-        <target>Importieren</target>
+        <source>Import</source>
+        <target>Import</target>
       </trans-unit>
       <trans-unit id="MSC.export">
-        <source>Exportieren</source>
-        <target>Exportieren</target>
+        <source>Export</source>
+        <target>Export</target>
       </trans-unit>
       <trans-unit id="tl_maintenance_jobs.glossar.0">
-        <source>Glossar zurücksetzen</source>
-        <target>Glossar zurücksetzen</target>
+        <source>Reset glossary</source>
+        <target>Reset glossary</target>
       </trans-unit>
       <trans-unit id="tl_maintenance_jobs.glossar.1">
-        <source>Setzt den kompletten Glossar-Index (Seiten, News, Events, FAQ, ...) zurück. Der Glossar, muss danach neu generiert werden.</source>
-        <target>Setzt den kompletten Glossar-Index (Seiten, News, Events, FAQ, ...) zurück. Der Glossar, muss danach neu generiert werden.</target>
+        <source>Reset whole glossary index (Site, News, Events, FAQ, ...). After this glossary must be rebuild.</source>
+        <target>Reset whole glossary index (Site, News, Events, FAQ, ...). After this glossary must be rebuild.</target>
       </trans-unit>
 
       <trans-unit id="glossar.showAllLabel">
-        <source>Alle anzeigen</source>
-        <target>Alle anzeigen</target>
+        <source>Show all</source>
+        <target>Show all</target>
       </trans-unit>
       
+      <trans-unit id="glossar.to_article">
+        <source>Details page</source>
+        <target>Details page</target>
+      </trans-unit>
+
       <trans-unit id="glossar.sortGlossarBy.id">
-        <source>ID aufsteigend</source>
-        <target>ID aufsteigend</target>
+        <source>ID ascending</source>
+        <target>ID ascending</target>
       </trans-unit>
       <trans-unit id="glossar.sortGlossarBy.id_desc">
-        <source>ID absteigend</source>
-        <target>ID absteigend</target>
+        <source>ID descending</source>
+        <target>ID descending</target>
       </trans-unit>
       <trans-unit id="glossar.sortGlossarBy.date">
-        <source>Datum aufsteigend</source>
-        <target>Datum aufsteigend</target>
+        <source>Datum ascending</source>
+        <target>Datum ascending</target>
       </trans-unit>
       <trans-unit id="glossar.sortGlossarBy.date_desc">
-        <source>Datum absteigend</source>
-        <target>Datum absteigend</target>
+        <source>Datum descending</source>
+        <target>Datum descending</target>
       </trans-unit>
       <trans-unit id="glossar.sortGlossarBy.alias">
-        <source>Alphabetisch aufsteigend</source>
-        <target>Alphabetisch aufsteigend</target>
+        <source>Alphabetisch ascending</source>
+        <target>Alphabetisch ascending</target>
       </trans-unit>
       <trans-unit id="glossar.sortGlossarBy.alias_desc">
-        <source>Alphabetisch absteigend</source>
-        <target>Alphabetisch absteigend</target>
+        <source>Alphabetisch descending</source>
+        <target>Alphabetisch descending</target>
       </trans-unit>
 
       <trans-unit id="glossar.sources.default_source">
-        <source>Standard verwenden</source>
-        <target>Standard verwenden</target>
+        <source>Use default</source>
+        <target>Use default</target>
       </trans-unit>
       <trans-unit id="glossar.sources.page">
-        <source>Seite mit eingebundenem Glossar-Element</source>
-        <target>Seite mit eingebundenem Glossar-Element</target>
+        <source>Site with included glossary element</source>
+        <target>Site with included glossary element</target>
       </trans-unit>
       <trans-unit id="glossar.sources.internal">
-        <source>Interner Link (Seiten-Auswahl)</source>
-        <target>Interner Link (Seiten-Auswahl)</target>
+        <source>Internal link (Page picker)</source>
+        <target>Internal link (Page picker)</target>
       </trans-unit>
       <trans-unit id="glossar.sources.article">
-        <source>Link zu einem Artikel</source>
-        <target>Link zu einem Artikel</target>
+        <source>Link to article</source>
+        <target>Link to article</target>
       </trans-unit>
       <trans-unit id="glossar.sources.external">
-        <source>Externer Link (URL)</source>
-        <target>Externer Link (URL)</target>
+        <source>External link (URL)</source>
+        <target>External link (URL)</target>
       </trans-unit>
 
       <trans-unit id="glossar.headlineUnit.h1">
@@ -115,42 +120,42 @@
       </trans-unit>
 
       <trans-unit id="glossar.types.default">
-        <source>Leer</source>
-        <target>Leer</target>
+        <source>Empty</source>
+        <target>Empty</target>
       </trans-unit>
       <trans-unit id="glossar.types.default">
-        <source>Glossar</source>
-        <target>Glossar</target>
+        <source>Glossary</source>
+        <target>Glossary</target>
       </trans-unit>
       <trans-unit id="glossar.types.abbr">
-        <source>ABBR - Abkürzung</source>
-        <target>ABBR - Abkürzung</target>
+        <source>ABBR - abbreviation</source>
+        <target>ABBR - abbreviation</target>
       </trans-unit>
 
       <trans-unit id="glossar.paginationPositions.both">
-        <source>Über und unter den Begriffen</source>
-        <target>Über und unter den Begriffen</target>
+        <source>Above and unter term list</source>
+        <target>Above and unter term list</target>
       </trans-unit>
       <trans-unit id="glossar.paginationPositions.before">
-        <source>Nur über den Begriffen</source>
-        <target>Nur über den Begriffen</target>
+        <source>Above term list</source>
+        <target>Above term list</target>
       </trans-unit>
       <trans-unit id="glossar.paginationPositions.after">
-        <source>Nur unter den Begriffen</source>
-        <target>Nur unter den Begriffen</target>
+        <source>Under term list</source>
+        <target>Under term list</target>
       </trans-unit>
 
       <trans-unit id="glossar.strictSearch.1">
-        <source>Nur alleinstehende Wörter finden (Im schwimmer Becken)</source>
-        <target>Nur alleinstehende Wörter finden (Im schwimmer Becken)</target>
+        <source>Show only full words</source>
+        <target>Show only full words</target>
       </trans-unit>
       <trans-unit id="glossar.strictSearch.2">
-        <source>Alles finden (Im Schwimmerbecken, im schwimmer Becken, nicht|schwimmer|becken)</source>
-        <target>Alles finden (Im Schwimmerbecken, im schwimmer Becken, nicht|schwimmer|becken)</target>
+        <source>Find everything (Im Schwimmerbecken, im schwimmer Becken, nicht|schwimmer|becken).</source>
+        <target>Find everything (Im Schwimmerbecken, im schwimmer Becken, nicht|schwimmer|becken).</target>
       </trans-unit>
       <trans-unit id="glossar.strictSearch.3">
-        <source>Begriff kann das Startwort sein (Im Schwimmer|becken, im schwimmer Becken)</source>
-        <target>Begriff kann das Startwort sein (Im Schwimmer|becken, im schwimmer Becken)</target>
+        <source>Word can start with term (Im Schwimmer|becken, im schwimmer Becken).</source>
+        <target>Word can start with term (Im Schwimmer|becken, im schwimmer Becken).</target>
       </trans-unit>
 
       <trans-unit id="glossar.glossar_archives.news">

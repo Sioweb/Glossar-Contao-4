@@ -2,7 +2,7 @@
   <file datatype="php" original="system/modules/core/languages/en/default.php" source-language="en" target-language="de">
     <body>
       <trans-unit id="CTE.glossar.0">
-        <source>Glossar</source>
+        <source>Glossary</source>
         <target>Glossar</target>
       </trans-unit>
       <trans-unit id="CTE.glossar.1">
@@ -150,12 +150,12 @@
         <target>Nur alleinstehende Wörter finden (Im schwimmer Becken)</target>
       </trans-unit>
       <trans-unit id="glossar.strictSearch.2">
-        <source>Find everything (Im Schwimmerbecken, im schwimmer Becken, nicht|schwimmer|becken)</source>
-        <target>Alles finden (Im Schwimmerbecken, im schwimmer Becken, nicht|schwimmer|becken)</target>
+        <source>Find everything (Im Schwimmerbecken, im schwimmer Becken, nicht|schwimmer|becken).</source>
+        <target>Alles finden (Im Schwimmerbecken, im schwimmer Becken, nicht|schwimmer|becken).</target>
       </trans-unit>
       <trans-unit id="glossar.strictSearch.3">
-        <source>Word can start with term (Im Schwimmer|becken, im schwimmer Becken)</source>
-        <target>Begriff kann das Startwort sein (Im Schwimmer|becken, im schwimmer Becken)</target>
+        <source>Word can start with term (Im Schwimmer|becken, im schwimmer Becken).</source>
+        <target>Begriff kann das Startwort sein (Im Schwimmer|becken, im schwimmer Becken).</target>
       </trans-unit>
 
       <trans-unit id="glossar.glossar_archives.news">

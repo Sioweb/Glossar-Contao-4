@@ -5,13 +5,21 @@
         <source>Rebuild the glossar index</source>
         <target>Rebuild the glossar index</target>
       </trans-unit>
+      <trans-unit id="tl_maintenance.rebuildGlossarHelp.0">
+        <source>Frontenduser</source>
+        <target>Frontenduser</target>
+      </trans-unit>
+      <trans-unit id="tl_maintenance.rebuildGlossarHelp.1">
+        <source>Frontenduser must be choosen to crawl protected pages.</source>
+        <target>Frontenduser must be choosen to crawl protected pages</target>
+      </trans-unit>
       <trans-unit id="tl_maintenance.glossarSubmit">
         <source>Build glossar</source>
         <target>Build glossar</target>
       </trans-unit>
       <trans-unit id="tl_maintenance.noGlossarPages">
-        <source>No glossar pages</source>
-        <target>No glossar pages</target>
+        <source>No glossar pages found.</source>
+        <target>No glossar pages found</target>
       </trans-unit>
       <trans-unit id="tl_maintenance.glossarNote">
         <source>Note</source>
@@ -22,8 +30,8 @@
         <target>Is loading</target>
       </trans-unit>
       <trans-unit id="tl_maintenance.glossarComplete">
-        <source>Glossar is ready</source>
-        <target>Glossar is ready</target>
+        <source>Glossary successfully build.</source>
+        <target>Glossary successfully build</target>
       </trans-unit>
     </body>
   </file>

@@ -10,141 +10,312 @@
         <target>Created at</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.type.0">
-        <source>Term category</source>
-        <target>Term category</target>
+        <source>Term type</source>
+        <target>Term type</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.type.1">
-        <source>The content can be scanned for diffrent types.</source>
-        <target>The content can be scanned for diffrent types.</target>
+        <source>Different types will be differently handled.</source>
+        <target>Different types will be differently handled.</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.title.0">
-        <source>Search word / Term</source>
-        <target>Search word / Term</target>
+        <source>Term</source>
+        <target>Term</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.title.1">
-        <source>This term will be replaced in the frontend as link.</source>
-        <target>This term will be replaced in the frontend as link.</target>
+        <source>This word will be replaces as link to glossary detailpages.</source>
+        <target>This word will be replaces as link to glossary detailpages.</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.Alias.0">
         <source>Alias</source>
         <target>Alias</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.Alias.1">
-        <source>Will be used as link parameter.</source>
-        <target>Will be used as link parameter.</target>
+        <source>Alias will be generated automatically and will be used for term url.</source>
+        <target>Alias will be generated automatically and will be used for term url.</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.maxWidth.0">
-        <source>Maximum width</source>
-        <target>Maximum width</target>
+        <source>Maximum layer with</source>
+        <target>Maximum layer with</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.maxWidth.1">
-        <source>This is the maximum width for the preview layer. Default 450px.</source>
-        <target>This is the maximum width for the preview layer. Default 450px.</target>
+        <source>Defines width of the preview layer, which appear after user hover with mouse over a term.</source>
+        <target>Defines width of the preview layer, which appear after user hover with mouse over a term.</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.maxHeight.0">
-        <source>Maximum height</source>
-        <target>Maximum height</target>
+        <source>Maximum layer height</source>
+        <target>Maximum layer height</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.maxHeight.1">
-        <source>This is the maximum height for the preview layer. Default 500.</source>
-        <target>This is the maximum height for the preview layer. Default 500.</target>
+        <source>Defines height of the preview layer, which appear after user hover with mouse over a term.</source>
+        <target>Defines height of the preview layer, which appear after user hover with mouse over a term.</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.ignoreInTags.0">
-        <source>Ignore this tags</source>
-        <target>Ignore this tags</target>
+        <source>Ignore those html tags</source>
+        <target>Ignore those html tags</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.ignoreInTags.1">
-        <source>The term will be ignored if it is between these tags.</source>
-        <target>The term will be ignored if it is between these tags.</target>
+        <source>Term will be ignored, if it is contained in one of those html tags.</source>
+        <target>Term will be ignored, if it is contained in one of those html tags.</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.date.0">
         <source>Date</source>
         <target>Date</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.date.1">
-        <source>Can be used to sort the terms with date.</source>
-        <target>Can be used to sort the terms with date.</target>
+        <source>Can be used to sort list by date.</source>
+        <target>Can be used to sort list by date.</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.jumpTo.0">
-        <source>Target page</source>
-        <target>Target page</target>
+        <source>Details page</source>
+        <target>Details page</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.jumpTo.1">
-        <source>The term will link to this page. This will override the global settings for this term.</source>
-        <target>The term will link to this page. This will override the global settings for this term.</target>
+        <source>User will be redirected to this page, after clicking a term.</source>
+        <target>User will be redirected to this page, after clicking a term.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.jumpToInternal.0">
+        <source>Redirect page</source>
+        <target>Redirect page</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.jumpToInternal.1">
+        <source>User will be redirected to this page, after clicking a term.</source>
+        <target>User will be redirected to this page, after clicking a term.</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.noPlural.0">
         <source>Deactivate plural search</source>
         <target>Deactivate plural search</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.noPlural.1">
-        <source>Pluralsearch will find place, places and placeholder if the term is called place.</source>
-        <target>Pluralsearch will find place, places and placeholder if the term is called place.</target>
+        <source>Plural search means, term will be replaced until end of word: Bad-emeister.</source>
+        <target>Plural search means, term will be replaced until end of word: Bad-emeister.</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.strictSearch.0">
         <source>Strict search</source>
         <target>Strict search</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.strictSearch.1">
-        <source>Stricter search for terms.</source>
-        <target>Stricter search for terms.</target>
+        <source>Only full words will be replaced by glossary.</source>
+        <target>Only full words will be replaced by glossary.</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.termAsHeadline.0">
-        <source>Do not use term as headline</source>
-        <target>Do not use term as headline</target>
+        <source>Do not use Term as Headline</source>
+        <target>Do not use Term as Headline</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.termAsHeadline.1">
-        <source>Do not use the term as headline if you dont write a headline in the content.</source>
-        <target>Do not use the term as headline if you dont write a headline in the content.</target>
+        <source>This term wont be used as headline, if content element has a headline.</source>
+        <target>This term wont be used as headline, if content element has a headline.</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.teaser.0">
         <source>Teaser</source>
         <target>Teaser</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.teaser.1">
-        <source>Preview article for the hover layer.</source>
-        <target>Preview article for the hover layer.</target>
-      </trans-unit>
-      <trans-unit id="tl_sw_glossar.description.0">
-        <source>Description (Deprecated)</source>
-        <target>Description (Deprecated)</target>
-      </trans-unit>
-      <trans-unit id="tl_sw_glossar.description.1">
-        <source>This field is just for older version. We kept it online so u dont loose your contents.</source>
-        <target>This field is just for older version. We kept it online so u dont loose your contents.</target>
+        <source>A preview text for glossary list and preview layer.</source>
+        <target>A preview text for glossary list and preview layer.</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.explanation.0">
-        <source>Abbr description</source>
-        <target>Abbr description</target>
+        <source>Describe abbreviation</source>
+        <target>Describe abbreviation</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.explanation.1">
-        <source>This will be added to the title of the abbr-tag.</source>
-        <target>This will be added to the title of the abbr-tag.</target>
+        <source>Description will be used for abbr-tag.</source>
+        <target>Description will be used for abbr-tag.</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.source.0">
-        <source>Target page</source>
-        <target>Target page</target>
+        <source>Redirect type</source>
+        <target>Redirect type</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.source.1">
-        <source>The abbr can be linked to an individual page.</source>
-        <target>The abbr can be linked to an individual page.</target>
+        <source>Includes more options to define, how term will be linked.</source>
+        <target>Includes more options to define, how term will be linked.</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.url.0">
         <source>External link</source>
         <target>External link</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.url.1">
-        <source>This is an externam link to other pages.</source>
-        <target>This is an externam link to other pages.</target>
+        <source>Please add link.</source>
+        <target>Please add link.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.articleId.0">
+        <source>Article</source>
+        <target>Article</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.articleId.1">
+        <source>Please choose the article to which visitors will be redirected when clicking the news item.</source>
+        <target>Please choose the article to which visitors will be redirected when clicking the news item.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.published.0">
+        <source>Publish item</source>
+        <target>Publish item</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.published.1">
+        <source>Make the news item publicly visible on the website.</source>
+        <target>Make the news item publicly visible on the website.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.start.0">
+        <source>Show from</source>
+        <target>Show from</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.start.1">
+        <source>Do not show the news item on the website before this day.</source>
+        <target>Do not show the news item on the website before this day.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.stop.0">
+        <source>Show until</source>
+        <target>Show until</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.stop.1">
+        <source>Do not show the news item on the website on and after this day.</source>
+        <target>Do not show the news item on the website on and after this day.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.seo.0">
+        <source>Activate seo</source>
+        <target>Activate seo</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.seo.1">
+        <source>This will add more options for meta informations.</source>
+        <target>This will add more options for meta informations.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.term_in_title_tag.0">
+        <source>Use term as meta title</source>
+        <target>Use term as meta title</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.term_in_title_tag.1">
+        <source>Term will be inserted as meta title in detail page.</source>
+        <target>Term will be inserted as meta title in detail page.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.term_in_title_str_tag.0">
+        <source>Add custom title</source>
+        <target>Add custom title</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.term_in_title_str_tag.1">
+        <source>Insert term with {{glossar::term}}. This setting will relace whole title!</source>
+        <target>Insert term with {{glossar::term}}. This setting will relace whole title!</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.term_description_tag.0">
+        <source>Metadescription</source>
+        <target>Metadescription</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.term_description_tag.1">
+        <source>This will be used as site description in details page.</source>
+        <target>This will be used as site description in details page.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.replace_pageTitle.0">
+        <source>Overwrite page title?</source>
+        <target>Overwrite page title?</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.replace_pageTitle.1">
+        <source>Overwrites {{page::pageTitle}} with custom title.</source>
+        <target>Overwrites {{page::pageTitle}} with custom title.</target>
+      </trans-unit>
+      
+      
+      <trans-unit id="tl_sw_glossar.addImage.0">
+        <source>Add an image</source>
+        <target>Add an image</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.addImage.1">
+        <source>Add an image to the content element.</source>
+        <target>Add an image to the content element.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.overwriteMeta.0">
+        <source>Overwrite meta data</source>
+        <target>Overwrite meta data</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.overwriteMeta.1">
+        <source>Overwrite the meta data from the file manager.</source>
+        <target>Overwrite the meta data from the file manager.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.singleSRC.0">
+        <source>Source file</source>
+        <target>Source file</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.singleSRC.1">
+        <source>Please select a file or folder from the files directory.</source>
+        <target>Please select a file or folder from the files directory.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.alt.0">
+        <source>Alternate text</source>
+        <target>Alternate text</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.alt.1">
+        <source>Here you can enter an alternate text for the image (&lt;em&gt;alt&lt;/em&gt; attribute).</source>
+        <target>Here you can enter an alternate text for the image (&lt;em&gt;alt&lt;/em&gt; attribute).</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.imageTitle.0">
+        <source>Image title</source>
+        <target>Image title</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.imageTitle.1">
+        <source>Here you can enter the image title (&lt;em&gt;title&lt;/em&gt; attribute).</source>
+        <target>Here you can enter the image title (&lt;em&gt;title&lt;/em&gt; attribute).</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.size.0">
+        <source>Image size</source>
+        <target>Image size</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.size.1">
+        <source>Here you can set the image dimensions and the resize mode.</source>
+        <target>Here you can set the image dimensions and the resize mode.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.imagemargin.0">
+        <source>Image margin</source>
+        <target>Image margin</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.imagemargin.1">
+        <source>Here you can enter the top, right, bottom and left margin.</source>
+        <target>Here you can enter the top, right, bottom and left margin.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.imageUrl.0">
+        <source>Image link target</source>
+        <target>Image link target</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.imageUrl.1">
+        <source>A custom image link target will override the lightbox link, so the image cannot be viewed fullsize anymore.</source>
+        <target>A custom image link target will override the lightbox link, so the image cannot be viewed fullsize anymore.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.fullsize.0">
+        <source>Full-size view/new window</source>
+        <target>Full-size view/new window</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.fullsize.1">
+        <source>Open the full-size image in a lightbox or the link in a new browser window.</source>
+        <target>Open the full-size image in a lightbox or the link in a new browser window.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.floating.0">
+        <source>Image alignment</source>
+        <target>Image alignment</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.floating.1">
+        <source>Please specify how to align the image.</source>
+        <target>Please specify how to align the image.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.caption.0">
+        <source>Image caption</source>
+        <target>Image caption</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.caption.1">
+        <source>Here you can enter a short text that will be displayed below the image.</source>
+        <target>Here you can enter a short text that will be displayed below the image.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.customTpl.0">
+        <source>Custom element template</source>
+        <target>Custom element template</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.customTpl.1">
+        <source>Here you can overwrite the default layer template.</source>
+        <target>Here you can overwrite the default layer template.</target>
       </trans-unit>
 
       <trans-unit id="tl_sw_glossar.tags.0">
-        <source>Tags</source>
-        <target>Tags</target>
+        <source>Tags (Need Tag module)</source>
+        <target>Tags (Need Tag module)</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.tags.1">
-        <source>Please enter one or more comma separated tags for categorization</source>
-        <target>Please enter one or more comma separated tags for categorization</target>
+        <source>Please enter one or more tags comma separated here.</source>
+        <target>Please enter one or more tags comma separated here.</target>
       </trans-unit>
 
       <trans-unit id="tl_sw_glossar.title_legend">
@@ -152,67 +323,106 @@
         <target>Title</target>
       </trans-unit>
 
+      <trans-unit id="tl_sw_glossar.image_legend">
+        <source>Image</source>
+        <target>Image</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.teaser_legend">
+        <source>Teaser</source>
+        <target>Teaser</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.more_legend">
+        <source>Design &amp; Behavior</source>
+        <target>Design &amp; Behavior</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.source_legend">
+        <source>Redirection</source>
+        <target>Redirection</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.seo_legend">
+        <source>Seo settings</source>
+        <target>Seo settings</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.publish_legend">
+        <source>Publish settings</source>
+        <target>Publish settings</target>
+      </trans-unit>
+
       <trans-unit id="tl_sw_glossar.new.0">
-        <source>New item</source>
-        <target>New item</target>
+        <source>New term</source>
+        <target>New term</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.new.1">
-        <source>Creates a new item.</source>
-        <target>Creates a new item.</target>
+        <source>Einen neuen Begriff erstellen.</source>
+        <target>Einen neuen Begriff erstellen.</target>
       </trans-unit>
 
       <trans-unit id="tl_sw_glossar.show.0">
-        <source>Details</source>
-        <target>Details</target>
+        <source>Begriffdetails</source>
+        <target>Begriffdetails</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.show.1">
-        <source>Show details for id %s.</source>
-        <target>Show details for id %s.</target>
+        <source>Die Details des Begriffes ID %s anzeigen.</source>
+        <target>Die Details des Begriffes ID %s anzeigen.</target>
       </trans-unit>
 
       <trans-unit id="tl_sw_glossar.edit.0">
-        <source>Edit item</source>
-        <target>Edit item</target>
+        <source>Begriff bearbeiten</source>
+        <target>Begriff bearbeiten</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.edit.1">
-        <source>Edit item width id %s.</source>
-        <target>Edit item width id %s.</target>
+        <source>Begriff ID %s bearbeiten.</source>
+        <target>Begriff ID %s bearbeiten.</target>
       </trans-unit>
 
       <trans-unit id="tl_sw_glossar.copy.0">
-        <source>Duplicate item</source>
-        <target>Duplicate item</target>
+        <source>Begriff duplizieren</source>
+        <target>Begriff duplizieren</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.copy.1">
-        <source>Duplicate item width id %s.</source>
-        <target>Duplicate item width id %s.</target>
+        <source>Begriff ID %s duplizieren.</source>
+        <target>Begriff ID %s duplizieren.</target>
       </trans-unit>
 
       <trans-unit id="tl_sw_glossar.cut.0">
-        <source>Move item</source>
-        <target>Move item</target>
+        <source>Begriff verschieben</source>
+        <target>Begriff verschieben</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.cut.1">
-        <source>Move item with id %s.</source>
-        <target>Move item with id %s.</target>
+        <source>Begriff ID %s verschieben.</source>
+        <target>Begriff ID %s verschieben.</target>
       </trans-unit>
 
       <trans-unit id="tl_sw_glossar.delete.0">
-        <source>Delete item</source>
-        <target>Delete item</target>
+        <source>Begriff löschen</source>
+        <target>Begriff löschen</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.delete.1">
-        <source>Delete item with id %s.</source>
-        <target>Delete item with id %s.</target>
+        <source>Begriff ID %s löschen.</source>
+        <target>Begriff ID %s löschen.</target>
       </trans-unit>
 
       <trans-unit id="tl_sw_glossar.toggle.0">
-        <source>Publish item</source>
-        <target>Publish item</target>
+        <source>Begriff veröffentlichen/unveröffentlichen</source>
+        <target>Begriff veröffentlichen/unveröffentlichen</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.toggle.1">
-        <source>Publish item with id %s.</source>
-        <target>Publish item with id %s.</target>
+        <source>Begriff ID %s veröffentlichen/unveröffentlichen.</source>
+        <target>Begriff ID %s veröffentlichen/unveröffentlichen.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.feature.0">
+        <source>Begriff hervorheben/zurücksetzen</source>
+        <target>Begriff hervorheben/zurücksetzen</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.feature.1">
+        <source>Begriff ID %s hervorheben/zurücksetzen.</source>
+        <target>Begriff ID %s hervorheben/zurücksetzen.</target>
       </trans-unit>
     </body>
   </file>

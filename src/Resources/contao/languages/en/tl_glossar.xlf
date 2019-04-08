@@ -11,172 +11,191 @@
       </trans-unit>
 
       <trans-unit id="tl_glossar.title.0">
-        <source>Glossar title</source>
-        <target>Glossar title</target>
+        <source>Glossary title</source>
+        <target>Glossary title</target>
       </trans-unit>
       <trans-unit id="tl_glossar.title.1">
-        <source>Title will shown in backend.</source>
-        <target>Title will shown in backend.</target>
+        <source>This title will be only used in backend.</source>
+        <target>This title will be only used in backend.</target>
       </trans-unit>
       <trans-unit id="tl_glossar.alias.0">
         <source>Alias</source>
         <target>Alias</target>
       </trans-unit>
       <trans-unit id="tl_glossar.alias.1">
-        <source>The alias will be generated automatically.</source>
-        <target>The alias will be generated automatically.</target>
+        <source>Alias will be automatically be generated.</source>
+        <target>Alias will be automatically be generated.</target>
       </trans-unit>
       <trans-unit id="tl_glossar.language.0">
         <source>Language</source>
         <target>Language</target>
       </trans-unit>
       <trans-unit id="tl_glossar.language.1">
-        <source>Alle Glossar-Einträge werden in der jeweiligen Sprache gesucht und ersetzt.</source>
-        <target>Alle Glossar-Einträge werden in der jeweiligen Sprache gesucht und ersetzt.</target>
+        <source>All terms will be crawled in this language.</source>
+        <target>All terms will be crawled in this language.</target>
       </trans-unit>
       <trans-unit id="tl_glossar.fallback.0">
         <source>Fallback language</source>
         <target>Fallback language</target>
       </trans-unit>
       <trans-unit id="tl_glossar.fallback.1">
-        <source>Falls ein Eintrag nicht in der aktiven Sprache gefunden werden kann, wird der Begriff in der Fallback-Sprache gesucht.</source>
-        <target>Falls ein Eintrag nicht in der aktiven Sprache gefunden werden kann, wird der Begriff in der Fallback-Sprache gesucht.</target>
+        <source>This will be search all terms from other glossaries with different languages.</source>
+        <target>This will be search all terms from other glossaries with different languages.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.allowComments.0">
         <source>Enable comments</source>
+        <target>Enable comments</target>
       </trans-unit>
       <trans-unit id="tl_glossar.allowComments.1">
         <source>Allow visitors to comment news items.</source>
+        <target>Allow visitors to comment news items.</target>
       </trans-unit>
       <trans-unit id="tl_glossar.notify.0">
         <source>Notify</source>
+        <target>Notify</target>
       </trans-unit>
       <trans-unit id="tl_glossar.notify.1">
         <source>Please choose who to notify when comments are added.</source>
+        <target>Please choose who to notify when comments are added.</target>
       </trans-unit>
       <trans-unit id="tl_glossar.sortOrder.0">
         <source>Sort order</source>
+        <target>Sort order</target>
       </trans-unit>
       <trans-unit id="tl_glossar.sortOrder.1">
         <source>By default, comments are sorted ascending, starting with the oldest one.</source>
+        <target>By default, comments are sorted ascending, starting with the oldest one.</target>
       </trans-unit>
       <trans-unit id="tl_glossar.perPage.0">
         <source>Comments per page</source>
+        <target>Comments per page</target>
       </trans-unit>
       <trans-unit id="tl_glossar.perPage.1">
         <source>Number of comments per page. Set to 0 to disable pagination.</source>
+        <target>Number of comments per page. Set to 0 to disable pagination.</target>
       </trans-unit>
       <trans-unit id="tl_glossar.moderate.0">
         <source>Moderate comments</source>
+        <target>Moderate comments</target>
       </trans-unit>
       <trans-unit id="tl_glossar.moderate.1">
         <source>Approve comments before they are published on the website.</source>
+        <target>Approve comments before they are published on the website.</target>
       </trans-unit>
       <trans-unit id="tl_glossar.bbcode.0">
         <source>Allow BBCode</source>
+        <target>Allow BBCode</target>
       </trans-unit>
       <trans-unit id="tl_glossar.bbcode.1">
         <source>Allow visitors to format their comments with BBCode.</source>
+        <target>Allow visitors to format their comments with BBCode.</target>
       </trans-unit>
       <trans-unit id="tl_glossar.requireLogin.0">
         <source>Require login to comment</source>
+        <target>Require login to comment</target>
       </trans-unit>
       <trans-unit id="tl_glossar.requireLogin.1">
         <source>Allow only authenticated users to create comments.</source>
+        <target>Allow only authenticated users to create comments.</target>
       </trans-unit>
       <trans-unit id="tl_glossar.disableCaptcha.0">
         <source>Disable the security question</source>
+        <target>Disable the security question</target>
       </trans-unit>
       <trans-unit id="tl_glossar.disableCaptcha.1">
         <source>Use this option only if you have limited comments to authenticated users.</source>
+        <target>Use this option only if you have limited comments to authenticated users.</target>
       </trans-unit>
       
       <trans-unit id="tl_glossar.notify_admin">
         <source>System administrator</source>
+        <target>System administrator</target>
       </trans-unit>
       <trans-unit id="tl_glossar.notify_author">
         <source>Author of the news item</source>
+        <target>Author of the news item</target>
       </trans-unit>
       <trans-unit id="tl_glossar.notify_both">
         <source>Author and system administrator</source>
+        <target>Author and system administrator</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.title_legend">
-        <source>Glossar settings</source>
-        <target>Glossar settings</target>
+        <source>Glossary settings</source>
+        <target>Glossary settings</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.new.0">
-        <source>New item</source>
-        <target>New item</target>
+        <source>New glossary</source>
+        <target>New glossary</target>
       </trans-unit>
       <trans-unit id="tl_glossar.new.1">
-        <source>Create a new item.</source>
-        <target>Create a new item.</target>
+        <source>Creates a new glossary.</source>
+        <target>Creates a new glossary.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.show.0">
-        <source>Eintragsdetails</source>
-        <target>Eintragsdetails</target>
+        <source>Glossary details</source>
+        <target>Glossary details</target>
       </trans-unit>
       <trans-unit id="tl_glossar.show.1">
-        <source>Die Details des Eintrags ID %s anzeigen.</source>
-        <target>Die Details des Eintrags ID %s anzeigen.</target>
+        <source>Show details with ID %s.</source>
+        <target>Show details with ID %s.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.edit.0">
-        <source>Eintrag bearbeiten</source>
-        <target>Eintrag bearbeiten</target>
+        <source>Edit glossary</source>
+        <target>Edit glossary</target>
       </trans-unit>
       <trans-unit id="tl_glossar.edit.1">
-        <source>Eintrag ID %s bearbeiten.</source>
-        <target>Eintrag ID %s bearbeiten.</target>
+        <source>Edit glossary with ID %s.</source>
+        <target>Edit glossary with ID %s.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.copy.0">
-        <source>Eintrag duplizieren</source>
-        <target>Eintrag duplizieren</target>
+        <source>Duplicate glossary</source>
+        <target>Duplicate glossary</target>
       </trans-unit>
       <trans-unit id="tl_glossar.copy.1">
-        <source>Eintrag ID %s duplizieren.</source>
-        <target>Eintrag ID %s duplizieren.</target>
+        <source>Edit glossary with ID %s.</source>
+        <target>Edit glossary with ID %s.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.cut.0">
-        <source>Eintrag verschieben</source>
-        <target>Eintrag verschieben</target>
+        <source>Move glossary</source>
+        <target>Move glossary</target>
       </trans-unit>
       <trans-unit id="tl_glossar.cut.1">
-        <source>Eintrag ID %s verschieben.</source>
-        <target>Eintrag ID %s verschieben.</target>
+        <source>Move glossar with ID %s.</source>
+        <target>Move glossar with ID %s.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.delete.0">
-        <source>Eintrag löschen</source>
-        <target>Eintrag löschen</target>
+        <source>Delete glossary</source>
+        <target>Delete glossary</target>
       </trans-unit>
       <trans-unit id="tl_glossar.delete.1">
-        <source>Eintrag ID %s löschen.</source>
-        <target>Eintrag ID %s löschen.</target>
+        <source>Delete glossary with ID %s.</source>
+        <target>Delete glossary with ID %s.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.toggle.0">
-        <source>Eintrag veröffentlichen/unveröffentlichen</source>
-        <target>Eintrag veröffentlichen/unveröffentlichen</target>
+        <source>Publish/Unpublish glosary</source>
+        <target>Publish/Unpublish glosary</target>
       </trans-unit>
       <trans-unit id="tl_glossar.toggle.1">
-        <source>Eintrag ID %s veröffentlichen/unveröffentlichen.</source>
-        <target>Eintrag ID %s veröffentlichen/unveröffentlichen.</target>
+        <source>Publish/Unpublish glossary with ID %s.</source>
+        <target>Publish/Unpublish glossary with ID %s.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.feature.0">
-        <source>Eintrag hervorheben/zurücksetzen</source>
-        <target>Eintrag hervorheben/zurücksetzen</target>
+        <source>Heighlight/Unheighlight glossary</source>
+        <target>Heighlight/Unheighlight glossary</target>
       </trans-unit>
       <trans-unit id="tl_glossar.feature.1">
-        <source>Beitrag ID %s hervorheben/zurücksetzen.</source>
-        <target>Beitrag ID %s hervorheben/zurücksetzen.</target>
+        <source>Heighlight/Unheighlight glossary with ID %s.</source>
+        <target>Heighlight/Unheighlight glossary with ID %s.</target>
       </trans-unit>
     </body>
   </file>

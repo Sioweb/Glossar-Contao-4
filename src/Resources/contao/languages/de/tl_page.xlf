@@ -6,7 +6,7 @@
         <target>Maximale Begriffsmarkierung</target>
       </trans-unit>
       <trans-unit id="tl_page.glossar_max_replacements.1">
-        <source>Add number how often a Term can be replaced on this page.. Zero for unlimited</source>
+        <source>Add number how often a Term can be replaced on this page.. Zero for unlimited.</source>
         <target>Tragen Sie hier ein, wie oft ein Begriff als Link ersetzt werden kann. 0 für unbegrenzt.</target>
       </trans-unit>
       <trans-unit id="tl_page.disableGlossarCloud.0">
@@ -14,7 +14,7 @@
         <target>Von der Cloud ausschließen</target>
       </trans-unit>
       <trans-unit id="tl_page.disableGlossarCloud.1">
-        <source>This site will not be shown in the cloud</source>
+        <source>This site will not be shown in the cloud.</source>
         <target>Diese Seite wird nicht in der Cloud ausgegeben.</target>
       </trans-unit>
       <trans-unit id="tl_page.disableGlossar.0">
@@ -22,7 +22,7 @@
         <target>Glossar deaktivieren</target>
       </trans-unit>
       <trans-unit id="tl_page.disableGlossar.1">
-        <source>Deactivates glossar for this site</source>
+        <source>Deactivates glossar for this site.</source>
         <target>Der Glossar wird auf dieser Seite deaktiviert.</target>
       </trans-unit>
       <trans-unit id="tl_page.glossar_no_fallback.0">

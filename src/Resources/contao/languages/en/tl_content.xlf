@@ -3,11 +3,11 @@
     <body>
       <trans-unit id="tl_content.glossartags_legend">
         <source>Tags (Needs Tagmodule)</source>
-        <target>Tags/Auszeichnungen (Benötigt Tag-Module)</target>
+        <target>Tags (Needs Tagmodule))</target>
       </trans-unit>
       <trans-unit id="tl_content.alphapagination_legend">
         <source>Alphapagination settings</source>
-        <target>Alphapagination Einstellungen</target>
+        <target>Alphapagination settings</target>
       </trans-unit>
       <trans-unit id="tl_content.pagination_legend">
         <source>Pagnation</source>
@@ -15,43 +15,43 @@
       </trans-unit>
       <trans-unit id="tl_content.glossar.0">
         <source>Choose glossary</source>
-        <target>Glossar wählen</target>
+        <target>Choose glossary</target>
       </trans-unit>
       <trans-unit id="tl_content.glossar.1">
         <source>Show all glossary or just a specific one.</source>
-        <target>Alle Glossare ausgeben oder nur einen bestimmten.</target>
+        <target>Show all glossary or just a specific one..</target>
       </trans-unit>
       <trans-unit id="tl_content.sortGlossarBy.0">
         <source>Sort terms</source>
-        <target>Begriffe sortieren</target>
+        <target>Sort terms</target>
       </trans-unit>
       <trans-unit id="tl_content.sortGlossarBy.1">
         <source>Defines, how terms will be sorted.</source>
-        <target>Gibt an, nach welchen Daten die Ausgabe sortiert werden soll.</target>
+        <target>Defines, how terms will be sorted..</target>
       </trans-unit>
       <trans-unit id="tl_content.headlineUnit.0">
         <source>Headline</source>
-        <target>Überschrift</target>
+        <target>Headline</target>
       </trans-unit>
       <trans-unit id="tl_content.headlineUnit.1">
         <source>Which kind of headline should be used.</source>
-        <target>Welche Art von Überschrift soll verwendet werden.</target>
+        <target>Which kind of headline should be used..</target>
       </trans-unit>
       <trans-unit id="tl_content.termAsHeadline.0">
         <source>Term will be used as headline</source>
-        <target>Begriffe als Headline aktivieren</target>
+        <target>Term will be used as headline</target>
       </trans-unit>
       <trans-unit id="tl_content.termAsHeadline.1">
         <source>Terms will be uses automatically as headline, so u dont need to add one.</source>
-        <target>Die Begriffe werden automatisch als Überschrift eingesetzt.</target>
+        <target>Terms will be uses automatically as headline, so u dont need to add one..</target>
       </trans-unit>
       <trans-unit id="tl_content.glossarShowTags.0">
         <source>Show tags</source>
-        <target>Auszeichnungen/Tags anzeigen</target>
+        <target>Show tags</target>
       </trans-unit>
       <trans-unit id="tl_content.glossarShowTags.1">
         <source>Wählen Sie diese Option, um die zu diesen Begriffen zugehörigen Auszeichnungen anzuzeigen.</source>
-        <target>Wählen Sie diese Option, um die zu diesen Begriffen zugehörigen Auszeichnungen anzuzeigen.</target>
+        <target>Wählen Sie diese Option, um die zu diesen Begriffen zugehörigen Auszeichnungen anzuzeigen..</target>
       </trans-unit>
       <trans-unit id="tl_content.glossarShowTagsDetails.0">
         <source>Auszeichnungen in den Details anzeigen</source>
@@ -59,47 +59,47 @@
       </trans-unit>
       <trans-unit id="tl_content.glossarShowTagsDetails.1">
         <source>Wählen Sie diese Option, um die Tags auch auf der Detailseite zu verwenden.</source>
-        <target>Wählen Sie diese Option, um die Tags auch auf der Detailseite zu verwenden.</target>
+        <target>Wählen Sie diese Option, um die Tags auch auf der Detailseite zu verwenden..</target>
       </trans-unit>
       <trans-unit id="tl_content.addAlphaPagination.0">
         <source>Add alphabetic pagination</source>
-        <target>Alphabetische Pagination hinzufügen</target>
+        <target>Add alphabetic pagination</target>
       </trans-unit>
       <trans-unit id="tl_content.addAlphaPagination.1">
         <source>Adds a pagination from A to Z.</source>
-        <target>Eine Pagination bestehend aus A bis Z.</target>
+        <target>Adds a pagination from A to Z..</target>
       </trans-unit>
       <trans-unit id="tl_content.addNumericPagination.0">
         <source>Add numeric pagination</source>
-        <target>Nummerische Pagination hinzufügen</target>
+        <target>Add numeric pagination</target>
       </trans-unit>
       <trans-unit id="tl_content.addNumericPagination.1">
         <source>Adds pagination from 0 to 9.</source>
-        <target>Eine Pagination bestehend aus 0 bis 9.</target>
+        <target>Adds pagination from 0 to 9..</target>
       </trans-unit>
       <trans-unit id="tl_content.addOnlyTrueLinks.0">
         <source>Hide pagination elements without Terms</source>
-        <target>Keine leeren Ziffern</target>
+        <target>Hide pagination elements without Terms</target>
       </trans-unit>
       <trans-unit id="tl_content.addOnlyTrueLinks.1">
         <source>Show only chars in pagination, with contain terms.</source>
-        <target>Zeigt nur Buchstaben an, die einem Begriff zugeordner werden können.</target>
+        <target>Show only chars in pagination, with contain terms..</target>
       </trans-unit>
       <trans-unit id="tl_content.paginationPosition.0">
         <source>Pagination position</source>
-        <target>Position der Paginierung</target>
+        <target>Pagination position</target>
       </trans-unit>
       <trans-unit id="tl_content.paginationPosition.1">
         <source>Add pagination before and after the glossary list.</source>
-        <target>Erstellt eine Paginierung vor und oder nach der Glossar-Liste.</target>
+        <target>Add pagination before and after the glossary list..</target>
       </trans-unit>
       <trans-unit id="tl_content.showAfterChoose.0">
         <source>Show terms after using the pagination?</source>
-        <target>Einträge erst nach Auswahl der Pagination anzeigen?</target>
+        <target>Show terms after using the pagination??</target>
       </trans-unit>
       <trans-unit id="tl_content.showAfterChoose.1">
         <source>Hide terms, until pagination is used. This will help to keep usability, if a lot of terms are shown.</source>
-        <target>Die Einträge werden versteckt, bis eine Ziffer in der Pagination ausgewählt wurde.</target>
+        <target>Hide terms, until pagination is used. This will help to keep usability, if a lot of terms are shown..</target>
       </trans-unit>
     </body>
   </file>

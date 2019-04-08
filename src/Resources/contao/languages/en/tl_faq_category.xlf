@@ -2,17 +2,17 @@
   <file datatype="php" original="system/modules/core/languages/en/tl_faq_category.php" source-language="en">
     <body>
       <trans-unit id="tl_faq_category.glossar_disallow.0">
-        <source>Exclude archive</source>
-        <target>Exclude archive</target>
+        <source>Exclude this F.A.Q list</source>
+        <target>Exclude this F.A.Q list</target>
       </trans-unit>
       <trans-unit id="tl_faq_category.glossar_disallow.1">
-        <source>This archive will be ignored from glossar.</source>
-        <target>This archive will be ignored from glossar.</target>
+        <source>This list wont be crawled by glossary.</source>
+        <target>This list wont be crawled by glossary.</target>
       </trans-unit>
 
       <trans-unit id="tl_faq_category.glossar_legend">
-        <source>Glossar</source>
-        <target>Glossar</target>
+        <source>Glossary</source>
+        <target>Glossary</target>
       </trans-unit>
     </body>
   </file>

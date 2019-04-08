@@ -1,25 +1,41 @@
 <?xml version="1.0" ?><xliff version="1.1">
   <file datatype="php" original="system/modules/core/languages/en/tl_page.php" source-language="en">
     <body>
+      <trans-unit id="tl_page.glossar_max_replacements.0">
+        <source>Max replacements</source>
+        <target>Max replacements</target>
+      </trans-unit>
+      <trans-unit id="tl_page.glossar_max_replacements.1">
+        <source>Add number how often a Term can be replaced on this page.. Zero for unlimited.</source>
+        <target>Add number how often a Term can be replaced on this page.. Zero for unlimited.</target>
+      </trans-unit>
+      <trans-unit id="tl_page.disableGlossarCloud.0">
+        <source>Deactivate cloud</source>
+        <target>Deactivate cloud</target>
+      </trans-unit>
+      <trans-unit id="tl_page.disableGlossarCloud.1">
+        <source>This site will not be shown in the cloud.</source>
+        <target>This site will not be shown in the cloud.</target>
+      </trans-unit>
       <trans-unit id="tl_page.disableGlossar.0">
-        <source>Deactivate Glossar</source>
-        <target>Deactivate Glossar</target>
+        <source>Deactivate glossary</source>
+        <target>Deactivate glossary</target>
       </trans-unit>
       <trans-unit id="tl_page.disableGlossar.1">
         <source>Deactivates glossar for this site.</source>
         <target>Deactivates glossar for this site.</target>
       </trans-unit>
       <trans-unit id="tl_page.glossar_no_fallback.0">
-        <source>No glossaries with other languages</source>
-        <target>No glossaries with other languages</target>
+        <source>No fallback glossaries</source>
+        <target>No fallback glossaries</target>
       </trans-unit>
       <trans-unit id="tl_page.glossar_no_fallback.1">
-        <source>Only use glossaries with same language as user language.</source>
-        <target>Only use glossaries with same language as user language.</target>
+        <source>No terms will be replaced on this page.</source>
+        <target>No terms will be replaced on this page.</target>
       </trans-unit>
       <trans-unit id="tl_page.glossar_legend">
-        <source>Glossar settings</source>
-        <target>Glossar settings</target>
+        <source>Glossary settings</source>
+        <target>Glossary settings</target>
       </trans-unit>
     </body>
   </file>

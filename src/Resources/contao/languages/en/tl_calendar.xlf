@@ -6,13 +6,13 @@
         <target>Exclude archive</target>
       </trans-unit>
       <trans-unit id="tl_calendar.glossar_disallow.1">
-        <source>This archive will be ignored from glossar.</source>
-        <target>This archive will be ignored from glossar.</target>
+        <source>This modules wont be crawled by glossary.</source>
+        <target>This modules wont be crawled by glossary.</target>
       </trans-unit>
 
       <trans-unit id="tl_calendar.glossar_legend">
-        <source>Glossar</source>
-        <target>Glossar</target>
+        <source>Glossary</source>
+        <target>Glossary</target>
       </trans-unit>
     </body>
   </file>

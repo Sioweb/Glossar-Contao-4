@@ -2,98 +2,98 @@
   <file datatype="php" original="system/modules/core/languages/en/tl_glossar_log.php" source-language="en">
     <body>
       <trans-unit id="tl_glossar_log.tstamp.0">
-        <source>Erstellt am</source>
-        <target>Erstellt am</target>
+        <source>Created at</source>
+        <target>Created at</target>
       </trans-unit>
       <trans-unit id="tl_glossar_log.tstamp.1">
-        <source>Erstellt am</source>
-        <target>Erstellt am</target>
+        <source>Created at</source>
+        <target>Created at</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar_log.action.0">
-        <source>Aktion</source>
-        <target>Aktion</target>
+        <source>Action</source>
+        <target>Action</target>
       </trans-unit>
       <trans-unit id="tl_glossar_log.action.1">
-        <source>Was hat der Besucher ausgeführt.</source>
-        <target>Was hat der Besucher ausgeführt.</target>
+        <source>Visitor action (Load, follow, close).</source>
+        <target>Visitor action (Load, follow, close).</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar_log.title_legend">
-        <source>Log / Statistik</source>
-        <target>Log / Statistik</target>
+        <source>Log / statistics</source>
+        <target>Log / statistics</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar_log.new.0">
-        <source>Neuer Eintrag</source>
-        <target>Neuer Eintrag</target>
+        <source>New item</source>
+        <target>New item</target>
       </trans-unit>
       <trans-unit id="tl_glossar_log.new.1">
-        <source>Einen neuen Eintrag erstellen.</source>
-        <target>Einen neuen Eintrag erstellen.</target>
+        <source>Create a new item.</source>
+        <target>Create a new item.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar_log.show.0">
-        <source>Eintragsdetails</source>
-        <target>Eintragsdetails</target>
+        <source>Details</source>
+        <target>Details</target>
       </trans-unit>
       <trans-unit id="tl_glossar_log.show.1">
-        <source>Die Details des Eintrags ID %s anzeigen.</source>
-        <target>Die Details des Eintrags ID %s anzeigen.</target>
+        <source>Show details for ID %s.</source>
+        <target>Show details for ID %s.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar_log.edit.0">
-        <source>Eintrag bearbeiten</source>
-        <target>Eintrag bearbeiten</target>
+        <source>Edit item</source>
+        <target>Edit item</target>
       </trans-unit>
       <trans-unit id="tl_glossar_log.edit.1">
-        <source>Eintrag ID %s bearbeiten.</source>
-        <target>Eintrag ID %s bearbeiten.</target>
+        <source>Edit item with ID %s.</source>
+        <target>Edit item with ID %s.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar_log.copy.0">
-        <source>Eintrag duplizieren</source>
-        <target>Eintrag duplizieren</target>
+        <source>Duplicate item</source>
+        <target>Duplicate item</target>
       </trans-unit>
       <trans-unit id="tl_glossar_log.copy.1">
-        <source>Eintrag ID %s duplizieren.</source>
-        <target>Eintrag ID %s duplizieren.</target>
+        <source>Duplicate item with ID %s.</source>
+        <target>Duplicate item with ID %s.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar_log.cut.0">
-        <source>Eintrag verschieben</source>
-        <target>Eintrag verschieben</target>
+        <source>Move item</source>
+        <target>Move item</target>
       </trans-unit>
       <trans-unit id="tl_glossar_log.cut.1">
-        <source>Eintrag ID %s verschieben.</source>
-        <target>Eintrag ID %s verschieben.</target>
+        <source>Mode item with ID %s.</source>
+        <target>Mode item with ID %s.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar_log.delete.0">
-        <source>Eintrag löschen</source>
-        <target>Eintrag löschen</target>
+        <source>Delete item</source>
+        <target>Delete item</target>
       </trans-unit>
       <trans-unit id="tl_glossar_log.delete.1">
-        <source>Eintrag ID %s löschen.</source>
-        <target>Eintrag ID %s löschen.</target>
+        <source>Delete item with ID %s.</source>
+        <target>Delete item with ID %s.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar_log.toggle.0">
-        <source>Eintrag veröffentlichen/unveröffentlichen</source>
-        <target>Eintrag veröffentlichen/unveröffentlichen</target>
+        <source>Publish/Unpublish item</source>
+        <target>Publish/Unpublish item</target>
       </trans-unit>
       <trans-unit id="tl_glossar_log.toggle.1">
-        <source>Eintrag ID %s veröffentlichen/unveröffentlichen.</source>
-        <target>Eintrag ID %s veröffentlichen/unveröffentlichen.</target>
+        <source>Publish/Unpublish item with ID %s.</source>
+        <target>Publish/Unpublish item with ID %s.</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar_log.feature.0">
-        <source>Eintrag hervorheben/zurücksetzen</source>
-        <target>Eintrag hervorheben/zurücksetzen</target>
+        <source>Highlight/Unhightlight item</source>
+        <target>Highlight/Unhightlight item</target>
       </trans-unit>
       <trans-unit id="tl_glossar_log.feature.1">
-        <source>Beitrag ID %s hervorheben/zurücksetzen.</source>
-        <target>Beitrag ID %s hervorheben/zurücksetzen.</target>
+        <source>Highlight/Unhightlight item with ID %s.</source>
+        <target>Highlight/Unhightlight item with ID %s.</target>
       </trans-unit>
     </body>
   </file>

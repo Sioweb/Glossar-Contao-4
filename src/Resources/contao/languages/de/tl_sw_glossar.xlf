@@ -70,16 +70,16 @@
         <target>Weiterleitungsseite</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.jumpTo.1">
-        <source>Gibt die Seite mit den Glossar-Einträgen an.</source>
-        <target>Gibt die Seite mit den Glossar-Einträgen an.</target>
+        <source>User will be redirected to this page, after clicking a term.</source>
+        <target>Der Benutzer wird nach klicken auf einen Begriff auf diese Seite weitergeleitet.</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.jumpToInternal.0">
         <source>Redirect page</source>
         <target>Weiterleitungsseite</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.jumpToInternal.1">
-        <source>Gibt die Seite mit den Glossar-Einträgen an.</source>
-        <target>Gibt die Seite mit den Glossar-Einträgen an.</target>
+        <source>User will be redirected to this page, after clicking a term.</source>
+        <target>Der Benutzer wird nach klicken auf einen Begriff auf diese Seite weitergeleitet.</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.noPlural.0">
         <source>Deactivate plural search</source>
@@ -94,8 +94,8 @@
         <target>Strikte Suche</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.strictSearch.1">
-        <source>Es werden nur die angegebenen Begriffe gefunden, wenn diese als einzelnes Wort im INhalt stehen.</source>
-        <target>Es werden nur die angegebenen Begriffe gefunden, wenn diese als einzelnes Wort im INhalt stehen.</target>
+        <source>Only full words will be replaced by glossary.</source>
+        <target>Es werden nur die angegebenen Begriffe gefunden, wenn diese als einzelnes Wort im Inhalt stehen.</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.termAsHeadline.0">
         <source>Do not use Term as Headline</source>
@@ -314,7 +314,7 @@
         <target>Auszeichnungen/Tags (Benötigt Tag-Modul)</target>
       </trans-unit>
       <trans-unit id="tl_sw_glossar.tags.1">
-        <source>Bitte geben Sie eine oder mehrere Auszeichnungen durch Komma getrennt an, um eine Kategorisierung vorzunehmen.</source>
+        <source>Please enter one or more tags comma separated here.</source>
         <target>Bitte geben Sie eine oder mehrere Auszeichnungen durch Komma getrennt an, um eine Kategorisierung vorzunehmen.</target>
       </trans-unit>
 

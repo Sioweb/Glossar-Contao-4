@@ -6,7 +6,7 @@
         <target>Glossar aktivieren</target>
       </trans-unit>
       <trans-unit id="tl_settings.enableGlossar.1">
-        <source>Activates glossar for the whole site</source>
+        <source>Activates glossar for the whole site.</source>
         <target>Der Glossar wird auf allen Seiten aktiviert.</target>
       </trans-unit>
 
@@ -15,7 +15,7 @@
         <target>Maximale Begriffsmarkierung auf einer Seite</target>
       </trans-unit>
       <trans-unit id="tl_settings.glossar_max_replacements.1">
-        <source>Add number how often a Term can be replaced on a page.. Zero for unlimited</source>
+        <source>Add number how often a Term can be replaced on a page.. Zero for unlimited.</source>
         <target>Tragen Sie hier ein, wie oft ein Begriff als Link auf einer Seite ersetzt werden kann. 0 für unbegrenzt.</target>
       </trans-unit>
 
@@ -69,8 +69,8 @@
         <target>Von der Suche ausgeschlossene Inhalte einbeziehen</target>
       </trans-unit>
       <trans-unit id="tl_settings.glossarIncludeUnsearchable.1">
-        <source>Content which is marked as not searchable, indexer::stop|continue</source>
-        <target>Inhalte die als nicht suchbar markiert sind, indexer::stop|continue</target>
+        <source>Content which is marked as not searchable, indexer::stop|continue.</source>
+        <target>Inhalte die als nicht suchbar markiert sind, indexer::stop|continue.</target>
       </trans-unit>
 
       <trans-unit id="tl_settings.activateGlossarTags.0">
@@ -98,7 +98,7 @@
         <target>Cache umgehen</target>
       </trans-unit>
       <trans-unit id="tl_settings.disableGlossarCache.1">
-        <source>Deactivates the glossar cache</source>
+        <source>Deactivates the glossar cache.</source>
         <target>Der Glossar wird deaktiviert. Bei jedem Seitenaufbau wird der Glossar neu generiert.</target>
       </trans-unit>
 
@@ -116,7 +116,7 @@
         <target>Strikte Suche</target>
       </trans-unit>
       <trans-unit id="tl_settings.strictSearch.1">
-        <source>Es werden nur die angegebenen Begriffe gefunden, wenn diese als einzelnes Wort im Inhalt stehen.</source>
+        <source>Only full words will be replaced.</source>
         <target>Es werden nur die angegebenen Begriffe gefunden, wenn diese als einzelnes Wort im Inhalt stehen.</target>
       </trans-unit>
 
@@ -160,7 +160,7 @@
         <target>Glossar-Seite</target>
       </trans-unit>
       <trans-unit id="tl_settings.jumpToGlossar.1">
-        <source>Default site if no page is selected</source>
+        <source>Default site if no page is selected.</source>
         <target>Standardseite für Einträge denen keine andere Weiterleitungsseite gegben wurde.</target>
       </trans-unit>
 
