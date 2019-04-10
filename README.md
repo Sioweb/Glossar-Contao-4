@@ -2,7 +2,11 @@
 
 ## Release der Version 2
 
-In den nächsten Tagen wird Version 2 verwendet. Die neue Version wird weitgehends kompatibel zur Version 1 funktionieren. Ich prüfe derzeit noch, ob Contao Version 4.4 genutzt werden kann.
+Die neue Version ist online.
+
+## Dokumentation
+
+Die Dokumentation wird mit Hugo erstellt und wird in den nächsten zwei Tagen bereitgestellt.
 
 ## Install
 
