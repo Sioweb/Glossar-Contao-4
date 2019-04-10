@@ -1,0 +1,142 @@
+<!DOCTYPE html><html>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Installation | Glossar Contao 4</title>
+
+<link href="https://fonts.googleapis.com/css?family=Oxygen|Oxygen+Mono:300,400,700" rel="stylesheet">
+<link rel="stylesheet" href="/normalize.min.css">
+
+<link rel="stylesheet" href="/book.min.29d743ffb6d61ecbfc9bb21b7eab17d63b577d4bd547c3f095addb1c793ab1b1.css">
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav role="navigation">
+<h2 class="book-brand">
+  <a href="http://localhost:1313">Glossar Contao 4</a>
+</h2>
+
+
+
+    
+  
+  
+
+  <style>
+  nav ul a[href$="\2f docs\2finstall\2f "] {
+      color: #004ed0;
+  }
+  </style><ul>
+<li><a href="/docs/install/">Installation</a></li>
+<li><a href="/docs/first-steps/">Erste Schritte</a>
+
+<ul>
+<li><a href="/docs/first-steps/glossar">Glossar erstellen</a></li>
+<li><a href="/docs/first-steps/term">Begriffe erstellen</a></li>
+<li><a href="/docs/first-steps/glossar-index">Index aufbauen</a></li>
+</ul></li>
+</ul>
+
+
+
+
+
+</nav>
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" />
+  </label>
+  <strong>Installation</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="installation">Installation</h1>
+
+<h2 id="composer">Composer</h2>
+
+<p>Der Glossar, kann über die Konsole und den Contao Manager installiert werden. Im Manager muss lediglich der Paketname <code>sioweb\glossar</code> gesucht werden, in der Konsole wird etwas mehr benötigt.</p>
+
+<p>Die Konsole benötigt in jedem Fall <a href="https://getcomposer.org/">Composer</a>. Composer kann lokal als <code>composer.phar</code>-Datei oder global auf dem Server bzw. der Laufzeitumgebung hinterlegt sein.</p>
+
+<h3 id="composer-global">Composer global</h3>
+
+<pre><code>composer req sioweb/glossar
+</code></pre>
+
+<h3 id="composer-als-phar-datei">Composer als PHAR-Datei</h3>
+
+<p>Je nach Hoster, reicht es nicht aus einfach <code>php ...</code> zu nutzen, Domainfactory nutzt in der Konsole standardmäßig PHP 4. Es ist zwingen empfohlen, PHP 7+ zu verwenden. Fragen Sie ggf. Ihren Hoster, wie der Pfad zu anderen PHP Versionen lautet.</p>
+
+<p><em>PHP ist global nutzbar</em></p>
+
+<p>Mit <code>php -v</code> kann die Version von PHP ermittelt werden.</p>
+
+<pre><code>php composer.phar req sioweb/glossar
+</code></pre>
+
+<p><em>PHP als Pfad</em></p>
+
+<p>Der Speicherort der PHP-Versionen, ist von Hoster zu Hoster unterschiedlich, hier ein Beispiel:</p>
+
+<pre><code>/usr/local/bin/php7-71/bin/php composer.phar req sioweb/glossar
+</code></pre>
+
+<h2 id="datenbank">Datenbank</h2>
+
+<p>Damit der Glossar funktioniert, muss die Datenkbank aktualisiert werden. Dazu wird das Install-Tool von Contao verwendet. Der Contao Manager wird direkt nach der Installation fragen, ob die Datenbank installiert werden soll. Sollte dies nicht passieren, kann das Tool auch oben rechts über den Menüpunkt <code>Tools/Install Tool</code> geöffnet werden.</p>
+
+<p>Alternativ ist das Tool auch direkt über die URL erreichbar, dazu muss lediglich <code>/contao/install</code> an die Domain angehängt werden. (<a href="https://www.domain.tld/contao/install">https://www.domain.tld/contao/install</a>)</p>
+
+<p>Nach der Anmeldung im Install-Tool, kann die Datenbank aktualisiert werden.</p>
+
+<p><strong>Hinweis:</strong> Glossar nutzt für Bilder den Wert <code>Binary (16)</code>, Contao wird dieses Feld nach der Aktualisierung weiterhin anzeigen, da dieser Wert nicht erkannt durch das Install-Tool wird. Ignorieren Sie bitte, dass dieses Feld nach der Aktualisierung weiter ausgegeben wird.</p>
+</article>
+
+      
+
+    </div>
+
+    
+  
+  
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#installation">Installation</a>
+<ul>
+<li><a href="#composer">Composer</a>
+<ul>
+<li><a href="#composer-global">Composer global</a></li>
+<li><a href="#composer-als-phar-datei">Composer als PHAR-Datei</a></li>
+</ul></li>
+<li><a href="#datenbank">Datenbank</a></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+</body>
+
+</html>

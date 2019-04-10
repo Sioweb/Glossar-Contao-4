@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on Glossar Contao 4</title>
+    <link>http://localhost:1313/docs/</link>
+    <description>Recent content in Docs on Glossar Contao 4</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-de</language>
+    
+	<atom:link href="http://localhost:1313/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Erste Schritte</title>
+      <link>http://localhost:1313/docs/first-steps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/docs/first-steps/</guid>
+      <description>Erste Schritte Damit der Glossar funktioniert, sind leider einige Schritte notwendig. In diesem Dokument wird näher gebracht, welche Einstellungen vorgenommen werden müssen, damit der Glossar genutzt werden kann. Alle Einstellungen finden im Backend statt.
+Sollte einer der unten genannten Punkte nicht sichtbar und, oder erreichbar sein, kann es sein dass Sie nicht genügend Rechte besitzen. Fragen Sie Ihren Administrator, ob diese Seiten ggf. freigeschaltet werden können, oder ob er/sie diese Schritte übernehmen kann.</description>
+    </item>
+    
+    <item>
+      <title>Installation</title>
+      <link>http://localhost:1313/docs/install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/docs/install/</guid>
+      <description>Installation Composer Der Glossar, kann über die Konsole und den Contao Manager installiert werden. Im Manager muss lediglich der Paketname sioweb\glossar gesucht werden, in der Konsole wird etwas mehr benötigt.
+Die Konsole benötigt in jedem Fall Composer. Composer kann lokal als composer.phar-Datei oder global auf dem Server bzw. der Laufzeitumgebung hinterlegt sein.
+Composer global composer req sioweb/glossar  Composer als PHAR-Datei Je nach Hoster, reicht es nicht aus einfach php .</description>
+    </item>
+    
+  </channel>
+</rss>
