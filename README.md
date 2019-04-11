@@ -42,8 +42,14 @@ Die API für Contao 2 & 3 ist weitgehends durch Symfony-Technologien ersetzt. Ei
 
 ### Anpassungen
 
-- Inhalte werden schneller durchsucht
-- Es kann eingestellt werden, wie oft ein Begriff auf einer Seite ersetzt werden kann
-- Contao 3 API durch Symfony ersetzen
-- Die Vorschau kann nun ein Bild enthalten
-- Titel, Legenden und Beschreibungen im Backend, sind nun eindeutiger
+- Damit die Seite nicht mit Glossar-Links vollgespamt wird, kann ausgewählt werden, wie oft ein Begriff pro Seite ersetzt werden darf
+- Glossar neu Aufbauen ist nun schneller und kann besser mit mehreren Domains umgehen
+- Labels und Bezeichnungen wurden verbessert, auch die englische Übersetzung - wenn auch nicht unbedingt schön - ist vollständig
+- Ajax-Requests laufen nun über eigene Routen
+- Alle Hooks werden über Services angesprochen
+- Einige Methoden, wurden als Service registriert
+- Glossar-Tabellen werden mit Doctrine-Entities erzeugt
+- Für Contao 4.4 enthält der Glossar fallbacks
+- Contao 4.4 - 4.7.1 enthält den Maintainance-Fix, damit der Glossar aufgebaut werden kann
+- Diverse Bugs sollten nun endgültig behoben sein
+- Much more geeky sparkling fun...
