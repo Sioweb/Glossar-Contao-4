@@ -3,7 +3,6 @@
     "type": "contao-bundle",
     "description": "Glossar for Contao 4+",
     "license": "MIT",
-    "version": "2.0.6",
     "authors": [
         {
             "name": "Sascha Weidner",
