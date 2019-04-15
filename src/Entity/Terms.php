@@ -208,7 +208,7 @@ class Terms
 
     /**
      * @var string
-     * @ORM\Column(type="binary", length=16, options={"default" : "", "nullable" : true})
+     * @ORM\Column(type="binary", length=16)
      */
     protected $singleSRC;
 
