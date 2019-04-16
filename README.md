@@ -8,6 +8,13 @@ Die neue Version ist online.
 
 Die Dokumentation wird mit Hugo erstellt und wird in den nächsten zwei Tagen bereitgestellt.
 
+### Short one / First steps
+
+- Glossar unter Einstellungen aktivieren
+- Glossar erstellen
+- Begriffe hinterlegen
+- Glossar in der Systemwartung aufbauen
+
 ## Install
 
 Der Glossar kann mit Composer, oder dem Manager installiert werden.
