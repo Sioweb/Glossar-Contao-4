@@ -150,12 +150,13 @@ class Frontend
 
     private function rebaseContent($strContent)
     {
-        /** @see #12 */
-        $strContent = preg_replace('|<!--GLOSSAR::REPLACE::EXTREA::(.*?)-->|is', '[[$1]]', $strContent);
-        
         foreach(array_reverse($this->replaceIndex) as $indexer => $nodeObject) {
             $strContent = str_replace('<!--' . $indexer . '-->', $this->outerHTML($nodeObject), $strContent);
         }
+        
+        /** @see #12 */
+        $strContent = preg_replace('|<!--GLOSSAR::REPLACE::EXTREA::(.*?)-->|is', '[[$1]]', $strContent);
+        
         return $strContent;
     }
 
