@@ -150,6 +150,8 @@ class Frontend
 
     private function rebaseContent($strContent)
     {
+        $strContent = preg_replace('|<!--GLOSSAR::REPLACE::EXTREA::(.*?)-->|is', '[[$1]]', $strContent);
+        
         foreach(array_reverse($this->replaceIndex) as $indexer => $nodeObject) {
             $strContent = str_replace('<!--' . $indexer . '-->', $this->outerHTML($nodeObject), $strContent);
         }
@@ -162,6 +164,8 @@ class Frontend
         if (Config::get('ignoreInTags')) {
             $ignoredTags = explode(',', str_replace(' ', '', Config::get('ignoreInTags')));
         }
+
+        $strContent = preg_replace('|\[\[(.*?)\]\]|is', '<!--GLOSSAR::REPLACE::EXTREA::$1-->', $strContent);
 
         libxml_use_internal_errors(true);
         $dom = new \DOMDocument();
