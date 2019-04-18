@@ -330,9 +330,11 @@ class Decorator
                 break;
         }
 
+
         // Link to the default page
         if (self::$arrUrlCache[$strCacheKey] === null) {
-            $objPage = PageModel::findWithDetails($this->term->getRelated('pid')->jumpTo);
+            return null;
+            $objPage = PageModel::findWithDetails($this->term->jumpTo);
 
             if ($objPage === null) {
                 self::$arrUrlCache[$strCacheKey] = ampersand(Environment::get('request'), true);
