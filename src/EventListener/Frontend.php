@@ -65,8 +65,6 @@ class Frontend
             Input::setGet('items', Input::get('auto_item'));
         }
 
-        $arrGlossar = array($objPage->glossar);
-
         if ($objPage->disableGlossar == 1) {
             return $strContent;
         }
@@ -78,6 +76,10 @@ class Frontend
 
         // HOOK: search for terms in Events, faq and news
         $arrGlossar = array($objPage->glossar);
+        if (!empty($objPage->fallback_glossar) && (Config::get('glossar_no_fallback') != 1 || $objPage->glossar_no_fallback != 1)) {
+            $arrGlossar[] = $objPage->fallback_glossar;
+        }
+        
         if (isset($GLOBALS['TL_HOOKS']['glossarContent']) && is_array($GLOBALS['TL_HOOKS']['glossarContent'])) {
             foreach ($GLOBALS['TL_HOOKS']['glossarContent'] as $type => $callback) {
                 
@@ -96,6 +98,10 @@ class Frontend
         $this->term = addslashes(str_replace('||', '|', $this->term));
 
         $Glossar = $GlossarRepository->findByLanguage($objPage->language);
+        if (empty($Glossar)) {
+            $langSlug = explode('-', $objPage->language);
+            $Glossar = $GlossarRepository->findByLanguage($langSlug[0]);
+        }
         if (empty($Glossar)) {
             $Glossar = $GlossarRepository->findByFallback(1);
         }
