@@ -56,12 +56,18 @@ class Decorator
         foreach ($arrTerm as $Term) {
             $this->term = (object) $Term->getData();
 
-            if (!$this->term->maxWidth) {
+            if (empty($this->term->maxWidth)) {
                 $this->term->maxWidth = array_filter([Config::get('glossarMaxWidth'), $GLOBALS['glossar']['css']['maxWidth']])[0];
+                if(empty($this->term->maxWidth)) {
+                    $this->term->maxWidth = 450;
+                }
             }
 
-            if (!$this->term->maxHeight) {
+            if (empty($this->term->maxHeight)) {
                 $this->term->maxHeight = array_filter([Config::get('glossarMaxHeight'), $GLOBALS['glossar']['css']['maxHeight']])[0];
+                if(empty($this->term->maxHeight)) {
+                    $this->term->maxHeight = 400;
+                }
             }
 
             $Content = GlossarContentModel::findPublishedByPidAndTable($this->term->id, 'tl_sw_glossar');
