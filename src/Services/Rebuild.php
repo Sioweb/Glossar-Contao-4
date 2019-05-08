@@ -44,6 +44,9 @@ class Rebuild implements ExecutableInterface
         $framework->initialize();
         $this->Database = System::importStatic('Database');
         $this->authenticator = $frontendAuthenticator;
+        if($frontendAuthenticator === null && VERSION >= 4.6) {
+            $this->authenticator = System::getContainer()->get('contao.security.frontend_preview_authenticator');
+        }
     }
 
     /**
@@ -78,6 +81,17 @@ class Rebuild implements ExecutableInterface
             $_SESSION['REBUILD_INDEX_ERROR'] = '';
         }
 
+        $arrUser = array('' => '-');
+
+        // Get active front end users
+        $objUser = $this->Database->execute("SELECT id, username FROM tl_member WHERE disable!=1 AND (start='' OR start<$time) AND (stop='' OR stop>$time) ORDER BY username");
+
+        while ($objUser->next()) {
+            if(!empty($objUser->username)) {
+                $arrUser[$objUser->id] = $objUser->username . ' (' . $objUser->id . ')';
+            }
+        }
+
         // Rebuild the index
         if (Input::get('act') == 'glossar') {
             if (!isset($_GET['rt']) || !RequestToken::validate(Input::get('rt'))) {
@@ -110,15 +124,6 @@ class Rebuild implements ExecutableInterface
                         $arrPages[$type] = $cb_return;
                     }
                 }
-            }
-
-            $arrUser = array('' => '-');
-    
-            // Get active front end users
-            $objUser = $this->Database->execute("SELECT id, username FROM tl_member WHERE disable!=1 AND (start='' OR start<$time) AND (stop='' OR stop>$time) ORDER BY username");
-    
-            while ($objUser->next()) {
-                $arrUser[$objUser->id] = $objUser->username . ' (' . $objUser->id . ')';
             }
 
             if ($this->authenticator === null) { // Contao 4.4
