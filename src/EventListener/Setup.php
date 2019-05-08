@@ -65,7 +65,7 @@ class Setup
                 (VERSION < 4.6 ? 'Sioweb\Glossar\Polyfill\Contao44\Services\Rebuild' : 'sioweb.glossar.rebuild')
             ]);
         } else {
-            array_insert($GLOBALS['TL_MAINTENANCE'], 1, [
+            array_insert($GLOBALS['TL_MAINTENANCE_EXTENDED'], 1, [
                 'Sioweb\Glossar\Polyfill\Contao44\Services\Rebuild',
             ]);
         }
