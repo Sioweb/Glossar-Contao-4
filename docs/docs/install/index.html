@@ -78,9 +78,11 @@ https://github.com/alex-shpak/hugo-book
 
 <h2 id="composer">Composer</h2>
 
-<p>Der Glossar, kann über die Konsole und den Contao Manager installiert werden. Im Manager muss lediglich der Paketname <code>sioweb\glossar</code> gesucht werden, in der Konsole wird etwas mehr benötigt.</p>
+<p>Der Glossar, kann über die Konsole und den Contao Manager installiert werden. Im Manager muss lediglich der Paketname <code>sioweb/glossar</code> gesucht werden, in der Konsole wird etwas mehr benötigt.</p>
 
 <p>Die Konsole benötigt in jedem Fall <a href="https://getcomposer.org/">Composer</a>. Composer kann lokal als <code>composer.phar</code>-Datei oder global auf dem Server bzw. der Laufzeitumgebung hinterlegt sein.</p>
+
+<p><strong>Hinweis:</strong> Da Composer ohne Weiteres 1GiB - 3GiB Arbeitsspeicher belegen kann, ist es ratsam Pakete lokal mit Composer zu laden und mit der Cache-Datei <code>composer.lock</code> den Stand auf dem Server mit <code>composer install</code> zu aktualisieren.</p>
 
 <h3 id="composer-global">Composer global</h3>
 
@@ -112,8 +114,6 @@ https://github.com/alex-shpak/hugo-book
 <p>Alternativ ist das Tool auch direkt über die URL erreichbar, dazu muss lediglich <code>/contao/install</code> an die Domain angehängt werden. (<a href="https://www.domain.tld/contao/install">https://www.domain.tld/contao/install</a>)</p>
 
 <p>Nach der Anmeldung im Install-Tool, kann die Datenbank aktualisiert werden.</p>
-
-<p><strong>Hinweis:</strong> Glossar nutzt für Bilder den Wert <code>Binary (16)</code>, Contao wird dieses Feld nach der Aktualisierung weiterhin anzeigen, da dieser Wert nicht erkannt durch das Install-Tool wird. Ignorieren Sie bitte, dass dieses Feld nach der Aktualisierung weiter ausgegeben wird.</p>
 </article>
 
       
