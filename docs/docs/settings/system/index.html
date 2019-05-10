@@ -1,0 +1,197 @@
+<!DOCTYPE html><html>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System | Glossar Contao 4</title>
+
+<link href="https://fonts.googleapis.com/css?family=Oxygen|Oxygen+Mono:300,400,700" rel="stylesheet">
+<link rel="stylesheet" href="/glossar_c4/normalize.min.css">
+
+<link rel="stylesheet" href="/glossar_c4/book.min.29d743ffb6d61ecbfc9bb21b7eab17d63b577d4bd547c3f095addb1c793ab1b1.css">
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav role="navigation">
+<h2 class="book-brand">
+  <a href="https://sioweb.github.io/glossar_c4">Glossar Contao 4</a>
+</h2>
+
+
+
+    
+  
+  
+
+  <style>
+  nav ul a[href$="\2fglossar_c4\2f docs\2fsettings\2fsystem\2f "] {
+      color: #004ed0;
+  }
+  </style><ul>
+<li><a href="/docs/install/">Installation</a></li>
+<li><a href="/docs/first-steps/">Erste Schritte</a>
+
+<ul>
+<li><a href="/docs/first-steps/glossar">Glossar erstellen</a></li>
+<li><a href="/docs/first-steps/term">Begriffe erstellen</a></li>
+<li><a href="/docs/first-steps/glossar-index">Index aufbauen</a></li>
+</ul></li>
+<li><a href="/docs/settings/">Einstellungen</a>
+
+<ul>
+<li><a href="/docs/settings/system">Systemeinstellungen</a></li>
+<li><a href="/docs/settings/page">Seiteneinstellungen</a></li>
+<li><a href="/docs/settings/archive">Archiveinstellungen</a></li>
+<li><a href="/docs/settings/term">Begrifffe einstellen</a></li>
+</ul></li>
+</ul>
+
+
+
+
+
+</nav>
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/glossar_c4/svg/menu.svg" />
+  </label>
+  <strong>System</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="systemeinstellungen">Systemeinstellungen</h1>
+
+<p>Um den Glossar und seine Einstellungen zu aktivieren, muss die Option <code>Glossar aktivieren</code> aktiviert sein.</p>
+
+<h2 id="einstellungen-in-detail">Einstellungen in Detail</h2>
+
+<h3 id="glossar-in-der-systemwartung-daten-bereinigen-anzeigen">Glossar in der Systemwartung/Daten bereinigen anzeigen</h3>
+
+<p>Um den Glossar aufzuräumen bzw. komplett auf allen Seiten zurückzusetzen, kann dieser in der Systemwartung angezeigt werden. Lassen Sie dieses Häkchen inaktiv, wenn Sie es gewohnt sind immer komplett alle Daten zu bereinigen.</p>
+
+<h3 id="tooltips-deaktivieren">Tooltips deaktivieren</h3>
+
+<p>Die Tooltipps erscheinen, sobald der Besucher mit der Maus über einen Begriff fährt. Dieses Verhalten ist nicht immer Informativ und kann als nervend empfunden werden. Diese Option verhindert, dass die Vorschau überhaupt angezeigt wird.</p>
+
+<h3 id="begriffe-immer-verlinken">Begriffe immer verlinken</h3>
+
+<p>Begriffe ohne Inhaltselemente, werden normalerweise nicht verlinkt. Sie zeigen lediglich, falls nicht anders eingestellt, das Vorschaufenster. Diese Option verlinkt auch <code>leere</code> Begriffe und zeigt auf der Detailseite den hinterlegten Teasertext an.</p>
+
+<h3 id="begriffe-als-headline-aktivieren">Begriffe als Headline aktivieren</h3>
+
+<p>Dieses Hilfsmittel fügt den Begriff auf der Detailseite als Headline-Element ein, falls kein anderes Headline-Element hinzugefügt wird.</p>
+
+<h3 id="pluralsuche-deaktivieren">Pluralsuche deaktivieren</h3>
+
+<p>Wenn der Glossar <code>Wasser</code> sucht, findet dieser auch das Wort <code>Wasserfall</code>. Diese Einstellung unterdrück das Verhalten und findet nur alleinstehende Begriffe.</p>
+
+<h3 id="von-der-suche-ausgeschlossene-inhalte-einbeziehen">Von der Suche ausgeschlossene Inhalte einbeziehen</h3>
+
+<p>Inhalte wie Navigation, Footer etc. sind von der Suche ausgeschlossen, da diese sonst immer in der Suche auftauchen würden, auch wenn diese auf allen Seiten sichtbar sind. Diese Elemente sind ebenfalls vom Glossar ausgeschlossen. Möchten Sie diese einbinden, müssen Sie diese Option aktivieren.</p>
+
+<h3 id="glossar-tags-aktivieren">Glossar Tags aktivieren</h3>
+
+<p>Diese Option bietet entwicklern ein Äquivalent zu den von der Suche ausgeschlossenen Inhalten.</p>
+
+<pre><code>&lt;!-- glossar::stop --&gt;
+&lt;div id=&quot;something&quot;&gt;
+    &lt;p&gt;Diese Inhalte werden vom Glossar ignoriert&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- glossar::continue --&gt;
+</code></pre>
+
+<h3 id="cache-umgehen">Cache umgehen</h3>
+
+<p>Diese Option macht die Webseite vermutlich sehr langsam, wenn es mehrere Begriffe zu suchen gibt. Bei ein - zehn Begriffen sollte diese Option kein Problem darstellen, allerdings ist dies nicht empfohlen. Der Vorteil dieser Option ist allerdings, dass der Glossar-Index nicht aufgebaut werden muss.</p>
+
+<h3 id="keine-fremdsprachigen-glossare">Keine fremdsprachigen Glossare</h3>
+
+<p>Der Glossar sucht nach allen Begriffen die definiert wurden und unterscheidet erst einmal nicht, ob diese sich in einem deutschem oder englischen Glossar befinden. Begriffe aus anderssprachigen Glossaren, werden allerdings in ein extra Feld in der Datenbank gespeichert. <code>Keine fremdsprachigen Glossare</code> verhindert, dass beispielsweise englische Begriffe auf deutschen Seiten ersetzt werden.</p>
+
+<h3 id="archive-ausschließen">Archive ausschließen</h3>
+
+<p>Sollten Sie News, Events und oder FAQ installiert haben, können Sie diese hier global vom Glossar ausschließen. Sie können aber auch in den jeweiligen Archiven, einzelne Archive deaktivieren.</p>
+
+<h3 id="strikte-suche">Strikte Suche</h3>
+
+<h3 id="maximale-vorschauhöhe-und-vorschaubreite">Maximale Vorschauhöhe und Vorschaubreite</h3>
+
+<p>Diese Einstellung bestimmt, wie groß das Vorschaufenster sein soll.</p>
+
+<h3 id="tags-ingonieren">Tags ingonieren</h3>
+
+<p>Hierbei handelt es sich um HTML-Tags. Notieren Sie hier kommagetrennt, welche HTML-Tags vom Glossar ignoriert werden sollen.</p>
+
+<h3 id="pluralsuche">Pluralsuche</h3>
+
+<p>Der Glossar erkennt nicht wirklich, ob ein Begriff nun in Plural, oder Singular geschrieben steht. Der Glossar identifiziert ein Wort, bis eines der hier eingetragenen Sonderzeichen oder ein Leerzeichen erscheint. Schreiben Sie zum Beispiel <code>eins+eins</code>, wird nur die das erste Wort ersetzt: <code>eins</code>+eins.</p>
+
+<h3 id="glossar-seite">Glossar-Seite</h3>
+
+<p>In den meisten Fällen, reicht es aus, wenn es nur eine Glossar-Seite gibt. Ein Inhaltselement auf dieser Seite, kann alle Begriffe als Liste oder Detailansicht darstellen. Geben Sie hier an, wohin der Benutzer geleitet wird, wenn er auf einen Begriff klickt. Sie können diese Seite nochmals pro Begriff angeben.</p>
+
+<h3 id="maximale-begriffsmarkierung-auf-einer-seite">Maximale Begriffsmarkierung auf einer Seite</h3>
+
+<p>Sollte ein Begriff oft im Text einer Seite auftauchen, wäre die ganze Seite voller Links welche eine Vorschau laden können. Damit die Seite nicht Überlädt mit Links, können Sie hier angeben, wie oft ein Begriff maximal ersetzt werden darf. 0 (Null) entspricht unendlich oft. Sollte ein Begriff zwar auf der Seite erscheinen, aber nicht als Begriff markiert worden sein, könnte der Begriff auch in einem bislang unsichtbaren Element stecken. Sie können also die Zahl solange erhöhen, bis dieser markiert wird. Testweise ist es empfehlenswert, 1 und 20 auszuprobieren und danach erst 2, 3, 4.</p>
+</article>
+
+      
+
+    </div>
+
+    
+  
+  
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#systemeinstellungen">Systemeinstellungen</a>
+<ul>
+<li><a href="#einstellungen-in-detail">Einstellungen in Detail</a>
+<ul>
+<li><a href="#glossar-in-der-systemwartung-daten-bereinigen-anzeigen">Glossar in der Systemwartung/Daten bereinigen anzeigen</a></li>
+<li><a href="#tooltips-deaktivieren">Tooltips deaktivieren</a></li>
+<li><a href="#begriffe-immer-verlinken">Begriffe immer verlinken</a></li>
+<li><a href="#begriffe-als-headline-aktivieren">Begriffe als Headline aktivieren</a></li>
+<li><a href="#pluralsuche-deaktivieren">Pluralsuche deaktivieren</a></li>
+<li><a href="#von-der-suche-ausgeschlossene-inhalte-einbeziehen">Von der Suche ausgeschlossene Inhalte einbeziehen</a></li>
+<li><a href="#glossar-tags-aktivieren">Glossar Tags aktivieren</a></li>
+<li><a href="#cache-umgehen">Cache umgehen</a></li>
+<li><a href="#keine-fremdsprachigen-glossare">Keine fremdsprachigen Glossare</a></li>
+<li><a href="#archive-ausschließen">Archive ausschließen</a></li>
+<li><a href="#strikte-suche">Strikte Suche</a></li>
+<li><a href="#maximale-vorschauhöhe-und-vorschaubreite">Maximale Vorschauhöhe und Vorschaubreite</a></li>
+<li><a href="#tags-ingonieren">Tags ingonieren</a></li>
+<li><a href="#pluralsuche">Pluralsuche</a></li>
+<li><a href="#glossar-seite">Glossar-Seite</a></li>
+<li><a href="#maximale-begriffsmarkierung-auf-einer-seite">Maximale Begriffsmarkierung auf einer Seite</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+</body>
+
+</html>

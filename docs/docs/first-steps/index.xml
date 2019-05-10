@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Introduction on Glossar Contao 4</title>
-    <link>https://sioweb.github.io/glossar_c4/</link>
-    <description>Recent content in Introduction on Glossar Contao 4</description>
+    <title>Erste Schritte on Glossar Contao 4</title>
+    <link>https://sioweb.github.io/glossar_c4/docs/first-steps/</link>
+    <description>Recent content in Erste Schritte on Glossar Contao 4</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-de</language>
     
-	<atom:link href="https://sioweb.github.io/glossar_c4/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sioweb.github.io/glossar_c4/docs/first-steps/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Archive</title>
-      <link>https://sioweb.github.io/glossar_c4/docs/settings/archive/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://sioweb.github.io/glossar_c4/docs/settings/archive/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Glossar</title>
@@ -40,26 +31,6 @@ Der Index kann wie der Suchindex im Backend und Systemwartung aufgebaut werden. 
     </item>
     
     <item>
-      <title>Page</title>
-      <link>https://sioweb.github.io/glossar_c4/docs/settings/page/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://sioweb.github.io/glossar_c4/docs/settings/page/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>System</title>
-      <link>https://sioweb.github.io/glossar_c4/docs/settings/system/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://sioweb.github.io/glossar_c4/docs/settings/system/</guid>
-      <description>Systemeinstellungen Um den Glossar und seine Einstellungen zu aktivieren, muss die Option Glossar aktivieren aktiviert sein.
-Einstellungen in Detail Glossar in der Systemwartung/Daten bereinigen anzeigen Um den Glossar aufzuräumen bzw. komplett auf allen Seiten zurückzusetzen, kann dieser in der Systemwartung angezeigt werden. Lassen Sie dieses Häkchen inaktiv, wenn Sie es gewohnt sind immer komplett alle Daten zu bereinigen.
-Tooltips deaktivieren Die Tooltipps erscheinen, sobald der Besucher mit der Maus über einen Begriff fährt.</description>
-    </item>
-    
-    <item>
       <title>Term</title>
       <link>https://sioweb.github.io/glossar_c4/docs/first-steps/term/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -67,18 +38,6 @@ Tooltips deaktivieren Die Tooltipps erscheinen, sobald der Besucher mit der Maus
       <guid>https://sioweb.github.io/glossar_c4/docs/first-steps/term/</guid>
       <description>Begriffe und Abkürzungen Wir unterscheiden nun zwischen Begriffen und Abkürzungen. Mögliche Abkürzungen wären www für World Wide Web, oder JS für Javascript. Abkürzungen werden nicht verlinkt, sondern zeigen dem Besucher eine kurze Beschreibung an, sobald dieser mit der Maus über die Abkürzung fährt.
 Begriffe wiederum, bietet dem Besucher einen ausführlicheren Inhalt, wenn diese mit der Maus über einen der Begriffe fährt. Je nach Einstellung, lädt Glossar dann eine Vorschau mit einem Teaser-Text und optional einem Bild.</description>
-    </item>
-    
-    <item>
-      <title>Term</title>
-      <link>https://sioweb.github.io/glossar_c4/docs/settings/term/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://sioweb.github.io/glossar_c4/docs/settings/term/</guid>
-      <description>Begriffsart Die Art eines Begriffes bestimmt, wie der Glossar diesen auf der Webseite behandelt. Eine Abkürzung wird lediglich als Abkürzungs-Tag markiert, der bei überfahren mit der Maus anzeigt, was die Abkürzung ausgeschrieben bedeutet.
-Ein Glossar-Begriff hingegen, kann als Link, oder HTML-Element dargestellt werden, der Glossar entscheidet dies anhand der weiteren Einstellungen und ob Detailinformationen vorhanden sind.
-Suchwort/Stichwort Das Stichwort, wird auf der Webseite gesucht und markiert.
-Maximale Vorschauhöhe und Breite Dies bestimmt, wie groß das Vorschaufenster für diesen Begriff maximal sein darf.</description>
     </item>
     
   </channel>
