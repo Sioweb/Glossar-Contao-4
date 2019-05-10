@@ -6,7 +6,7 @@ Die neue Version ist online.
 
 ## Dokumentation
 
-Die Dokumentation wird mit Hugo erstellt und wird in den nächsten zwei Tagen bereitgestellt.
+Die Dokumentation wird hier aufgebaut https://sioweb.github.io/glossar_c4/
 
 ### Short one / First steps
 
