@@ -77,12 +77,11 @@ class Glossar extends ContentElement
         $EntityManager = $this->getContainer()->get('doctrine.orm.default_entity_manager');
         $TermsRepository = $EntityManager->getRepository(Terms::class);
 
+        $_sortGlossarBy = explode('_', $this->sortGlossarBy);
+        $sortGlossarBy = [];
+        $sortGlossarBy[$_sortGlossarBy[0]] = !empty($_sortGlossarBy[1]) ? $_sortGlossarBy[1] : 'ASC';
         
-
-        $this->sortGlossarBy = explode('_', $this->sortGlossarBy);
-        $this->sortGlossarBy = $this->sortGlossarBy[0] . ($this->sortGlossarBy[1] ? ' ' . strtoupper($this->sortGlossarBy[1]) : '');
-        
-        $Options = array('order' => [$this->sortGlossarBy]);
+        $Options = array('order' => $sortGlossarBy);
         if (Input::get('page') && $this->perPage) {
             $Options['limit'] = $this->perPage;
             $Options['offset'] = $this->perPage * (Input::get('page') - 1);
