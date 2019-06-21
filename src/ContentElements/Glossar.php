@@ -90,11 +90,12 @@ class Glossar extends ContentElement
             $Options['limit'] = $this->perPage;
             $Options['offset'] = 0;
         }
+        
         if (Input::get('items') == '') {
             if (empty($this->glossar)) {
                 $TermObj = $TermsRepository->findAll($Options['order'], $Options['limit'], $Options['offset']);
             } else {
-                $TermObj = $TermsRepository->findByPid($this->glossar, [], $Options['limit'], $Options['offset']);
+                $TermObj = $TermsRepository->findBy(['pid' => $this->glossar], $Options['order'], $Options['limit'], $Options['offset']);
             }
         } else {
             $TermObj = $TermsRepository->findByAlias(Input::get('items'), [], $Options['limit'], $Options['offset']);
