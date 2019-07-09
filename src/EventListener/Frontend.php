@@ -65,7 +65,7 @@ class Frontend
             Input::setGet('items', Input::get('auto_item'));
         }
 
-        if ($objPage->disableGlossar == 1) {
+        if (!Config::get('enableGlossar') || $objPage->disableGlossar == 1) {
             return $strContent;
         }
 
@@ -189,7 +189,7 @@ class Frontend
                 $tagObj->parentNode->replaceChild($CommentNode, $tagObj);
             }
         }
-        return $dom->saveHTML();
+        return str_ireplace(['%7B', '%7D', '%5B', '%5D'], ['{', '}', '[', ']'], $dom->saveHTML());
     }
 
     /* Replace content between the tags with placeholder */
