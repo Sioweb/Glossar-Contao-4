@@ -151,7 +151,7 @@ class Frontend
     private function outerHTML($e) {
         $doc = new \DOMDocument();
         $doc->appendChild($doc->importNode($e, true));
-        return str_ireplace(['%7B', '%7D'], ['{', '}'], $doc->saveHTML());
+        return str_ireplace(['%7B', '%7D', '%5B', '%5D'], ['{', '}', '[', ']'], $doc->saveHTML());
     }
 
     private function rebaseContent($strContent)
