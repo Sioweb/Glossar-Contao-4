@@ -9,7 +9,8 @@ namespace Sioweb\Glossar\Modules;
 use Contao\Input;
 use Contao\Module;
 use Contao\BackendTemplate;
-use Sioweb\Glossar\Models\SwGlossarModel;
+use Sioweb\Glossar\Entity\Glossar as GlossarEntity;
+use Sioweb\Glossar\Entity\Terms as TermsEntity;
 
 /**
  * @file ModuleGlossarPagination.php
@@ -58,34 +59,62 @@ class Pagination extends Module {
 	protected function compile() {
 
 		global $objPage;
+		
+        $EntityManager = $this->getContainer()->get('doctrine.orm.default_entity_manager');
+        $TermRepository = $EntityManager->getRepository(TermsEntity::class);
 
 		if(empty($this->glossar)) {
-			$Glossar = SwGlossarModel::findAll();
+			$Glossar = $TermRepository->findAll();
 		} else {
-			$Glossar = SwGlossarModel::findByPid($this->glossar);
+			$Glossar = $TermRepository->findBy(['pid'=>$this->glossar]);
 		}
 
-		$filledLetters = array();
+		$filledLetters = [];
 		if($Glossar) {
-			while ($Glossar->next()) {
-				$filledLetters[] = substr($Glossar->alias, 0, 1);
+			foreach($Glossar as $glossar) {
+				$filledLetters[] = substr($glossar->getAlias(), 0, 1);
 			}
 		}
 
-		$letters = array();
-		for($c=65;$c<=90;$c++) {
-			if(($this->addOnlyTrueLinks && in_array(strtolower(chr($c)), $filledLetters)) || !$this->addOnlyTrueLinks)
-				$letters[] = array(
-					'href' => $this->addToUrl('pag='.strtolower(chr($c)).'&amp;alpha=&amp;items=&amp;auto_item='),
-					'initial' => chr($c),
-					'active'=>(Input::get('pag') == strtolower(chr($c))),
-					'trueLink'=>(in_array(strtolower(chr($c)), $filledLetters) && !$this->addOnlyTrueLinks)
-				);
-		}
+        $numbers = $letters = [];
+
+        if ($this->addAlphaPagination) {
+            for ($c = 65; $c <= 90; $c++) {
+                if (($this->addOnlyTrueLinks && in_array(strtolower(chr($c)), $filledLetters)) || !$this->addOnlyTrueLinks) {
+                    $letters[] = array(
+                        'href' => $this->addToUrl('pag=' . strtolower(chr($c)) . '&amp;alpha=&amp;items=&amp;auto_item='),
+                        'initial' => chr($c),
+                        'active' => (Input::get('pag') == strtolower(chr($c))),
+                        'trueLink' => (in_array(strtolower(chr($c)), $filledLetters)),
+                        'onlyTrueLinks' => $this->addOnlyTrueLinks,
+                    );
+                }
+            }
+        }
+
+        if ($this->addNumericPagination) {
+            for ($n = 0; $n < 10; $n++) {
+                if (($this->addOnlyTrueLinks && in_array(strtolower((string)$n), $filledLetters)) || !$this->addOnlyTrueLinks) {
+                    $numbers[] = array(
+                        'href' => $this->addToUrl('pag=' . strtolower((string)$n) . '&amp;alpha=&amp;items=&amp;auto_item='),
+                        'initial' => $n,
+                        'active' => (Input::get('pag') == strtolower((string)$n)),
+                        'trueLink' => (in_array(strtolower((string)$n), $filledLetters)),
+                        'onlyTrueLinks' => $this->addOnlyTrueLinks,
+                    );
+                }
+            }
+        }
+
+        $letters[0]['class'] = 'first';
+        $letters[count($letters) - 1]['class'] = 'last';
+
+        $numbers[0]['class'] = 'first';
+		$numbers[count($numbers) - 1]['class'] = 'last';
 
 		$this->Template->showAllHref = $this->generateFrontendUrl($objPage->row());
 		$this->Template->showAllLabel = $GLOBALS['TL_LANG']['glossar']['showAllLabel'];
 		$this->Template->alphaPagination = $letters;
+		$this->Template->numericPagination = $numbers;
 	}
 }
-
