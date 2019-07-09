@@ -24,6 +24,6 @@
 	<?php endif; ?>
 
 	<?php if($this->link):?>
-	<p><a href="<?php echo $this->link;?>" title="<?php echo $this->title;?>"><?php echo $GLOBALS['glossar']['to_article'];?></a></p>
+	<p><a href="<?php echo $this->link;?>" title="<?php echo $this->title;?>"><?php echo $GLOBALS['TL_LANG']['glossar']['to_article'];?></a></p>
 	<?php endif;?>
 </div>
