@@ -5,6 +5,10 @@
         <source>Glossary settings</source>
         <target>Glossary settings</target>
       </trans-unit>
+      <trans-unit id="tl_module.alphapagination_legend">
+        <source>Glossar pagination settings</source>
+        <target>Glossar pagination settings</target>
+      </trans-unit>
       <trans-unit id="tl_module.glossar.0">
         <source>Choose glossary</source>
         <target>Choose glossary</target>
@@ -37,13 +41,45 @@
         <source>Enter the max count of items or 0 for unlimeted.</source>
         <target>Enter the max count of items or 0 for unlimeted.</target>
       </trans-unit>
+      <trans-unit id="tl_module.addAlphaPagination.0">
+        <source>Add alphabetic pagination</source>
+        <target>Add alphabetic pagination</target>
+      </trans-unit>
+      <trans-unit id="tl_module.addAlphaPagination.1">
+        <source>Adds a pagination from A to Z.</source>
+        <target>Adds a pagination from A to Z..</target>
+      </trans-unit>
+      <trans-unit id="tl_module.addNumericPagination.0">
+        <source>Add numeric pagination</source>
+        <target>Add numeric pagination</target>
+      </trans-unit>
+      <trans-unit id="tl_module.addNumericPagination.1">
+        <source>Adds pagination from 0 to 9.</source>
+        <target>Adds pagination from 0 to 9..</target>
+      </trans-unit>
       <trans-unit id="tl_module.addOnlyTrueLinks.0">
-        <source>No empty characters</source>
-        <target>No empty characters</target>
+        <source>Hide pagination elements without Terms</source>
+        <target>Hide pagination elements without Terms</target>
       </trans-unit>
       <trans-unit id="tl_module.addOnlyTrueLinks.1">
-        <source>Do not link empty characters.</source>
-        <target>Do not link empty characters.</target>
+        <source>Show only chars in pagination, with contain terms.</source>
+        <target>Show only chars in pagination, with contain terms..</target>
+      </trans-unit>
+      <trans-unit id="tl_module.paginationPosition.0">
+        <source>Pagination position</source>
+        <target>Pagination position</target>
+      </trans-unit>
+      <trans-unit id="tl_module.paginationPosition.1">
+        <source>Add pagination before and after the glossary list.</source>
+        <target>Add pagination before and after the glossary list..</target>
+      </trans-unit>
+      <trans-unit id="tl_module.showAfterChoose.0">
+        <source>Show terms after using the pagination?</source>
+        <target>Show terms after using the pagination??</target>
+      </trans-unit>
+      <trans-unit id="tl_module.showAfterChoose.1">
+        <source>Hide terms, until pagination is used. This will help to keep usability, if a lot of terms are shown.</source>
+        <target>Hide terms, until pagination is used. This will help to keep usability, if a lot of terms are shown..</target>
       </trans-unit>
     </body>
   </file>

@@ -6,8 +6,8 @@
         <target>Tags/Auszeichnungen (Benötigt Tag-Module)</target>
       </trans-unit>
       <trans-unit id="tl_content.alphapagination_legend">
-        <source>Alphapagination settings</source>
-        <target>Alphapagination Einstellungen</target>
+        <source>Glossar pagination settings</source>
+        <target>Glossar-Pagination Einstellungen</target>
       </trans-unit>
       <trans-unit id="tl_content.pagination_legend">
         <source>Pagnation</source>
@@ -62,8 +62,8 @@
         <target>Wählen Sie diese Option, um die Tags auch auf der Detailseite zu verwenden.</target>
       </trans-unit>
       <trans-unit id="tl_content.addAlphaPagination.0">
-        <source>Add alphabetic pagination</source>
-        <target>Alphabetische Pagination hinzufügen</target>
+        <source>Add glossar pagination</source>
+        <target>Glossar-Pagination hinzufügen</target>
       </trans-unit>
       <trans-unit id="tl_content.addAlphaPagination.1">
         <source>Adds a pagination from A to Z.</source>

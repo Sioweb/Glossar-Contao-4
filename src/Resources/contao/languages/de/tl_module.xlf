@@ -5,6 +5,10 @@
         <source>Glossary settings</source>
         <target>Glossar Einstellungen</target>
       </trans-unit>
+      <trans-unit id="tl_module.alphapagination_legend">
+        <source>Glossar pagination settings</source>
+        <target>Glossar-Pagination Einstellungen</target>
+      </trans-unit>
       <trans-unit id="tl_module.glossar.0">
         <source>Choose glossary</source>
         <target>Glossar wählen</target>
@@ -37,13 +41,45 @@
         <source>Enter the max count of items or 0 for unlimeted.</source>
         <target>Die maximale Anzahl Links in der Cloud, 0 für unbegrenzt.</target>
       </trans-unit>
+      <trans-unit id="tl_module.addAlphaPagination.0">
+        <source>Add glossar pagination</source>
+        <target>Glossar-Pagination hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="tl_module.addAlphaPagination.1">
+        <source>Adds a pagination from A to Z.</source>
+        <target>Eine Pagination bestehend aus A bis Z.</target>
+      </trans-unit>
+      <trans-unit id="tl_module.addNumericPagination.0">
+        <source>Add numeric pagination</source>
+        <target>Nummerische Pagination hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="tl_module.addNumericPagination.1">
+        <source>Adds pagination from 0 to 9.</source>
+        <target>Eine Pagination bestehend aus 0 bis 9.</target>
+      </trans-unit>
       <trans-unit id="tl_module.addOnlyTrueLinks.0">
-        <source>No empty characters</source>
+        <source>Hide pagination elements without Terms</source>
         <target>Keine leeren Ziffern</target>
       </trans-unit>
       <trans-unit id="tl_module.addOnlyTrueLinks.1">
-        <source>Do not link empty characters.</source>
+        <source>Show only chars in pagination, with contain terms.</source>
         <target>Zeigt nur Buchstaben an, die einem Begriff zugeordner werden können.</target>
+      </trans-unit>
+      <trans-unit id="tl_module.paginationPosition.0">
+        <source>Pagination position</source>
+        <target>Position der Paginierung</target>
+      </trans-unit>
+      <trans-unit id="tl_module.paginationPosition.1">
+        <source>Add pagination before and after the glossary list.</source>
+        <target>Erstellt eine Paginierung vor und oder nach der Glossar-Liste.</target>
+      </trans-unit>
+      <trans-unit id="tl_module.showAfterChoose.0">
+        <source>Show terms after using the pagination?</source>
+        <target>Einträge erst nach Auswahl der Pagination anzeigen?</target>
+      </trans-unit>
+      <trans-unit id="tl_module.showAfterChoose.1">
+        <source>Hide terms, until pagination is used. This will help to keep usability, if a lot of terms are shown.</source>
+        <target>Die Einträge werden versteckt, bis eine Ziffer in der Pagination ausgewählt wurde.</target>
       </trans-unit>
     </body>
   </file>

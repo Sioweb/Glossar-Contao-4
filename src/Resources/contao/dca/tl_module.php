@@ -12,8 +12,11 @@
  * @copyright Sascha Weidner, Sioweb
  */
 
-$GLOBALS['TL_DCA']['tl_module']['palettes']['glossar_pagination']    = '{title_legend},name,headline,type;{glossar_legend},glossar,addOnlyTrueLinks;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['glossar_pagination']    = '{title_legend},name,headline,type;{glossar_legend},glossar;{alphapagination_legend:hide},addAlphaPagination;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['glossar_cloud']         = '{title_legend},name,headline,type;{glossar_legend},glossar,glossar_items,glossar_max_level,glossar_disable_domains;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+
+$GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'addAlphaPagination';
+$GLOBALS['TL_DCA']['tl_module']['subpalettes']['addAlphaPagination'] = 'addNumericPagination,showAfterChoose,addOnlyTrueLinks,paginationPosition';
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['glossar'] = array
 (
@@ -68,6 +71,41 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['addOnlyTrueLinks'] = array
     'inputType'               => 'checkbox',
     'eval'                    => array('submitOnChange'=>true),
     'sql'                     => "char(1) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['addAlphaPagination'] = array(
+  'label'                   => &$GLOBALS['TL_LANG']['tl_module']['addAlphaPagination'],
+  'exclude'                 => true,
+  'inputType'               => 'checkbox',
+  'eval'                    => array('submitOnChange'=>true),
+  'sql'                     => "char(1) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['addNumericPagination'] = array(
+  'label'                   => &$GLOBALS['TL_LANG']['tl_module']['addNumericPagination'],
+  'exclude'                 => true,
+  'inputType'               => 'checkbox',
+  'sql'                     => "char(1) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['paginationPosition'] = array(
+  'label'                   => &$GLOBALS['TL_LANG']['tl_module']['paginationPosition'],
+  'default'                 => 'after',
+  'inputType'               => 'select',
+  'options'                 => array_keys((array)$GLOBALS['TL_LANG']['glossar']['paginationPositions']),
+  'reference'               => &$GLOBALS['TL_LANG']['glossar']['paginationPositions'],
+  'eval'                    => array('tl_class'=>'w50 clr'),
+  'sql'                     => "varchar(20) NOT NULL default 'after'"
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['paginationPosition'] = array(
+  'label'                   => &$GLOBALS['TL_LANG']['tl_module']['paginationPosition'],
+  'default'                 => 'after',
+  'inputType'               => 'select',
+  'options'                 => array_keys((array)$GLOBALS['TL_LANG']['glossar']['paginationPositions']),
+  'reference'               => &$GLOBALS['TL_LANG']['glossar']['paginationPositions'],
+  'eval'                    => array('tl_class'=>'w50 clr'),
+  'sql'                     => "varchar(20) NOT NULL default 'after'"
 );
 
 class tl_glossar_module extends Backend {

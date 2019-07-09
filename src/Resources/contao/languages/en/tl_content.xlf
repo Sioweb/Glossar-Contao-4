@@ -6,8 +6,8 @@
         <target>Tags (Needs Tagmodule))</target>
       </trans-unit>
       <trans-unit id="tl_content.alphapagination_legend">
-        <source>Alphapagination settings</source>
-        <target>Alphapagination settings</target>
+        <source>Glossar pagination settings</source>
+        <target>Glossar pagination settings</target>
       </trans-unit>
       <trans-unit id="tl_content.pagination_legend">
         <source>Pagnation</source>

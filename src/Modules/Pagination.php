@@ -118,3 +118,4 @@ class Pagination extends Module {
 		$this->Template->numericPagination = $numbers;
 	}
 }
+
