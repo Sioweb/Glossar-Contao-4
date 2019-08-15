@@ -79,7 +79,7 @@ class Plugin implements BundlePluginInterface, RoutingPluginInterface, Extension
     {
         if ('doctrine' === $extensionName) {
             
-            $extensionConfigs[0] = array_merge($extensionConfigs[0], [
+            $extensionConfigs[0] = array_merge_recursive($extensionConfigs[0], [
                 'orm' => [
                     'entity_managers' => [
                         'default' => [
