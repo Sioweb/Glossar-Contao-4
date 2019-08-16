@@ -77,19 +77,12 @@ class Plugin implements BundlePluginInterface, RoutingPluginInterface, Extension
      */
     public function getExtensionConfig($extensionName, array $extensionConfigs, PluginContainerBuilder $container)
     {
-        if ('doctrine' === $extensionName) {
-            
-            $extensionConfigs[0] = array_merge($extensionConfigs[0], [
-                'orm' => [
-                    'entity_managers' => [
-                        'default' => [
-                            'mappings' => [
-                                'SiowebGlossarBundle' => ''
-                            ]
-                        ]
-                    ]
-                ]
-            ]);
+        if ('doctrine' === $extensionName) 
+        {    
+            if ( Kernel::VERSION < '4.3' )
+            {
+                $extensionConfigs[0]['orm']['entity_managers']['default']['mappings']['SiowebGlossarBundle'] = "";
+            }
         }
 
         return $extensionConfigs;
