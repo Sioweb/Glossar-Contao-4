@@ -81,7 +81,7 @@ class Plugin implements BundlePluginInterface, RoutingPluginInterface, Extension
         {    
             if ( Kernel::VERSION < '4.3' )
             {
-                $extensionConfigs[0]['orm']['entity_managers']['default']['mappings']['ContaoAnygamesBundle'] = "";
+                $extensionConfigs[0]['orm']['entity_managers']['default']['mappings']['SiowebGlossarBundle'] = "";
             }
         }
 
