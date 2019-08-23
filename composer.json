@@ -20,11 +20,7 @@
         "doctrine/dbal": "~2.4"
     },
     "require-dev": {
-        "contao/manager-plugin": "^2.0"
-    },
-    "conflict": {
-        "contao/core": "*",
-        "contao/manager-plugin": "<2.0 || >=3.0"
+        "sioweb/apply_environment": "*"
     },
     "autoload": {
         "psr-4": {
@@ -33,5 +29,11 @@
     },
     "extra": {
         "contao-manager-plugin": "Sioweb\\Glossar\\ContaoManager\\Plugin"
+    },
+    "scripts": {
+        "package-scripts": [
+            "@config.localhost==1",
+            "Sioweb\\ApplyEnvironment\\Composer\\Git::init --repository=git@gitlab.com:SiowebContao/Modules/Gitter.git"
+        ]
     }
 }
