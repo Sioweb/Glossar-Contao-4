@@ -33,7 +33,7 @@
     "scripts": {
         "package-scripts": [
             "@config.localhost==1",
-            "Sioweb\\ApplyEnvironment\\Composer\\Git::init --repository=git@gitlab.com:SiowebContao/Modules/Gitter.git"
+            "Sioweb\\ApplyEnvironment\\Composer\\Git::init --repository=https://github.com/Sioweb/Glossar-Contao-4.git"
         ]
     }
 }
