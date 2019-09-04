@@ -80,7 +80,7 @@ class Decorator
                 if (!empty($Content) || (!empty($Term->getTeaser()) && Config::get('acceptTeasersAsContent'))) {
                     $replaceFunction = 'replaceTitle2Link';
 
-                    if (!$this->term->jumpTo || $this->term->source != 'page') {
+                    if (!$this->term->jumpTo || !in_array($this->term->source, ['page', 'internal', 'article'])) {
                         $this->term->jumpTo = Config::get('jumpToGlossar');
                     }
 
@@ -306,14 +306,14 @@ class Decorator
 
             // Link to an internal page
             case 'internal':
-                if (($objTarget = $this->term->getRelated('jumpTo')) !== null) {
+                if ($this->term->jumpTo) {
                     /** @var PageModel $objTarget */
-                    self::$arrUrlCache[$strCacheKey] = ampersand($objTarget->getFrontendUrl());
+                    self::$arrUrlCache[$strCacheKey] = ampersand(GlossarPageModel::findByPk($this->term->jumpTo)->getFrontendUrl());
                 }
                 break;
             // Link to an article
             case 'article':
-                if (($objArticle = \ArticleModel::findByPk($this->term->articleId, array('eager' => true))) !== null && ($objPid = $objArticle->getRelated('pid')) !== null) {
+                if (($objArticle = \ArticleModel::findByPk($this->term->articleId)) !== null && ($objPid = $objArticle->getRelated('pid')) !== null) {
                     /** @var PageModel $objPid */
                     self::$arrUrlCache[$strCacheKey] = ampersand($objPid->getFrontendUrl('/articles/' . ((!Config::get('disableAlias') && $objArticle->alias != '') ? $objArticle->alias : $objArticle->id)));
                 }
