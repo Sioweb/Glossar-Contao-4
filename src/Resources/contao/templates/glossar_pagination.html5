@@ -1,5 +1,5 @@
 <div class="glossar_alpha_pagination">
-	<?php if($this->pagination) {?>
+	<?php if($this->numericPagination || $this->alphaPagination) {?>
 	<a class="glossar_show_all" href="<?php echo $this->showAllHref;?>" title="Alle anzeigen">
 		<?php echo $this->showAllLabel;?>
 	</a>

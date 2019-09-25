@@ -89,7 +89,7 @@ class Glossar extends ContentElement
             $Options['limit'] = $this->perPage;
             $Options['offset'] = 0;
         }
-        
+
         if (Input::get('items') == '') {
             if (empty($this->glossar)) {
                 $TermObj = $TermsRepository->findAll($Options['order'], $Options['limit'], $Options['offset']);
@@ -130,7 +130,7 @@ class Glossar extends ContentElement
                 $arrTags = $_arrTags;
                 unset($_arrTags);
             }
-            
+
             $delimittedGlossarTerms = [];
 
             foreach ($TermObj as $Term) {
@@ -228,27 +228,31 @@ class Glossar extends ContentElement
                     );
                 }
             }
-        }
-
-        if ($this->addNumericPagination) {
-            for ($n = 0; $n < 10; $n++) {
-                if (($this->addOnlyTrueLinks && in_array(strtolower((string)$n), $filledLetters)) || !$this->addOnlyTrueLinks) {
-                    $numbers[] = array(
-                        'href' => $this->addToUrl('pag=' . strtolower((string)$n) . '&amp;alpha=&amp;items=&amp;auto_item='),
-                        'initial' => $n,
-                        'active' => (Input::get('pag') == strtolower((string)$n)),
-                        'trueLink' => (in_array(strtolower((string)$n), $filledLetters)),
-                        'onlyTrueLinks' => $this->addOnlyTrueLinks,
-                    );
+            
+            if ($this->addNumericPagination) {
+                for ($n = 0; $n < 10; $n++) {
+                    if (($this->addOnlyTrueLinks && in_array(strtolower((string)$n), $filledLetters)) || !$this->addOnlyTrueLinks) {
+                        $numbers[] = array(
+                            'href' => $this->addToUrl('pag=' . strtolower((string)$n) . '&amp;alpha=&amp;items=&amp;auto_item='),
+                            'initial' => $n,
+                            'active' => (Input::get('pag') == strtolower((string)$n)),
+                            'trueLink' => (in_array(strtolower((string)$n), $filledLetters)),
+                            'onlyTrueLinks' => $this->addOnlyTrueLinks,
+                        );
+                    }
                 }
             }
         }
 
-        $letters[0]['class'] = 'first';
-        $letters[count($letters) - 1]['class'] = 'last';
+        if(!empty($letters)) {
+            $letters[0]['class'] = 'first';
+            $letters[count($letters) - 1]['class'] = 'last';
+        }
 
-        $numbers[0]['class'] = 'first';
-        $numbers[count($numbers) - 1]['class'] = 'last';
+        if(!empty($numbers)) {
+            $numbers[0]['class'] = 'first';
+            $numbers[count($numbers) - 1]['class'] = 'last';
+        }
 
         $objPagination = new FrontendTemplate('glossar_pagination');
 
