@@ -9,6 +9,7 @@ declare (strict_types = 1);
 namespace Sioweb\Glossar\EventListener;
 
 use Contao\Config;
+use Contao\Controller;
 use Contao\Environment;
 use Sioweb\Glossar\Classes\Terms;
 use Sioweb\Glossar\Services\License as GlossarLicense;
@@ -59,12 +60,10 @@ class Backend
     {
         $TermsRepository = $this->entityManager->getRepository(TermsEntity::class);
         $objTerms = $TermsRepository->findAll();
-
+        
         if (empty($objTerms)) {
             return $arrPages;
         }
-
-        return $arrPages;
 
         foreach($objTerms as $Term) {
             $url = Config::get('jumpToGlossar');
@@ -77,7 +76,7 @@ class Backend
 
             if (!empty($url)) {
                 $link = GlossarPageModel::findByPk($url);
-                $arrPages[] = $domain . $this->generateFrontendUrl($link->row(), ((Config::get('useAutoItem') && !Config::get('disableAlias')) ? '/' : '/items/') . $Term->getAlias());
+                $arrPages[] = $domain . Controller::generateFrontendUrl($link->row(), ((Config::get('useAutoItem') && !Config::get('disableAlias')) ? '/' : '/items/') . $Term->getAlias());
             }
         }
 

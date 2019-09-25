@@ -116,7 +116,7 @@ class Glossar extends ContentElement
                     $arrTags = $this->Database->prepare("SELECT * FROM tl_tag WHERE from_table = ? AND tid IN ('" . implode("','", $arrGlossarIDs) . "') ORDER BY tag ASC");
                 }
             } elseif (in_array('tags', Config::getInstance()->getActiveModules())) {
-                $arrTags = $this->Database->prepare("SELECT * FROM tl_tag WHERE from_table = ? AND tid = " . intval($TermObj->getId()) . " ORDER BY tag ASC");
+                $arrTags = $this->Database->prepare("SELECT * FROM tl_tag WHERE from_table = ? AND tid = " . intval($TermObj['id']) . " ORDER BY tag ASC");
             }
 
             if (!empty($arrTags)) {
@@ -192,6 +192,10 @@ class Glossar extends ContentElement
                     }
                 }
             }
+        }
+
+        if(Input::get('items') != '') {
+            $this->useInitialAsDelimitter = false;
         }
 
         if($this->useInitialAsDelimitter) {
