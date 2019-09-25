@@ -1020,6 +1020,9 @@ class Terms
      */ 
     public function getSingleSRC()
     {
+        if($this->singleSRC === null) {
+            return null;
+        }
         return stream_get_contents($this->singleSRC);
     }
 

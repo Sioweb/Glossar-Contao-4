@@ -61,6 +61,14 @@
         <source>Wählen Sie diese Option, um die Tags auch auf der Detailseite zu verwenden.</source>
         <target>Wählen Sie diese Option, um die Tags auch auf der Detailseite zu verwenden.</target>
       </trans-unit>
+      <trans-unit id="tl_content.useInitialAsDelimitter.0">
+        <source>Sort and separate terms by initial</source>
+        <target>Begriffe nach Anfangsbuchstabe sortieren und trennen.</target>
+      </trans-unit>
+      <trans-unit id="tl_content.useInitialAsDelimitter.1">
+        <source>This will add a separator headline for each initial.</source>
+        <target>Fügt eine Trennüberschrift mit den Anfangsbuchstaben der Begriffe hinzu.</target>
+      </trans-unit>
       <trans-unit id="tl_content.addAlphaPagination.0">
         <source>Add glossar pagination</source>
         <target>Glossar-Pagination hinzufügen</target>

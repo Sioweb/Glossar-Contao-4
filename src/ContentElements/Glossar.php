@@ -130,10 +130,14 @@ class Glossar extends ContentElement
                 $arrTags = $_arrTags;
                 unset($_arrTags);
             }
+            
+            $delimittedGlossarTerms = [];
 
             foreach ($TermObj as $Term) {
                 $initial = substr(str_replace('id-', '', $Term->getAlias()), 0, 1);
                 $filledLetters[] = $initial;
+                $delimittedGlossarTerms[strtoupper($initial)] = [];
+                
                 if (Input::get('items') != '' || (!$this->showAfterChoose || !$this->addAlphaPagination) || ($this->addAlphaPagination && $this->showAfterChoose && Input::get('pag') != '')) {
                     if (Input::get('pag') == '' || $initial == Input::get('pag')) {
 
@@ -165,7 +169,7 @@ class Glossar extends ContentElement
                         }
 
                         if (Input::get('items') == '') {
-                            $arrGlossar[] = $newGlossarObj->parse();
+                            $arrGlossar[$newGlossarObj->title] = $newGlossarObj->parse();
                         } else {
                             if (!empty($arrTags) && !empty($arrTags[$Term->getId()])) {
                                 $this->Template->showTags = $this->glossarShowTags && $this->glossarShowTagsDetails;
@@ -183,11 +187,20 @@ class Glossar extends ContentElement
                             if (empty($elements)) {
                                 $elements = [$Term->getTeaser()];
                             }
-                            $arrGlossar[] = $elements;
+                            $arrGlossar[$newGlossarObj->title] = $elements;
                         }
                     }
                 }
             }
+        }
+
+        if($this->useInitialAsDelimitter) {
+            foreach($arrGlossar as $key => $term) {
+                $delimittedGlossarTerms[strtoupper($key[0])][] = $term;
+            }
+
+            $arrGlossar = $delimittedGlossarTerms;
+            unset($delimittedGlossarTerms);
         }
 
         $this->Template->pagination = '';
@@ -286,6 +299,7 @@ class Glossar extends ContentElement
         }
 
         $this->Template->ppos = $this->paginationPosition;
+        $this->Template->delimitByInital = $this->useInitialAsDelimitter;
         $this->Template->glossar = $arrGlossar;
         $this->Template->back = $GLOBALS['TL_LANG']['MSC']['goBack'];
 

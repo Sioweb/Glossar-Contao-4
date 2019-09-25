@@ -3,14 +3,29 @@
 
 <?php if($this->alphaPagination && !$this->content && ($this->ppos == 'before' || $this->ppos == 'both')) echo $this->alphaPagination;?>
 
-<?php if($this->glossar && !$this->content) {?>
-<ul class="glossar_items">
-<?php foreach($this->glossar as $gKey => $glossar) echo $glossar;?>
-</ul>
-<?php } else {
-	if($this->termAsHeadline) echo $this->termAsHeadline;
-	echo implode("\n", $this->glossar);
-}
+<?php if(!$this->delimitByInital) {?>
+	<?php if($this->glossar && !$this->content) {?>
+	<ul class="glossar_items">
+	<?php foreach($this->glossar as $glossar) echo $glossar;?>
+	</ul>
+	<?php } else {
+		if($this->termAsHeadline) echo $this->termAsHeadline;
+		echo implode("\n", $this->glossar);
+	}
+} else {?>
+	<?php foreach($this->glossar as $initial => $terms) {?>
+	<ul class="separated_glossar_items">
+		<li class="glossar_item_separator"><?php echo $initial;?></li>
+		<li class="glossar_separated_items">
+			<ul class="glossar_items">
+			<?php foreach($terms as $glossar) {?>
+			<?php echo $glossar;?>
+			<?php }?>
+			</ul>
+		</li>
+	</ul>
+	<?php }?>
+<?php }
 
 if($this->errors) {
 	echo $this->errors;

@@ -192,3 +192,14 @@
 	background: -o-linear-gradient(#3cf,transparent,#3cf);
 	background: linear-gradient(#3cf,transparent,#3cf)
 }
+
+.glossar_item_separator {
+    font-size: 1.5em;
+	font-weight: 700;
+    margin: 50px 0 20px;
+    border-bottom: 1px solid;
+}
+
+.glossar_separated_items {
+    padding-left: 20px;
+}

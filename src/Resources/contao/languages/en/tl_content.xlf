@@ -69,6 +69,14 @@
         <source>Adds a pagination from A to Z.</source>
         <target>Adds a pagination from A to Z..</target>
       </trans-unit>
+      <trans-unit id="tl_content.useInitialAsDelimitter.0">
+        <source>Sort and separate terms by initial</source>
+        <target>Sort and separate terms by initial</target>
+      </trans-unit>
+      <trans-unit id="tl_content.useInitialAsDelimitter.1">
+        <source>This will add a separator headline for each initial.</source>
+        <target>This will add a separator headline for each initial.</target>
+      </trans-unit>
       <trans-unit id="tl_content.addNumericPagination.0">
         <source>Add numeric pagination</source>
         <target>Add numeric pagination</target>
