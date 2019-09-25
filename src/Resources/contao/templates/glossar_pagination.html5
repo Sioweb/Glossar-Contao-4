@@ -1,8 +1,9 @@
 <div class="glossar_alpha_pagination">
+	<?php if($this->pagination) {?>
 	<a class="glossar_show_all" href="<?php echo $this->showAllHref;?>" title="Alle anzeigen">
 		<?php echo $this->showAllLabel;?>
 	</a>
-	<?php if($this->numericPagination) {?>
+	<?php } if($this->numericPagination) {?>
 	<div class="glossar_numbers">
 		<?php foreach($this->numericPagination as $pKey => $pagination) {?>
 		<?php if($pagination['trueLink']) {?>
