@@ -56,6 +56,10 @@ class Glossar extends ContentElement
             Input::setGet('alpha', Input::get('auto_item'));
         }
 
+        if(Input::get('items') == null) {
+            return '';
+        }
+
         return parent::generate();
     }
 
