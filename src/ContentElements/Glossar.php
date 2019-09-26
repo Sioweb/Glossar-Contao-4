@@ -56,7 +56,7 @@ class Glossar extends ContentElement
             Input::setGet('alpha', Input::get('auto_item'));
         }
 
-        if(Input::get('items') == null) {
+        if($this->type === 'glossar_reader' && Input::get('items') == null) {
             return '';
         }
 
