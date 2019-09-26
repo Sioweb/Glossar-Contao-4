@@ -76,7 +76,9 @@ class Backend
 
             if (!empty($url)) {
                 $link = GlossarPageModel::findByPk($url);
-                $arrPages[] = $domain . Controller::generateFrontendUrl($link->row(), ((Config::get('useAutoItem') && !Config::get('disableAlias')) ? '/' : '/items/') . $Term->getAlias());
+                if($link !== null) {
+                    $arrPages[] = $domain . Controller::generateFrontendUrl($link->row(), ((Config::get('useAutoItem') && !Config::get('disableAlias')) ? '/' : '/items/') . $Term->getAlias());
+                }
             }
         }
 
