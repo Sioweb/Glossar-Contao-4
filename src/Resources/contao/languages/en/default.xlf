@@ -9,6 +9,14 @@
         <source>Creates a list with glossary terms.</source>
         <target>Creates a list with glossary terms.</target>
       </trans-unit>
+      <trans-unit id="CTE.glossar_reader.0">
+        <source>Glossary reader</source>
+        <target>Glossary reader</target>
+      </trans-unit>
+      <trans-unit id="CTE.glossar_reader.1">
+        <source>Shows details of a choosen glossar term.</source>
+        <target>Shows details of a choosen glossar term.</target>
+      </trans-unit>
       <trans-unit id="CTE.glossar_cloud.0">
         <source>Glossary Cloud</source>
         <target>Glossary Cloud</target>

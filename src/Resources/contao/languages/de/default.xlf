@@ -9,6 +9,14 @@
         <source>Creates a list with glossary terms.</source>
         <target>Erzeugt eine Liste mit Glossar-Begriffen.</target>
       </trans-unit>
+      <trans-unit id="CTE.glossar_reader.0">
+        <source>Glossary reader</source>
+        <target>Glossar Leser (Details)</target>
+      </trans-unit>
+      <trans-unit id="CTE.glossar_reader.1">
+        <source>Shows details of a choosen glossar term.</source>
+        <target>Dieses Element wird benötigt, wenn die Detailseite nicht auf der selben Seite sein soll, wie das Glossar-Element.</target>
+      </trans-unit>
       <trans-unit id="CTE.glossar_cloud.0">
         <source>Glossary Cloud</source>
         <target>Glossar-Cloud</target>

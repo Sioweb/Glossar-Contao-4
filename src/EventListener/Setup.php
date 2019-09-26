@@ -141,6 +141,7 @@ class Setup
     public function initializeFrontend()
     {
         $GLOBALS['TL_CTE']['texts']['glossar'] = 'Sioweb\Glossar\ContentElements\Glossar';
+        $GLOBALS['TL_CTE']['texts']['glossar_reader'] = 'Sioweb\Glossar\ContentElements\Glossar';
         $GLOBALS['TL_CTE']['texts']['glossar_cloud'] = 'Sioweb\Glossar\ContentElements\Cloud';
 
         /**

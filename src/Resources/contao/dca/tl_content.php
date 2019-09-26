@@ -26,13 +26,15 @@ if(Input::get('do') == 'glossar') {
   $GLOBALS['TL_DCA']['tl_content']['list']['sorting']['headerFields'] = array('type','title','jumpTo','tstamp');
 }
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['glossar'] = '{type_legend},type,glossar,sortGlossarBy,termAsHeadline,useInitialAsDelimitter;{glossartags_legend:hide},glossarShowTags,glossarShowTagsDetails;{pagination_legend:hide},perPage;{alphapagination_legend:hide},addAlphaPagination';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['glossar'] = '{type_legend},type,glossar,sortGlossarBy,termAsHeadline,useInitialAsDelimitter,differentGlossarDetailPage;{glossartags_legend:hide},glossarShowTags,glossarShowTagsDetails;{pagination_legend:hide},perPage;{alphapagination_legend:hide},addAlphaPagination';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['glossar_cloud'] = '{type_legend},type,glossar';
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'addAlphaPagination';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'termAsHeadline';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'differentGlossarDetailPage';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['addAlphaPagination'] = 'addNumericPagination,showAfterChoose,addOnlyTrueLinks,paginationPosition';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['termAsHeadline'] = 'headlineUnit';
+$GLOBALS['TL_DCA']['tl_content']['subpalettes']['differentGlossarDetailPage'] = 'jumpToGlossarTerm';
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['glossar'] = array(
   'label'                   => &$GLOBALS['TL_LANG']['tl_content']['glossar'],
@@ -133,4 +135,23 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['glossarShowTagsDetails'] = array(
   'inputType'               => 'checkbox',
   'eval'                    => array('tl_class'=>'w50','submitOnChange'=>true),
   'sql'                     => "char(1) NOT NULL default ''"
+);
+
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['differentGlossarDetailPage'] = array(
+  'label'                   => &$GLOBALS['TL_LANG']['tl_content']['differentGlossarDetailPage'],
+  'exclude'                 => true,
+  'inputType'               => 'checkbox',
+  'eval'                    => array('tl_class'=>'w50 clr','submitOnChange'=>true),
+  'sql'                     => "char(1) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['jumpToGlossarTerm'] = array(
+  'label'                   => &$GLOBALS['TL_LANG']['tl_content']['jumpToGlossarTerm'],
+  'exclude'                 => true,
+  'inputType'               => 'pageTree',
+  'foreignKey'              => 'tl_page.title',
+  'eval'                    => array('tl_class'=>'w50 clr', 'fieldType'=>'radio'),
+  'sql'                     => "int(10) unsigned NOT NULL default 0",
+  'relation'                => array('type'=>'hasOne', 'load'=>'lazy')
 );

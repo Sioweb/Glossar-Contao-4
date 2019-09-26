@@ -109,6 +109,22 @@
         <source>Hide terms, until pagination is used. This will help to keep usability, if a lot of terms are shown.</source>
         <target>Hide terms, until pagination is used. This will help to keep usability, if a lot of terms are shown..</target>
       </trans-unit>
+      <trans-unit id="tl_content.differentGlossarDetailPage.0">
+        <source>Custom detail page</source>
+        <target>Custom detail page</target>
+      </trans-unit>
+      <trans-unit id="tl_content.differentGlossarDetailPage.1">
+        <source>Terms should redirect to another page.</source>
+        <target>Terms should redirect to another page.</target>
+      </trans-unit>
+      <trans-unit id="tl_content.jumpToGlossarTerm.0">
+        <source>Choose detail page</source>
+        <target>Choose detail page</target>
+      </trans-unit>
+      <trans-unit id="tl_content.jumpToGlossarTerm.1">
+        <source>Please choose a detail page which containes the "Glossar reader" element.</source>
+        <target>Please choose a detail page which containes the "Glossar reader" element.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

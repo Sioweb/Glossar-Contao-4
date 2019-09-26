@@ -151,21 +151,29 @@ class Glossar extends ContentElement
                         }
 
                         $link = null;
-                        $Content = \ContentModel::findPublishedByPidAndTable($newGlossarObj->id, 'tl_sw_glossar');
-                        if (!empty($Content) || (!empty($Term->getTeaser()) && Config::get('acceptTeasersAsContent'))) {
-                            if (!$newGlossarObj->jumpTo || $newGlossarObj->source != 'page') {
-                                $newGlossarObj->jumpTo = Config::get('jumpToGlossar');
-                            }
-
-                            if ($newGlossarObj->jumpTo) {
-                                $link = \PageModel::findByPk($newGlossarObj->jumpTo);
-                            }
-                            $newGlossarObj->content = 1;
+                        if($this->differentGlossarDetailPage && $this->jumpToGlossarTerm) {
+                            $link = \PageModel::findByPk($this->jumpToGlossarTerm);
+                            // $newGlossarObj->content = 1;
                             if ($link) {
                                 $newGlossarObj->link = $link->getAbsoluteUrl('/' . $newGlossarObj->alias);
                             }
                         } else {
-                            $newGlossarObj->link = false;
+                            $Content = \ContentModel::findPublishedByPidAndTable($newGlossarObj->id, 'tl_sw_glossar');
+                            if (!empty($Content) || (!empty($Term->getTeaser()) && Config::get('acceptTeasersAsContent'))) {
+                                if (!$newGlossarObj->jumpTo || $newGlossarObj->source != 'page') {
+                                    $newGlossarObj->jumpTo = Config::get('jumpToGlossar');
+                                }
+
+                                if ($newGlossarObj->jumpTo) {
+                                    $link = \PageModel::findByPk($newGlossarObj->jumpTo);
+                                }
+                                $newGlossarObj->content = 1;
+                                if ($link) {
+                                    $newGlossarObj->link = $link->getAbsoluteUrl('/' . $newGlossarObj->alias);
+                                }
+                            } else {
+                                $newGlossarObj->link = false;
+                            }
                         }
 
                         if (Input::get('items') == '') {

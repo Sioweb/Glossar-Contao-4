@@ -109,6 +109,22 @@
         <source>Hide terms, until pagination is used. This will help to keep usability, if a lot of terms are shown.</source>
         <target>Die Einträge werden versteckt, bis eine Ziffer in der Pagination ausgewählt wurde.</target>
       </trans-unit>
+      <trans-unit id="tl_content.differentGlossarDetailPage.0">
+        <source>Custom detail page</source>
+        <target>Detailseite soll weiterleiten</target>
+      </trans-unit>
+      <trans-unit id="tl_content.differentGlossarDetailPage.1">
+        <source>Terms should redirect to another page.</source>
+        <target>Begriffe sollen auf eine Unterseite verlinken.</target>
+      </trans-unit>
+      <trans-unit id="tl_content.jumpToGlossarTerm.0">
+        <source>Choose detail page</source>
+        <target>Detailseite wählen</target>
+      </trans-unit>
+      <trans-unit id="tl_content.jumpToGlossarTerm.1">
+        <source>Please choose a detail page which containes the "Glossar reader" element.</source>
+        <target>Bitte eine Seite wählen, die das Element "Glossar Leser" enthält.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
