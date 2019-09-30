@@ -12,6 +12,8 @@ use stdClass;
 use Contao\Input;
 use Contao\Config;
 use Contao\Pagination;
+use Contao\Controller;
+use Contao\Environment;
 use Contao\ContentElement;
 use Contao\ContentHeadline;
 use Contao\FrontendTemplate;
@@ -19,6 +21,7 @@ use Sioweb\License\Glossar as GlossarLicense;
 
 use Sioweb\Glossar\Entity\Terms;
 use Sioweb\Glossar\Models\StdModel;
+use Sioweb\Glossar\Models\PageModel as GlossarPageModel;
 
 /**
  * @file ContentGlossar.php
@@ -54,6 +57,26 @@ class Glossar extends ContentElement
 
         if (!isset($_GET['alpha']) && Config::get('useAutoItem') && isset($_GET['auto_item'])) {
             Input::setGet('alpha', Input::get('auto_item'));
+        }
+
+        if($this->type !== 'glossar_reader' && $this->differentGlossarDetailPage && $this->jumpToGlossarTerm) {
+            $url = null;
+
+            $EntityManager = $this->getContainer()->get('doctrine.orm.default_entity_manager');
+            $TermsRepository = $EntityManager->getRepository(Terms::class);
+            $TermObj = $TermsRepository->findOneByAlias(Input::get('items'));
+
+            if($this->glossar == $TermObj->getPid()->getId()) {
+                $objParent = GlossarPageModel::findWithDetails($this->jumpToGlossarTerm);
+                $domain = ($objParent->rootUseSSL ? 'https://' : 'http://') . ($objParent->domain ?: Environment::get('host')) . TL_PATH . '/';
+
+                $link = GlossarPageModel::findByPk($this->jumpToGlossarTerm);
+                if($link !== null) {
+                    $url = $domain . Controller::generateFrontendUrl($link->row(), ((Config::get('useAutoItem') && !Config::get('disableAlias')) ? '/' : '/items/') . Input::get('items'));
+                }
+                
+                static::redirect($url, 301);
+            }
         }
 
         if($this->type === 'glossar_reader' && Input::get('items') == null) {
