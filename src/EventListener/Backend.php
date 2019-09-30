@@ -79,15 +79,17 @@ class Backend
 
             if(empty($pageCache[$url])) {
                 $Article = ArticleModel::findByPid($url);
-                $Element = [];
-                while($Article->next()) {
-                    $Element[] = $Article->id;
-                }
-                if(!empty($Element)) {
-                    $Element = ContentModel::findOneBy(['glossar = ? AND pid IN (' . implode(',', array_fill(0, count($Element), '?')) . ') AND type="glossar" AND jumpToGlossarTerm != "" AND differentGlossarDetailPage = 1'], array_merge([$Term->getPid()->getId()], $Element));
+                if(!empty($Article)) {
+                    $Element = [];
+                    while($Article->next()) {
+                        $Element[] = $Article->id;
+                    }
                     if(!empty($Element)) {
-                        $pageCache[$url][$Element->glossar] = $Element->jumpToGlossarTerm;
-                        $url = $Element->jumpToGlossarTerm;
+                        $Element = ContentModel::findOneBy(['glossar = ? AND pid IN (' . implode(',', array_fill(0, count($Element), '?')) . ') AND type="glossar" AND jumpToGlossarTerm != "" AND differentGlossarDetailPage = 1'], array_merge([$Term->getPid()->getId()], $Element));
+                        if(!empty($Element)) {
+                            $pageCache[$url][$Element->glossar] = $Element->jumpToGlossarTerm;
+                            $url = $Element->jumpToGlossarTerm;
+                        }
                     }
                 }
             } else {

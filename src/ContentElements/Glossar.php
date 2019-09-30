@@ -59,13 +59,13 @@ class Glossar extends ContentElement
             Input::setGet('alpha', Input::get('auto_item'));
         }
 
-        if($this->type !== 'glossar_reader' && $this->differentGlossarDetailPage && $this->jumpToGlossarTerm) {
+        if(Input::get('items') !== null && $this->type !== 'glossar_reader' && $this->differentGlossarDetailPage && $this->jumpToGlossarTerm) {
             $url = null;
 
             $EntityManager = $this->getContainer()->get('doctrine.orm.default_entity_manager');
             $TermsRepository = $EntityManager->getRepository(Terms::class);
             $TermObj = $TermsRepository->findOneByAlias(Input::get('items'));
-
+            
             if($this->glossar == $TermObj->getPid()->getId()) {
                 $objParent = GlossarPageModel::findWithDetails($this->jumpToGlossarTerm);
                 $domain = ($objParent->rootUseSSL ? 'https://' : 'http://') . ($objParent->domain ?: Environment::get('host')) . TL_PATH . '/';
