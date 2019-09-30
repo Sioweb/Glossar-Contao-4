@@ -11,6 +11,10 @@ namespace Sioweb\Glossar\EventListener;
 use Contao\Config;
 use Contao\Controller;
 use Contao\Environment;
+
+use Contao\ArticleModel;
+use Contao\ContentModel;
+
 use Sioweb\Glossar\Classes\Terms;
 use Sioweb\Glossar\Services\License as GlossarLicense;
 use Contao\CoreBundle\Framework\ContaoFramework;
@@ -65,10 +69,29 @@ class Backend
             return $arrPages;
         }
 
+        $pageCache = [];
+
         foreach($objTerms as $Term) {
             $url = Config::get('jumpToGlossar');
             if ($Term->getJumpTo()) {
                 $url = $Term->getJumpTo();
+            }
+
+            if(empty($pageCache[$url])) {
+                $Article = ArticleModel::findByPid($url);
+                $Element = [];
+                while($Article->next()) {
+                    $Element[] = $Article->id;
+                }
+                if(!empty($Element)) {
+                    $Element = ContentModel::findOneBy(['glossar = ? AND pid IN (' . implode(',', array_fill(0, count($Element), '?')) . ') AND type="glossar" AND jumpToGlossarTerm != "" AND differentGlossarDetailPage = 1'], array_merge([$Term->getPid()->getId()], $Element));
+                    if(!empty($Element)) {
+                        $pageCache[$url][$Element->glossar] = $Element->jumpToGlossarTerm;
+                        $url = $Element->jumpToGlossarTerm;
+                    }
+                }
+            } else {
+                $url = $pageCache[$url][$Term->getPid()->getId()];
             }
 
             $objParent = GlossarPageModel::findWithDetails($url);
