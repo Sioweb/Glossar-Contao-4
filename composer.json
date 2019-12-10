@@ -10,6 +10,7 @@
         }
     ],
     "require": {
+        "ext-mbstring": "*",
         "php": ">=7.1",
         "contao/core-bundle": "^4",
         "sioweb/maintenance-fix": "*",

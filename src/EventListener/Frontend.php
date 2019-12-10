@@ -178,14 +178,14 @@ class Frontend
 
         libxml_use_internal_errors(true);
         $dom = new \DOMDocument();
-        $dom->loadHTML($strContent, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $dom->loadHTML(mb_convert_encoding($strContent, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
         $xpath = new \DOMXPath($dom);
 
         foreach($ignoredTags as $tag) {
             foreach($xpath->query('//' . $tag) as $tagObj) {
                 $indexer = 'GLOSSAR::REPLACE::' . strtoupper($tag) . '::' . count($this->replaceIndex);
                 $CommentNode = $dom->createComment($indexer);
-                $this->replaceIndex[$indexer] = $tagObj;
+                $this->replaceIndex[$indexer] = $tagObj->cloneNode(true);
                 $tagObj->parentNode->replaceChild($CommentNode, $tagObj);
             }
         }
