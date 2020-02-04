@@ -82,8 +82,7 @@ class Frontend
 
         if (isset($GLOBALS['TL_HOOKS']['glossarContent']) && is_array($GLOBALS['TL_HOOKS']['glossarContent'])) {
             foreach ($GLOBALS['TL_HOOKS']['glossarContent'] as $type => $callback) {
-
-                $cb_output = System::importStatic($callback[0])->{$callback[1]}(Input::get('items'), $strContent, $template, $objPage->language);
+                $cb_output = System::importStatic($callback[0])->{$callback[1]}(Input::get('items'), $strContent, $strTemplate, $objPage->language);
 
                 if (!empty($cb_output)) {
                     $arrGlossar[] = $cb_output;
