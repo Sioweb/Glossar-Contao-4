@@ -60,12 +60,12 @@ class Frontend
 
         $GlossarRepository = $this->entityManager->getRepository(GlossarEntity::class);
         $TermRepository = $this->entityManager->getRepository(TermsEntity::class);
-        
+
         if (!isset($_GET['items']) && Config::get('useAutoItem') && isset($_GET['auto_item'])) {
             Input::setGet('items', Input::get('auto_item'));
         }
 
-        if (!Config::get('enableGlossar') || $objPage->disableGlossar == 1) {
+        if (!Config::get('enableGlossar') || $objPage->disableGlossar == 1 || $objPage === null) {
             return $strContent;
         }
 
@@ -79,10 +79,9 @@ class Frontend
         if (!empty($objPage->fallback_glossar) && (Config::get('glossar_no_fallback') != 1 || $objPage->glossar_no_fallback != 1)) {
             $arrGlossar[] = $objPage->fallback_glossar;
         }
-        
+
         if (isset($GLOBALS['TL_HOOKS']['glossarContent']) && is_array($GLOBALS['TL_HOOKS']['glossarContent'])) {
             foreach ($GLOBALS['TL_HOOKS']['glossarContent'] as $type => $callback) {
-                
                 $cb_output = System::importStatic($callback[0])->{$callback[1]}(Input::get('items'), $strContent, $strTemplate, $objPage->language);
 
                 if (!empty($cb_output)) {
@@ -122,7 +121,7 @@ class Frontend
         }
 
         $Term = $TermRepository->findTermBy($time, $time + 60, $this->term, $arrGlossar);
-        
+
         $strContent = $this->termDecorator->replace($strContent, $Term, $Glossar);
 
         if (empty($objPage->fallback_glossar) || Config::get('glossar_no_fallback') == 1 || $objPage->glossar_no_fallback == 1) {
@@ -159,10 +158,10 @@ class Frontend
         foreach(array_reverse($this->replaceIndex) as $indexer => $nodeObject) {
             $strContent = str_replace('<!--' . $indexer . '-->', $this->outerHTML($nodeObject), $strContent);
         }
-        
+
         /** @see #12 */
         $strContent = preg_replace('|<!--GLOSSAR::REPLACE::EXTREA::(.*?)-->|is', '[[$1]]', $strContent);
-        
+
         return $strContent;
     }
 
@@ -172,7 +171,7 @@ class Frontend
         if (Config::get('ignoreInTags')) {
             $ignoredTags = explode(',', str_replace(' ', '', Config::get('ignoreInTags')));
         }
-        
+
         /** @see #12 */
         $strContent = preg_replace('|\[\[(.*?)\]\]|is', '<!--GLOSSAR::REPLACE::EXTREA::$1-->', $strContent);
 
