@@ -104,7 +104,7 @@ services:
             - "@database_connection"
             - "@request_stack"
         tags:
-            - { name: contao.hook, hook: cacheGlossarTerms, method: cacheGlossarTerms }
+            - { name: contao.hook, hook: cacheGlossarTerms, method: updateCache }
     sioweb.glossar.listener.news.glossarContent:
         class: Sioweb\Glossar\EventListener\CoreBundles\News
         public: true
@@ -142,7 +142,7 @@ services:
             - "@database_connection"
             - "@request_stack"
         tags:
-            - { name: contao.hook, hook: cacheGlossarTerms, method: cacheGlossarTerms }
+            - { name: contao.hook, hook: cacheGlossarTerms, method: updateCache }
     sioweb.glossar.listener.faq.glossarContent:
         class: Sioweb\Glossar\EventListener\CoreBundles\FAQ
         public: true
@@ -180,7 +180,7 @@ services:
             - "@database_connection"
             - "@request_stack"
         tags:
-            - { name: contao.hook, hook: cacheGlossarTerms, method: cacheGlossarTerms }
+            - { name: contao.hook, hook: cacheGlossarTerms, method: updateCache }
     sioweb.glossar.listener.event.glossarContent:
         class: Sioweb\Glossar\EventListener\CoreBundles\Events
         public: true
