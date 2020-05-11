@@ -11,6 +11,7 @@
     ],
     "require": {
         "php": ">=7.1",
+        "sioweb/apply_environment": "*",
         "contao/core-bundle": "^4",
         "sioweb/maintenance-fix": "*",
         "doctrine/orm": "^2.6",
