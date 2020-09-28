@@ -107,6 +107,47 @@
         <source>Use this option only if you have limited comments to authenticated users.</source>
         <target>Wählen Sie diese Option nur, wenn das Erstellen von Kommentaren auf authentifizierte Benutzer beschränkt ist.</target>
       </trans-unit>
+
+      <trans-unit id="tl_glossar.seo.0">
+        <source>Activate seo</source>
+        <target>Seo aktivieren</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.seo.1">
+        <source>This will add more options for meta informations.</source>
+        <target>Damit können Title-Tag und Desctiption-Tag gesteuert werden.</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.term_in_title_tag.0">
+        <source>Use term as meta title</source>
+        <target>Begriff in den Titel</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.term_in_title_tag.1">
+        <source>Term will be inserted as meta title in detail page.</source>
+        <target>Fügt den Begriff in der Deteilansicht in den Titel ein.</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.term_in_title_str_tag.0">
+        <source>Add custom title</source>
+        <target>Titel manuel definieren</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.term_in_title_str_tag.1">
+        <source>Insert term with {{glossar::term}}. This setting will relace whole title!</source>
+        <target>Glossar-Term einfügen mit {{glossar::term}}. Dieses Feld überschreibt den Titel komplett!</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.term_description_tag.0">
+        <source>Metadescription</source>
+        <target>Meta-Description</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.term_description_tag.1">
+        <source>This will be used as site description in details page.</source>
+        <target>Diese Beschreibung wird als Seitenbeschreibung verwendet in der Detailansicht.</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.replace_pageTitle.0">
+        <source>Overwrite page title?</source>
+        <target>Page-Title überschreiben?</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.replace_pageTitle.1">
+        <source>Overwrites {{page::pageTitle}} with custom title.</source>
+        <target>Überschreibt den Wert {{page::pageTitle}} durch den manuellen Titel.</target>
+      </trans-unit>
       
       <trans-unit id="tl_glossar.notify_admin">
         <source>System administrator</source>
@@ -124,6 +165,11 @@
       <trans-unit id="tl_glossar.title_legend">
         <source>Glossary settings</source>
         <target>Glossar Einstellung</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar.seo_legend">
+        <source>Seo settings</source>
+        <target>Seo-Einstellungen</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.new.0">

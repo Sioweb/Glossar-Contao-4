@@ -107,6 +107,47 @@
         <source>Use this option only if you have limited comments to authenticated users.</source>
         <target>Use this option only if you have limited comments to authenticated users.</target>
       </trans-unit>
+
+      <trans-unit id="tl_glossar.seo.0">
+        <source>Activate seo</source>
+        <target>Activate seo</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.seo.1">
+        <source>This will add more options for meta informations.</source>
+        <target>This will add more options for meta informations.</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.term_in_title_tag.0">
+        <source>Use term as meta title</source>
+        <target>Use term as meta title</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.term_in_title_tag.1">
+        <source>Term will be inserted as meta title in detail page.</source>
+        <target>Term will be inserted as meta title in detail page.</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.term_in_title_str_tag.0">
+        <source>Add custom title</source>
+        <target>Add custom title</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.term_in_title_str_tag.1">
+        <source>Insert term with {{glossar::term}}. This setting will relace whole title!</source>
+        <target>Insert term with {{glossar::term}}. This setting will relace whole title!</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.term_description_tag.0">
+        <source>Metadescription</source>
+        <target>Metadescription</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.term_description_tag.1">
+        <source>This will be used as site description in details page.</source>
+        <target>This will be used as site description in details page.</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.replace_pageTitle.0">
+        <source>Overwrite page title?</source>
+        <target>Overwrite page title?</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.replace_pageTitle.1">
+        <source>Overwrites {{page::pageTitle}} with custom title.</source>
+        <target>Overwrites {{page::pageTitle}} with custom title.</target>
+      </trans-unit>
       
       <trans-unit id="tl_glossar.notify_admin">
         <source>System administrator</source>
@@ -124,6 +165,11 @@
       <trans-unit id="tl_glossar.title_legend">
         <source>Glossary settings</source>
         <target>Glossary settings</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar.seo_legend">
+        <source>Seo settings</source>
+        <target>Seo settings</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.new.0">

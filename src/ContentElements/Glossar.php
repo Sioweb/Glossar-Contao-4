@@ -322,21 +322,27 @@ class Glossar extends ContentElement
             $this->Template->content = 1;
             $arrGlossar = array_shift($arrGlossar);
 
+            $Seo = null;
+            $oGlossar = $Term->getPid();
 
-            if ($Term->getSeo()) {
-                if ($Term->getTermInTitleTag()) {
+            if ($oGlossar->getSeo() || $Term->getSeo()) {
+                if ($oGlossar->getTermInTitleTag() || $Term->getTermInTitleTag()) {
                     $Title = $objPage->pageTitle;
-
-                    if (empty($Term->getTermInTitleStrTag())) {
+                    
+                    if ($Term->getTermInTitleStrTag() === '' && $oGlossar->getTermInTitleStrTag() === '') {
                         $pageTitle = strip_tags(strip_insert_tags($Term->getTitle()));
-                    } else {
+                    } elseif($Term->getTermInTitleStrTag()) {
                         $pageTitle = strip_tags($this->replaceInsertTags($Term->getTermInTitleStrTag()));
+                    } elseif($oGlossar->getTermInTitleStrTag()) {
+                        $pageTitle = strip_tags($this->replaceInsertTags($oGlossar->getTermInTitleStrTag()));
                     }
                     $objPage->pageTitle = $pageTitle;
                 }
 
                 if ($Term->getTermDescriptionTag()) {
                     $objPage->description = $this->prepareMetaDescription($Term->getTermDescriptionTag());
+                } elseif ($oGlossar->getTermDescriptionTag()) {
+                    $objPage->description = $this->prepareMetaDescription($oGlossar->getTermDescriptionTag());
                 }
             }
         }

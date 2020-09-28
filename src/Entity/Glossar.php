@@ -98,6 +98,36 @@ class Glossar
      */
     protected $disableCaptcha;
 
+    /**
+     * @var string
+     * @ORM\Column(type="string", length=1, options={"default" : ""})
+     */
+    protected $seo;
+
+    /**
+     * @var string
+     * @ORM\Column(name="term_in_title_tag", type="string", length=1, options={"default" : ""})
+     */
+    protected $termInTitleTag;
+
+    /**
+     * @var string
+     * @ORM\Column(name="term_in_title_str_tag", type="string", options={"default" : ""})
+     */
+    protected $termInTitleStrTag;
+
+    /**
+     * @var string
+     * @ORM\Column(name="replace_pageTitle", type="string", length=1, options={"default" : ""})
+     */
+    protected $replacePageTitle;
+
+    /**
+     * @var string
+     * @ORM\Column(name="term_description_tag", type="string", options={"default" : ""})
+     */
+    protected $termDescriptionTag;
+
 
     public function getData() {
         $arrData = [];
@@ -428,6 +458,126 @@ class Glossar
     public function setDisableCaptcha(string $disableCaptcha)
     {
         $this->disableCaptcha = $disableCaptcha;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of seo
+     *
+     * @return  string
+     */ 
+    public function getSeo()
+    {
+        return $this->seo;
+    }
+
+    /**
+     * Set the value of seo
+     *
+     * @param  string  $seo
+     *
+     * @return  self
+     */ 
+    public function setSeo(string $seo)
+    {
+        $this->seo = $seo;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of termInTitleTag
+     *
+     * @return  string
+     */ 
+    public function getTermInTitleTag()
+    {
+        return $this->termInTitleTag;
+    }
+
+    /**
+     * Set the value of termInTitleTag
+     *
+     * @param  string  $termInTitleTag
+     *
+     * @return  self
+     */ 
+    public function setTermInTitleTag(string $termInTitleTag)
+    {
+        $this->termInTitleTag = $termInTitleTag;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of termInTitleStrTag
+     *
+     * @return  string
+     */ 
+    public function getTermInTitleStrTag()
+    {
+        return $this->termInTitleStrTag;
+    }
+
+    /**
+     * Set the value of termInTitleStrTag
+     *
+     * @param  string  $termInTitleStrTag
+     *
+     * @return  self
+     */ 
+    public function setTermInTitleStrTag(string $termInTitleStrTag)
+    {
+        $this->termInTitleStrTag = $termInTitleStrTag;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of replacePageTitle
+     *
+     * @return  string
+     */ 
+    public function getReplacePageTitle()
+    {
+        return $this->replacePageTitle;
+    }
+
+    /**
+     * Set the value of replacePageTitle
+     *
+     * @param  string  $replacePageTitle
+     *
+     * @return  self
+     */ 
+    public function setReplacePageTitle(string $replacePageTitle)
+    {
+        $this->replacePageTitle = $replacePageTitle;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of termDescriptionTag
+     *
+     * @return  string
+     */ 
+    public function getTermDescriptionTag()
+    {
+        return $this->termDescriptionTag;
+    }
+
+    /**
+     * Set the value of termDescriptionTag
+     *
+     * @param  string  $termDescriptionTag
+     *
+     * @return  self
+     */ 
+    public function setTermDescriptionTag(string $termDescriptionTag)
+    {
+        $this->termDescriptionTag = $termDescriptionTag;
 
         return $this;
     }

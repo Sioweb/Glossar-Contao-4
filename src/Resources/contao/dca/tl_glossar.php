@@ -109,14 +109,15 @@ $GLOBALS['TL_DCA']['tl_glossar'] = array(
   // Palettes
   'palettes' => array
   (
-    '__selector__'                => array('allowComments'),
-    'default'                     => '{title_legend},title,alias,language,fallback,allowComments',
+    '__selector__'                => array('allowComments', 'seo'),
+    'default'                     => '{title_legend},title,alias,language,fallback,allowComments;{seo_legend},seo',
   ),
 
   // Subpalettes
   'subpalettes' => array
   (
-    'allowComments'               => 'notify,sortOrder,perPage,moderate,bbcode,requireLogin,disableCaptcha'
+    'allowComments'               => 'notify,sortOrder,perPage,moderate,bbcode,requireLogin,disableCaptcha',
+    'seo'                         => 'term_in_title_tag,term_description_tag,term_in_title_str_tag',
   ),
 
   // Fields
@@ -224,6 +225,43 @@ $GLOBALS['TL_DCA']['tl_glossar'] = array(
       'exclude'                 => true,
       'inputType'               => 'checkbox',
       'eval'                    => array('tl_class'=>'w50'),
+    ),
+    'seo' => array
+    (
+      'label'                   => &$GLOBALS['TL_LANG']['tl_glossar']['seo'],
+      'exclude'                 => true,
+      'filter'                  => true,
+      'sorting'                 => true,
+      'inputType'               => 'checkbox',
+      'eval'                    => array('submitOnChange'=>true),
+    ),
+    'term_in_title_tag' => array
+    (
+      'label'                   => &$GLOBALS['TL_LANG']['tl_glossar']['term_in_title_tag'],
+      'exclude'                 => true,
+      'inputType'               => 'checkbox',
+      'eval'                    => array('tl_class'=>'w50 clr'),
+    ),
+    'term_in_title_str_tag' => array
+    (
+      'label'                   => &$GLOBALS['TL_LANG']['tl_glossar']['term_in_title_str_tag'],
+      'exclude'                 => true,
+      'inputType'               => 'text',
+      'eval'                    => array('maxlength'=>255,'tl_class'=>'w50 clr','gsIgnore'=>true),
+    ),
+    'replace_pageTitle' => array
+    (
+      'label'                   => &$GLOBALS['TL_LANG']['tl_glossar']['replace_pageTitle'],
+      'exclude'                 => true,
+      'inputType'               => 'checkbox',
+      'eval'                    => array('tl_class'=>'w50 clr'),
+    ),
+    'term_description_tag' => array
+    (
+      'label'                   => &$GLOBALS['TL_LANG']['tl_glossar']['term_description_tag'],
+      'exclude'                 => true,
+      'inputType'               => 'text',
+      'eval'                    => array('maxlength'=>255,'tl_class'=>'long clr','gsIgnore'=>true),
     ),
   )
 );

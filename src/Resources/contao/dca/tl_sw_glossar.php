@@ -328,7 +328,7 @@ $GLOBALS['TL_DCA']['tl_sw_glossar'] = array(
       'label'                   => &$GLOBALS['TL_LANG']['tl_sw_glossar']['term_in_title_str_tag'],
       'exclude'                 => true,
       'inputType'               => 'text',
-      'eval'                    => array('maxlength'=>255,'tl_class'=>'w50','gsIgnore'=>true),
+      'eval'                    => array('maxlength'=>255,'tl_class'=>'w50 clr','gsIgnore'=>true),
     ),
     'replace_pageTitle' => array
     (
@@ -342,7 +342,7 @@ $GLOBALS['TL_DCA']['tl_sw_glossar'] = array(
       'label'                   => &$GLOBALS['TL_LANG']['tl_sw_glossar']['term_description_tag'],
       'exclude'                 => true,
       'inputType'               => 'text',
-      'eval'                    => array('maxlength'=>255,'tl_class'=>'w50','gsIgnore'=>true),
+      'eval'                    => array('maxlength'=>255,'tl_class'=>'long clr','gsIgnore'=>true),
     ),
     'tags' => array
     (
