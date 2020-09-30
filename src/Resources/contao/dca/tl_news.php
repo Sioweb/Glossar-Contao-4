@@ -12,14 +12,14 @@
  * @copyright Sascha Weidner, Sioweb
  */
 
-$GLOBALS['TL_DCA']['tl_news']['fields']['glossar'] = array(
-  'sql' => "text NULL"
-);
+$GLOBALS['TL_DCA']['tl_news']['fields']['glossar'] = [
+	'sql' => "text NULL",
+];
 
-$GLOBALS['TL_DCA']['tl_news']['fields']['fallback_glossar'] = array(
-  'sql' => "text NULL"
-);
+$GLOBALS['TL_DCA']['tl_news']['fields']['fallback_glossar'] = [
+	'sql' => "text NULL",
+];
 
-$GLOBALS['TL_DCA']['tl_news']['fields']['glossar_time'] = array(
-  'sql' => "int(10) unsigned NOT NULL default '0'"
-);
+$GLOBALS['TL_DCA']['tl_news']['fields']['glossar_time'] = [
+	'sql' => "int(10) unsigned NOT NULL default '0'",
+];
