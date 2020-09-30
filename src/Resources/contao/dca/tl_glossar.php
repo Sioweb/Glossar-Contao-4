@@ -121,7 +121,7 @@ $GLOBALS['TL_DCA']['tl_glossar'] = [
 			'inputType'				=> 'text',
 			'search'				=> true,
 			'eval'					=> ['rgxp' => 'alias', 'doNotCopy' => true, 'maxlength' => 128, 'tl_class' => 'w50'],
-			'save_callback' => [,
+			'save_callback' => [
 				['sioweb.glossar.dca.glossar', 'generateAlias'],
 			]
 		],
@@ -137,7 +137,7 @@ $GLOBALS['TL_DCA']['tl_glossar'] = [
 			'exclude'				=> true,
 			'inputType'				=> 'checkbox',
 			'eval'					=> ['doNotCopy' => true, 'tl_class' => 'w50 m12'],
-			'save_callback' => [,
+			'save_callback' => [
 				['sioweb.glossar.dca.glossar', 'checkFallback'],
 			],
 		],
