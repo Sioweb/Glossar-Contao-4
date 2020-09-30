@@ -5,6 +5,7 @@
  */
 
 declare(strict_types=1);
+
 namespace Sioweb\Glossar\Models;
 
 /**
@@ -16,22 +17,25 @@ namespace Sioweb\Glossar\Models;
  * @copyright Sascha Weidner, Sioweb
  */
 
-class StdModel {
+class StdModel
+{
+	private $arrData = [];
 
-	private $arrData = array();
-
-	public function __get($var) {
-		if(!empty($this->arrData[$var])) {
+	public function __get($var)
+	{
+		if (!empty($this->arrData[$var])) {
 			return $this->arrData[$var];
 		}
 		return null;
 	}
 
-	public function __set($var, $val) {
+	public function __set($var, $val)
+	{
 		$this->arrData[$var] = $val;
 	}
 
-	public function row() {
+	public function row()
+	{
 		return $this->arrData;
 	}
 }

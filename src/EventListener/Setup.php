@@ -4,7 +4,7 @@
  * Contao Open Source CMS
  */
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace Sioweb\Glossar\EventListener;
 
@@ -60,7 +60,7 @@ class Setup
         $GLOBALS['TL_PERMISSIONS'][] = 'glossar';
         $GLOBALS['TL_PERMISSIONS'][] = 'glossarp';
 
-        if(VERSION < 4.7 || (VERSION == 4.7 && BUILD < 2)) {
+        if (VERSION < 4.7 || (VERSION == 4.7 && BUILD < 2)) {
             array_insert($GLOBALS['TL_MAINTENANCE_EXTENDED'], 1, [
                 (VERSION < 4.6 ? 'Sioweb\Glossar\Polyfill\Contao44\Services\Rebuild' : 'sioweb.glossar.rebuild')
             ]);
@@ -185,9 +185,8 @@ class Setup
 
     private function isFrontendRequest()
     {
-        if (defined('TL_MODE') && TL_MODE === 'FE')
-        { 
-            return true;  
+        if (defined('TL_MODE') && TL_MODE === 'FE') {
+            return true;
         }
 
         if ($this->requestStack === null || $this->requestStack->getCurrentRequest() === null) {
@@ -199,9 +198,8 @@ class Setup
 
     private function isBackendRequest()
     {
-        if (defined('TL_MODE') && TL_MODE === 'BE')
-        { 
-            return true;  
+        if (defined('TL_MODE') && TL_MODE === 'BE') {
+            return true;
         }
 
         if ($this->requestStack === null || $this->requestStack->getCurrentRequest() === null) {

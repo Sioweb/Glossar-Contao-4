@@ -1,6 +1,7 @@
 <?php
 
 namespace Sioweb\Glossar\Entity;
+
 use \Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,7 +20,7 @@ class Terms
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-  
+
     /**
      * @ORM\ManyToOne(targetEntity="Glossar")
      * @ORM\JoinColumn(name="pid", referencedColumnName="id")
@@ -247,15 +248,16 @@ class Terms
         return $this->getData();
     }
 
-    public function getData() {
+    public function getData()
+    {
         $arrData = [];
-        foreach(preg_grep('|^get(?!Data)|', get_class_methods($this)) as $method) {
+        foreach (preg_grep('|^get(?!Data)|', get_class_methods($this)) as $method) {
             $arrData[($Field = lcfirst(substr($method, 3)))] = $this->{$method}();
-            if(is_object($arrData[$Field])) {
+            if (is_object($arrData[$Field])) {
                 $arrData[$Field] = $arrData[$Field]->getData();
             }
         }
-        
+
         return $arrData;
     }
 
@@ -277,7 +279,7 @@ class Terms
      * Get the value of tstamp
      *
      * @return  int
-     */ 
+     */
     public function getTstamp()
     {
         return $this->tstamp;
@@ -289,7 +291,7 @@ class Terms
      * @param  int  $tstamp
      *
      * @return  self
-     */ 
+     */
     public function setTstamp(int $tstamp)
     {
         $this->tstamp = $tstamp;
@@ -301,7 +303,7 @@ class Terms
      * Get the value of type
      *
      * @return  string
-     */ 
+     */
     public function getType()
     {
         return $this->type;
@@ -313,7 +315,7 @@ class Terms
      * @param  string  $type
      *
      * @return  self
-     */ 
+     */
     public function setType(string $type)
     {
         $this->type = $type;
@@ -325,7 +327,7 @@ class Terms
      * Get the value of title
      *
      * @return  string
-     */ 
+     */
     public function getTitle()
     {
         return $this->title;
@@ -337,7 +339,7 @@ class Terms
      * @param  string  $title
      *
      * @return  self
-     */ 
+     */
     public function setTitle(string $title)
     {
         $this->title = $title;
@@ -349,7 +351,7 @@ class Terms
      * Get the value of alias
      *
      * @return  string
-     */ 
+     */
     public function getAlias()
     {
         return $this->alias;
@@ -361,7 +363,7 @@ class Terms
      * @param  string  $alias
      *
      * @return  self
-     */ 
+     */
     public function setAlias(string $alias)
     {
         $this->alias = $alias;
@@ -373,7 +375,7 @@ class Terms
      * Get the value of source
      *
      * @return  string
-     */ 
+     */
     public function getSource()
     {
         return $this->source;
@@ -385,7 +387,7 @@ class Terms
      * @param  string  $source
      *
      * @return  self
-     */ 
+     */
     public function setSource(string $source)
     {
         $this->source = $source;
@@ -397,7 +399,7 @@ class Terms
      * Get the value of jumpTo
      *
      * @return  string
-     */ 
+     */
     public function getJumpTo()
     {
         return $this->jumpTo;
@@ -409,7 +411,7 @@ class Terms
      * @param  string  $jumpTo
      *
      * @return  self
-     */ 
+     */
     public function setJumpTo(string $jumpTo)
     {
         $this->jumpTo = $jumpTo;
@@ -421,7 +423,7 @@ class Terms
      * Get the value of articleId
      *
      * @return  string
-     */ 
+     */
     public function getArticleId()
     {
         return $this->articleId;
@@ -433,7 +435,7 @@ class Terms
      * @param  string  $articleId
      *
      * @return  self
-     */ 
+     */
     public function setArticleId(string $articleId)
     {
         $this->articleId = $articleId;
@@ -445,7 +447,7 @@ class Terms
      * Get the value of url
      *
      * @return  string
-     */ 
+     */
     public function getUrl()
     {
         return $this->url;
@@ -457,7 +459,7 @@ class Terms
      * @param  string  $url
      *
      * @return  self
-     */ 
+     */
     public function setUrl(string $url)
     {
         $this->url = $url;
@@ -469,7 +471,7 @@ class Terms
      * Get the value of target
      *
      * @return  string
-     */ 
+     */
     public function getTarget()
     {
         return $this->target;
@@ -481,7 +483,7 @@ class Terms
      * @param  string  $target
      *
      * @return  self
-     */ 
+     */
     public function setTarget(string $target)
     {
         $this->target = $target;
@@ -493,7 +495,7 @@ class Terms
      * Get the value of maxWidth
      *
      * @return  string
-     */ 
+     */
     public function getMaxWidth()
     {
         return $this->maxWidth;
@@ -505,7 +507,7 @@ class Terms
      * @param  string  $maxWidth
      *
      * @return  self
-     */ 
+     */
     public function setMaxWidth(string $maxWidth)
     {
         $this->maxWidth = $maxWidth;
@@ -517,7 +519,7 @@ class Terms
      * Get the value of maxHeight
      *
      * @return  string
-     */ 
+     */
     public function getMaxHeight()
     {
         return $this->maxHeight;
@@ -529,7 +531,7 @@ class Terms
      * @param  string  $maxHeight
      *
      * @return  self
-     */ 
+     */
     public function setMaxHeight(string $maxHeight)
     {
         $this->maxHeight = $maxHeight;
@@ -541,7 +543,7 @@ class Terms
      * Get the value of ignoreInTags
      *
      * @return  string
-     */ 
+     */
     public function getIgnoreInTags()
     {
         return $this->ignoreInTags;
@@ -553,7 +555,7 @@ class Terms
      * @param  string  $ignoreInTags
      *
      * @return  self
-     */ 
+     */
     public function setIgnoreInTags(string $ignoreInTags)
     {
         $this->ignoreInTags = $ignoreInTags;
@@ -565,7 +567,7 @@ class Terms
      * Get the value of illegalChars
      *
      * @return  string
-     */ 
+     */
     public function getIllegalChars()
     {
         return $this->illegalChars;
@@ -577,7 +579,7 @@ class Terms
      * @param  string  $illegalChars
      *
      * @return  self
-     */ 
+     */
     public function setIllegalChars(string $illegalChars)
     {
         $this->illegalChars = $illegalChars;
@@ -589,7 +591,7 @@ class Terms
      * Get the value of date
      *
      * @return  string
-     */ 
+     */
     public function getDate()
     {
         return $this->date;
@@ -601,7 +603,7 @@ class Terms
      * @param  string  $date
      *
      * @return  self
-     */ 
+     */
     public function setDate(string $date)
     {
         $this->date = $date;
@@ -613,7 +615,7 @@ class Terms
      * Get the value of noPlural
      *
      * @return  string
-     */ 
+     */
     public function getNoPlural()
     {
         return $this->noPlural;
@@ -625,7 +627,7 @@ class Terms
      * @param  string  $noPlural
      *
      * @return  self
-     */ 
+     */
     public function setNoPlural(string $noPlural)
     {
         $this->noPlural = $noPlural;
@@ -637,7 +639,7 @@ class Terms
      * Get the value of strictSearch
      *
      * @return  string
-     */ 
+     */
     public function getStrictSearch()
     {
         return $this->strictSearch;
@@ -649,7 +651,7 @@ class Terms
      * @param  string  $strictSearch
      *
      * @return  self
-     */ 
+     */
     public function setStrictSearch(string $strictSearch)
     {
         $this->strictSearch = $strictSearch;
@@ -661,7 +663,7 @@ class Terms
      * Get the value of termAsHeadline
      *
      * @return  string
-     */ 
+     */
     public function getTermAsHeadline()
     {
         return $this->termAsHeadline;
@@ -673,7 +675,7 @@ class Terms
      * @param  string  $termAsHeadline
      *
      * @return  self
-     */ 
+     */
     public function setTermAsHeadline(string $termAsHeadline)
     {
         $this->termAsHeadline = $termAsHeadline;
@@ -685,7 +687,7 @@ class Terms
      * Get the value of teaser
      *
      * @return  string
-     */ 
+     */
     public function getTeaser()
     {
         return $this->teaser;
@@ -697,7 +699,7 @@ class Terms
      * @param  string  $teaser
      *
      * @return  self
-     */ 
+     */
     public function setTeaser(string $teaser)
     {
         $this->teaser = $teaser;
@@ -709,7 +711,7 @@ class Terms
      * Get the value of description
      *
      * @return  string
-     */ 
+     */
     public function getDescription()
     {
         return $this->description;
@@ -721,7 +723,7 @@ class Terms
      * @param  string  $description
      *
      * @return  self
-     */ 
+     */
     public function setDescription(string $description)
     {
         $this->description = $description;
@@ -733,7 +735,7 @@ class Terms
      * Get the value of explanation
      *
      * @return  string
-     */ 
+     */
     public function getExplanation()
     {
         return $this->explanation;
@@ -745,7 +747,7 @@ class Terms
      * @param  string  $explanation
      *
      * @return  self
-     */ 
+     */
     public function setExplanation(string $explanation)
     {
         $this->explanation = $explanation;
@@ -757,7 +759,7 @@ class Terms
      * Get the value of seo
      *
      * @return  string
-     */ 
+     */
     public function getSeo()
     {
         return $this->seo;
@@ -769,7 +771,7 @@ class Terms
      * @param  string  $seo
      *
      * @return  self
-     */ 
+     */
     public function setSeo(string $seo)
     {
         $this->seo = $seo;
@@ -781,7 +783,7 @@ class Terms
      * Get the value of termInTitleTag
      *
      * @return  string
-     */ 
+     */
     public function getTermInTitleTag()
     {
         return $this->termInTitleTag;
@@ -793,7 +795,7 @@ class Terms
      * @param  string  $termInTitleTag
      *
      * @return  self
-     */ 
+     */
     public function setTermInTitleTag(string $termInTitleTag)
     {
         $this->termInTitleTag = $termInTitleTag;
@@ -805,7 +807,7 @@ class Terms
      * Get the value of termInTitleStrTag
      *
      * @return  string
-     */ 
+     */
     public function getTermInTitleStrTag()
     {
         return $this->termInTitleStrTag;
@@ -817,7 +819,7 @@ class Terms
      * @param  string  $termInTitleStrTag
      *
      * @return  self
-     */ 
+     */
     public function setTermInTitleStrTag(string $termInTitleStrTag)
     {
         $this->termInTitleStrTag = $termInTitleStrTag;
@@ -829,7 +831,7 @@ class Terms
      * Get the value of replacePageTitle
      *
      * @return  string
-     */ 
+     */
     public function getReplacePageTitle()
     {
         return $this->replacePageTitle;
@@ -841,7 +843,7 @@ class Terms
      * @param  string  $replacePageTitle
      *
      * @return  self
-     */ 
+     */
     public function setReplacePageTitle(string $replacePageTitle)
     {
         $this->replacePageTitle = $replacePageTitle;
@@ -853,7 +855,7 @@ class Terms
      * Get the value of termDescriptionTag
      *
      * @return  string
-     */ 
+     */
     public function getTermDescriptionTag()
     {
         return $this->termDescriptionTag;
@@ -865,7 +867,7 @@ class Terms
      * @param  string  $termDescriptionTag
      *
      * @return  self
-     */ 
+     */
     public function setTermDescriptionTag(string $termDescriptionTag)
     {
         $this->termDescriptionTag = $termDescriptionTag;
@@ -877,7 +879,7 @@ class Terms
      * Get the value of tags
      *
      * @return  string
-     */ 
+     */
     public function getTags()
     {
         return $this->tags;
@@ -889,7 +891,7 @@ class Terms
      * @param  string  $tags
      *
      * @return  self
-     */ 
+     */
     public function setTags(string $tags)
     {
         $this->tags = $tags;
@@ -901,7 +903,7 @@ class Terms
      * Get the value of published
      *
      * @return  string
-     */ 
+     */
     public function getPublished()
     {
         return $this->published;
@@ -913,7 +915,7 @@ class Terms
      * @param  string  $published
      *
      * @return  self
-     */ 
+     */
     public function setPublished(string $published)
     {
         $this->published = $published;
@@ -925,7 +927,7 @@ class Terms
      * Get the value of start
      *
      * @return  string
-     */ 
+     */
     public function getStart()
     {
         return $this->start;
@@ -937,7 +939,7 @@ class Terms
      * @param  string  $start
      *
      * @return  self
-     */ 
+     */
     public function setStart(string $start)
     {
         $this->start = $start;
@@ -949,7 +951,7 @@ class Terms
      * Get the value of stop
      *
      * @return  string
-     */ 
+     */
     public function getStop()
     {
         return $this->stop;
@@ -961,7 +963,7 @@ class Terms
      * @param  string  $stop
      *
      * @return  self
-     */ 
+     */
     public function setStop(string $stop)
     {
         $this->stop = $stop;
@@ -971,7 +973,7 @@ class Terms
 
     /**
      * Get the value of pid
-     */ 
+     */
     public function getPid()
     {
         return $this->pid;
@@ -981,7 +983,7 @@ class Terms
      * Set the value of pid
      *
      * @return  self
-     */ 
+     */
     public function setPid($pid)
     {
         $this->pid = $pid;
@@ -993,7 +995,7 @@ class Terms
      * Get the value of addImage
      *
      * @return  string
-     */ 
+     */
     public function getAddImage()
     {
         return $this->addImage;
@@ -1005,7 +1007,7 @@ class Terms
      * @param  string  $addImage
      *
      * @return  self
-     */ 
+     */
     public function setAddImage(string $addImage)
     {
         $this->addImage = $addImage;
@@ -1017,10 +1019,10 @@ class Terms
      * Get the value of singleSRC
      *
      * @return  string
-     */ 
+     */
     public function getSingleSRC()
     {
-        if($this->singleSRC === null) {
+        if ($this->singleSRC === null) {
             return null;
         }
         return stream_get_contents($this->singleSRC);
@@ -1032,7 +1034,7 @@ class Terms
      * @param  string  $singleSRC
      *
      * @return  self
-     */ 
+     */
     public function setSingleSRC(string $singleSRC)
     {
         $this->singleSRC = $singleSRC;
@@ -1044,7 +1046,7 @@ class Terms
      * Get the value of size
      *
      * @return  string
-     */ 
+     */
     public function getSize()
     {
         return $this->size;
@@ -1056,7 +1058,7 @@ class Terms
      * @param  string  $size
      *
      * @return  self
-     */ 
+     */
     public function setSize(string $size)
     {
         $this->size = $size;
@@ -1068,7 +1070,7 @@ class Terms
      * Get the value of floating
      *
      * @return  string
-     */ 
+     */
     public function getFloating()
     {
         return $this->floating;
@@ -1080,7 +1082,7 @@ class Terms
      * @param  string  $floating
      *
      * @return  self
-     */ 
+     */
     public function setFloating(string $floating)
     {
         $this->floating = $floating;
@@ -1092,7 +1094,7 @@ class Terms
      * Get the value of imagemargin
      *
      * @return  string
-     */ 
+     */
     public function getImagemargin()
     {
         return $this->imagemargin;
@@ -1104,7 +1106,7 @@ class Terms
      * @param  string  $imagemargin
      *
      * @return  self
-     */ 
+     */
     public function setImagemargin(string $imagemargin)
     {
         $this->imagemargin = $imagemargin;
@@ -1116,7 +1118,7 @@ class Terms
      * Get the value of fullsize
      *
      * @return  string
-     */ 
+     */
     public function getFullsize()
     {
         return $this->fullsize;
@@ -1128,7 +1130,7 @@ class Terms
      * @param  string  $fullsize
      *
      * @return  self
-     */ 
+     */
     public function setFullsize(string $fullsize)
     {
         $this->fullsize = $fullsize;
@@ -1140,7 +1142,7 @@ class Terms
      * Get the value of overwriteMeta
      *
      * @return  string
-     */ 
+     */
     public function getOverwriteMeta()
     {
         return $this->overwriteMeta;
@@ -1152,7 +1154,7 @@ class Terms
      * @param  string  $overwriteMeta
      *
      * @return  self
-     */ 
+     */
     public function setOverwriteMeta(string $overwriteMeta)
     {
         $this->overwriteMeta = $overwriteMeta;

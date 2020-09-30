@@ -1,6 +1,7 @@
 <?php
 
 namespace Sioweb\Glossar\Entity;
+
 use \Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,73 +26,73 @@ class Glossar
      * @ORM\Column(type="integer", options={"default" : 0})
      */
     protected $tstamp;
-    
+
     /**
      * @var string
      * @ORM\Column(type="string", options={"default" : ""})
      */
     protected $title = '';
-    
+
     /**
      * @var string
      * @ORM\Column(type="string", options={"default" : ""})
      */
     protected $alias;
-    
+
     /**
      * @var string
      * @ORM\Column(type="string", options={"default" : ""})
      */
     protected $language;
-    
+
     /**
      * @var string
      * @ORM\Column(type="string", length=1, options={"default" : ""})
      */
     protected $fallback;
-    
+
     /**
      * @var string
      * @ORM\Column(type="string", length=1, options={"default" : ""})
      */
     protected $allowComments;
-    
+
     /**
      * @var string
      * @ORM\Column(type="string", length=16, options={"default" : ""})
      */
     protected $notify;
-    
+
     /**
      * @var string
      * @ORM\Column(type="string", length=32, options={"default" : ""})
      */
     protected $sortOrder;
-    
+
     /**
      * @var int
      * @ORM\Column(type="smallint", length=5, options={"default" : 0})
      */
     protected $perPage;
-    
+
     /**
      * @var string
      * @ORM\Column(type="string", length=1, options={"default" : ""})
      */
     protected $moderate;
-    
+
     /**
      * @var string
      * @ORM\Column(type="string", length=1, options={"default" : ""})
      */
     protected $bbcode;
-    
+
     /**
      * @var string
      * @ORM\Column(type="string", length=1, options={"default" : ""})
      */
     protected $requireLogin;
-    
+
     /**
      * @var string
      * @ORM\Column(type="string", length=1, options={"default" : "", "fixed" : true})
@@ -129,19 +130,20 @@ class Glossar
     protected $termDescriptionTag;
 
 
-    public function getData() {
+    public function getData()
+    {
         $arrData = [];
-        foreach(preg_grep('|^get(?!Data)|', get_class_methods($this)) as $method) {
+        foreach (preg_grep('|^get(?!Data)|', get_class_methods($this)) as $method) {
             $arrData[($Field = lcfirst(substr($method, 3)))] = $this->{$method}();
-            if(is_object($arrData[$Field])) {
+            if (is_object($arrData[$Field])) {
                 $arrData[$Field] = $arrData[$Field]->getData();
             }
         }
-        
+
         return $arrData;
     }
 
-    
+
     /**
      * @return int
      */
@@ -154,7 +156,7 @@ class Glossar
      * Get the value of tstamp
      *
      * @return  int
-     */ 
+     */
     public function getTstamp()
     {
         return $this->tstamp;
@@ -166,7 +168,7 @@ class Glossar
      * @param  int  $tstamp
      *
      * @return  self
-     */ 
+     */
     public function setTstamp(int $tstamp)
     {
         $this->tstamp = $tstamp;
@@ -178,7 +180,7 @@ class Glossar
      * Get the value of title
      *
      * @return  string
-     */ 
+     */
     public function getTitle()
     {
         return $this->title;
@@ -190,7 +192,7 @@ class Glossar
      * @param  string  $title
      *
      * @return  self
-     */ 
+     */
     public function setTitle(string $title)
     {
         $this->title = $title;
@@ -202,7 +204,7 @@ class Glossar
      * Get the value of alias
      *
      * @return  string
-     */ 
+     */
     public function getAlias()
     {
         return $this->alias;
@@ -214,7 +216,7 @@ class Glossar
      * @param  string  $alias
      *
      * @return  self
-     */ 
+     */
     public function setAlias(string $alias)
     {
         $this->alias = $alias;
@@ -226,7 +228,7 @@ class Glossar
      * Get the value of language
      *
      * @return  string
-     */ 
+     */
     public function getLanguage()
     {
         return $this->language;
@@ -238,7 +240,7 @@ class Glossar
      * @param  string  $language
      *
      * @return  self
-     */ 
+     */
     public function setLanguage(string $language)
     {
         $this->language = $language;
@@ -250,7 +252,7 @@ class Glossar
      * Get the value of fallback
      *
      * @return  string
-     */ 
+     */
     public function getFallback()
     {
         return $this->fallback;
@@ -262,7 +264,7 @@ class Glossar
      * @param  string  $fallback
      *
      * @return  self
-     */ 
+     */
     public function setFallback(string $fallback)
     {
         $this->fallback = $fallback;
@@ -274,7 +276,7 @@ class Glossar
      * Get the value of allowComments
      *
      * @return  string
-     */ 
+     */
     public function getAllowComments()
     {
         return $this->allowComments;
@@ -286,7 +288,7 @@ class Glossar
      * @param  string  $allowComments
      *
      * @return  self
-     */ 
+     */
     public function setAllowComments(string $allowComments)
     {
         $this->allowComments = $allowComments;
@@ -298,7 +300,7 @@ class Glossar
      * Get the value of notify
      *
      * @return  string
-     */ 
+     */
     public function getNotify()
     {
         return $this->notify;
@@ -310,7 +312,7 @@ class Glossar
      * @param  string  $notify
      *
      * @return  self
-     */ 
+     */
     public function setNotify(string $notify)
     {
         $this->notify = $notify;
@@ -322,7 +324,7 @@ class Glossar
      * Get the value of sortOrder
      *
      * @return  string
-     */ 
+     */
     public function getSortOrder()
     {
         return $this->sortOrder;
@@ -334,7 +336,7 @@ class Glossar
      * @param  string  $sortOrder
      *
      * @return  self
-     */ 
+     */
     public function setSortOrder(string $sortOrder)
     {
         $this->sortOrder = $sortOrder;
@@ -346,7 +348,7 @@ class Glossar
      * Get the value of perPage
      *
      * @return  int
-     */ 
+     */
     public function getPerPage()
     {
         return $this->perPage;
@@ -358,7 +360,7 @@ class Glossar
      * @param  int  $perPage
      *
      * @return  self
-     */ 
+     */
     public function setPerPage(int $perPage)
     {
         $this->perPage = $perPage;
@@ -370,7 +372,7 @@ class Glossar
      * Get the value of moderate
      *
      * @return  string
-     */ 
+     */
     public function getModerate()
     {
         return $this->moderate;
@@ -382,7 +384,7 @@ class Glossar
      * @param  string  $moderate
      *
      * @return  self
-     */ 
+     */
     public function setModerate(string $moderate)
     {
         $this->moderate = $moderate;
@@ -394,7 +396,7 @@ class Glossar
      * Get the value of bbcode
      *
      * @return  string
-     */ 
+     */
     public function getBbcode()
     {
         return $this->bbcode;
@@ -406,7 +408,7 @@ class Glossar
      * @param  string  $bbcode
      *
      * @return  self
-     */ 
+     */
     public function setBbcode(string $bbcode)
     {
         $this->bbcode = $bbcode;
@@ -418,7 +420,7 @@ class Glossar
      * Get the value of requireLogin
      *
      * @return  string
-     */ 
+     */
     public function getRequireLogin()
     {
         return $this->requireLogin;
@@ -430,7 +432,7 @@ class Glossar
      * @param  string  $requireLogin
      *
      * @return  self
-     */ 
+     */
     public function setRequireLogin(string $requireLogin)
     {
         $this->requireLogin = $requireLogin;
@@ -442,7 +444,7 @@ class Glossar
      * Get the value of disableCaptcha
      *
      * @return  string
-     */ 
+     */
     public function getDisableCaptcha()
     {
         return $this->disableCaptcha;
@@ -454,7 +456,7 @@ class Glossar
      * @param  string  $disableCaptcha
      *
      * @return  self
-     */ 
+     */
     public function setDisableCaptcha(string $disableCaptcha)
     {
         $this->disableCaptcha = $disableCaptcha;
@@ -466,7 +468,7 @@ class Glossar
      * Get the value of seo
      *
      * @return  string
-     */ 
+     */
     public function getSeo()
     {
         return $this->seo;
@@ -478,7 +480,7 @@ class Glossar
      * @param  string  $seo
      *
      * @return  self
-     */ 
+     */
     public function setSeo(string $seo)
     {
         $this->seo = $seo;
@@ -490,7 +492,7 @@ class Glossar
      * Get the value of termInTitleTag
      *
      * @return  string
-     */ 
+     */
     public function getTermInTitleTag()
     {
         return $this->termInTitleTag;
@@ -502,7 +504,7 @@ class Glossar
      * @param  string  $termInTitleTag
      *
      * @return  self
-     */ 
+     */
     public function setTermInTitleTag(string $termInTitleTag)
     {
         $this->termInTitleTag = $termInTitleTag;
@@ -514,7 +516,7 @@ class Glossar
      * Get the value of termInTitleStrTag
      *
      * @return  string
-     */ 
+     */
     public function getTermInTitleStrTag()
     {
         return $this->termInTitleStrTag;
@@ -526,7 +528,7 @@ class Glossar
      * @param  string  $termInTitleStrTag
      *
      * @return  self
-     */ 
+     */
     public function setTermInTitleStrTag(string $termInTitleStrTag)
     {
         $this->termInTitleStrTag = $termInTitleStrTag;
@@ -538,7 +540,7 @@ class Glossar
      * Get the value of replacePageTitle
      *
      * @return  string
-     */ 
+     */
     public function getReplacePageTitle()
     {
         return $this->replacePageTitle;
@@ -550,7 +552,7 @@ class Glossar
      * @param  string  $replacePageTitle
      *
      * @return  self
-     */ 
+     */
     public function setReplacePageTitle(string $replacePageTitle)
     {
         $this->replacePageTitle = $replacePageTitle;
@@ -562,7 +564,7 @@ class Glossar
      * Get the value of termDescriptionTag
      *
      * @return  string
-     */ 
+     */
     public function getTermDescriptionTag()
     {
         return $this->termDescriptionTag;
@@ -574,7 +576,7 @@ class Glossar
      * @param  string  $termDescriptionTag
      *
      * @return  self
-     */ 
+     */
     public function setTermDescriptionTag(string $termDescriptionTag)
     {
         $this->termDescriptionTag = $termDescriptionTag;

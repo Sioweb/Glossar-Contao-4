@@ -5,6 +5,7 @@
  */
 
 declare(strict_types=1);
+
 namespace Sioweb\Glossar\ContentElements;
 
 use Contao\Input;
@@ -28,9 +29,9 @@ class Cloud extends \ContentElement
      */
     protected $strTemplate = 'ce_glossar_cloud';
 
-    private $pages = array();
+    private $pages = [];
 
-    private $countTerms = array();
+    private $countTerms = [];
 
     /**
      * Return if there are no files
@@ -40,20 +41,20 @@ class Cloud extends \ContentElement
     {
         global $objPage;
 
-        if(empty($objPage->glossar)) {
+        if (empty($objPage->glossar)) {
             return;
         }
 
         $pageGlossar = explode('|', ltrim(rtrim($objPage->glossar, '|'), '|'));
-        $Page = PageModel::findBy(array("(glossar LIKE '%|" . implode("|%' OR glossar LIKE '%|", $pageGlossar) . "|%') AND disableGlossarCloud = '' AND disableGlossar = ''"), array());
+        $Page = PageModel::findBy(["(glossar LIKE '%|" . implode("|%' OR glossar LIKE '%|", $pageGlossar) . "|%') AND disableGlossarCloud = '' AND disableGlossar = ''"], []);
         if (empty($Page)) {
             return;
         }
 
-        $countTerms = array();
-        $arrPages = array();
+        $countTerms = [];
+        $arrPages = [];
         while ($Page->next()) {
-            $ap = array(
+            $ap = [
                 'id' => $Page->id,
                 'weight' => 0,
                 'title' => $Page->title,
@@ -61,7 +62,7 @@ class Cloud extends \ContentElement
                 'glossar' => explode('|', $Page->glossar),
                 'fallback_glossar' => explode('|', $Page->fallback_glossar),
                 'url' => $this->generateFrontendUrl($Page->row()),
-            );
+            ];
 
             foreach ($ap['glossar'] as $term) {
                 if ($term != '') {

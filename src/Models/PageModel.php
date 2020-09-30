@@ -4,7 +4,7 @@
  * Contao Open Source CMS
  */
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace Sioweb\Glossar\Models;
 
@@ -18,11 +18,11 @@ namespace Sioweb\Glossar\Models;
 
 class PageModel extends \Contao\PageModel
 {
-    public static function findActiveAndEnabledGlossarPages($arrOptions = array())
+    public static function findActiveAndEnabledGlossarPages($arrOptions = [])
     {
         $t = static::$strTable;
-        $arrValues = array(1, 'regular');
-        $arrColumns = array("published = ? AND (type = 'root' OR type = ?) AND disableGlossar = 0");
+        $arrValues = [1, 'regular'];
+        $arrColumns = ["published = ? AND (type = 'root' OR type = ?) AND disableGlossar = 0"];
         return static::findBy($arrColumns, $arrValues, $arrOptions);
     }
 }

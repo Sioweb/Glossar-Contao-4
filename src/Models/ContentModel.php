@@ -4,7 +4,7 @@
  * Contao Open Source CMS
  */
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace Sioweb\Glossar\Models;
 
@@ -18,20 +18,16 @@ namespace Sioweb\Glossar\Models;
 
 class ContentModel extends \Contao\ContentModel
 {
-
-    public static function findByPidsAndTable($arrPids, $table, $type, $arrOptions = array())
+    public static function findByPidsAndTable($arrPids, $table, $type, $arrOptions = [])
     {
         $t = static::$strTable;
 
         if (empty($arrPids) || empty($table)) {
-            return array();
+            return [];
         }
 
-        $time = \Date::floorToMinute();
-
-        $arrValues = array($table);
-        $arrColumns = array("pid IN('" . implode("','", $arrPids) . "') AND ptable = ?");
-
+        $arrValues = [$table];
+        $arrColumns = ["pid IN('" . implode("','", $arrPids) . "') AND ptable = ?"];
 
         return static::findBy($arrColumns, $arrValues, $arrOptions);
     }

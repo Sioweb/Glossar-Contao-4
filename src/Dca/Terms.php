@@ -4,7 +4,8 @@
  * Contao Open Source CMS
  */
 
-declare (strict_types = 1);
+declare(strict_types=1);
+
 namespace Sioweb\Glossar\Dca;
 
 use Contao\DataContainer;
@@ -229,7 +230,7 @@ class Terms
      */
     public function getSourceOptions(DataContainer $dc)
     {
-        return array('default_source', 'page', 'internal', 'article', 'external');
+        return ['default_source', 'page', 'internal', 'article', 'external'];
     }
 
     /**
@@ -241,8 +242,8 @@ class Terms
      */
     public function getArticleAlias(DataContainer $dc)
     {
-        $arrPids = array();
-        $arrAlias = array();
+        $arrPids = [];
+        $arrAlias = [];
 
         if (!$this->User->isAdmin) {
             foreach ($this->User->pagemounts as $id) {
@@ -271,22 +272,21 @@ class Terms
 
         return $arrAlias;
     }
-    
-    
+
+
     /**
-	 * Dynamically add flags to the "singleSRC" field
-	 *
-	 * @param mixed         $varValue
-	 * @param DataContainer $dc
-	 *
-	 * @return mixed
-	 */
-	public function setSingleSrcFlags($varValue, DataContainer $dc)
-	{
-		if ($dc->activeRecord)
-		{
-			$GLOBALS['TL_DCA'][$dc->table]['fields'][$dc->field]['eval']['extensions'] = Config::get('validImageTypes');
-		}
-		return $varValue;
-	}
+     * Dynamically add flags to the "singleSRC" field
+     *
+     * @param mixed         $varValue
+     * @param DataContainer $dc
+     *
+     * @return mixed
+     */
+    public function setSingleSrcFlags($varValue, DataContainer $dc)
+    {
+        if ($dc->activeRecord) {
+            $GLOBALS['TL_DCA'][$dc->table]['fields'][$dc->field]['eval']['extensions'] = Config::get('validImageTypes');
+        }
+        return $varValue;
+    }
 }

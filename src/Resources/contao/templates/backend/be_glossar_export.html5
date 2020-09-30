@@ -1,6 +1,6 @@
 <?php if($this->lickey) {?>
 <div id="tl_buttons">
-	<a href="<?php echo ampersand(str_replace(array('&key=exportGlossar','&key=exportTerms'), array('',''), \Environment::get('request')));?>" class="header_back" title="<?php echo specialchars($GLOBALS['TL_LANG']['MSC']['backBTTitle']);?>" accesskey="b"><?php echo $GLOBALS['TL_LANG']['MSC']['backBT'];?></a>
+	<a href="<?php echo ampersand(str_replace(['&key=exportGlossar','&key=exportTerms'], ['',''], \Environment::get('request')));?>" class="header_back" title="<?php echo specialchars($GLOBALS['TL_LANG']['MSC']['backBTTitle']);?>" accesskey="b"><?php echo $GLOBALS['TL_LANG']['MSC']['backBT'];?></a>
 </div>
 <?php }?>
 <div class="tl_listing_container">
@@ -11,7 +11,7 @@
 			<p>Der Export von Daten ist nur in der Purchase-Version möglich. Die Purchase-Version kann <a href="http://glossar.sioweb.de"><strong>hier erworben werden</strong></a>.</p>
 		</div>
 	</form>
-	<a href="<?php echo ampersand(str_replace(array('&key=exportGlossar','&key=exportTerms'), array('',''), \Environment::get('request')));?>" class="header_back" title="<?php echo specialchars($GLOBALS['TL_LANG']['MSC']['backBTTitle']);?>">Zurück zum Glossar</a>
+	<a href="<?php echo ampersand(str_replace(['&key=exportGlossar','&key=exportTerms'], ['',''], \Environment::get('request')));?>" class="header_back" title="<?php echo specialchars($GLOBALS['TL_LANG']['MSC']['backBTTitle']);?>">Zurück zum Glossar</a>
 	<br><br>
 	<?php } else {?>
 

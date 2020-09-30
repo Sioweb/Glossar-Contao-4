@@ -4,7 +4,7 @@
  * Contao Open Source CMS
  */
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace Sioweb\Glossar\EventListener;
 
@@ -47,7 +47,8 @@ class Frontend
 
     private $replaceIndex = [];
 
-    public function __construct(ContaoFramework $framework, GlossarLicense $license, $entityManager, Decorator $termDecorator) {
+    public function __construct(ContaoFramework $framework, GlossarLicense $license, $entityManager, Decorator $termDecorator)
+    {
         $this->framework = $framework;
         $this->license = $license;
         $this->entityManager = $entityManager;
@@ -75,7 +76,7 @@ class Frontend
         $time = Date::floorToMinute();
 
         // HOOK: search for terms in Events, faq and news
-        $arrGlossar = array($objPage->glossar);
+        $arrGlossar = [$objPage->glossar];
         if (!empty($objPage->fallback_glossar) && (Config::get('glossar_no_fallback') != 1 || $objPage->glossar_no_fallback != 1)) {
             $arrGlossar[] = $objPage->fallback_glossar;
         }
@@ -105,12 +106,12 @@ class Frontend
             $Glossar = $GlossarRepository->findByFallback(1);
         }
 
-        $arrGlossar = array();
+        $arrGlossar = [];
         if (empty($Glossar)) {
             return $this->rebaseContent($strContent);
         }
 
-        foreach($Glossar as $glossar) {
+        foreach ($Glossar as $glossar) {
             $arrGlossar[] = $glossar->getId();
         }
 
@@ -147,7 +148,8 @@ class Frontend
         return $this->rebaseContent($strContent);
     }
 
-    private function outerHTML($e) {
+    private function outerHTML($e)
+    {
         $doc = new \DOMDocument();
         $doc->appendChild($doc->importNode($e, true));
         return str_ireplace(['%7B', '%7D', '%5B', '%5D'], ['{', '}', '[', ']'], $doc->saveHTML());
@@ -155,7 +157,7 @@ class Frontend
 
     private function rebaseContent($strContent)
     {
-        foreach(array_reverse($this->replaceIndex) as $indexer => $nodeObject) {
+        foreach (array_reverse($this->replaceIndex) as $indexer => $nodeObject) {
             $strContent = str_replace('<!--' . $indexer . '-->', $this->outerHTML($nodeObject), $strContent);
         }
 
@@ -167,7 +169,7 @@ class Frontend
 
     private function cleanUpContent($strContent)
     {
-        $ignoredTags = array('a');
+        $ignoredTags = ['a'];
         if (Config::get('ignoreInTags')) {
             $ignoredTags = explode(',', str_replace(' ', '', Config::get('ignoreInTags')));
         }
@@ -180,8 +182,8 @@ class Frontend
         $dom->loadHTML(mb_convert_encoding($strContent, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
         $xpath = new \DOMXPath($dom);
 
-        foreach($ignoredTags as $tag) {
-            foreach($xpath->query('//' . $tag) as $tagObj) {
+        foreach ($ignoredTags as $tag) {
+            foreach ($xpath->query('//' . $tag) as $tagObj) {
                 $indexer = 'GLOSSAR::REPLACE::' . strtoupper($tag) . '::' . count($this->replaceIndex);
                 $CommentNode = $dom->createComment($indexer);
                 $this->replaceIndex[$indexer] = $tagObj->cloneNode(true);
@@ -194,7 +196,7 @@ class Frontend
     /* Replace content between the tags with placeholder */
     private function replaceGlossarIgnoreTags(&$strContent)
     {
-        $arrTagContent = array();
+        $arrTagContent = [];
         $cIndex = 0;
 
         while (($intStart = strpos($strContent, '<!-- glossar::ignore -->')) !== false) {
@@ -228,7 +230,7 @@ class Frontend
     /* Replace content between the tags with placeholder */
     private function replaceGlossarTags(&$strContent)
     {
-        $arrTagContent = array();
+        $arrTagContent = [];
         $cIndex = 0;
         while (($intStart = strpos($strContent, '<!-- glossar::stop -->')) !== false) {
             if (($intEnd = strpos($strContent, '<!-- glossar::continue -->', $intStart)) !== false) {
@@ -259,7 +261,7 @@ class Frontend
     }
 
     /* replace placeholder with glossar-tag content */
-    private function insertTagContent($strContent, $tags = array())
+    private function insertTagContent($strContent, $tags = [])
     {
         if (!empty($tags)) {
             foreach ($tags as $key => $tag) {
@@ -270,7 +272,7 @@ class Frontend
     }
 
     /* replace placeholder with glossar-tag content */
-    private function insertTagIgnoreContent($strContent, $tags = array())
+    private function insertTagIgnoreContent($strContent, $tags = [])
     {
         if (!empty($tags)) {
             foreach ($tags as $key => $tag) {

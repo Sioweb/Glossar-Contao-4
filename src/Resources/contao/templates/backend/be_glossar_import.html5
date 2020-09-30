@@ -80,7 +80,7 @@
 		<?php } else {/* Stage == 1 */ \Message::reset();?>
 		<div><br>
 			<p>Alle Daten wurden erfolgreich aktualisiert!</p>
-			<p><a href="<?php echo ampersand(str_replace(array('&key=importGlossar','do=glossar'), array('','act=glossar&do=maintenance'), \Environment::get('request')));?>"><strong>Glossar-Index aufbauen</strong></a></p>
+			<p><a href="<?php echo ampersand(str_replace(['&key=importGlossar','do=glossar'], ['','act=glossar&do=maintenance'], \Environment::get('request')));?>"><strong>Glossar-Index aufbauen</strong></a></p>
 		</div>
 		<?php }?>
 	</div>

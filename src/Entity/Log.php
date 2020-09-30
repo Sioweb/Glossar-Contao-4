@@ -1,6 +1,7 @@
 <?php
 
 namespace Sioweb\Glossar\Entity;
+
 use \Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -63,20 +64,21 @@ class Log
     protected $action;
 
 
-    public function getData() {
+    public function getData()
+    {
         $arrData = [];
-        foreach(preg_grep('|^get(?!Data)|', get_class_methods($this)) as $method) {
+        foreach (preg_grep('|^get(?!Data)|', get_class_methods($this)) as $method) {
             $arrData[($Field = lcfirst(substr($method, 3)))] = $this->{$method}();
-            if(is_object($arrData[$Field])) {
+            if (is_object($arrData[$Field])) {
                 $arrData[$Field] = $arrData[$Field]->getData();
             }
         }
-        
+
         return $arrData;
     }
 
 
-    
+
     /**
      * @return int
      */
@@ -87,7 +89,7 @@ class Log
 
     /**
      * Get the value of tid
-     */ 
+     */
     public function getTid()
     {
         return $this->tid;
@@ -97,7 +99,7 @@ class Log
      * Set the value of tid
      *
      * @return  self
-     */ 
+     */
     public function setTid($tid)
     {
         $this->tid = $tid;
@@ -109,7 +111,7 @@ class Log
      * Get the value of tstamp
      *
      * @return  int
-     */ 
+     */
     public function getTstamp()
     {
         return $this->tstamp;
@@ -121,7 +123,7 @@ class Log
      * @param  int  $tstamp
      *
      * @return  self
-     */ 
+     */
     public function setTstamp(int $tstamp)
     {
         $this->tstamp = $tstamp;
@@ -133,7 +135,7 @@ class Log
      * Get the value of user
      *
      * @return  string
-     */ 
+     */
     public function getUser()
     {
         return $this->user;
@@ -145,7 +147,7 @@ class Log
      * @param  string  $user
      *
      * @return  self
-     */ 
+     */
     public function setUser(string $user)
     {
         $this->user = $user;
@@ -157,7 +159,7 @@ class Log
      * Get the value of pid
      *
      * @return  string
-     */ 
+     */
     public function getPid()
     {
         return $this->pid;
@@ -169,7 +171,7 @@ class Log
      * @param  string  $pid
      *
      * @return  self
-     */ 
+     */
     public function setPid($pid)
     {
         $this->pid = $pid;
@@ -181,7 +183,7 @@ class Log
      * Get the value of page
      *
      * @return  string
-     */ 
+     */
     public function getPage()
     {
         return $this->page;
@@ -193,7 +195,7 @@ class Log
      * @param  string  $page
      *
      * @return  self
-     */ 
+     */
     public function setPage(string $page)
     {
         $this->page = $page;
@@ -205,7 +207,7 @@ class Log
      * Get the value of host
      *
      * @return  string
-     */ 
+     */
     public function getHost()
     {
         return $this->host;
@@ -217,7 +219,7 @@ class Log
      * @param  string  $host
      *
      * @return  self
-     */ 
+     */
     public function setHost(string $host)
     {
         $this->host = $host;
@@ -229,7 +231,7 @@ class Log
      * Get the value of language
      *
      * @return  string
-     */ 
+     */
     public function getLanguage()
     {
         return $this->language;
@@ -241,7 +243,7 @@ class Log
      * @param  string  $language
      *
      * @return  self
-     */ 
+     */
     public function setLanguage(string $language)
     {
         $this->language = $language;
@@ -253,7 +255,7 @@ class Log
      * Get the value of action
      *
      * @return  string
-     */ 
+     */
     public function getAction()
     {
         return $this->action;
@@ -265,7 +267,7 @@ class Log
      * @param  string  $action
      *
      * @return  self
-     */ 
+     */
     public function setAction(string $action)
     {
         $this->action = $action;

@@ -23,11 +23,16 @@ class InsertTags
 {
     private $entityManager;
 
-    public function replaceInsertTags(string $tag) { return $this->onReplaceInsertTags($tag); }
+    public function replaceInsertTags(string $tag)
+    {
+        return $this->onReplaceInsertTags($tag);
+    }
 
-    public function __construct($entityManager) {
+    public function __construct($entityManager)
+    {
         $this->entityManager = $entityManager;
     }
+    
     /**
      * Replaces the "glossar" insert tag.
      *

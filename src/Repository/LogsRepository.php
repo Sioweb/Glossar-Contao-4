@@ -23,7 +23,7 @@ class LogsRepository extends EntityRepository
 {
     public function findAll(array $orderBy = [])
     {
-        return $this->findBy(array(), $orderBy);
+        return $this->findBy([], $orderBy);
     }
 
     public function findLogs($tstamp, $limit = 500)

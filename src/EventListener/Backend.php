@@ -4,7 +4,7 @@
  * Contao Open Source CMS
  */
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace Sioweb\Glossar\EventListener;
 
@@ -53,7 +53,8 @@ class Backend
      */
     private $terms;
 
-    public function __construct(ContaoFramework $framework, GlossarLicense $license, $entityManager) {
+    public function __construct(ContaoFramework $framework, GlossarLicense $license, $entityManager)
+    {
         $this->framework = $framework;
         $this->license = $license;
         $this->entityManager = $entityManager;
@@ -64,29 +65,29 @@ class Backend
     {
         $TermsRepository = $this->entityManager->getRepository(TermsEntity::class);
         $objTerms = $TermsRepository->findAll();
-        
+
         if (empty($objTerms)) {
             return $arrPages;
         }
 
         $pageCache = [];
 
-        foreach($objTerms as $Term) {
+        foreach ($objTerms as $Term) {
             $url = Config::get('jumpToGlossar');
             if ($Term->getJumpTo()) {
                 $url = $Term->getJumpTo();
             }
 
-            if(empty($pageCache[$url])) {
+            if (empty($pageCache[$url])) {
                 $Article = ArticleModel::findByPid($url);
-                if(!empty($Article)) {
+                if (!empty($Article)) {
                     $Element = [];
-                    while($Article->next()) {
+                    while ($Article->next()) {
                         $Element[] = $Article->id;
                     }
-                    if(!empty($Element)) {
+                    if (!empty($Element)) {
                         $Element = ContentModel::findOneBy(['glossar = ? AND pid IN (' . implode(',', array_fill(0, count($Element), '?')) . ') AND type="glossar" AND jumpToGlossarTerm != "" AND differentGlossarDetailPage = 1'], array_merge([$Term->getPid()->getId()], $Element));
-                        if(!empty($Element)) {
+                        if (!empty($Element)) {
                             $pageCache[$url][$Element->glossar] = $Element->jumpToGlossarTerm;
                             $url = $Element->jumpToGlossarTerm;
                         }
@@ -101,7 +102,7 @@ class Backend
 
             if (!empty($url)) {
                 $link = GlossarPageModel::findByPk($url);
-                if($link !== null) {
+                if ($link !== null) {
                     $arrPages[] = $domain . Controller::generateFrontendUrl($link->row(), ((Config::get('useAutoItem') && !Config::get('disableAlias')) ? '/' : '/items/') . $Term->getAlias());
                 }
             }

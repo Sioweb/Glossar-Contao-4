@@ -4,7 +4,7 @@
  * Contao Open Source CMS
  */
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace Sioweb\Glossar\Models;
 
@@ -18,10 +18,10 @@ namespace Sioweb\Glossar\Models;
 
 class NewsArchiveModel extends \Contao\NewsArchiveModel
 {
-    public static function findByPidsAndInactiveGlossar($arrPid, $arrOptions = array())
+    public static function findByPidsAndInactiveGlossar($arrPid, $arrOptions = [])
     {
         $t = static::$strTable;
-        $arrColumns = array("$t.id IN('" . implode("','", $arrPid) . "') AND $t.glossar_disallow = 1");
-        return static::findBy($arrColumns, array(), $arrOptions);
+        $arrColumns = ["$t.id IN('" . implode("','", $arrPid) . "') AND $t.glossar_disallow = 1"];
+        return static::findBy($arrColumns, [], $arrOptions);
     }
 }

@@ -4,7 +4,7 @@
  * Contao Open Source CMS
  */
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace Sioweb\Glossar\Services;
 
@@ -58,7 +58,6 @@ class Import
 
     public function import()
     {
-
     }
 
     public function run()
@@ -70,7 +69,7 @@ class Import
 
         $class = $user->uploader;
 
-        $FileData = $Import = array();
+        $FileData = $Import = [];
 
         // See #4086 and #7046
         if (!class_exists($class) || $class == 'DropZone') {
@@ -81,7 +80,7 @@ class Import
 
         if (Input::post('FORM_SUBMIT') == 'tl_csv_import') {
             $arrUploaded = $objUploader->uploadTo('system/tmp');
-            $arrFiles = array();
+            $arrFiles = [];
 
             foreach ($arrUploaded as $strFile) {
                 $arrFiles[] = $strFile;
@@ -103,7 +102,7 @@ class Import
                     $Import = $this->decode_array($this->session->get('glossar_import'));
                     $f = $FirstID = $this->session->get('glossar_first_id');
 
-                    $arrFD = array();
+                    $arrFD = [];
                     foreach ($Import['update']['tl_glossar'] as $glossar => $value) {
                         if (in_array($glossar, Input::post('update'))) {
                             $arrFD[$glossar] = $value;
@@ -158,7 +157,7 @@ class Import
         }
 
         $this->Template = new BackendTemplate('be_glossar_import');
-        $this->Template->setData(array(
+        $this->Template->setData([
             'import' => $Import,
             'stage' => $Stage,
             'update_action' => Input::post('glossar_update_action'),
@@ -166,42 +165,47 @@ class Import
             'messages' => Message::generate(),
             'fields' => $objUploader->generateMarkup(),
             'action' => ampersand(Environment::get('request'), true),
-        ));
+        ]);
 
         return $this->Template->parse();
     }
 
-	/* Eingabe (Nicer JSON) */
-	public function encode_array($input) {
-		foreach($input as &$value) {
-			if(is_array($value)) {
-				$value = $this->encode_array($value);
-			} else {
-				$value = addslashes(htmlentities((string)$value));
-			}
-		}
-		return $input;
-	}
-	/* Ausgabe */
-	public function decode_array($input) {
-		foreach($input as $key => &$value) {
-			if(is_array($value)) {
-				$value = $this->decode_array($value);
-			} else {
-				$value = html_entity_decode(stripslashes((string)$value));
-			}
-		}
-		return $input;
-	}
-	/* Nur das noetigste und keine Standardwerte speichern. */
-	public function cleanArray($input) {
-		foreach($input as &$value) {
-			if(is_array($value)) {
-				$value = $this->cleanArray($value); 
-			}
-		}
-		return array_filter($input, function($item) {
-			return $item !== null && $item !== '' && $item !== '0' && !in_array($item, array('a:2:{i:0;s:0:"";i:1;s:0:"";}', 'a:2:{s:4:"unit";s:2:"h1";s:5:"value";s:0:"";}', 'com_default'));
-		});
-	}
+    /* Eingabe (Nicer JSON) */
+    public function encode_array($input)
+    {
+        foreach ($input as &$value) {
+            if (is_array($value)) {
+                $value = $this->encode_array($value);
+            } else {
+                $value = addslashes(htmlentities((string)$value));
+            }
+        }
+        return $input;
+    }
+
+    /* Ausgabe */
+    public function decode_array($input)
+    {
+        foreach ($input as $key => &$value) {
+            if (is_array($value)) {
+                $value = $this->decode_array($value);
+            } else {
+                $value = html_entity_decode(stripslashes((string)$value));
+            }
+        }
+        return $input;
+    }
+
+    /* Nur das noetigste und keine Standardwerte speichern. */
+    public function cleanArray($input)
+    {
+        foreach ($input as &$value) {
+            if (is_array($value)) {
+                $value = $this->cleanArray($value);
+            }
+        }
+        return array_filter($input, function ($item) {
+            return $item !== null && $item !== '' && $item !== '0' && !in_array($item, ['a:2:{i:0;s:0:"";i:1;s:0:"";}', 'a:2:{s:4:"unit";s:2:"h1";s:5:"value";s:0:"";}', 'com_default']);
+        });
+    }
 }

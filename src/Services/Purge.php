@@ -4,7 +4,7 @@
  * Contao Open Source CMS
  */
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace Sioweb\Glossar\Services;
 
@@ -42,7 +42,8 @@ class Purge
      */
     private $termDecorator;
 
-    public function __construct(ContaoFramework $framework, Connection $connection) {
+    public function __construct(ContaoFramework $framework, Connection $connection)
+    {
         $this->framework = $framework;
         $this->connection = $connection;
     }

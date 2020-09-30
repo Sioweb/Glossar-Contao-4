@@ -4,7 +4,7 @@
  * Contao Open Source CMS
  */
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace Sioweb\Glossar\Services;
 
@@ -37,9 +37,10 @@ class Decorator
      */
     private $urlGenerator;
 
-    private static $arrUrlCache = array();
+    private static $arrUrlCache = [];
 
-    public function __construct(ContaoFramework $contaoFramework, GlossarLicense $Lizenz, UrlGenerator $urlGenerator) {
+    public function __construct(ContaoFramework $contaoFramework, GlossarLicense $Lizenz, UrlGenerator $urlGenerator)
+    {
         $this->urlGenerator = $urlGenerator;
     }
 
@@ -58,14 +59,14 @@ class Decorator
 
             if (empty($this->term->maxWidth)) {
                 $this->term->maxWidth = array_filter([Config::get('glossarMaxWidth'), $GLOBALS['glossar']['css']['maxWidth']])[0];
-                if(empty($this->term->maxWidth)) {
+                if (empty($this->term->maxWidth)) {
                     $this->term->maxWidth = 450;
                 }
             }
 
             if (empty($this->term->maxHeight)) {
                 $this->term->maxHeight = array_filter([Config::get('glossarMaxHeight'), $GLOBALS['glossar']['css']['maxHeight']])[0];
-                if(empty($this->term->maxHeight)) {
+                if (empty($this->term->maxHeight)) {
                     $this->term->maxHeight = 400;
                 }
             }
@@ -96,7 +97,7 @@ class Decorator
                 }
             }
 
-            $ignoredTags = array('a');
+            $ignoredTags = ['a'];
             if (Config::get('ignoreInTags')) {
                 $ignoredTags = explode(',', str_replace(' ', '', Config::get('ignoreInTags')));
             }
@@ -118,7 +119,7 @@ class Decorator
                     $this->term->title .= 'X';
                     $lastIstDot = true;
                 }
-                
+
                 if (!empty($this->term->illegalChars)) {
                     $IllegalPlural = $this->term->illegalChars;
                 } elseif (Config::get('illegalChars')) {
@@ -132,23 +133,23 @@ class Decorator
                 }
 
                 $MaxReplacement = -1;
-                
+
                 if (!empty(Config::get('glossar_max_replacements'))) {
                     $MaxReplacement = intval(Config::get('glossar_max_replacements'));
                 }
-                
+
                 if (!empty($objPage->glossar_max_replacements)) {
                     $MaxReplacement = intval($objPage->glossar_max_replacements);
                 }
 
                 $plural = preg_replace('/[.]+(?<!\\.)/is', '\\.', $IllegalPlural . (!$this->term->noPlural ? $GLOBALS['glossar']['illegal'] : '')) . '<';
-                
+
                 $preg_query = '/(?!(?:[^<]+>|[^>]+(<!--|-->)))(' . ($this->term->strictSearch == 1 || $this->term->strictSearch == 3 ? '\b' : '') . $this->term->title . (!$this->term->noPlural ? '[^ ' . $plural . ']*' : '') . ($this->term->strictSearch == 1 ? '\b' : '') . ')/is';
                 $no_preg_query = '/(?!(?:[^<]+>|[^>]+(<\/' . implode('>|<\/', $ignoredTags) . '>)))(?:<(?:a|span|abbr) (?!class="glossar")[^>]*>)(' . ($this->term->strictSearch == 1 || $this->term->strictSearch == 3 ? '\b' : '') . $this->term->title . (!$this->term->noPlural ? '[^ ' . $plural . ']*' : '') . ($this->term->strictSearch == 1 ? '\b' : '') . ')/is';
                 // die('<pre>' . print_r($preg_query, true));
                 // die('<pre>' . print_r($replaceFunction, true));
                 if ($this->term->title && preg_match_all($preg_query, $strContent, $third)) {
-                    $strContent = preg_replace_callback($preg_query, array($this, $replaceFunction), $strContent, $MaxReplacement);
+                    $strContent = preg_replace_callback($preg_query, [$this, $replaceFunction], $strContent, $MaxReplacement);
                     if ($lastIstDot) {
                         $strContent = str_replace($this->term->title, substr($this->term->title, 0, -1), $strContent);
                     }
@@ -166,7 +167,7 @@ class Decorator
                 $preg_query = '/(?!(?:[^<]+>|[^>]+(<!--|-->)))\b(' . $this->term->title . ')\b/is';
 
                 if ($this->term->title && preg_match_all($preg_query, $strContent, $third)) {
-                    $strContent = preg_replace_callback($preg_query, array($this, 'replaceAbbr'), $strContent);
+                    $strContent = preg_replace_callback($preg_query, [$this, 'replaceAbbr'], $strContent);
                     if ($lastIstDot) {
                         $strContent = str_replace($this->term->title, substr($this->term->title, 0, -1), $strContent);
                     }
@@ -197,16 +198,16 @@ class Decorator
         }
 
         $abbrObj = new FrontendTemplate('term_abbr');
-        $abbrObj->setData(array(
+        $abbrObj->setData([
             'lang' => $lang,
             'class' => 'glossar glossar_' . $this->term->pid['id'],
             'label' => $treffer[2],
             'title' => $this->term->explanation,
-        ));
+        ]);
 
         if ($href) {
             $linkObj = new FrontendTemplate('term_link');
-            $linkObj->setData(array(
+            $linkObj->setData([
                 'lang' => $lang,
                 'class' => 'glossar_abbr glossar_' . $this->term->pid['id'],
                 'id' => $this->term->id,
@@ -214,7 +215,7 @@ class Decorator
                 'label' => $abbrObj->parse(),
                 'maxWidth' => $this->term->maxWidth,
                 'maxHeight' => $this->term->maxHeight,
-            ));
+            ]);
 
             return $linkObj->parse();
         }
@@ -229,14 +230,14 @@ class Decorator
         }
 
         $spanObj = new FrontendTemplate('term_span');
-        $spanObj->setData(array(
+        $spanObj->setData([
             'lang' => $lang,
             'class' => 'glossar glossar_no_content glossar_' . $this->term->pid['id'],
             'id' => $this->term->id,
             'label' => $treffer[2],
             'maxWidth' => $this->term->maxWidth,
             'maxHeight' => $this->term->maxHeight,
-        ));
+        ]);
 
         return str_replace("\n", '', trim($spanObj->parse()));
     }
@@ -250,7 +251,7 @@ class Decorator
         }
 
         $linkObj = new FrontendTemplate('term_link');
-        $linkObj->setData(array(
+        $linkObj->setData([
             'lang' => $lang,
             'class' => 'glossar glossar_link glossar_' . $this->term->pid['id'],
             'id' => $this->term->id,
@@ -258,7 +259,7 @@ class Decorator
             'link' => $link,
             'maxWidth' => $this->term->maxWidth,
             'maxHeight' => $this->term->maxHeight,
-        ));
+        ]);
         return str_replace("\n", '', trim($linkObj->parse()));
     }
 
@@ -295,7 +296,7 @@ class Decorator
                     self::$arrUrlCache[$strCacheKey] = $link;
                 }
                 break;
-            // Link to an external page
+                // Link to an external page
             case 'external':
                 if (substr($this->term->url, 0, 7) == 'mailto:') {
                     self::$arrUrlCache[$strCacheKey] = StringUtil::encodeEmail($this->term->url);
@@ -304,14 +305,14 @@ class Decorator
                 }
                 break;
 
-            // Link to an internal page
+                // Link to an internal page
             case 'internal':
                 if ($this->term->jumpTo) {
                     /** @var PageModel $objTarget */
                     self::$arrUrlCache[$strCacheKey] = ampersand(GlossarPageModel::findByPk($this->term->jumpTo)->getFrontendUrl());
                 }
                 break;
-            // Link to an article
+                // Link to an article
             case 'article':
                 if (($objArticle = \ArticleModel::findByPk($this->term->articleId)) !== null && ($objPid = $objArticle->getRelated('pid')) !== null) {
                     /** @var PageModel $objPid */
@@ -320,14 +321,14 @@ class Decorator
                 break;
             default:
                 if (!empty($this->term->link)) {
-                    self::$arrUrlCache[$strCacheKey] = $this->term->link; 
+                    self::$arrUrlCache[$strCacheKey] = $this->term->link;
                 } else {
                     $link = '';
                     if (Config::get('jumpToGlossar')) {
                         $link = GlossarPageModel::findByPk(Config::get('jumpToGlossar'));
                     }
                     if ($link) {
-                        $link = $link->getAbsoluteUrl('/'.$this->term->alias);
+                        $link = $link->getAbsoluteUrl('/' . $this->term->alias);
                     }
                     if ($link !== '') {
                         self::$arrUrlCache[$strCacheKey] = $link;

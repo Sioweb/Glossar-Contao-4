@@ -4,7 +4,8 @@
  * Contao Open Source CMS
  */
 
-declare (strict_types = 1);
+declare(strict_types=1);
+
 namespace Sioweb\Glossar\ContaoManager;
 
 use Contao\CalendarBundle\ContaoCalendarBundle;
@@ -43,8 +44,8 @@ class Plugin implements BundlePluginInterface, RoutingPluginInterface, Extension
     public function getBundles(ParserInterface $parser)
     {
         $loadAfter = [];
-        foreach($this->arrLoadAfter as $className) {
-            if(class_exists($className)) {
+        foreach ($this->arrLoadAfter as $className) {
+            if (class_exists($className)) {
                 $loadAfter[] = $className;
             }
         }
@@ -63,8 +64,7 @@ class Plugin implements BundlePluginInterface, RoutingPluginInterface, Extension
     {
         return $resolver
             ->resolve(__DIR__ . '/../Resources/config/routing.yml')
-            ->load(__DIR__ . '/../Resources/config/routing.yml')
-        ;
+            ->load(__DIR__ . '/../Resources/config/routing.yml');
     }
 
     /**
@@ -78,10 +78,8 @@ class Plugin implements BundlePluginInterface, RoutingPluginInterface, Extension
      */
     public function getExtensionConfig($extensionName, array $extensionConfigs, PluginContainerBuilder $container)
     {
-        if ('doctrine' === $extensionName) 
-        {    
-            if ( Kernel::VERSION < '4.3' )
-            {
+        if ('doctrine' === $extensionName) {
+            if (Kernel::VERSION < '4.3') {
                 $extensionConfigs[0]['orm']['entity_managers']['default']['mappings']['SiowebGlossarBundle'] = "";
             }
         }

@@ -5,6 +5,7 @@
  */
 
 declare(strict_types=1);
+
 namespace Sioweb\Glossar\EventListener\CoreBundles;
 
 use Contao;
@@ -14,13 +15,13 @@ use Contao\CalendarModel;
 use Contao\Config;
 use Contao\ContentModel;
 use Contao\Environment;
-use Contao\Events AS BaseEvents;
+use Contao\Events as BaseEvents;
 use Contao\Input;
 use Contao\System;
 use Contao\ModuleModel;
 use Doctrine\DBAL\Connection;
 use Contao\CoreBundle\Framework\ContaoFramework;
-use Sioweb\Glossar\Models\CalendarModel AS GlossarCalendarModel;
+use Sioweb\Glossar\Models\CalendarModel as GlossarCalendarModel;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
@@ -51,7 +52,8 @@ class Events
     }
 
     public function compile()
-    {}
+    {
+    }
 
     public function clearGlossar($time)
     {
@@ -108,7 +110,7 @@ class Events
         }
 
         $_arrPages = [];
-        foreach($arrPages as $pages) {
+        foreach ($arrPages as $pages) {
             $_arrPages = array_merge($_arrPages, $pages);
         }
 

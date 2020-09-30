@@ -4,7 +4,7 @@
  * Contao Open Source CMS
  */
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace Sioweb\Glossar\EventListener;
 
@@ -52,7 +52,8 @@ class PageCrawler
      */
     private $requestStack;
 
-    public function __construct(ContaoFramework $framework, Connection $connection, $entityManager, RequestStack $requestStack) {
+    public function __construct(ContaoFramework $framework, Connection $connection, $entityManager, RequestStack $requestStack)
+    {
         $framework->initialize();
         $this->entityManager = $entityManager;
         $this->connection = $connection;
@@ -64,16 +65,19 @@ class PageCrawler
     {
         $request = $this->requestStack->getCurrentRequest();
 
-	    if($request->query->get('rebuild_glossar') != 1 || Config::get('disableGlossarCache') == 1) {
+        if ($request->query->get('rebuild_glossar') != 1 || Config::get('disableGlossarCache') == 1) {
             return $strContent;
         }
 
         global $objPage;
-        
+
         $GlossarRepository = $this->entityManager->getRepository(GlossarEntity::class);
         $TermRepository = $this->entityManager->getRepository(TermsEntity::class);
 
-        $strContent = str_replace(array('<!-- indexer::stop -->', '<!-- indexer::continue -->'), array('', ''), $strContent);
+        $strContent = str_replace([
+            '<!-- indexer::stop -->',
+            '<!-- indexer::continue -->'
+        ], ['', ''], $strContent);
 
         $time = Input::get('time') ?? time();
         $strContent = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $strContent);
@@ -121,19 +125,19 @@ class PageCrawler
             return;
         }
 
-        $arrGlossar = array();
+        $arrGlossar = [];
 
         foreach ($Glossar as $glossar) {
             $arrGlossar[$glossar->getId()] = $glossar->getLanguage();
         }
 
-        $TermResult = $TermRepository->findAll(array('LENGTH(title)' => 'DESC'));
-        
+        $TermResult = $TermRepository->findAll(['LENGTH(title)' => 'DESC']);
+
         if (empty($TermResult)) {
             return;
         }
 
-        $arrTerms = array('glossar' => array(), 'fallback' => array(), 'both' => array());
+        $arrTerms = ['glossar' => [], 'fallback' => [], 'both' => []];
         foreach ($TermResult as $Term) {
             if ($arrGlossar[$Term->getPid()->getId()] == $objPage->language) {
                 $arrTerms['glossar'][] = $Term->getTitle();
@@ -146,7 +150,7 @@ class PageCrawler
         foreach ($arrTerms as &$pointer_terms) {
             $pointer_terms = array_unique($pointer_terms);
         }
-        
+
         // HOOK: take additional pages
         if (isset($GLOBALS['TL_HOOKS']['cacheGlossarTerms']) && is_array($GLOBALS['TL_HOOKS']['cacheGlossarTerms'])) {
             foreach ($GLOBALS['TL_HOOKS']['cacheGlossarTerms'] as $type => $callback) {
@@ -160,7 +164,7 @@ class PageCrawler
         if ($request->query->get('rebuild_glossar') == 1) {
             $strFallback = $strGlossar = '';
             if (!empty($arrTerms['glossar'])) {
-                $matches = array();
+                $matches = [];
                 foreach ($arrTerms['glossar'] as $term) {
                     if (preg_match('#' . str_replace('.', '\.', html_entity_decode($term)) . '#is', strip_tags($strContent))) {
                         $matches[] = $term;
@@ -172,7 +176,7 @@ class PageCrawler
             }
 
             if (!empty($arrTerms['fallback'])) {
-                $matches = array();
+                $matches = [];
                 foreach ($arrTerms['fallback'] as $key => $term) {
                     if (preg_match('#' . str_replace('.', '\.', $term) . '#is', strip_tags($strContent))) {
                         $matches[] = $term;
@@ -189,11 +193,11 @@ class PageCrawler
                 WHERE id = :id
             ")->execute([':glossar' => $strGlossar, ':fallback_glossar' => $strFallback, ':glossar_time' => $time, ':id' => $objPage->id]);
         }
-        
+
         return $strContent;
     }
 
-    private function replaceGlossarTags($strContent, $tags = array())
+    private function replaceGlossarTags($strContent, $tags = [])
     {
         // Strip non-indexable areas
         while (($intStart = strpos($strContent, $tags[1])) !== false) {

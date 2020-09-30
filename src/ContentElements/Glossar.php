@@ -5,6 +5,7 @@
  */
 
 declare(strict_types=1);
+
 namespace Sioweb\Glossar\ContentElements;
 
 use Contao;
@@ -59,27 +60,27 @@ class Glossar extends ContentElement
             Input::setGet('alpha', Input::get('auto_item'));
         }
 
-        if(Input::get('items') !== null && $this->type !== 'glossar_reader' && $this->differentGlossarDetailPage && $this->jumpToGlossarTerm) {
+        if (Input::get('items') !== null && $this->type !== 'glossar_reader' && $this->differentGlossarDetailPage && $this->jumpToGlossarTerm) {
             $url = null;
 
             $EntityManager = $this->getContainer()->get('doctrine.orm.default_entity_manager');
             $TermsRepository = $EntityManager->getRepository(Terms::class);
             $TermObj = $TermsRepository->findOneByAlias(Input::get('items'));
-            
-            if($this->glossar == $TermObj->getPid()->getId()) {
+
+            if ($this->glossar == $TermObj->getPid()->getId()) {
                 $objParent = GlossarPageModel::findWithDetails($this->jumpToGlossarTerm);
                 $domain = ($objParent->rootUseSSL ? 'https://' : 'http://') . ($objParent->domain ?: Environment::get('host')) . TL_PATH . '/';
 
                 $link = GlossarPageModel::findByPk($this->jumpToGlossarTerm);
-                if($link !== null) {
+                if ($link !== null) {
                     $url = $domain . Controller::generateFrontendUrl($link->row(), ((Config::get('useAutoItem') && !Config::get('disableAlias')) ? '/' : '/items/') . Input::get('items'));
                 }
-                
+
                 static::redirect($url, 301);
             }
         }
 
-        if($this->type === 'glossar_reader' && Input::get('items') == null) {
+        if ($this->type === 'glossar_reader' && Input::get('items') == null) {
             return '';
         }
 
@@ -91,7 +92,7 @@ class Glossar extends ContentElement
         global $objPage;
         $this->loadLanguageFile('default');
         $this->loadLanguageFile('glossar_errors');
-        $glossarErrors = array();
+        $glossarErrors = [];
 
         if (empty($this->headlineUnit)) {
             $this->headlineUnit = 'h2';
@@ -107,8 +108,8 @@ class Glossar extends ContentElement
         $_sortGlossarBy = explode('_', $this->sortGlossarBy);
         $sortGlossarBy = [];
         $sortGlossarBy[$_sortGlossarBy[0]] = !empty($_sortGlossarBy[1]) ? $_sortGlossarBy[1] : 'ASC';
-        
-        $Options = array('order' => $sortGlossarBy);
+
+        $Options = ['order' => $sortGlossarBy];
         if (Input::get('page') && $this->perPage) {
             $Options['limit'] = $this->perPage;
             $Options['offset'] = $this->perPage * (Input::get('page') - 1);
@@ -128,12 +129,12 @@ class Glossar extends ContentElement
         }
 
         /* Gefundene Begriffe durch Links zum Glossar ersetzen */
-        $arrGlossar = array();
-        $filledLetters = array();
+        $arrGlossar = [];
+        $filledLetters = [];
         if ($TermObj) {
 
             if (Input::get('items') == '') {
-                $arrGlossarIDs = array();
+                $arrGlossarIDs = [];
 
                 foreach ($TermObj as $Term) {
                     $arrGlossarIDs[] = $Term->getId();
@@ -149,7 +150,7 @@ class Glossar extends ContentElement
             if (!empty($arrTags)) {
                 $arrTags = $arrTags->execute('tl_sw_glossar')->fetchAllAssoc();
 
-                $_arrTags = array();
+                $_arrTags = [];
                 foreach ($arrTags as $key => $value) {
                     $_arrTags[$value['tid']][] = $value;
                 }
@@ -164,7 +165,7 @@ class Glossar extends ContentElement
                 $initial = substr(str_replace('id-', '', $Term->getAlias()), 0, 1);
                 $filledLetters[] = $initial;
                 $delimittedGlossarTerms[strtoupper($initial)] = [];
-                
+
                 if (Input::get('items') != '' || (!$this->showAfterChoose || !$this->addAlphaPagination) || ($this->addAlphaPagination && $this->showAfterChoose && Input::get('pag') != '')) {
                     if (Input::get('pag') == '' || $initial == Input::get('pag')) {
 
@@ -178,7 +179,7 @@ class Glossar extends ContentElement
                         }
 
                         $link = null;
-                        if($this->differentGlossarDetailPage && $this->jumpToGlossarTerm) {
+                        if ($this->differentGlossarDetailPage && $this->jumpToGlossarTerm) {
                             $link = \PageModel::findByPk($this->jumpToGlossarTerm);
                             // $newGlossarObj->content = 1;
                             if ($link) {
@@ -217,7 +218,7 @@ class Glossar extends ContentElement
                             if (empty($elements) && $Term->getDescription()) {
                                 $descriptionObj = new FrontendTemplate('glossar_description');
                                 $descriptionObj->content = $Term->getDescription();
-                                $elements = array($descriptionObj->parse());
+                                $elements = [$descriptionObj->parse()];
                             }
                             if (empty($elements)) {
                                 $elements = [$Term->getTeaser()];
@@ -229,12 +230,12 @@ class Glossar extends ContentElement
             }
         }
 
-        if(Input::get('items') != '') {
+        if (Input::get('items') != '') {
             $this->useInitialAsDelimitter = false;
         }
 
-        if($this->useInitialAsDelimitter) {
-            foreach($arrGlossar as $key => $term) {
+        if ($this->useInitialAsDelimitter) {
+            foreach ($arrGlossar as $key => $term) {
                 $delimittedGlossarTerms[strtoupper($key[0])][] = $term;
             }
 
@@ -249,42 +250,42 @@ class Glossar extends ContentElement
             $this->Template->perPage = $this->perPage;
         }
 
-        $numbers = $letters = array();
+        $numbers = $letters = [];
 
         if ($this->addAlphaPagination) {
             for ($c = 65; $c <= 90; $c++) {
                 if (($this->addOnlyTrueLinks && in_array(strtolower(chr($c)), $filledLetters)) || !$this->addOnlyTrueLinks) {
-                    $letters[] = array(
+                    $letters[] = [
                         'href' => $this->addToUrl('pag=' . strtolower(chr($c)) . '&amp;alpha=&amp;items=&amp;auto_item='),
                         'initial' => chr($c),
                         'active' => (Input::get('pag') == strtolower(chr($c))),
                         'trueLink' => (in_array(strtolower(chr($c)), $filledLetters)),
                         'onlyTrueLinks' => $this->addOnlyTrueLinks,
-                    );
+                    ];
                 }
             }
-            
+
             if ($this->addNumericPagination) {
                 for ($n = 0; $n < 10; $n++) {
                     if (($this->addOnlyTrueLinks && in_array(strtolower((string)$n), $filledLetters)) || !$this->addOnlyTrueLinks) {
-                        $numbers[] = array(
+                        $numbers[] = [
                             'href' => $this->addToUrl('pag=' . strtolower((string)$n) . '&amp;alpha=&amp;items=&amp;auto_item='),
                             'initial' => $n,
                             'active' => (Input::get('pag') == strtolower((string)$n)),
                             'trueLink' => (in_array(strtolower((string)$n), $filledLetters)),
                             'onlyTrueLinks' => $this->addOnlyTrueLinks,
-                        );
+                        ];
                     }
                 }
             }
         }
 
-        if(!empty($letters)) {
+        if (!empty($letters)) {
             $letters[0]['class'] = 'first';
             $letters[count($letters) - 1]['class'] = 'last';
         }
 
-        if(!empty($numbers)) {
+        if (!empty($numbers)) {
             $numbers[0]['class'] = 'first';
             $numbers[count($numbers) - 1]['class'] = 'last';
         }
@@ -311,8 +312,8 @@ class Glossar extends ContentElement
         if (Input::get('items') != '') {
             if (($this->termAsHeadline || Config::get('termAsHeadline')) && !$Term->getTermAsHeadline()) {
                 $Headline = new StdModel();
-                $Headline->headline = serialize(array('value' => $Term->getTitle(), 'unit' => $this->headlineUnit));
-                // $Headline->cssID = serialize(array('','glossar_headline'));
+                $Headline->headline = serialize(['value' => $Term->getTitle(), 'unit' => $this->headlineUnit]);
+                // $Headline->cssID = serialize(['','glossar_headline']);
                 $Headline->type = 'glossar_headline';
                 $objHeadline = new ContentHeadline($Headline);
                 $termAsHeadline = $objHeadline->generate();
@@ -328,12 +329,12 @@ class Glossar extends ContentElement
             if ($oGlossar->getSeo() || $Term->getSeo()) {
                 if ($oGlossar->getTermInTitleTag() || $Term->getTermInTitleTag()) {
                     $Title = $objPage->pageTitle;
-                    
+
                     if ($Term->getTermInTitleStrTag() === '' && $oGlossar->getTermInTitleStrTag() === '') {
                         $pageTitle = strip_tags(strip_insert_tags($Term->getTitle()));
-                    } elseif($Term->getTermInTitleStrTag()) {
+                    } elseif ($Term->getTermInTitleStrTag()) {
                         $pageTitle = strip_tags($this->replaceInsertTags($Term->getTermInTitleStrTag()));
-                    } elseif($oGlossar->getTermInTitleStrTag()) {
+                    } elseif ($oGlossar->getTermInTitleStrTag()) {
                         $pageTitle = strip_tags($this->replaceInsertTags($oGlossar->getTermInTitleStrTag()));
                     }
                     $objPage->pageTitle = $pageTitle;
@@ -374,7 +375,7 @@ class Glossar extends ContentElement
         $this->Template->hlc = 'h' . ($intHl + 1);
 
         $this->import('Comments');
-        $arrNotifies = array();
+        $arrNotifies = [];
 
         // Notify the system administrator
         if ($objGlossar->getNotify() != 'notify_author') {
@@ -403,7 +404,7 @@ class Glossar extends ContentElement
 
     private function getGlossarElements($id)
     {
-        $arrElements = array();
+        $arrElements = [];
         $objCte = \ContentModel::findPublishedByPidAndTable($id, 'tl_sw_glossar');
 
         if ($objCte !== null) {
@@ -411,7 +412,7 @@ class Glossar extends ContentElement
             $intLast = $objCte->count() - 1;
 
             while ($objCte->next()) {
-                $arrCss = array();
+                $arrCss = [];
                 /** @var \ContentModel $objRow */
                 $objRow = $objCte->current();
 

@@ -5,13 +5,14 @@
  */
 
 declare(strict_types=1);
+
 namespace Sioweb\Glossar\Classes;
 
 use Contao\BackendModule;
 use Sioweb\Glossar\Models\LogModel;
 use Sioweb\License\Glossar as GlossarLicense;
-use Sioweb\Glossar\Entity\Log AS LogEntity;
-use Sioweb\Glossar\Models\PageModel AS GlossarPageModel;
+use Sioweb\Glossar\Entity\Log as LogEntity;
+use Sioweb\Glossar\Models\PageModel as GlossarPageModel;
 
 /**
  * @file Log.php
@@ -49,7 +50,7 @@ class Log extends BackendModule
         // $entityManager->persist($Entity);
         // $entityManager->flush();
 
-        $arrTerms = $arrLog = array();
+        $arrTerms = $arrLog = [];
 
         // die('<pre>' . print_r($LogResult, true));
 
@@ -75,23 +76,23 @@ class Log extends BackendModule
         $this->Template->terms = $arrTerms;
         $arrTerms = null;
 
-        $stdArray = array(
-            0 => array(
+        $stdArray = [
+            0 => [
                 'avg' => 0,
                 'sum' => 0,
                 'unique' => 0,
-                'user' => array(),
-                'user_percent' => array(),
-            ),
-        );
+                'user' => [],
+                'user_percent' => [],
+            ],
+        ];
 
-        $arrStats = array(
+        $arrStats = [
             'load' => $stdArray,
             'follow' => $stdArray,
             'close' => $stdArray,
             'cloud' => $stdArray,
             'span' => $stdArray,
-        );
+        ];
 
         $stdArray = null;
 

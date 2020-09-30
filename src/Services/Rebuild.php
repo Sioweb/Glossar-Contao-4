@@ -5,6 +5,7 @@
  */
 
 declare(strict_types=1);
+
 namespace Sioweb\Glossar\Services;
 
 use Contao\ArticleModel;
@@ -20,6 +21,7 @@ use Contao\CoreBundle\Framework\ContaoFramework;
 use Sioweb\Glossar\Models\PageModel as GlossarPageModel;
 use Contao\CoreBundle\Security\Authentication\FrontendPreviewAuthenticator;
 use Sioweb\MaintenanceFix\Modules\ExecutableInterface;
+
 /**
  * @file Rebuild.php
  * @class Rebuild
@@ -40,11 +42,12 @@ class Rebuild implements ExecutableInterface
 
     private $authenticator;
 
-    public function __construct(ContaoFramework $framework, FrontendPreviewAuthenticator $frontendAuthenticator = null) {
+    public function __construct(ContaoFramework $framework, FrontendPreviewAuthenticator $frontendAuthenticator = null)
+    {
         $framework->initialize();
         $this->Database = System::importStatic('Database');
         $this->authenticator = $frontendAuthenticator;
-        if($frontendAuthenticator === null && VERSION >= 4.6) {
+        if ($frontendAuthenticator === null && VERSION >= 4.6) {
             $this->authenticator = System::getContainer()->get('contao.security.frontend_preview_authenticator');
         }
     }
@@ -64,8 +67,7 @@ class Rebuild implements ExecutableInterface
      */
     public function run()
     {
-        if (!Config::get('enableGlossar'))
-        {
+        if (!Config::get('enableGlossar')) {
             return '';
         }
 
@@ -81,13 +83,13 @@ class Rebuild implements ExecutableInterface
             $_SESSION['REBUILD_INDEX_ERROR'] = '';
         }
 
-        $arrUser = array('' => '-');
+        $arrUser = ['' => '-'];
 
         // Get active front end users
         $objUser = $this->Database->execute("SELECT id, username FROM tl_member WHERE disable!=1 AND (start='' OR start<$time) AND (stop='' OR stop>$time) ORDER BY username");
 
         while ($objUser->next()) {
-            if(!empty($objUser->username)) {
+            if (!empty($objUser->username)) {
                 $arrUser[$objUser->id] = $objUser->username . ' (' . $objUser->id . ')';
             }
         }
@@ -116,11 +118,11 @@ class Rebuild implements ExecutableInterface
                     $this->{$callback[0]} = System::importStatic($callback[0]);
                     $cb_return = $this->{$callback[0]}->{$callback[1]}($arrPages);
 
-                    if(!empty($cb_return) && !empty($InactiveArchives) && is_array($cb_return)) { 
+                    if (!empty($cb_return) && !empty($InactiveArchives) && is_array($cb_return)) {
                         $cb_return = array_diff_key($cb_return, $InactiveArchives);
                     }
 
-                    if(!empty($cb_return)) {
+                    if (!empty($cb_return)) {
                         $arrPages[$type] = $cb_return;
                     }
                 }
@@ -130,7 +132,7 @@ class Rebuild implements ExecutableInterface
                 // Calculate the hash
                 $strHash = System::getSessionHash('FE_USER_AUTH');
                 System::setCookie('FE_PREVIEW', 0, ($time - 86400), null, null, Environment::get('ssl'), true);
-                
+
                 // Remove old sessions
                 $this->Database->prepare("DELETE FROM tl_session WHERE tstamp<? OR hash=?")
                     ->execute(($time - \Config::get('sessionTimeout')), $strHash);
@@ -138,9 +140,8 @@ class Rebuild implements ExecutableInterface
 
             $strUser = Input::get('user');
 
-			// Log in the front end user
-			if (is_numeric($strUser) && $strUser > 0 && isset($arrUser[$strUser]))
-			{
+            // Log in the front end user
+            if (is_numeric($strUser) && $strUser > 0 && isset($arrUser[$strUser])) {
                 if ($this->authenticator === null) { // Contao 4.4
                     // Insert a new session
                     $this->Database->prepare("INSERT INTO tl_session (pid, tstamp, name, sessionID, ip, hash) VALUES (?, ?, ?, ?, ?, ?)")
@@ -150,14 +151,13 @@ class Rebuild implements ExecutableInterface
                     System::setCookie('FE_USER_AUTH', $strHash, ($time + Config::get('sessionTimeout')), null, null, Environment::get('ssl'), true);
                 } else { // Contao 4.5+
                     $objUser = $this->Database->prepare("SELECT username FROM tl_member WHERE id=?")
-                                            ->execute($strUser);
+                        ->execute($strUser);
 
-                    if (!$objUser->numRows || !$this->authenticator->authenticateFrontendUser($objUser->username, false))
-                    {
+                    if (!$objUser->numRows || !$this->authenticator->authenticateFrontendUser($objUser->username, false)) {
                         $this->authenticator->removeFrontendAuthentication();
                     }
                 }
-			} else {
+            } else {
                 // Log out the front end user
                 if ($this->authenticator === null) { // Contao 4.4
                     System::setCookie('FE_USER_AUTH', $strHash, ($time - 86400), null, null, Environment::get('ssl'), true);
@@ -165,7 +165,7 @@ class Rebuild implements ExecutableInterface
                 } else { // Contao 4.5+
                     $this->authenticator->removeFrontendAuthentication();
                 }
-			}
+            }
 
             $strBuffer = '';
             $rand = rand();
@@ -218,22 +218,22 @@ class Rebuild implements ExecutableInterface
     protected function findGlossarPages()
     {
         $time = time();
-        $arrPages = array();
+        $arrPages = [];
         $objPages = GlossarPageModel::findActiveAndEnabledGlossarPages();
         $domain = rtrim(Environment::get('base'), '/') . '/';
 
         if (!empty($objPages)) {
             while ($objPages->next()) {
-                if($objPages->type === 'root') {
+                if ($objPages->type === 'root') {
                     continue;
                 }
-                
+
                 if ($objPages->pid) {
                     $RootPage = $this->getRootPage($objPages->pid);
                 }
 
                 if ($RootPage->dns) {
-                    $domain = rtrim('http' . ($RootPage->useSSL ? 's' : '') . '://' . str_replace(array('http://', 'https://'), '', $RootPage->dns), '/') . '/';
+                    $domain = rtrim('http' . ($RootPage->useSSL ? 's' : '') . '://' . str_replace(['http://', 'https://'], '', $RootPage->dns), '/') . '/';
                 } else {
                     $domain = rtrim(Environment::get('base'), '/') . '/';
                 }
@@ -243,7 +243,7 @@ class Rebuild implements ExecutableInterface
                 if ((!$objPages->start || $objPages->start < $time) && (!$objPages->stop || $objPages->stop > $time)) {
                     $arrPages[$strLanguage][] = $domain . Controller::generateFrontendUrl($objPages->row(), null, $strLanguage);
 
-                    $objArticle = ArticleModel::findBy(array("tl_article.pid=? AND (tl_article.start='' OR tl_article.start<$time) AND (tl_article.stop='' OR tl_article.stop>$time) AND tl_article.published=1 AND tl_article.showTeaser=1"), array($objPages->id), array('order' => 'sorting'));
+                    $objArticle = ArticleModel::findBy(["tl_article.pid=? AND (tl_article.start='' OR tl_article.start<$time) AND (tl_article.stop='' OR tl_article.stop>$time) AND tl_article.published=1 AND tl_article.showTeaser=1"], [$objPages->id], ['order' => 'sorting']);
 
                     if (!empty($objArticle)) {
                         while ($objArticle->next()) {

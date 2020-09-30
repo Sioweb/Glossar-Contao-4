@@ -4,7 +4,8 @@
  * Contao Open Source CMS
  */
 
-declare (strict_types = 1);
+declare(strict_types=1);
+
 namespace Sioweb\Glossar\Dca;
 
 use Contao\CoreBundle\Exception\AccessDeniedException;
@@ -75,7 +76,7 @@ class Glossar
 
         // Set root IDs
         if (empty($this->User->news) || !\is_array($this->User->news)) {
-            $root = array(0);
+            $root = [0];
         } else {
             $root = $this->User->news;
         }
@@ -145,7 +146,7 @@ class Glossar
                         $this->User->glossar = $root;
                     }
                 }
-            // No break;
+                // No break;
 
             case 'copy':
             case 'delete':
@@ -160,7 +161,7 @@ class Glossar
             case 'overrideAll':
                 $session = $objSession->all();
                 if (Input::get('act') == 'deleteAll' && !$this->User->hasAccess('delete', 'glossarp')) {
-                    $session['CURRENT']['IDS'] = array();
+                    $session['CURRENT']['IDS'] = [];
                 } else {
                     $session['CURRENT']['IDS'] = array_intersect((array) $session['CURRENT']['IDS'], $root);
                 }

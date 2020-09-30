@@ -4,7 +4,7 @@
  * Contao Open Source CMS
  */
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace Sioweb\Glossar\EventListener;
 
@@ -25,7 +25,8 @@ class Tags
 {
     private $entityManager;
 
-    public function __construct($entityManager) {
+    public function __construct($entityManager)
+    {
         $this->entityManager = $entityManager;
     }
 
@@ -33,10 +34,10 @@ class Tags
     {
         $TermRepository = $this->entityManager->getRepository(TermsEntity::class);
         $Terms = $TermRepository->findBy(['id' => $tags]);
-        
+
         if (!empty($Terms)) {
-            $arrLinks = array();
-            foreach($Terms as $Term) {
+            $arrLinks = [];
+            foreach ($Terms as $Term) {
                 if (Config::get('jumpToGlossar')) {
                     $link = GlossarPageModel::findByPk(Config::get('jumpToGlossar'));
                 }

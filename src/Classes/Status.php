@@ -40,12 +40,12 @@ class Status extends BackendModule
 
     public function compile()
     {
-        $arrData = array();
+        $arrData = [];
         if (Input::get('import_status') == 1 || Input::post('act') == 'import_status') {
             $this->import('BackendUser', 'User');
             $class = $this->User->uploader;
 
-            $FileData = $Import = array();
+            $FileData = $Import = [];
 
             if (!class_exists($class) || $class == 'DropZone') {
                 $class = 'FileUpload';
@@ -54,7 +54,7 @@ class Status extends BackendModule
             $objUploader = new $class();
             $arrUploaded = $objUploader->uploadTo('system/tmp');
 
-            $arrFiles = array();
+            $arrFiles = [];
 
             if (Input::post('act') == 'import_status') {
                 foreach ($arrUploaded as $strFile) {
@@ -66,7 +66,7 @@ class Status extends BackendModule
         }
 
         if (empty($arrData)) {
-            $data = array();
+            $data = [];
             foreach ($GLOBALS['glossar']['tables'] as $key => $table) {
                 $this->loadDataContainer($table);
                 $this->loadLanguageFile($table);
@@ -79,13 +79,13 @@ class Status extends BackendModule
                         $fieldName = $GLOBALS['TL_DCA'][$table]['fields'][$field]['eval']['gsLabel'];
                     }
 
-                    $data[$table][$fieldName] = array(
+                    $data[$table][$fieldName] = [
                         'field' => $field,
                         'title' => &$GLOBALS['TL_LANG'][$table][$field][0],
                         'description' => &$GLOBALS['TL_LANG'][$table][$field][1],
-                        'tables' => array($table),
+                        'tables' => [$table],
                         'type' => $GLOBALS['TL_DCA'][$table]['fields'][$field]['inputType'],
-                    );
+                    ];
                 }
             }
 
@@ -112,7 +112,7 @@ class Status extends BackendModule
             });
 
             foreach ($arrData as $field => &$fieldData) {
-                $tables = array_diff($fieldData['tables'], array('tl_settings'));
+                $tables = array_diff($fieldData['tables'], ['tl_settings']);
                 if (!empty($tables[0])) {
                     foreach ($tables as $key => $table) {
                         switch ($fieldData['type']) {
@@ -172,10 +172,10 @@ class Status extends BackendModule
             }
         }
 
-        $backLink = str_replace(array('do=glossar_status'), array(''), Environment::get('request'));
+        $backLink = str_replace(['do=glossar_status'], [''], Environment::get('request'));
 
         if (Input::get('import_status') == '1') {
-            $backLink = str_replace(array('&import_status=1'), array(''), Environment::get('request'));
+            $backLink = str_replace(['&import_status=1'], [''], Environment::get('request'));
         }
 
         $this->Template->backLink = $backLink;
@@ -195,7 +195,7 @@ class Status extends BackendModule
 
     private function loadGlossarFields($table)
     {
-        $arrConfig = array();
+        $arrConfig = [];
         $found = false;
 
         foreach ($GLOBALS['TL_DCA'][$table]['palettes'] as $type => $palette) {
@@ -209,7 +209,7 @@ class Status extends BackendModule
                 if (strpos($fieldset, 'glossar_legend') !== false || $table === 'tl_sw_glossar') {
                     $found = true;
                     $fields = explode(',', preg_replace('|{[^}]*},|', '', $fieldset));
-                    $arrFields = array();
+                    $arrFields = [];
 
                     foreach ($fields as $key => $field) {
                         if (!empty($GLOBALS['TL_DCA'][$table]['fields'][$field]['label']) && !$GLOBALS['TL_DCA'][$table]['fields'][$field]['eval']['gsIgnore']) {
@@ -223,7 +223,7 @@ class Status extends BackendModule
         }
 
         if (!$found) {
-            return array();
+            return [];
         }
 
         return array_merge($arrConfig, $this->loadSubFields($arrConfig, $table));
@@ -231,7 +231,7 @@ class Status extends BackendModule
 
     private function loadSubFields($arr, $table)
     {
-        $arrSubConfig = array();
+        $arrSubConfig = [];
         foreach ($arr as $key => $field) {
             if (empty($GLOBALS['TL_DCA'][$table]['fields'][$field]['label']) || $GLOBALS['TL_DCA'][$table]['fields'][$field]['eval']['gsIgnore']) {
                 continue;
@@ -274,5 +274,7 @@ class Status extends BackendModule
         return $objGlossar->parse();
     }
 
-    private function loadData(){}
+    private function loadData()
+    {
+    }
 }

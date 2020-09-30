@@ -4,14 +4,14 @@
  * Contao Open Source CMS
  */
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace Sioweb\Glossar\Extension;
 
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Extension\Extension AS BaseExtension;
+use Symfony\Component\DependencyInjection\Extension\Extension as BaseExtension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 /**
@@ -24,26 +24,26 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 class Extension extends BaseExtension
 {
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getAlias()
-	{
-		return 'sioweb_glossar';
+    /**
+     * {@inheritdoc}
+     */
+    public function getAlias()
+    {
+        return 'sioweb_glossar';
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        $baseConfig = Yaml::parse(file_get_contents(__DIR__.'/../Resources/config/glossar.yml'), Yaml::PARSE_CONSTANT);
+        $baseConfig = Yaml::parse(file_get_contents(__DIR__ . '/../Resources/config/glossar.yml'), Yaml::PARSE_CONSTANT);
         $configs = array_filter(array_merge([$baseConfig['glossar']], $configs));
 
         $rootDir = $container->getParameter('kernel.root_dir');
-        if (file_exists($rootDir.'/config/glossar.yml')) {
-            
-            $root_baseConfig = Yaml::parse(file_get_contents($rootDir.'/config/glossar.yml'), Yaml::PARSE_CONSTANT);
+        
+        if (file_exists($rootDir . '/config/glossar.yml')) {
+            $root_baseConfig = Yaml::parse(file_get_contents($rootDir . '/config/glossar.yml'), Yaml::PARSE_CONSTANT);
             $configs = [array_filter(array_merge($configs[0], $root_baseConfig['glossar']))];
         }
 
@@ -51,13 +51,12 @@ class Extension extends BaseExtension
 
         $loader = new YamlFileLoader(
             $container,
-            new FileLocator(__DIR__.'/../Resources/config')
+            new FileLocator(__DIR__ . '/../Resources/config')
         );
 
         $loader->load('listener.yml');
         $loader->load('services.yml');
 
-		$container->setParameter('glossar.config', $mergedConfig);
-
+        $container->setParameter('glossar.config', $mergedConfig);
     }
 }

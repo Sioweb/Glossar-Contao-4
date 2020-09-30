@@ -4,7 +4,7 @@
  * Contao Open Source CMS
  */
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace Sioweb\Glossar\Services;
 
@@ -31,7 +31,8 @@ class GlossarPages
      */
     private $framework;
 
-    public function __construct(ContaoFramework $framework) {
+    public function __construct(ContaoFramework $framework)
+    {
         $this->framework = $framework;
     }
 

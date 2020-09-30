@@ -43,10 +43,10 @@ class GlossarRepository extends EntityRepository
                     ->execute();
     }
 
-    public function findAllByAlias($arrAlias, $arrOptions = array())
+    public function findAllByAlias($arrAlias, $arrOptions = [])
     {
         // $t = static::$strTable;
-        // $arrColumns = array("alias IN('" . implode("','", $arrAlias) . "')");
-        // return static::findBy($arrColumns, array(), $arrOptions);
+        // $arrColumns = ["alias IN('" . implode("','", $arrAlias) . "')"];
+        // return static::findBy($arrColumns, [], $arrOptions);
     }
 }

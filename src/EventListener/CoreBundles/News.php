@@ -5,13 +5,14 @@
  */
 
 declare(strict_types=1);
+
 namespace Sioweb\Glossar\EventListener\CoreBundles;
 
 use Contao\ArticleModel;
 use Contao\ContentModel;
 use Contao\Environment;
 use Contao\Input;
-use Contao\News AS BaseNews;
+use Contao\News as BaseNews;
 use Contao\ModuleModel;
 use Contao\ModuleNews;
 use Contao\NewsModel;
@@ -19,7 +20,7 @@ use Contao\System;
 use Contao\PageModel;
 use Doctrine\DBAL\Connection;
 use Contao\CoreBundle\Framework\ContaoFramework;
-use Sioweb\Glossar\Models\NewsArchiveModel AS GlossarNewsArchiveModel;
+use Sioweb\Glossar\Models\NewsArchiveModel as GlossarNewsArchiveModel;
 
 /**
  * @file News.php
@@ -48,7 +49,8 @@ class News //extends BaseNews
     }
 
     public function compile()
-    {}
+    {
+    }
 
     public function clearGlossar($time)
     {
@@ -92,7 +94,7 @@ class News //extends BaseNews
         $arrPages = [];
 
         $News = NewsModel::findAll();
-        
+
         if (empty($News)) {
             return [];
         }
@@ -108,7 +110,7 @@ class News //extends BaseNews
         }
 
         $_arrPages = [];
-        foreach($arrPages as $pages) {
+        foreach ($arrPages as $pages) {
             $_arrPages = array_merge($_arrPages, $pages);
         }
 

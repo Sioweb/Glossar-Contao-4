@@ -32,7 +32,8 @@ class TermsRepository extends EntityRepository
                             ->execute();
     }
 
-    public function findTermBy($start, $stop, $term, $glossarPid) {
+    public function findTermBy($start, $stop, $term, $glossarPid)
+    {
         return $this->createQueryBuilder('t')
             ->andWhere("(t.start = '' OR t.start <= :start)")
             ->andWhere("(t.stop = ''  OR t.stop <= :stop)")
@@ -50,21 +51,21 @@ class TermsRepository extends EntityRepository
     public function findAllInitial($arrOptions, $initial)
     {
         // $t = static::$strTable;
-        // $arrColumns = array("left($t.alias,1) = ?");
+        // $arrColumns = ["left($t.alias,1) = ?"];
         // return static::findBy($arrColumns, $initial, $arrOptions);
     }
 
-    public function findByPids($pids, $arrOptions = array())
+    public function findByPids($pids, $arrOptions = [])
     {
         // $t = static::$strTable;
-        // $arrColumns = array("pid IN('" . implode("','", $pids) . "')");
-        // return static::findBy($arrColumns, array(), $arrOptions);
+        // $arrColumns = ["pid IN('" . implode("','", $pids) . "')"];
+        // return static::findBy($arrColumns, [], $arrOptions);
     }
 
-    public function findAllByAlias($arrAlias, $pid, $arrOptions = array())
+    public function findAllByAlias($arrAlias, $pid, $arrOptions = [])
     {
         // $t = static::$strTable;
-        // $arrColumns = array("pid = ? AND alias IN('" . implode("','", $arrAlias) . "')");
-        // return static::findBy($arrColumns, array($pid), $arrOptions);
+        // $arrColumns = ["pid = ? AND alias IN('" . implode("','", $arrAlias) . "')"];
+        // return static::findBy($arrColumns, [$pid], $arrOptions);
     }
 }
