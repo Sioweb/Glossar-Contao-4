@@ -17,7 +17,7 @@ use Sioweb\Glossar\Models\PageModel AS GlossarPageModel;
  * @file Log.php
  * @class Log
  * @author Sascha Weidner
- * @version 3.0.0
+ * @version 2.3
  * @package sioweb.contao.extensions.glossar
  * @copyright Sascha Weidner, Sioweb
  */

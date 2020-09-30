@@ -7,7 +7,7 @@
 /**
  * @file tl_sw_glossar.php
  * @author Sascha Weidner
- * @version 3.0.0
+ * @version 2.3
  * @package sioweb.contao.extensions.glossar
  * @copyright Sascha Weidner, Sioweb
  */

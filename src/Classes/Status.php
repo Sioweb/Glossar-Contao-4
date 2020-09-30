@@ -20,7 +20,7 @@ use Contao\PageModel;
  * @file Status.php
  * @class Status
  * @author Sascha Weidner
- * @version 3.0.0
+ * @version 2.3
  * @package sioweb.contao.extensions.glossar
  * @copyright Sascha Weidner, Sioweb
  */
