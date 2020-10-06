@@ -17,6 +17,7 @@ use Contao\StringUtil;
 use Contao\System;
 use Contao\Backend;
 use Contao\CoreBundle\Framework\ContaoFramework;
+use Sioweb\Glossar\Entity\Glossar as GlossarEntity;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
@@ -54,6 +55,31 @@ class Glossar
         $token = $this->tokenStorage->getToken();
         $this->User = $token->getUser();
         $this->Database = System::importStatic('Database');
+    }
+
+    public function dcaOnloadCallback(DataContainer $dc)
+    {
+        if (!$dc->id) {
+            return;
+        }
+
+        $GlossarRepository = $this->entityManager->getRepository(GlossarEntity::class);
+        $Glossar = $GlossarRepository->find($dc->id);
+
+        switch ($Glossar->getCanonicalType()) {
+            case 'internal':
+                $GLOBALS['TL_DCA']['tl_glossar']['subpalettes']['seo'] = str_replace("canonicalType", "canonicalType,canonicalJumpTo", $GLOBALS['TL_DCA']['tl_glossar']['subpalettes']['seo']);
+                break;
+
+            case 'external':
+                $GLOBALS['TL_DCA']['tl_glossar']['subpalettes']['seo'] = str_replace("canonicalType", "canonicalType,canonicalWebsite", $GLOBALS['TL_DCA']['tl_glossar']['subpalettes']['seo']);
+                break;
+
+            case 'donotset':
+            default:
+                $GLOBALS['TL_DCA']['tl_glossar']['subpalettes']['seo'] = str_replace("canonicalType", "canonicalType", $GLOBALS['TL_DCA']['tl_glossar']['subpalettes']['seo']);
+                break;
+        }
     }
 
     /**
@@ -330,5 +356,17 @@ class Glossar
     public function deleteArchive($row, $href, $label, $title, $icon, $attributes)
     {
         return $this->User->hasAccess('delete', 'glossarp') ? '<a href="' . Backend::addToUrl($href . '&amp;id=' . $row['id']) . '" title="' . StringUtil::specialchars($title) . '"' . $attributes . '>' . Image::getHtml($icon, $label) . '</a> ' : Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)) . ' ';
+    }
+
+    /**
+     * Prevent circular references
+     */
+    public function checkJumpTo($varValue, DataContainer $dc)
+    {
+        if ($varValue == $dc->id) {
+            throw new \Exception($GLOBALS['TL_LANG']['ERR']['circularReference']);
+        }
+
+        return $varValue;
     }
 }

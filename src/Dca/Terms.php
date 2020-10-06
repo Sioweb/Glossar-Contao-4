@@ -18,6 +18,7 @@ use Contao\System;
 use Contao\Backend;
 use Contao\Versions;
 use Contao\CoreBundle\Framework\ContaoFramework;
+use Sioweb\Glossar\Entity\Terms as TermsEntity;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
@@ -55,6 +56,31 @@ class Terms
         $token = $this->tokenStorage->getToken();
         $this->User = $token->getUser();
         $this->Database = System::importStatic('Database');
+    }
+
+    public function dcaOnloadCallback(DataContainer $dc)
+    {
+        if (!$dc->id) {
+            return;
+        }
+
+        $TermRepository = $this->entityManager->getRepository(TermsEntity::class);
+        $Term = $TermRepository->find($dc->id);
+
+        switch ($Term->getCanonicalType()) {
+            case 'internal':
+                $GLOBALS['TL_DCA']['tl_sw_glossar']['subpalettes']['seo'] = str_replace("canonicalType", "canonicalType,canonicalJumpTo", $GLOBALS['TL_DCA']['tl_sw_glossar']['subpalettes']['seo']);
+                break;
+
+            case 'external':
+                $GLOBALS['TL_DCA']['tl_sw_glossar']['subpalettes']['seo'] = str_replace("canonicalType", "canonicalType,canonicalWebsite", $GLOBALS['TL_DCA']['tl_sw_glossar']['subpalettes']['seo']);
+                break;
+
+            case 'donotset':
+            default:
+                $GLOBALS['TL_DCA']['tl_sw_glossar']['subpalettes']['seo'] = str_replace("canonicalType", "canonicalType", $GLOBALS['TL_DCA']['tl_sw_glossar']['subpalettes']['seo']);
+                break;
+        }
     }
 
     public function editTerm($row, $href, $label, $title, $icon, $attributes)
@@ -287,6 +313,18 @@ class Terms
         if ($dc->activeRecord) {
             $GLOBALS['TL_DCA'][$dc->table]['fields'][$dc->field]['eval']['extensions'] = Config::get('validImageTypes');
         }
+        return $varValue;
+    }
+
+    /**
+     * Prevent circular references
+     */
+    public function checkJumpTo($varValue, DataContainer $dc)
+    {
+        if ($varValue == $dc->id) {
+            throw new \Exception($GLOBALS['TL_LANG']['ERR']['circularReference']);
+        }
+
         return $varValue;
     }
 }

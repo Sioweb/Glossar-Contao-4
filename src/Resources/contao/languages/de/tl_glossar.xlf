@@ -148,6 +148,31 @@
         <source>Overwrites {{page::pageTitle}} with custom title.</source>
         <target>Überschreibt den Wert {{page::pageTitle}} durch den manuellen Titel.</target>
       </trans-unit>
+
+      <trans-unit id="tl_glossar.canonicalType.0">
+        <source>Use rel="canonical</source>
+        <target>rel="canonical" setzen</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.canonicalType.1">
+        <source>Add rel="canonical" for this page in head section.</source>
+        <target>Für diese Seite im Seitenkopf rel="canonical" setzen.</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.canonicalJumpTo.0">
+        <source>Internal page</source>
+        <target>Interne Seite</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.canonicalJumpTo.1">
+        <source>Choose a page.</source>
+        <target>Bitte wählen Sie eine Seite aus.</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.canonicalWebsite.0">
+        <source>External page</source>
+        <target>Externe Seite</target>
+      </trans-unit>
+      <trans-unit id="tl_glossar.canonicalWebsite.1">
+        <source>Enter a complete URL (including http://…).</source>
+        <target>Bitte geben Sie eine Web-Adresse (http://…) ein.</target>
+      </trans-unit>
       
       <trans-unit id="tl_glossar.notify_admin">
         <source>System administrator</source>
@@ -170,6 +195,11 @@
       <trans-unit id="tl_glossar.seo_legend">
         <source>Seo settings</source>
         <target>Seo-Einstellungen</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar.canonical_legend">
+        <source>Seo > Canonical settings</source>
+        <target>Seo > Canonical-Einstellung</target>
       </trans-unit>
 
       <trans-unit id="tl_glossar.new.0">

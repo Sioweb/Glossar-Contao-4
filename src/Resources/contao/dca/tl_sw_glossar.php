@@ -4,6 +4,9 @@
  * Contao Open Source CMS
  */
 
+use Contao\BackendUser;
+use Contao\System;
+
 /**
  * @file tl_sw_glossar.php
  * @author Sascha Weidner
@@ -23,7 +26,10 @@ $GLOBALS['TL_DCA']['tl_sw_glossar'] = [
 		'dataContainer'               => 'Table',
 		'enableVersioning'            => true,
 		'ptable'                      => 'tl_glossar',
-		'ctable'                      => ['tl_content']
+		'ctable'                      => ['tl_content'],
+		'onload_callback'			=> [
+			['sioweb.glossar.dca.terms', 'dcaOnloadCallback']
+		]
 	],
 
 	// List
@@ -35,53 +41,53 @@ $GLOBALS['TL_DCA']['tl_sw_glossar'] = [
 			'headerFields'            => ['title', 'language', 'tstamp'],
 			'child_record_callback'   => ['sioweb.glossar.dca.terms', 'listTerms'],
 			'panelLayout'             => 'filter;sort,search,limit',
-			'child_record_class'      => 'no_padding'
+			'child_record_class'      => 'no_padding',
 		],
 		'global_operations' => [
 			'all' => [
 				'label'               => &$GLOBALS['TL_LANG']['MSC']['all'],
 				'href'                => 'act=select',
 				'class'               => 'header_edit_all',
-				'attributes'          => 'onclick="Backend.getScrollOffset()" accesskey="e"'
+				'attributes'          => 'onclick="Backend.getScrollOffset()" accesskey="e"',
 			],
 		],
 		'operations' => [
 			'edit' => [
 				'label'               => &$GLOBALS['TL_LANG']['tl_sw_glossar']['edit'],
 				'href'                => 'table=tl_content',
-				'icon'                => 'edit.svg'
+				'icon'                => 'edit.svg',
 			],
 			'editheader' => [
 				'label'               => &$GLOBALS['TL_LANG']['tl_sw_glossar']['editmeta'],
 				'href'                => 'act=edit',
-				'icon'                => 'header.svg'
+				'icon'                => 'header.svg',
 			],
 			'copy' => [
 				'label'               => &$GLOBALS['TL_LANG']['tl_sw_glossar']['copy'],
 				'href'                => 'act=paste&amp;mode=copy',
-				'icon'                => 'copy.svg'
+				'icon'                => 'copy.svg',
 			],
 			'cut' => [
 				'label'               => &$GLOBALS['TL_LANG']['tl_sw_glossar']['cut'],
 				'href'                => 'act=paste&amp;mode=cut',
-				'icon'                => 'cut.svg'
+				'icon'                => 'cut.svg',
 			],
 			'delete' => [
 				'label'               => &$GLOBALS['TL_LANG']['tl_sw_glossar']['delete'],
 				'href'                => 'act=delete',
 				'icon'                => 'delete.svg',
-				'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
+				'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"',
 			],
 			'toggle' => [
 				'label'               => &$GLOBALS['TL_LANG']['tl_sw_glossar']['toggle'],
 				'icon'                => 'visible.svg',
 				'attributes'          => 'onclick="Backend.getScrollOffset();return AjaxRequest.toggleVisibility(this,%s)"',
-				'button_callback'     => ['sioweb.glossar.dca.terms', 'toggleIcon']
+				'button_callback'     => ['sioweb.glossar.dca.terms', 'toggleIcon'],
 			],
 			'show' => [
 				'label'               => &$GLOBALS['TL_LANG']['tl_sw_glossar']['show'],
 				'href'                => 'act=show',
-				'icon'                => 'show.svg'
+				'icon'                => 'show.svg',
 			]
 		]
 	],
@@ -90,17 +96,17 @@ $GLOBALS['TL_DCA']['tl_sw_glossar'] = [
 	'palettes' => [
 		'__selector__'                => ['type', 'source', 'seo', 'published', 'addImage'],
 		'default'                     => '{title_legend},type,title,alias;{teaser_legend},teaser;{image_legend},addImage;{more_legend},ignoreInTags,illegalChars,maxWidth,maxHeight,strictSearch,date,noPlural,termAsHeadline;{source_legend},source;{seo_legend},seo;{publish_legend},published',
-		'abbr'                        => '{title_legend},type,title,alias,ignoreInTags,illegalChars,explanation;{source_legend},source;{publish_legend},published'
+		'abbr'                        => '{title_legend},type,title,alias,ignoreInTags,illegalChars,explanation;{source_legend},source;{publish_legend},published',
 	],
 
 	'subpalettes' => [
-		'seo'                 => 'term_in_title_tag,term_description_tag,term_in_title_str_tag',
+		'seo'                 => 'term_in_title_tag,term_description_tag,term_in_title_str_tag,canonicalType',
 		'addImage'            => 'singleSRC,size,floating,imagemargin,fullsize,overwriteMeta',
 		'source_page'         => 'jumpTo',
 		'source_internal'     => 'jumpTo',
 		'source_article'      => 'articleId',
 		'source_external'     => 'url,target',
-		'published'           => 'start,stop'
+		'published'           => 'start,stop',
 	],
 
 	// Fields
@@ -406,6 +412,30 @@ $GLOBALS['TL_DCA']['tl_sw_glossar'] = [
 			'options'                 => ['above', 'left', 'right', 'below'],
 			'eval'                    => ['cols' => 4, 'tl_class' => 'w50'],
 			'reference'               => &$GLOBALS['TL_LANG']['MSC'],
+		],
+		'canonicalType' => [
+			'label'                   => !empty($GLOBALS['TL_LANG']['RelCanonical']['canonicalType']) ? $GLOBALS['TL_LANG']['RelCanonical']['canonicalType'] : $GLOBALS['TL_LANG']['tl_sw_glossar']['canonicalType'],
+			'default'                 => 'donotset',
+			'exclude'                 => true,
+			'inputType'               => 'select',
+			'options'                 => ['donotset', 'internal', 'external', 'self'],
+			'reference'               => &$GLOBALS['TL_LANG']['RelCanonical'],
+			'eval'                    => ['submitOnChange'=>true, 'tl_class'=>'w50 clr'],
+		],
+		'canonicalJumpTo' => [
+			'label'                   => !empty($GLOBALS['TL_LANG']['RelCanonical']['canonicalJumpTo']) ? $GLOBALS['TL_LANG']['RelCanonical']['canonicalJumpTo'] : $GLOBALS['TL_LANG']['tl_sw_glossar']['canonicalJumpTo'],
+			'exclude'                 => true,
+			'inputType'               => 'pageTree',
+			'eval'                    => ['fieldType'=>'radio', 'tl_class'=>'w50 clr'],
+			'save_callback' => [
+				['sioweb.glossar.dca.terms', 'checkJumpTo'],
+			]
+		],
+		'canonicalWebsite'  => [
+			'label'                 => !empty($GLOBALS['TL_LANG']['RelCanonical']['canonicalWebsite']) ? $GLOBALS['TL_LANG']['RelCanonical']['canonicalWebsite'] : $GLOBALS['TL_LANG']['tl_sw_glossar']['canonicalWebsite'],
+			'exclude'               => true,
+			'inputType'             => 'text',
+			'eval'                  => ['rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>255, 'tl_class'=>'clr long'],
 		],
 	],
 ];

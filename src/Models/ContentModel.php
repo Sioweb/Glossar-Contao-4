@@ -31,4 +31,19 @@ class ContentModel extends \Contao\ContentModel
 
         return static::findBy($arrColumns, $arrValues, $arrOptions);
     }
+
+    public static function findByPidAndType($pid, $types, $arrOptions = [])
+    {
+        $t = static::$strTable;
+
+        if (empty($pid) || empty($types)) {
+            return [];
+        }
+
+        if(!is_array($types)) {
+            $types = [];
+        }
+
+        return static::findBy(["$t.pid = $pid AND $t.type IN('" . implode("','", $types) . "')"], [], $arrOptions);
+    }
 }

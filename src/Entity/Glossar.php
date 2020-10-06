@@ -129,6 +129,25 @@ class Glossar
      */
     protected $termDescriptionTag;
 
+    /**
+     * @var string
+     * @ORM\Column(type="string", options={"default" : "donotset"})
+     */
+    protected $canonicalType = 'donotset';
+
+    /**
+     * @var int
+     * @ORM\Column(type="integer", options={"default" : 0})
+     */
+    protected $canonicalJumpTo;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $canonicalWebsite;
+
+
 
     public function getData()
     {
@@ -580,6 +599,78 @@ class Glossar
     public function setTermDescriptionTag(string $termDescriptionTag)
     {
         $this->termDescriptionTag = $termDescriptionTag;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of canonicalType
+     *
+     * @return  string
+     */ 
+    public function getCanonicalType()
+    {
+        return $this->canonicalType;
+    }
+
+    /**
+     * Set the value of canonicalType
+     *
+     * @param  string  $canonicalType
+     *
+     * @return  self
+     */ 
+    public function setCanonicalType(string $canonicalType)
+    {
+        $this->canonicalType = $canonicalType;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of canonicalJumpTo
+     *
+     * @return  int
+     */ 
+    public function getCanonicalJumpTo()
+    {
+        return $this->canonicalJumpTo;
+    }
+
+    /**
+     * Set the value of canonicalJumpTo
+     *
+     * @param  int  $canonicalJumpTo
+     *
+     * @return  self
+     */ 
+    public function setCanonicalJumpTo(int $canonicalJumpTo)
+    {
+        $this->canonicalJumpTo = $canonicalJumpTo;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of canonicalWebsite
+     *
+     * @return  string
+     */ 
+    public function getCanonicalWebsite()
+    {
+        return $this->canonicalWebsite;
+    }
+
+    /**
+     * Set the value of canonicalWebsite
+     *
+     * @param  string  $canonicalWebsite
+     *
+     * @return  self
+     */ 
+    public function setCanonicalWebsite(string $canonicalWebsite)
+    {
+        $this->canonicalWebsite = $canonicalWebsite;
 
         return $this;
     }

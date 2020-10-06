@@ -309,6 +309,31 @@
         <target>Here you can overwrite the default layer template.</target>
       </trans-unit>
 
+      <trans-unit id="tl_sw_glossar.canonicalType.0">
+        <source>Use rel="canonical</source>
+        <target>Use rel="canonical</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.canonicalType.1">
+        <source>Add rel="canonical" for this page in head section.</source>
+        <target>Add rel="canonical" for this page in head section.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.canonicalJumpTo.0">
+        <source>Internal page</source>
+        <target>Internal page</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.canonicalJumpTo.1">
+        <source>Choose a page.</source>
+        <target>Choose a page.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.canonicalWebsite.0">
+        <source>External page</source>
+        <target>External page</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.canonicalWebsite.1">
+        <source>Enter a complete URL (including http://…).</source>
+        <target>Enter a complete URL (including http://…).</target>
+      </trans-unit>
+
       <trans-unit id="tl_sw_glossar.tags.0">
         <source>Tags (Need Tag module)</source>
         <target>Tags (Need Tag module)</target>
@@ -346,6 +371,11 @@
       <trans-unit id="tl_sw_glossar.seo_legend">
         <source>Seo settings</source>
         <target>Seo settings</target>
+      </trans-unit>
+
+      <trans-unit id="tl_sw_glossar.canonical_legend">
+        <source>Seo > Canonical settings</source>
+        <target>Seo > Canonical settings</target>
       </trans-unit>
 
       <trans-unit id="tl_sw_glossar.publish_legend">

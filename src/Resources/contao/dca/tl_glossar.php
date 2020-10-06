@@ -20,6 +20,9 @@ $GLOBALS['TL_DCA']['tl_glossar'] = [
 		'ctable'					=> ['tl_sw_glossar'],
 		'switchToEdit'				=> true,
 		'enableVersioning'			=> true,
+		'onload_callback'			=> [
+			['sioweb.glossar.dca.glossar', 'dcaOnloadCallback']
+		]
 	],
 
 	// List
@@ -100,7 +103,7 @@ $GLOBALS['TL_DCA']['tl_glossar'] = [
 	// Subpalettes
 	'subpalettes' => [
 		'allowComments'				=> 'notify,sortOrder,perPage,moderate,bbcode,requireLogin,disableCaptcha',
-		'seo'						=> 'term_in_title_tag,term_description_tag,term_in_title_str_tag',
+		'seo'						=> 'term_in_title_tag,term_description_tag,term_in_title_str_tag,canonicalType',
 	],
 
 	// Fields
@@ -227,8 +230,29 @@ $GLOBALS['TL_DCA']['tl_glossar'] = [
 			'inputType'				=> 'text',
 			'eval'					=> ['maxlength' => 255, 'tl_class' => 'long clr', 'gsIgnore' => true],
 		],
-		'canonicalType' => [],
-		'canonicalJumpTo' => [],
-		'canonicalWebsite'  => [],
+		'canonicalType' => [
+			'label'                   => !empty($GLOBALS['TL_LANG']['RelCanonical']['canonicalType']) ? $GLOBALS['TL_LANG']['RelCanonical']['canonicalType'] : $GLOBALS['TL_LANG']['tl_glossar']['canonicalType'],
+			'default'                 => 'donotset',
+			'exclude'                 => true,
+			'inputType'               => 'select',
+			'options'                 => ['donotset', 'internal', 'external', 'self'],
+			'reference'               => &$GLOBALS['TL_LANG']['RelCanonical'],
+			'eval'                    => ['submitOnChange'=>true, 'tl_class'=>'w50 clr'],
+		],
+		'canonicalJumpTo' => [
+			'label'                   => !empty($GLOBALS['TL_LANG']['RelCanonical']['canonicalJumpTo']) ? $GLOBALS['TL_LANG']['RelCanonical']['canonicalJumpTo'] : $GLOBALS['TL_LANG']['tl_glossar']['canonicalJumpTo'],
+			'exclude'                 => true,
+			'inputType'               => 'pageTree',
+			'eval'                    => ['fieldType'=>'radio', 'tl_class'=>'w50 clr'],
+			'save_callback' => [
+				['sioweb.glossar.dca.glossar', 'checkJumpTo'],
+			]
+		],
+		'canonicalWebsite'  => [
+			'label'                 => !empty($GLOBALS['TL_LANG']['RelCanonical']['canonicalWebsite']) ? $GLOBALS['TL_LANG']['RelCanonical']['canonicalWebsite'] : $GLOBALS['TL_LANG']['tl_glossar']['canonicalWebsite'],
+			'exclude'               => true,
+			'inputType'             => 'text',
+			'eval'                  => ['rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>255, 'tl_class'=>'clr long'],
+		],
 	]
 ];

@@ -309,6 +309,31 @@
         <target>Hier können Sie das Standard-Template überschreiben.</target>
       </trans-unit>
 
+      <trans-unit id="tl_sw_glossar.canonicalType.0">
+        <source>Use rel="canonical</source>
+        <target>rel="canonical" setzen</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.canonicalType.1">
+        <source>Add rel="canonical" for this page in head section.</source>
+        <target>Für diese Seite im Seitenkopf rel="canonical" setzen.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.canonicalJumpTo.0">
+        <source>Internal page</source>
+        <target>Interne Seite</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.canonicalJumpTo.1">
+        <source>Choose a page.</source>
+        <target>Bitte wählen Sie eine Seite aus.</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.canonicalWebsite.0">
+        <source>External page</source>
+        <target>Externe Seite</target>
+      </trans-unit>
+      <trans-unit id="tl_sw_glossar.canonicalWebsite.1">
+        <source>Enter a complete URL (including http://…).</source>
+        <target>Bitte geben Sie eine Web-Adresse (http://…) ein.</target>
+      </trans-unit>
+
       <trans-unit id="tl_sw_glossar.tags.0">
         <source>Tags (Need Tag module)</source>
         <target>Auszeichnungen/Tags (Benötigt Tag-Modul)</target>
@@ -346,6 +371,11 @@
       <trans-unit id="tl_sw_glossar.seo_legend">
         <source>Seo settings</source>
         <target>Seo-Einstellungen</target>
+      </trans-unit>
+
+      <trans-unit id="tl_glossar.canonical_legend">
+        <source>Seo > Canonical settings</source>
+        <target>Seo > Canonical-Einstellung</target>
       </trans-unit>
 
       <trans-unit id="tl_sw_glossar.publish_legend">
