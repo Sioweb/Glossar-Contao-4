@@ -282,16 +282,17 @@ class Decorator
 
         // Initialize the cache
         self::$arrUrlCache[$strCacheKey] = null;
-
         switch ($this->term->source) {
             case 'page':
                 $link = '';
                 if ($this->term->jumpTo) {
                     $link = GlossarPageModel::findByPk($this->term->jumpTo);
                 }
+                
                 if ($link) {
-                    $link = $link->getAbsoluteUrl((Config::get('useAutoItem') && !Config::get('disableAlias')) ? '/' : '/items/') . standardize(StringUtil::restoreBasicEntities($this->term->alias));
+                    $link = $link->getAbsoluteUrl(((Config::get('useAutoItem') && !Config::get('disableAlias')) ? '/' : '/items/') . standardize(StringUtil::restoreBasicEntities($this->term->alias)));
                 }
+                
                 if ($link !== '') {
                     self::$arrUrlCache[$strCacheKey] = $link;
                 }
