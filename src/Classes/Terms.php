@@ -18,7 +18,7 @@ use FOS\HttpCache\ResponseTagger;
  *
  * @author Leo Feyer <https://github.com/leofeyer>
  */
-abstract class Tags
+abstract class Terms
 {
 
 	/**
