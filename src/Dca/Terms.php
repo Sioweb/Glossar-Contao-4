@@ -67,6 +67,10 @@ class Terms
         $TermRepository = $this->entityManager->getRepository(TermsEntity::class);
         $Term = $TermRepository->find($dc->id);
 
+        if($Term === null) {
+            return;
+        }
+
         switch ($Term->getCanonicalType()) {
             case 'internal':
                 $GLOBALS['TL_DCA']['tl_sw_glossar']['subpalettes']['seo'] = str_replace("canonicalType", "canonicalType,canonicalJumpTo", $GLOBALS['TL_DCA']['tl_sw_glossar']['subpalettes']['seo']);
