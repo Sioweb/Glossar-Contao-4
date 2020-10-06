@@ -6,6 +6,10 @@ Die neue Version ist online.
 
 ## Neue Features
 
+v2.4: Unter SEO können nun Canonical-URL hinterlegt werden. 
+
+---
+
 Die Begriffliste kann nun auf eine Detailseite weiterleiten lassen, anstatt dass sich die Details auf der selben Seite öffnen. Das hat den Vorteil, dass die Liste und die Detailseite mit unterschiedlichen Inhaltselementen davor und danach dekoriert werden können.
 
 Die Glossar-Links werden wieder in der Suche und der generierten XML-Sitemap hinterlegt.
