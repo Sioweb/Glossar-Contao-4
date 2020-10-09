@@ -78,6 +78,11 @@ class Seo
         $GlossarRepository = $this->entityManager->getRepository(GlossarEntity::class);
         $TermRepository = $this->entityManager->getRepository(TermsEntity::class);
         $TermObj = $TermRepository->findOneByAlias(Input::get('items'));
+        
+        if($TermObj === null) {
+            return $strContent;
+        }
+        
         $Glossar = $TermObj->getPid();
 
         $useObject = null;
