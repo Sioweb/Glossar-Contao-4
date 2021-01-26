@@ -12,7 +12,9 @@
  * @copyright Sascha Weidner, Sioweb
  */
 
-if (!empty($GLOBALS['TL_DCA']['tl_news']['fields'])) {
+use Contao\NewsBundle\ContaoNewsBundle;
+
+if (class_exists(ContaoNewsBundle::class)) {
 	$GLOBALS['TL_DCA']['tl_news']['fields']['glossar'] = [
 		'sql' => "text NULL",
 	];

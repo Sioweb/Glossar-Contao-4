@@ -12,7 +12,9 @@
  * @copyright Sascha Weidner, Sioweb
  */
 
-if (!empty($GLOBALS['TL_DCA']['tl_faq']['fields'])) {
+use Contao\FaqBundle\ContaoFaqBundle;
+
+if (class_exists(ContaoFaqBundle::class)) {
 	$GLOBALS['TL_DCA']['tl_faq']['fields']['glossar'] = [
 		'sql' => "text NULL",
 	];

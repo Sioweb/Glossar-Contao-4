@@ -12,17 +12,17 @@
  * @copyright Sascha Weidner, Sioweb
  */
 
-/**
- * Extend default palette
- */
-if (!empty($GLOBALS['TL_DCA']['tl_faq_category']['palettes']['default'])) {
+use Contao\FaqBundle\ContaoFaqBundle;
+
+if (class_exists(ContaoFaqBundle::class)) {
+	/**
+	 * Extend default palette
+	 */
 	Contao\CoreBundle\DataContainer\PaletteManipulator::create()
 		->addLegend('glossar_legend', 'comments_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_AFTER)
 		->addField(['glossar_disallow'], 'glossar_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
 		->applyToPalette('default', 'tl_faq_category');
-}
 
-if (!empty($GLOBALS['TL_DCA']['tl_faq_category']['fields'])) {
 	$GLOBALS['TL_DCA']['tl_faq_category']['fields']['glossar_disallow'] = [
 		'label'				=> &$GLOBALS['TL_LANG']['tl_faq_category']['glossar_disallow'],
 		'exclude'			=> true,

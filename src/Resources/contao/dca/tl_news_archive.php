@@ -12,17 +12,17 @@
  * @copyright Sascha Weidner, Sioweb
  */
 
-/**
- * Extend default palette
- */
-if (!empty($GLOBALS['TL_DCA']['tl_news_archive']['palettes']['default'])) {
+use Contao\NewsBundle\ContaoNewsBundle;
+
+if (class_exists(ContaoNewsBundle::class)) {
+	/**
+	 * Extend default palette
+	 */
 	Contao\CoreBundle\DataContainer\PaletteManipulator::create()
 		->addLegend('glossar_legend', 'comments_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_AFTER)
 		->addField(['glossar_disallow'], 'glossar_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
 		->applyToPalette('default', 'tl_news_archive');
-}
 
-if (!empty($GLOBALS['TL_DCA']['tl_news_archive']['fields'])) {
 	$GLOBALS['TL_DCA']['tl_news_archive']['fields']['glossar_disallow'] = [
 		'label'				=> &$GLOBALS['TL_LANG']['tl_news_archive']['glossar_disallow'],
 		'exclude'			=> true,

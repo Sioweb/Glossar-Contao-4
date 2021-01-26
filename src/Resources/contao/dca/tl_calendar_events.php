@@ -12,7 +12,9 @@
  * @copyright Sascha Weidner, Sioweb
  */
 
-if (!empty($GLOBALS['TL_DCA']['tl_calendar_events']['fields'])) {
+use Contao\CalendarBundle\ContaoCalendarBundle;
+
+if (class_exists(ContaoCalendarBundle::class)) {
 	$GLOBALS['TL_DCA']['tl_calendar_events']['fields']['glossar'] = [
 		'sql' => "text NULL",
 	];
