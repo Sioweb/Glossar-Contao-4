@@ -12,14 +12,16 @@
  * @copyright Sascha Weidner, Sioweb
  */
 
-$GLOBALS['TL_DCA']['tl_faq']['fields']['glossar'] = [
-    'sql' => "text NULL",
-];
+if (!empty($GLOBALS['TL_DCA']['tl_faq']['fields'])) {
+    $GLOBALS['TL_DCA']['tl_faq']['fields']['glossar'] = [
+        'sql' => "text NULL",
+    ];
 
-$GLOBALS['TL_DCA']['tl_faq']['fields']['fallback_glossar'] = [
-    'sql' => "text NULL",
-];
+    $GLOBALS['TL_DCA']['tl_faq']['fields']['fallback_glossar'] = [
+        'sql' => "text NULL",
+    ];
 
-$GLOBALS['TL_DCA']['tl_faq']['fields']['glossar_time'] = [
-    'sql' => "int(10) unsigned NOT NULL default '0'",
-];
+    $GLOBALS['TL_DCA']['tl_faq']['fields']['glossar_time'] = [
+        'sql' => "int(10) unsigned NOT NULL default '0'",
+    ];
+}
