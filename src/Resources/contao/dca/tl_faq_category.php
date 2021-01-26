@@ -12,7 +12,6 @@
  * @copyright Sascha Weidner, Sioweb
  */
 
-
 /**
  * Extend default palette
  */
