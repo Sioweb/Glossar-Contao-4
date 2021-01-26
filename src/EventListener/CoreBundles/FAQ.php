@@ -11,6 +11,7 @@ namespace Sioweb\Glossar\EventListener\CoreBundles;
 use Contao\ArticleModel;
 use Contao\ContentModel;
 use Contao\Environment;
+use Contao\FaqBundle\ContaoFaqBundle;
 use Contao\FaqModel;
 use Contao\Input;
 use Contao\System;
@@ -58,6 +59,10 @@ class FAQ //extends ModuleFaqList
 
     public function clearGlossar($time)
     {
+        if (!class_exists(ContaoFaqBundle::class)) {
+            return;
+        }
+
         $this->connection->prepare("UPDATE tl_faq SET
             glossar = NULL, fallback_glossar = NULL, glossar_time = :glossar_time WHERE glossar_time != :glossar_time
         ")->execute([':glossar_time' => $time]);
@@ -65,6 +70,10 @@ class FAQ //extends ModuleFaqList
 
     public function glossarContent($item, $strContent, $template)
     {
+        if (!class_exists(ContaoFaqBundle::class)) {
+            return null;
+        }
+
         if (empty($item)) {
             return [];
         }
@@ -75,6 +84,10 @@ class FAQ //extends ModuleFaqList
 
     public function updateCache($item, $arrTerms, $strContent)
     {
+        if (!class_exists(ContaoFaqBundle::class)) {
+            return;
+        }
+
         preg_match_all('#' . implode('|', $arrTerms['both']) . '#is', $strContent, $matches);
         $matches = array_unique($matches[0]);
 
@@ -89,6 +102,10 @@ class FAQ //extends ModuleFaqList
 
     public function generateUrl($arrPages)
     {
+        if (!class_exists(ContaoFaqBundle::class)) {
+            return [];
+        }
+
         $arrPages = [];
 
         $Faq = FaqModel::findAll();
