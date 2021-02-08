@@ -33,7 +33,7 @@ Die Dokumentation wird hier aufgebaut https://sioweb.github.io/glossar_c4/
 Der Glossar kann mit Composer, oder dem Manager installiert werden.
 
 ```
-composer req siwoeb/glossar
+composer req sioweb/glossar
 ```
 
 Im Contao Manager kann der Glossar ebenfalls mit `sioweb/glossar` gesucht und installiert werden.
