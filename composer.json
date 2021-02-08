@@ -14,7 +14,12 @@
         "php": ">=7.1",
         "sioweb/apply_environment": "*",
         "contao/core-bundle": "^4",
-        "sioweb/maintenance-fix": "*"
+        "sioweb/maintenance-fix": "*",
+        "doctrine/orm": "*",
+        "doctrine/doctrine-bundle": "*",
+        "doctrine/doctrine-cache-bundle": "*",
+        "doctrine/data-fixtures": "*",
+        "doctrine/dbal": "*"
     },
     "require-dev": {
         "sioweb/apply_environment": "*"
