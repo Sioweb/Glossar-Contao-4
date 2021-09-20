@@ -19,9 +19,6 @@
         "doctrine/data-fixtures": "*",
         "doctrine/dbal": "*"
     },
-    "require-dev": {
-        "sioweb/apply_environment": "*"
-    },
     "autoload": {
         "psr-4": {
             "Sioweb\\Glossar\\": "src/"
