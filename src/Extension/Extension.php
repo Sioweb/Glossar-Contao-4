@@ -40,7 +40,7 @@ class Extension extends BaseExtension
         $baseConfig = Yaml::parse(file_get_contents(__DIR__ . '/../Resources/config/glossar.yml'), Yaml::PARSE_CONSTANT);
         $configs = array_filter(array_merge([$baseConfig['glossar']], $configs));
 
-        $rootDir = $container->getParameter('kernel.root_dir');
+        $rootDir = $container->getParameter('kernel.project_dir');
         
         if (file_exists($rootDir . '/config/glossar.yml')) {
             $root_baseConfig = Yaml::parse(file_get_contents($rootDir . '/config/glossar.yml'), Yaml::PARSE_CONSTANT);
