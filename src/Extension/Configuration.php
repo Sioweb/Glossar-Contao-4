@@ -26,33 +26,32 @@ class Configuration implements ConfigurationInterface
 	 */
 	public function getConfigTreeBuilder()
 	{
-		$treeBuilder = new TreeBuilder();
-		$rootNode = $treeBuilder->root('glossar');
+		$treeBuilder = new TreeBuilder('glossar');
 
-		$rootNode
-			->children()
-				->arrayNode('css')
-					->children()
-						->scalarNode('maxWidth')
-							->defaultValue(450)
-						->end()
-						->scalarNode('maxHeight')
-							->defaultValue(300)
+		$treeBuilder
+			->getRootNode()
+				->children()
+					->arrayNode('css')
+						->children()
+							->scalarNode('maxWidth')
+								->defaultValue(450)
+							->end()
+							->scalarNode('maxHeight')
+								->defaultValue(300)
+							->end()
 						->end()
 					->end()
-				->end()
-				->scalarNode('illegal')
-					->defaultValue('\-_\.&><;')
-				->end()
-				->arrayNode('templates')
-					->scalarPrototype(['ce_glossar', 'glossar_default', 'glossar_error', 'glossar_layer'])->end()
-				->end()
-				->arrayNode('tables')
-					->scalarPrototype(['ce_glossar', 'glossar_default', 'glossar_error', 'glossar_layer'])->end()
-				->end()
-		->end();
+					->scalarNode('illegal')
+						->defaultValue('\-_\.&><;')
+					->end()
+					->arrayNode('templates')
+						->scalarPrototype(['ce_glossar', 'glossar_default', 'glossar_error', 'glossar_layer'])->end()
+					->end()
+					->arrayNode('tables')
+						->scalarPrototype(['ce_glossar', 'glossar_default', 'glossar_error', 'glossar_layer'])->end()
+					->end()
+			->end();
 
     	return $treeBuilder;
-
 	}
 }
