@@ -20,7 +20,6 @@ use Contao\RequestToken;
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Sioweb\Glossar\Models\PageModel as GlossarPageModel;
 use Contao\CoreBundle\Security\Authentication\FrontendPreviewAuthenticator;
-use Sioweb\MaintenanceFix\Modules\ExecutableInterface;
 
 /**
  * @file Rebuild.php
@@ -30,7 +29,7 @@ use Sioweb\MaintenanceFix\Modules\ExecutableInterface;
  * @copyright Sascha Weidner, Sioweb
  */
 
-class Rebuild implements ExecutableInterface
+class Rebuild extends Backend implements \executable
 {
 
     /**
