@@ -12,14 +12,18 @@
  * @copyright Sascha Weidner, Sioweb
  */
 
-$GLOBALS['TL_DCA']['tl_calendar_events']['fields']['glossar'] = [
-	'sql' => "text NULL",
-];
+use Contao\CalendarBundle\ContaoCalendarBundle;
 
-$GLOBALS['TL_DCA']['tl_calendar_events']['fields']['fallback_glossar'] = [
-	'sql' => "text NULL",
-];
+if (class_exists(ContaoCalendarBundle::class)) {
+	$GLOBALS['TL_DCA']['tl_calendar_events']['fields']['glossar'] = [
+		'sql' => "text NULL",
+	];
 
-$GLOBALS['TL_DCA']['tl_calendar_events']['fields']['glossar_time'] = [
-	'sql' => "int(10) unsigned NOT NULL default '0'",
-];
+	$GLOBALS['TL_DCA']['tl_calendar_events']['fields']['fallback_glossar'] = [
+		'sql' => "text NULL",
+	];
+
+	$GLOBALS['TL_DCA']['tl_calendar_events']['fields']['glossar_time'] = [
+		'sql' => "int(10) unsigned NOT NULL default '0'",
+	];
+}

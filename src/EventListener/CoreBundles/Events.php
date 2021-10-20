@@ -10,6 +10,7 @@ namespace Sioweb\Glossar\EventListener\CoreBundles;
 
 use Contao;
 use Contao\ArticleModel;
+use Contao\CalendarBundle\ContaoCalendarBundle;
 use Contao\CalendarEventsModel;
 use Contao\CalendarModel;
 use Contao\Config;
@@ -57,6 +58,10 @@ class Events
 
     public function clearGlossar($time)
     {
+        if (!class_exists(ContaoCalendarBundle::class)) {
+            return;
+        }
+
         $this->connection->prepare("UPDATE tl_calendar_events SET
             glossar = NULL, fallback_glossar = NULL, glossar_time = :glossar_time WHERE glossar_time != :glossar_time
         ")->execute([':glossar_time' => $time]);
@@ -64,6 +69,10 @@ class Events
 
     public function glossarContent($item, $strContent, $template)
     {
+        if (!class_exists(ContaoCalendarBundle::class)) {
+            return null;
+        }
+
         if (empty($item)) {
             return [];
         }
@@ -74,6 +83,10 @@ class Events
 
     public function updateCache($item, $arrTerms, $strContent)
     {
+        if (!class_exists(ContaoCalendarBundle::class)) {
+            return null;
+        }
+
         preg_match_all('#' . implode('|', $arrTerms['both']) . '#is', $strContent, $matches);
         $matches = array_unique($matches[0]);
 
@@ -88,6 +101,10 @@ class Events
 
     public function generateUrl($arrPages)
     {
+        if (!class_exists(ContaoCalendarBundle::class)) {
+            return [];
+        }
+
         $arrPages = [];
 
         $Event = CalendarEventsModel::findAll();

@@ -15,6 +15,7 @@ use Contao\Input;
 use Contao\News as BaseNews;
 use Contao\ModuleModel;
 use Contao\ModuleNews;
+use Contao\NewsBundle\ContaoNewsBundle;
 use Contao\NewsModel;
 use Contao\System;
 use Contao\PageModel;
@@ -54,6 +55,10 @@ class News //extends BaseNews
 
     public function clearGlossar($time)
     {
+        if (!class_exists(ContaoFaqBundle::class)) {
+            return;
+        }
+
         $this->connection->prepare("UPDATE tl_news SET
             glossar = NULL, fallback_glossar = NULL, glossar_time = :glossar_time WHERE glossar_time != :glossar_time
         ")->execute([':glossar_time' => $time]);
@@ -61,6 +66,10 @@ class News //extends BaseNews
 
     public function glossarContent($item, $strContent, $template)
     {
+        if (!class_exists(ContaoFaqBundle::class)) {
+            return null;
+        }
+
         if (empty($item)) {
             return [];
         }
@@ -71,6 +80,10 @@ class News //extends BaseNews
 
     public function updateCache($item, $arrTerms, $strContent)
     {
+        if (!class_exists(ContaoFaqBundle::class)) {
+            return;
+        }
+
         $matches = [];
         foreach ($arrTerms['both'] as $term) {
             if (preg_match('#(' . $term . ')#is', $strContent, $match)) {
@@ -91,6 +104,10 @@ class News //extends BaseNews
 
     public function generateUrl($arrPages)
     {
+        if (!class_exists(ContaoFaqBundle::class)) {
+            return [];
+        }
+
         $arrPages = [];
 
         $News = NewsModel::findAll();

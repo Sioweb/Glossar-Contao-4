@@ -31,28 +31,19 @@ use Symfony\Component\HttpKernel\KernelInterface;
 
 class Plugin implements BundlePluginInterface, RoutingPluginInterface, ExtensionPluginInterface
 {
-    private $arrLoadAfter = [
-        ContaoCoreBundle::class,
-        ContaoCalendarBundle::class,
-        ContaoFaqBundle::class,
-        ContaoNewsBundle::class
-    ];
-
     /**
      * {@inheritdoc}
      */
     public function getBundles(ParserInterface $parser)
     {
-        $loadAfter = [];
-        foreach ($this->arrLoadAfter as $className) {
-            if (class_exists($className)) {
-                $loadAfter[] = $className;
-            }
-        }
-
         return [
             BundleConfig::create(SiowebGlossarBundle::class)
-                ->setLoadAfter($loadAfter)
+                ->setLoadAfter([
+                    ContaoCoreBundle::class,
+                    ContaoCalendarBundle::class,
+                    ContaoFaqBundle::class,
+                    ContaoNewsBundle::class
+                ])
                 ->setReplace(['SWGlossar']),
         ];
     }
